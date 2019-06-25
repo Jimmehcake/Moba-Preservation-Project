@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Goldenveil_NoVox"
+	
+	icon="icon.tga"
+	passiveeffect=""
+
+	ishidden="true"	
+	effecttype=""
+	allowtransfer="false"
+	deathpersist="true"
+	
+	modifierkey="goldenveil_noVox"
+>
+</state>

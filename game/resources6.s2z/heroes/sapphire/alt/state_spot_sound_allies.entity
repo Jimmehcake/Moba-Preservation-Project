@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Sapphire_Alt_Ally_Spot"
+
+	icon=""
+	passiveeffect=""
+	propagatetoillusions="false"
+	effecttype=""
+	ishidden="true"
+>
+ <onframe>
+	<areaofeffect
+    radius="950"
+    targetscheme="other_ally_heroes"
+    targetselection="closest"
+    ignoreinvulnerable="true"
+   >
+
+		<playeffect effect="sounds/interactions/meet_random.effect" target="source_entity" occlude="true" />
+		<expirestate name="State_Sapphire_Alt_Ally_Spot" source="source_entity" />
+		<expire />
+	<else>
+	</else>
+   </areaofeffect>
+   </onframe>
+
+</state>

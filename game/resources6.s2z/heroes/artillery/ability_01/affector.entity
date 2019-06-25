@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<affector
+	name="Affector_Artillery_Ability1"
+
+	radius="0"
+	lifetime="5000"
+
+	visibility="allies"
+	diewithowner="true"
+>
+</affector>

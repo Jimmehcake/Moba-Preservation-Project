@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+	<definitions>
+		<particlesystem name="system0" space="world" scale="2.25">
+			
+			<sound
+				sample="/heroes/calamity/ability_04/sounds/wall_%.wav"				linearfalloff="true"
+				falloffstart="250" 
+				falloffend="1300" 
+				volume=".7"
+			/>
+			
+			<sound
+			    voiceresponseoff="true"
+			    norestart="true"
+				channel="6666662"
+				sample="/heroes/calamity/ability_04/sounds/sunder_warning.wav"				linearfalloff="true"
+				falloffstart="1300" 
+				falloffend="1300" 
+				volume="1"
+			/>
+			
+			<sound
+				soundloop="true"
+				fadein="1000"
+				fadeout="1500"
+			    forcestereo="true"
+			    norestart="true"
+				channel="6666663"
+				sample="/heroes/calamity/ability_04/sounds/arena_state.wav"				linearfalloff="true"
+				falloffstart="1300" 
+				falloffend="1300" 
+				volume=".5"
+			/>
+			
+			<sound
+				sample="/heroes/calamity/alt2/sounds/ab4_wall.wav"				linearfalloff="true"
+				falloffstart="250" 
+				falloffend="1300" 
+				volume=".7"
+			/>
+			
+			<debris
+				minscale=".15"
+				maxscale=".75"
+				minlife="1000"
+				maxlife="2500"
+				collide="true"
+				model="/shared/effects/models/debris/debris.mdf"
+				material="/shared/effects/models/debris/debris_noshadow.material"
+				position="0 0 20"
+				offsetsphere="200 10 10"
+				gravity="30"
+				direction="0 0 1"
+				angle="45"
+				minspeed="100"
+				maxspeed="1500"
+				drag="0.01"
+				color=".5 .1 .3"
+				startalpha="1"
+				midalpha="1"
+				endalpha="0"
+				minrotationspeed="-600"
+				maxrotationspeed="600"
+				bounce="0.8"
+				reflect="0.65"
+			/>
+			
+			<billboard
+				timenudge="1"
+				life="650"
+				material="/shared/effects/materials/light_rays.material"
+				flare="1"
+				lockup="true"
+				lockright="true"
+				directionalspace="local"
+				minwidth="350"
+				maxwidth="450"
+				startheight="200"
+				endheight="1000"
+				midheightpos=".2"
+				startcolor="1 .25 .75"
+				midcolor=".2 0 .1"
+				endcolor="0"
+				midcolorpos=".3"
+			/>
+			<billboard
+				timenudge="1"
+				life="650"
+				material="/shared/effects/materials/whitedot.material"
+				directionalspace="local"
+				minwidth="100"
+				maxwidth="150"
+				startheight="400"
+				endheight="1200"
+				midheightpos=".2"
+				startcolor="1 .8 .1"
+				midcolor=".2"
+				endcolor="0"
+				midcolorpos=".3"
+				lockup="true"
+			/>
+			
+			<groundsprite
+				timenudge="1"
+				life="450"
+				material="/shared/effects/materials/glow_02_blend.material"
+				width="150"
+				height="40"
+				directionalspace="local"
+				color="0"
+				startalpha="1"
+				endalpha="0"
+				midalphapos=".25"
+			/>
+		
+		
+			<!-- wall -->
+			<model
+				position="0 1 -5"
+				scale="4"
+				timenudge="1"
+				model="/shared/effects/models/circle_of_bones/model.mdf"
+				anim="idle"
+				yaw="-16.5"
+			>
+				<twopointtrailemitter
+					timenudge="1000"
+					bone_a="_bone_fx_01"
+					bone_b="_bone_fx_07"
+					spawnrate="20"
+					particlelife="150"
+					gravity="-3000"
+					direction="0 -.25 .75"
+					angle="0"
+					speed="400"
+					drag="0.01"
+					texposscale="0"
+					texstretchscale="1.5"
+					material="/shared/effects/materials/calamity_fire_scrolling_trail_blend_4.material"
+					attachtoemitter="true"
+				>
+					<particle
+						alpha=".4"
+					/>
+				</twopointtrailemitter>
+				<twopointtrailemitter
+					timenudge="1000"
+					bone_a="_bone_fx_01"
+					bone_b="_bone_fx_07"
+					spawnrate="20"
+					particlelife="250"
+					gravity="-3000"
+					direction="0 -.25 1"
+					angle="0"
+					speed="400"
+					drag="0.01"
+					texposscale="0"
+					texstretchscale="1.5"
+					material="/shared/effects/materials/calamity_embers_scrolling_trail_blend_2.material"
+					attachtoemitter="true"
+				>
+					<particle
+						startcolor="1"
+						endcolor="0"
+						alpha=".15"
+					/>
+				</twopointtrailemitter>
+			</model>
+			
+			<simpleemitter
+				spawnrate="15"
+				offsetsphere="125 10 10"
+				minparticlelife="500"
+				maxparticlelife="1250"
+				gravity="-10"
+				direction="0 -1 1"
+				angle="0"
+				speed="20"
+				drag="0.02"
+				material="/shared/effects/materials/abstract_reveal_02.material"
+				maxspeed="50"
+			>
+				<particle
+					maxangle="360"
+					startalpha="0"
+					midalpha="1"
+					endalpha="1"
+					midalphapos=".2"
+					minsize="10"
+					maxsize="40"
+					startframe="0"
+					midframe=".5"
+					endframe="1"
+					midframepos=".25"
+					startcolor=".1 .05 0"
+					midcolor=".1 -.05 .05"
+					endcolor="0"
+				/>
+			</simpleemitter>
+			
+			<!--
+			<groundsprite
+				life="150"
+				material="/shared/effects/materials/glow_02_blend.material"
+				width="150"
+				height="60"
+				directionalspace="local"
+				color="0"
+				startalpha="0"
+				endalpha=".5"
+			/>
+			<groundsprite
+				delay="150"
+				expirelife="100"
+				material="/shared/effects/materials/glow_02_blend.material"
+				width="150"
+				height="60"
+				directionalspace="local"
+				color="0"
+				startalpha=".5"
+				endalpha="0"
+			/>
+			-->
+			
+			<groundsprite
+				life="150"
+				startframe="1"
+				endframe="0"
+				material="/shared/effects/materials/earth_cracks_line_add.material"
+				width="145"
+				height="60"
+				directionalspace="local"
+				color=".5"
+			/>
+			<groundsprite
+				delay="150"
+				expirelife="150"
+				startcolor=".5"
+				endcolor="0"
+				startframe="0"
+				endframe="1"
+				material="/shared/effects/materials/earth_cracks_line_add.material"
+				width="145"
+				height="60"
+				directionalspace="local"
+			/>
+			
+			<groundsprite
+				life="150"
+				startframe="1"
+				endframe="0"
+				material="/shared/effects/materials/earth_cracks_line_overlay.material"
+				width="145"
+				height="60"
+				directionalspace="local"
+			/>
+			<groundsprite
+				delay="150"
+				expirelife="150"
+				startalpha="1"
+				endalpha="0"
+				startframe="0"
+				endframe="1"
+				material="/shared/effects/materials/earth_cracks_line_overlay.material"
+				width="145"
+				height="60"
+				directionalspace="local"
+			/>
+			
+			<template name="firewall_small" >
+				<model
+					position="{pos}"
+					scale="{scale}"
+					model="/shared/models/invis.mdf"
+				>
+					<model
+						position="0 1 -5"
+						scale="4"
+						timenudge="1"
+						model="/shared/effects/models/circle_of_bones/model.mdf"
+						anim="idle"
+						yaw="-16.5"
+					>
+						<twopointtrailemitter
+							timenudge="1000"
+							bone_a="_bone_fx_01"
+							bone_b="_bone_fx_07"
+							spawnrate="50"
+							particlelife="60"
+							gravity="-3000"
+							direction="0 -.25 .75"
+							angle="0"
+							speed="400"
+							drag="0.01"
+							texposscale="0"
+							texstretchscale="1.25"
+							material="/shared/effects/materials/calamity_fire_scrolling_trail_blend_5.material"
+							attachtoemitter="true"
+						>
+							<particle
+								color="1 .75 .75"
+								alpha=".25"
+							/>
+						</twopointtrailemitter>
+					</model>
+			
+					<groundsprite
+						life="150"
+						material="/shared/effects/materials/glow_02_blend.material"
+						width="160"
+						height="30"
+						directionalspace="local"
+						color=".6 .3 0"
+						startalpha="0"
+						endalpha=".5"
+					/>
+					<groundsprite
+						delay="150"
+						expirelife="100"
+						material="/shared/effects/materials/glow_02_blend.material"
+						width="160"
+						height="30"
+						directionalspace="local"
+						color=".6 .3 0"
+						startalpha=".5"
+						endalpha="0"
+					/>
+				</model>
+			</template>
+			
+			<instance name="firewall_small" pos="0 15 0" scale=".8" />
+			<instance name="firewall_small" pos="0 -12 0" scale=".65" />
+
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<camerashake2 scale="20" frequency="50" radius="3000" duration="200" />
+		<waitfordeath instance="instance0" />
+	</thread>
+</effect>

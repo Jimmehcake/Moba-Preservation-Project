@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ability
+	name="Ability_Mimix1"
+
+	icon="icon.tga"
+	
+	anim="ability_1"
+	casttime="0"
+	castactiontime="0"
+
+	frontqueue="true"
+	inheritmovement="true"
+	
+	maxlevel="4"
+	requiredlevel="1,3,5,7"
+	passiveeffect=""
+	
+	actiontype="self_position"
+	targetscheme="enemy_units"
+	casteffecttype="Magic"
+
+	manacost="80"
+	cooldowntime="10000"
+	
+	range="300"
+	
+>
+
+	<onimpact>
+		<applystate name="State_Mimix_Ability1" target="this_owner_entity" duration="1500" />
+
+		<areaofeffect
+			center="this_owner_entity"
+			radius="99999"
+			targetselection="all"
+			targetscheme="my_illusions"
+			ignoreinvulnerable="true"
+		>
+			<applystate name="State_Mimix_Ability1" target="target_entity" duration="1500" />
+		</areaofeffect>
+	</onimpact>
+	
+</ability>

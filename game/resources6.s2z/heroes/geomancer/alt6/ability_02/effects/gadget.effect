@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="1">
+
+	<definitions>
+
+		<particlesystem name="system0" space="world"  scale=".4">
+
+		<sound				
+				linearfalloff="true" 
+				falloffstart="0"
+				falloffend="800"
+				volume=".34"
+				sample="/heroes/geomancer/ability_02/sounds/impactus_%.wav"
+			/>
+			
+								
+		<sound
+		        pitchshift="true"
+				minpitch="0.7"
+				maxpitch="1.2"
+				linearfalloff="true"
+				falloffstart="0"
+				falloffend="800"
+				volume=".4"
+				sample="/heroes/geomancer/ability_02/sounds/imp.wav"
+			/>
+	
+	
+			<model
+				model="/heroes/geomancer/ability_04/effects/amethyst_explosion/model.mdf"
+				material="../../effects/bismuth/material.material"
+				anim="idle"
+				scale="1.25"
+				life="2200"
+				startalpha="1"	
+				midalpha="1"				
+				endalpha="0"
+				midalphapos=".95"
+				position="0 0 0"
+				maxyaw="360"
+			/>
+
+			<!-- <model
+				model="/heroes/geomancer/ability_04/effects/amethyst_explosion/model.mdf"
+				material="../../effects/bismuth/material.material"
+				anim="idle"
+				scale="1.25"
+				life="3000"
+				startalpha="1"	
+				midalpha="1"				
+				endalpha="1"
+				midalphapos=".95"
+				position="0 0 0"
+				maxyaw="360"
+			/> -->
+
+			<!-- <model
+				model="/heroes/geomancer/ability_04/effects/amethyst_explosion/model.mdf"
+				material="../../effects/bismuth/material.material"
+				anim="idle"
+				scale="1.25"
+				life="3000"
+				startalpha="1"	
+				midalpha="1"				
+				endalpha="1"
+				midalphapos=".95"
+				position="0 0 0"
+				maxyaw="360"
+			/> -->
+			
+			
+			
+			
+			
+			<simpleemitter
+				count="43"
+				spawnrate="2000"
+				minparticlelife="300"
+				maxparticlelife="750"
+				drag=".01"
+				offsetphere="140 140 20"
+				gravity="-3"
+				minspeed="1500"
+				maxspeed="3500"								
+				direction="0 0 1"
+				position="0 0 50"
+				depthbias="-30"
+				material="/shared/effects/materials/blob_add.material"
+			>			
+				<particle
+					startcolor="0 .15 .2"
+					endcolor="0"
+					startsize="50"
+					endsize="0"
+					minscale="1"
+					maxscale="3"
+					endstickiness=".4"
+					startheightdistort=".05"
+					endheightdistortion="0"
+					turn="1"
+				/>
+			</simpleemitter>
+		
+		
+			<simpleemitter
+
+				life="400"				
+				spawnrate="2000"
+				count="4"
+				position="0 0 50"
+				minparticlelife="200"			
+				maxparticlelife="350"				
+				material="/shared/effects/materials/smash_add.material"			
+				depthbias="-50"
+				offsetsphere="5"
+			>
+				<particle 
+					minangle="0"
+					maxangle="360"
+					startcolor="0"
+					midcolor="0 .3 .6"
+					endcolor="0"
+					minsize="130"
+					maxsize="200"
+					startscale="1"
+					endscale="3"
+				/>
+			</simpleemitter>
+
+		
+
+		<billboard
+				life="700"
+				position="0 0 50"			
+				startcolor="0 .25 .5"
+				midcolor="0 .5 .5"
+				endcolor="0"
+				size="250"
+				depthbias="-100"
+				material="/shared/effects/materials/whitedot.material"
+			/>
+	
+		
+			<simpleemitter
+				speed="300"
+				life="250"
+				endspawnrate="700"
+				count="10"
+				position="0 0 0"
+				minparticlelife="250"
+				maxparticlelife="500"
+				material="/shared/effects/materials/pyroclast_06.material"
+				offsetsphere="95"
+				depthbias="0"
+			>
+				<particle 
+					minanglespeed="-80"
+					maxanglespeed="80"
+					startcolor=".3"
+					endcolor=".1"
+					size="40"
+					midsizepos=".65"
+					endsize="70"
+					startscale="2"
+					endscale="4"
+					endstickiness=".9"
+					startalpha="0"
+					midalpha="1"
+					endalpha="0"
+				/>
+			</simpleemitter>
+
+			<billboard
+
+				life="1000"
+				position="0 0 0"
+				startcolor="0 .5 1"
+				endcolor="0"
+				size="150"
+				depthbias="-25"
+				material="/shared/effects/materials/whitedot.material"
+			/>
+
+			
+			
+			
+			
+			<controller 
+        life="3000"
+				scale="2.5"
+			>
+				<simpleemitter
+					count="1"
+					spawnrate="1111"
+					life="3000"
+					particlelife="4000"
+				>
+					<particle>
+				
+							
+						
+						
+						
+						<simpleemitter
+							spawnrate="30"
+							
+							count="4"
+							startparticlecolor="1 1 1"
+							endparticlecolor="1 1 1"
+							
+							particlelife="300"
+						
+										
+							minspeed="-50"
+							maxspeed="51"
+							
+							acceleration="1"
+							position="0 0 0"
+							minangle="0"
+							maxangle="0"
+							material="/shared/effects/materials/electric_impact_add.material"
+							offsetsphere=" 0 0 50"
+							direction="0 0 1"
+						>
+						
+						
+							<particle
+								endsize="300"
+								startsize="0"
+								
+								position="0 0 50"
+								startcolor=".4 .6 .8"
+								endcolor="00 0 0"
+								lockup="1"
+								pitch="90"
+								depthbias="-100"						
+							>
+								
+							</particle>
+						</simpleemitter>
+						
+						<groundsprite	
+							life="1000"
+							loop="false"			
+							material="/shared/effects/materials/starlight.material"
+							
+							size="110"
+							
+							midsizepos=".5"
+							startcolor=".2 .5 .5"
+							endcolor="0 0 0"				
+							
+							minangle="55"
+							maxangle="55"			
+							angles="0 0 0"
+						/>		
+						
+						<billboard
+							name="refract"
+							life="200"
+							color="1.0 1.0 1.0"
+							startalpha="1.0"
+							midalpha="1.0"
+							endalpha="0.0"
+							midalphapos="0.75"
+							startparam=".05"
+							endparam="0.0"
+							startsize="88"
+							endsize="568"
+							depthbias="-100"
+							position="0 0 0"
+							material="/shared/effects/materials/refract_ring.material"
+							lockup="true"
+							pitch="90"				
+						/>		
+					
+					
+						<billboard
+							material="/shared/effects/materials/fresnel_blend.material"
+							bone="_bone_centerofchest"
+							color=".2 .2 .5"
+							
+							life="322"
+							startalpha="1"
+							midalpha=".7"
+							endalpha="0"
+							position="0 0 10"
+							startsize="40"
+							endsize="350"
+							depthbias="-150"			
+						/>
+						<billboard
+							material="/shared/effects/materials/corona_07.material"
+							bone="_bone_centerofchest"
+							startcolor="0 .25 1"
+							endcolor="0 0 0"
+						
+							life="322"
+							startalpha="1"
+							midalpha=".7"
+							endalpha=".2"
+							position="0 0 10"
+							startsize="40"
+							endsize="350"
+							depthbias="-150"			
+						/>			
+
+							
+					
+					</particle>
+					
+					
+					
+				</simpleemitter>
+			</controller>
+	
+			
+		</particlesystem>
+
+	</definitions>
+
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+
+</effect>

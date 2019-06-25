@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Fade_Ability4_Stealth"
+
+	icon="/heroes/fade/ability_04/icon.tga"
+	passiveeffect="/heroes/fade/ability_04/effects/state.effect"
+	
+	stealthtype="hero"
+	fadetime="0"
+	unitwalking="true"
+	treewalking="true"
+	
+	movespeedmultiplier="0.1"
+	
+	modifierkey="fadereflectionstealth"
+	
+	effecttype="StatusStealth"
+>
+	<onframe />
+
+	<oninflict>
+		<forgetattacks />
+		<startfade />
+	</oninflict>
+	
+	<onactivatepreimpact>
+		<expire />
+	</onactivatepreimpact>
+	
+	<onattackstart>
+		<playanim name="ability_4_attack" speed="source_attackspeed" target="source_entity" />
+	</onattackstart>
+	
+	<onattackpreimpact>
+		<cantarget targetscheme="enemy_units">
+			<applystate name="State_Fade_Ability4_DoT" duration="2000" target="target_entity" />
+		</cantarget>
+		<expire />
+	</onattackpreimpact>
+	
+	<onexpired>
+		<startexpire entity="this_proxy_entity" />
+	</onexpired>
+	
+	<altavatar key="Hero_Fade.Alt3" modpriority="90"
+		passiveeffect="/heroes/fade/alt3/ability_04/effects/state.effect"
+	>	
+		<modifier key="Shroud_Set_Bonus" modpriority="100"
+			passiveeffect="/heroes/fade/alt3/ability_04/effects/state_boost.effect"
+		/>	
+	</altavatar>
+	
+	<altavatar key="Hero_Fade.Alt4" modpriority="90"
+		passiveeffect="/heroes/fade/alt4/ability_04/effects/state.effect"
+	>
+		<oninflict>
+			<pausevoiceovers duration="3000" />
+			<play2dsound sample="/heroes/fade/ability_03/sounds/cast2.wav" channel="10" volume="0.5" dampen="0.7" sourceonly="true" targetonly="false" />
+			<forgetattacks />
+			<startfade />
+		</oninflict>
+	</altavatar>
+	
+	<altavatar key="Hero_Fade.Alt5" modpriority="90"
+		passiveeffect="/heroes/fade/alt5/ability_04/effects/state.effect"
+	>	
+		<modifier key="Shroud_Set_Bonus" modpriority="100"
+			passiveeffect="/heroes/fade/alt5/ability_04/effects/state_boost.effect"
+		/>
+		
+		<onattackstart>
+			<playanim name="ability_4_attack_1" target="source_entity"/>
+		</onattackstart>
+	</altavatar>
+	
+	<altavatar key="Hero_Fade.Alt6" modpriority="90"
+		passiveeffect="/heroes/fade/alt6/ability_04/effects/state.effect"
+	    icon="/heroes/fade/alt6/ability_04/icon.tga"
+	>
+		<oninflict>
+			<playeffect effect="/heroes/fade/alt6/ability_04/effects/turnon_sound.effect" target="" source="source_entity" visibility="allies"/>
+			<pausevoiceovers duration="3000" />
+			<play2dsound sample="/heroes/fade/alt6/sounds/ab4_vox.wav" channel="120" volume="0.5" dampen="0.7" sourceonly="true" targetonly="false" />
+			<forgetattacks />
+			<startfade />
+		</oninflict>
+	
+		<onexpired>
+			<startexpire entity="this_proxy_entity" />
+			<play2dsound sample="/heroes/fade/alt6/sounds/ab4_off.wav" channel="120" volume="0.5" dampen="0.7" sourceonly="true" targetonly="false" />
+	    </onexpired>
+		
+		<onattackstart>
+			<playanim name="ability_4_attack_1" target="source_entity"/>
+		</onattackstart>
+	</altavatar>
+	
+	<altavatar key="Hero_Fade.Alt7" modpriority="90"
+		passiveeffect="/heroes/fade/alt7/ability_04/effects/state_lv3.effect"
+	>
+		<oninflict>
+			<play2dsound sample="/heroes/fade/alt7/sounds/ab4_vox.wav" channel="120" volume="0.5" dampen="0.7" sourceonly="true" targetonly="false" />
+		</oninflict>
+	
+		<modifier key="level_2" modpriority="1"
+			passiveeffect="/heroes/fade/alt7/ability_04/effects/state_lv2.effect"
+		/>		
+		<modifier key="level_3" modpriority="1"
+			passiveeffect="/heroes/fade/alt7/ability_04/effects/state_lv3.effect"
+		/>
+	</altavatar>
+	
+	<altavatar key="Hero_Fade.Alt8" modpriority="90"
+		passiveeffect="/heroes/fade/alt8/ability_04/effects/state.effect"
+	>
+		<oninflict>
+			<playeffect effect="/heroes/fade/alt8/ability_04/effects/turnon_sound.effect" target="" source="source_entity" visibility="allies"/>
+			<pausevoiceovers duration="3000" />
+			<play2dsound sample="/heroes/fade/alt8/sounds/ab4_vox.wav" channel="120" volume="0.5" dampen="0.7" sourceonly="true" targetonly="false" />
+			<forgetattacks />
+			<startfade />
+		</oninflict>
+	
+		<onexpired>
+			<startexpire entity="this_proxy_entity" />
+			<play2dsound sample="/heroes/fade/alt8/sounds/ab4_off.wav" channel="120" volume="0.5" dampen="0.7" sourceonly="true" targetonly="false" />
+	    </onexpired>
+		
+		<onattackstart>
+			<playanim name="ability_4_attack_1" target="source_entity" />
+		</onattackstart>
+	</altavatar>
+	
+	<altavatar key="Hero_Fade.Alt9" modpriority="90"
+		passiveeffect="/heroes/fade/alt9/ability_04/effects/state.effect"
+	>
+		<oninflict>
+			<playeffect effect="/heroes/fade/alt9/ability_04/effects/turnon_sound.effect" target="" source="source_entity" visibility="allies"/>
+			<pausevoiceovers duration="3000" />
+			<play2dsound sample="/heroes/fade/alt9/sounds/ab4_vox.wav" channel="120" volume="0.5" dampen="0.7" sourceonly="true" targetonly="false" />
+			<forgetattacks />
+			<startfade />
+		</oninflict>
+	
+		<onexpired>
+			<startexpire entity="this_proxy_entity" />
+			<play2dsound sample="/heroes/fade/alt9/sounds/ab4_off.wav" channel="120" volume="0.5" dampen="0.7" sourceonly="true" targetonly="false" />
+	    </onexpired>
+		
+		<onattackstart>
+			<playanim name="ability_4_attack_1" target="source_entity" />
+		</onattackstart>
+	</altavatar>
+	
+	<altavatar key="Hero_Fade.Alt10" modpriority="90"
+		passiveeffect="/heroes/fade/alt10/ability_04/effects/state.effect"
+	>
+		<oninflict>
+			<playeffect effect="/heroes/fade/alt10/ability_04/effects/turnon_sound.effect" target="" source="source_entity" visibility="allies"/>
+			<pausevoiceovers duration="3000" />
+			<play2dsound sample="/heroes/fade/alt10/sounds/ab4_vox.wav" channel="120" volume="0.5" dampen="0.7" sourceonly="true" targetonly="false" />
+			<forgetattacks />
+			<startfade />
+		</oninflict>
+	
+		<onexpired>
+			<startexpire entity="this_proxy_entity" />
+			<play2dsound sample="/heroes/fade/alt10/sounds/ab4_off.wav" channel="120" volume="0.5" dampen="0.7" sourceonly="true" targetonly="false" />
+	    </onexpired>
+		
+		<onattackstart>
+			<playanim name="ability_4_attack" target="source_entity" />
+		</onattackstart>
+	</altavatar>
+	
+	<altavatar key="Hero_Fade.set_ascension" modpriority="90"
+		passiveeffect="/heroes/fade/set_ascension/ability_04/effects/state.effect"
+	>	
+		<oninflict>
+			<play2dsound sample="/heroes/fade/set_ascension/sounds/ab4_vox.wav" channel="120" volume="0.5" dampen="0.7" sourceonly="true" targetonly="false" />
+		</oninflict>
+	</altavatar>
+</state>

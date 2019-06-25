@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Goldenveil_Ability2"
+
+	icon="icon.tga"
+	passiveeffect=""
+	
+	effecttype=""
+	allowtransfer="false"
+
+	ishidden="true"
+	immobilized2="false"
+	
+	unitwalking="true"
+	buildingwalking="true"
+	cliffwalking="true"
+	treewalking="true"
+
+	modifierkey="Goldenveil_Perched"
+>
+	<oninflict>
+		<teleport target="source_position" interpolate="true" noninterrupting="true" />
+		<order command="stop" />
+	</oninflict>
+
+	<onattack>
+		<applystate name="State_Goldenveil_Ability2_Sight" target="this_owner_entity" source="target_entity" inflictor="target_entity" duration="2000" />
+		<expirestate name="State_Goldenveil_Ability2_Stealth" target="source_entity" />
+	</onattack>
+	
+	<onpremove>
+		<targettype type="stunned" entity="this_owner_entity" />
+		<else>
+			<expire />
+			<expirestate name="State_Goldenveil_Ability2_Modifier" target="source_entity" />
+			<expirestate name="State_Goldenveil_Ability2_Stealth" target="source_entity" />
+			
+			<getplayercursorterrainposition target="this_entity" />
+			<setpos0 position="source_position" positionend="pos0" positionmodifier="pointonline" positionvalue="100" />
+			<spawnprojectile name="Projectile_Goldenveil_Ability2_SelfLeap" target="pos0" bind="source_entity" bindstate="State_Goldenveil_Ability2_Bound_Disarm" />
+			<playanim name="ability_3" target="source_entity" />
+		</else>
+	</onpremove>
+	
+	<onframe>
+		<!-- Alive/dead check for tree -->
+		<targettype type="alive" target="this_proxy_entity" />
+		<else>
+			<expire />
+			<expirestate name="State_Goldenveil_Ability2_Stealth" target="source_entity" />
+			<setactivemodifierkey name="" entity="source_entity" />
+			<playanim name="ability_2" target="source_entity" />
+			<applystate name="State_Stunned_Knockdown" duration="3000" target="source_entity" />
+			<playanim name="knock_1"  target="source_entity" />
+			<applystate name="State_Goldenveil_Ability2_Teleport" duration="50" target="source_entity" />
+		</else>
+		
+		<!-- Distance check for things like pushes or Homecoming Stone -->
+		<distance target="this_proxy_entity" />
+		<compare a="result" b="130" op="gt">
+			<expire />
+			<expirestate name="State_Goldenveil_Ability2_Stealth" target="source_entity" />
+			<applystate name="State_Goldenveil_Ability2_Teleport" duration="50" target="source_entity" />
+		</compare>
+		
+		<targettype type="moving">
+			<order command="hold" />
+			<teleport target="this_proxy_entity" interpolate="true" noninterrupting="true" />
+		</targettype>
+	</onframe>
+	
+	<onexpired>
+		<applystate name="State_Goldenveil_Ability2_Treewalking" target="source_entity" duration="1000" />
+		<expirestate name="State_Goldenveil_Ability2_Modifier" />
+		<pushability name="Ability_Goldenveil2" />
+		<startcooldown duration="3000" entity="stack_entity" />
+	</onexpired>
+
+</state>

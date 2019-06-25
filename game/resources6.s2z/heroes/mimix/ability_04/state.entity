@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Mimix_Ability4"
+	
+	icon="icon.tga"
+	
+	ishidden="true"
+
+	modifierkey="Mimix_Ability4_Affected"
+
+>
+	<onframe />
+</state>

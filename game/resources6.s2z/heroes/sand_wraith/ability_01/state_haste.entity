@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_SandWraith_Ability1_Haste"
+
+	icon="icon.tga"
+	passiveeffect="effects/state_self.effect"
+	
+	movespeedmultiplier="100"
+	slowresistance="1.0"
+	
+	effecttype="StatusBuff"
+	allowtransfer="true"
+>
+	<onattack>
+		<expire />
+	</onattack>
+	
+	<altavatar key="Hero_SandWraith.Alt4" modpriority="1"
+		icon="../alt4/ability_01/icon.tga"
+	/>
+	
+	<altavatar key="Hero_SandWraith.Alt9" modpriority="1"
+		icon="/heroes/sand_wraith/alt9/ability_01/icon.tga"
+	/>
+	
+</state>

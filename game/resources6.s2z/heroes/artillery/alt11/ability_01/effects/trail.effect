@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+	<definitions>
+		<particlesystem name="system0" space="world" scale="1.5">
+			<sound
+				linearfalloff="true" 
+				falloffstart="100"
+				falloffend="2400"
+				volume=".4"
+				sample="/heroes/artillery/alt11/sounds/ab1_%.wav"
+			/>
+			
+			
+			<light
+				life="75"
+				falloffend="275"
+				startcolor="3"
+				endcolor="0"
+			/>
+			<groundsprite
+				expirelife="100"
+				position="0 -50 0"
+				material="/shared/effects/materials/whitedot_ground.material"
+				scale="3"
+				startcolor="0 .1 .05"
+				endcolor="0"
+			/>
+			<groundsprite
+				expirelife="100"
+				position="0 -50 0"
+				material="/shared/effects/materials/whitedot_ground.material"
+				scale="1"
+				startcolor="0 .05 .025"
+				endcolor="0"
+			/>
+		
+			<simpleemitter	
+				life="400"				
+				spawnrate="2000"
+				count="4"
+				position="0 0 0"
+				minparticlelife="200"			
+				maxparticlelife="350"				
+				material="/shared/effects/materials/smash_add.material"			
+				depthbias="-50"
+				offsetsphere="1 0 0"
+			>
+				<particle 
+					minangle="0"
+					maxangle="360"
+					startcolor="0"
+					midcolor="0 .3 .2"
+					endcolor="0"
+					minsize="30"
+					maxsize="60"
+					startscale="1"
+					endscale="3"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+			position="0 0 30"
+				count="15"
+				life="250"
+				particlelife="400"			
+				material="/shared/effects/materials/flare.material"
+				offsetsphere="5 0 5"
+				depthbias="35"
+			>
+				<particle 
+					minanglespeed="-40"
+					maxanglespeed="-40"
+					startcolor="0 .05 .036"
+					endcolor="0"		
+					startsize="50"
+					width="800"
+					height="100"
+					endsize="100"
+					startalpha=".5"
+					endalpha="0"
+					pitch="90"
+				/>
+			</simpleemitter>
+
+			<simpleemitter
+				count="15"
+				gravity="-25"
+				life="250"
+				spawnrate="2000"	
+				minparticlelife="200"	
+				maxparticlelife="600"
+				minspeed="25"			
+				maxspeed="75"
+				material="/shared/effects/materials/cloud.material"
+				offsetsphere="35 35 10"
+				depthbias="35"
+			>
+				<particle
+					maxangle="360"
+					minanglespeed="-30"
+					maxanglespeed="-30"
+					startsize="25"
+					endsize="50"
+					startalpha="0"
+					midalpha=".15"
+					endalpha="0"
+					color="0 .7 .5"
+				/>
+			</simpleemitter>
+
+			
+			
+			
+			
+			
+			
+			
+			<model
+				color="2"
+				scale="0.5"
+				model="/heroes/artillery/ability_01/effects/missile/model.mdf"
+				anim="idle"
+				material="/heroes/artillery/material.material"
+				yaw="90"
+				minpitchspeed="-3000"
+				maxpitchspeed="3000"
+				minroll="-5"
+				maxroll="5"
+			>
+				<!-- small trails -->
+				<trailemitter
+					bone="_bone_weapon1"
+					spawnrate="150"
+					particlelife="100"
+					texpostime="400"
+					texposscale="0.0"
+					texstretchscale=".4"
+					material="/shared/effects/materials/arrow_trail.material"
+					speed="100"
+					angle="0"
+					direction="0 1 0"
+				>
+					<particle
+						startcolor=".3 .75 .5"
+						midcolor="0 .55 .5"
+						endcolor="0 0 0"
+						startsize="13"
+						midsize="13"
+						endsize="0"
+						midsizepos="0.8"
+					/>
+				</trailemitter>
+				
+				<trailemitter
+					bone="_bone_weapon1"
+					spawnrate="150"
+					particlelife="450"
+					texpostime="400"
+					texposscale="0.0"
+					texstretchscale=".4"
+					material="/shared/effects/materials/arrow_trail.material"
+					speed="100"
+					angle="0"
+					direction="0 1 0"
+				>
+					<particle
+						startcolor=".3 .55 .5"
+						midcolor="0 .55 .5"
+						endcolor="0 0 0"
+						midcolorpos=".35"
+						startsize="5"
+						midsize="5"
+						endsize="0"
+						midsizepos="0.2"
+					/>
+				</trailemitter>
+				
+				<!-- smoke -->
+				<trailemitter
+					spawnrate="20"
+					minparticlelife="200"
+					maxparticlelife="600"
+					mintexpostime="25"
+					maxtexpostime="35"
+					mintexposscale=".75"
+					maxtexposscale="1.5"
+					texstretchscale="1"
+					offsetsphere="20"
+					material="/shared/effects/materials/smoke_particle.material"
+				>
+					<particle
+						startcolor="0 .3 .1"
+						midcolor=".6"
+						endcolor="0 0 0"
+						midcolorpos=".35"
+						size="50"
+						midsizepos="0.2"
+						minmidscale="3"
+						maxmidscale="4"
+						minendscale="7"
+						maxendscale="8"
+						startalpha="1"
+						midalpha="1"
+						endalpha="0"
+					/>
+				</trailemitter>
+				
+				<trailemitter
+					spawnrate="20"
+					minparticlelife="600"
+					maxparticlelife="1000"
+					mintexpostime="35"
+					maxtexpostime="45"
+					mintexposscale=".75"
+					maxtexposscale="1.5"
+					texstretchscale="1"
+					offsetsphere="20"
+					material="/shared/effects/materials/smoke_particle.material"
+				>
+					<particle
+						startcolor="0 .5 .4"
+						midcolor=".5"
+						endcolor="0 0 0"
+						midcolorpos=".35"
+						size="50"
+						midsizepos="0.2"
+						minmidscale="3"
+						maxmidscale="4"
+						minendscale="7"
+						maxendscale="8"
+						startalpha="1"
+						midalpha="1"
+						endalpha="0"
+					/>
+				</trailemitter>
+				
+				<!-- main thruster -->
+				<trailemitter
+					spawnrate="60"
+					minparticlelife="50"
+					maxparticlelife="150"
+					texposscale="0"
+					texstretchscale="1"
+					material="/shared/effects/materials/whitedot.material"
+				>
+					<particle
+						startcolor="1"
+						midcolor="0 1 .5"
+						endcolor="0 1 0"
+						midcolorpos=".35"
+						startsize="0"
+						midsize="70"
+						endsize="20"
+						midsizepos="1 .4 0"
+						minmidscale="2"
+						maxmidscale="3"
+					/>
+				</trailemitter>
+				
+				<trailemitter
+					spawnrate="60"
+					minparticlelife="50"
+					maxparticlelife="100"
+					texposscale="0"
+					texstretchscale="1"
+					material="/shared/effects/materials/whitedot.material"
+				>
+					<particle
+						startcolor="1"
+						endcolor="0"
+						midcolorpos=".25"
+						startsize="5"
+						midsize="30"
+						endsize="60"
+						midsizepos="0.2"
+					/>
+				</trailemitter>
+				
+				<billboard
+					position="-50 0 0"
+					material="/shared/effects/materials/flare_01.material"
+					scale="10"
+					color="0 .4 .3"
+				/>
+			
+				<model
+					color="0 2 1"
+					model="/heroes/artillery/ability_01/effects/missile/model.mdf"
+					material="/shared/effects/materials/shell4.material"
+				/>	
+			</model>		
+
+			<simpleemitter
+				minangle="-90"
+				maxangle="-90"
+				spawnrate="40"
+				minparticlelife="250"
+				maxparticlelife="500"
+				speed="500"
+				drag="0.1"
+				gravity="-1"
+				offsetsphere="15"
+				material="/shared/effects/materials/dust_smoke_02.material"
+			>
+				<particle
+					minangle="-180"
+					maxangle="180"
+					minanglespeed="-150"
+					maxanglespeed="150"
+					turn="1"
+					color=".35"
+					startsize="40"
+					minendscale="6"
+					maxendscale="10"
+					startalpha="0"
+					midalpha=".25"
+					endalpha="0"
+				/>
+			</simpleemitter>
+
+			<simpleemitter
+				spawnrate="35"
+				minparticlelife="250"
+				maxparticlelife="1000"
+				gravity="-10"
+				inheritvelocity=".05"
+				material="/shared/effects/materials/smoke_particle.material"
+				minangle="0"
+				maxangle="35"
+				direction="0 0 1"
+				offsetsphere="20 20 5"
+			>
+				<particle
+					angle="-90"
+					minangle="0"
+					maxangle="30"
+					minanglespeed="-55"
+					maxanglespeed="55"
+					startcolor="0 .4 .1"
+					midcolor=".7"
+					endcolor="0 0 0"
+					midcolorpos=".65"
+					startsize="15"
+					midsize="45"
+					midsizepos=".2"
+					endsize="185"
+					startalpha="0"
+					midalpha=".75"
+					endalpha="0"
+					midalphapos=".2"
+					turn="true"
+				/>
+			</simpleemitter>
+
+
+			
+			<simpleemitter
+				spawnrate="200"
+				drag=".001"
+				minparticlelife="300"
+				maxparticlelife="800"
+				gravity="25"
+				minspeed="20"
+				maxspeed="120"								
+				direction="0 0 1"
+				offsetsphere="15 15 0"
+				minangle="0"
+				maxangle="10"
+				material="/shared/effects/materials/spark_12.material"
+				inheritvelocity=".15"
+			>			
+				<particle
+					startcolor="0 2 1"
+					midcolor="0 2 1"
+					endcolor="0"
+					midcolorpos=".75"
+					minsize="10"
+					maxsize="20"
+					lockup="false"
+					lockright="false"
+					maxangle="360"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				spawnrate="80"
+				drag=".001"
+				minparticlelife="200"
+				maxparticlelife="600"
+				gravity="25"
+				minspeed="10"
+				maxspeed="80"								
+				direction="0 0 1"
+				offsetsphere="15 15 0"
+				minangle="0"
+				maxangle="10"
+				material="/shared/effects/materials/spark_10.material"
+				inheritvelocity=".15"
+			>			
+				<particle
+					startcolor="2 1 0"
+					midcolor="2 1 0"
+					endcolor="0"
+					midcolorpos=".75"
+					minsize="10"
+					maxsize="20"
+					lockup="false"
+					lockright="false"
+					maxangle="360"
+				/>
+			</simpleemitter>
+
+			<simpleemitter
+				life="1000"
+				spawnrate="3300"
+				count="20"
+				minparticlelife="250"
+				maxparticlelife="750"
+				gravity="20"
+				minspeed="100"
+				maxspeed="300"
+				drag=".01"
+				material="/shared/effects/materials/spark_12.material"
+				offsetsphere="10"
+				minangle="0"
+				maxangle="10"
+				direction="0 0 1"
+			>
+				<particle 
+					minangle="0"
+					maxangle="360"
+					startcolor="0 2 1"
+					midcolor="0 2 1"
+					endcolor="0 0 0"
+					midcolorpos=".2"
+					minstartsize="7"
+					maxstartsize="13"
+					midsize="13"
+					endsize="5"
+					startalpha="0"
+					midalpha=".7"
+					endalpha="0"
+					midalphapos=".5"
+				/>
+			</simpleemitter>
+			
+			
+			<simpleemitter
+				life="1000"
+				spawnrate="3300"
+				count="10"
+				minparticlelife="250"
+				maxparticlelife="750"
+				gravity="20"
+				minspeed="100"
+				maxspeed="300"
+				drag=".01"
+				material="/shared/effects/materials/spark_10.material"
+				offsetsphere="10"
+				minangle="0"
+				maxangle="10"
+				direction="0 0 1"
+			>
+				<particle 
+					minangle="0"
+					maxangle="360"
+					startcolor="2 1 0"
+					midcolor="2 1 0"
+					endcolor="0 0 0"
+					midcolorpos=".2"
+					minstartsize="7"
+					maxstartsize="13"
+					midsize="13"
+					endsize="5"
+					startalpha="0"
+					midalpha=".7"
+					endalpha="0"
+					midalphapos=".5"
+				/>
+			</simpleemitter>
+
+			<simpleemitter
+				spawnrate="35"
+				minparticlelife="250"
+				maxparticlelife="500"
+				material="/shared/effects/materials/whitedot.material"
+				particledirectionalspace="local"
+				offsetdirection="0 0 0"
+				offsetradial="0"
+				depthbias="-20"
+			>
+				<particle
+					startcolor="0 .35 .2"
+					midcolor="0 .07 .04"
+					endcolor="0 0 0"
+					midcolorpos=".3"
+					startsize="75"
+					endsize="400"
+					param="0.5"
+					startalpha=".3"
+					midalpha=".15"
+					endalpha="0"
+					midalphapos=".75"
+				/>
+			</simpleemitter>
+
+			<billboard
+				life="100"
+				material="/shared/effects/materials/whitedot.material"
+				startsize="60"
+				endsize="280"
+				depthbias="-75"
+				startcolor="0 .55 0"
+				midcolor="0 .2 0"
+				endcolor="0"
+				lockup="1"
+				lockright="1"
+				pitch="90"
+			/>
+			
+			
+			<simpleemitter
+					count="1"
+					spawnrate="2000"
+					minparticlelife="2000"
+					maxparticlelife="4000"
+					gravity="40"
+					speed="500"
+					drag="0"
+					acceleration="0"
+					position="-50 0 0"
+					material="/shared/effects/materials/bullet2.material"
+					offsetsphere="10"
+					direction="0 0 1"
+					minangle="0"
+					maxangle="10"
+					offsetdirection="0 0 0"
+					offsetradial="0 0 0"
+					collide="true"
+					directionalspace="local"
+				>
+					<particle
+						minanglespeed="100"
+						maxanglespeed="250"
+						startcolor=".9"
+						midcolor=".9"
+						endcolor="0 0 0"
+						startframe="0"
+						endframe="1"
+						startsize="20"
+						midsize="40"
+						endsize="20"
+						startalpha="1"
+						midalpha="1"
+						endalpha="0"
+						midalphapos=".45"
+					/>
+				</simpleemitter>
+
+		</particlesystem>
+		
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+		<!-- <die /> -->
+	</thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][pos] -->
+

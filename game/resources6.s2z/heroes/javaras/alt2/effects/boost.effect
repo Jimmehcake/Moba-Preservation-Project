@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+	<definitions>
+		<particlesystem name="system0" space="world" scale="1.0">
+			<model
+				model="blades_additional_piece/model.mdf"
+				scale="1"
+				parentskeleton="true"
+				material="/shared/effects/materials/shell4.material"
+				color="1 0 40"
+			/>
+			<model
+				model="blades_additional_piece/model.mdf"
+				scale="1"
+				parentskeleton="true"
+				material="/shared/effects/materials/shell_flat_outline.material"
+				color=".5 0 30"
+			/>
+			
+			<twopointemitter
+				bone_a="_bone_weapon2"
+				bone_b="_bone_weapon3"
+				spawnrate="50"
+				particlelife="1000"
+				angle="0.0"
+				offsetsphere="0"
+				material="/shared/effects/materials/flame.material"
+			>
+				<particle
+					startcolor="0 0 0"
+					midcolor=".25 0 1"
+					endcolor=".25 0 1"
+					midcolorpos="0.5"
+					startalpha="1.0"
+					endalpha="1.0"
+					maxangle="360"
+					minanglespeed="-45"
+					maxanglespeed="45"
+					minendsize="25"
+					startsize="5"
+					maxendsize="40"
+					flare="true"
+					startanchor="1"
+					endanchor="1"
+				/>
+				<particle
+					startcolor="0 0 0"
+					midcolor=".25 0 1"
+					endcolor=".25 0 1"
+					midcolorpos="0.5"
+					startalpha="1.0"
+					endalpha="1.0"
+					maxangle="360"
+					minanglespeed="-45"
+					maxanglespeed="45"
+					minendsize="25"
+					startsize="5"
+					maxendsize="35"
+					flare="true"
+					startanchor="1"
+					endanchor="1"
+				/>
+			</twopointemitter>
+		
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+
+</effect>

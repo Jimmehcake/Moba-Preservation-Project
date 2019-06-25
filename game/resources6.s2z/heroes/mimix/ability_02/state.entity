@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Mimix_Ability2"
+
+	icon="icon.tga"
+	passiveeffect=""
+	
+	effecttype="StatusDebuff"
+	allowtransfer="true"
+	
+	movespeedslow="0.3"
+>
+
+</state>

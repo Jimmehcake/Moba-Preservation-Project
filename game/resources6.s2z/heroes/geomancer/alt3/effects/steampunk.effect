@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="1">
+	<definitions>
+		<particlesystem name="system0" space="world" scale="1.0">
+			
+
+			
+				<simpleemitter
+					position="0 0 0"
+					bone="_bone_righteye"
+					offsetsphere="3"
+					spawnrate="45"
+					minparticlelife="1000"
+					maxparticlelife="1000"
+					material="/shared/effects/materials/smoke_33.material"
+					gravity="-4"
+					direction="0 1 0"
+					maxspeed="30"
+					angle="40"
+					inheritvelocity=".25"
+					limitinheritvelocity="200"
+				>
+					<particle
+						maxangle="360"
+						startalpha="1"
+						midalpha="1"
+						endalpha="0"
+						minstartscale="5"
+						maxstartscale="10"
+						midscale="8"
+						minendscale="7"
+						maxendscale="15"
+						startcolor=".1 .1 .1"
+						endcolor=".1 .1 .1"
+						startanchor=".5"
+						endanchor="0"
+					/>
+				</simpleemitter>
+				
+				<simpleemitter
+					position="0 0 0"
+					bone="_bone_lefteye"
+					offsetsphere="3"
+					spawnrate="45"
+					minparticlelife="1000"
+					maxparticlelife="1000"
+					material="/shared/effects/materials/smoke_33.material"
+					gravity="-4"
+					direction="0 1 0"
+					maxspeed="30"
+					angle="40"
+					inheritvelocity=".25"
+					limitinheritvelocity="200"
+				>
+					<particle
+						maxangle="360"
+						startalpha="1"
+						midalpha="1"
+						endalpha="0"
+						minstartscale="5"
+						maxstartscale="10"
+						midscale="8"
+						minendscale="7"
+						maxendscale="15"
+						startcolor=".1 .1 .1"
+						endcolor=".1 .1 .1"
+						startanchor=".5"
+						endanchor="0"
+					/>
+				</simpleemitter>
+				
+				<simpleemitter
+					position="0 0 0"
+					bone="_bone_weapon3"
+					offsetsphere="3"
+					spawnrate="45"
+					minparticlelife="1000"
+					maxparticlelife="1000"
+					material="/shared/effects/materials/smoke_33.material"
+					gravity="-4"
+					direction="0 1 0"
+					maxspeed="30"
+					angle="40"
+					inheritvelocity=".25"
+					limitinheritvelocity="200"
+				>
+					<particle
+						maxangle="360"
+						startalpha="1"
+						midalpha="1"
+						endalpha="0"
+						minstartscale="5"
+						maxstartscale="10"
+						midscale="8"
+						minendscale="7"
+						maxendscale="15"
+						startcolor=".1 .1 .1"
+						endcolor=".1 .1 .1"
+						startanchor=".5"
+						endanchor="0"
+					/>
+				</simpleemitter>
+				
+				<simpleemitter
+					position="0 0 0"
+					bone="_bone_weapon3"
+					offsetsphere="3"
+					spawnrate="45"
+					minparticlelife="250"
+					maxparticlelife="750"
+					material="/shared/effects/materials/flame.material"
+					gravity="-4"
+					direction="0 1 0"
+					maxspeed="30"
+					angle="40"
+					inheritvelocity=".25"
+					limitinheritvelocity="200"
+				>
+					<particle
+						maxangle="360"
+						startalpha="1"
+						midalpha="1"
+						endalpha="0"
+						minstartscale="5"
+						maxstartscale="10"
+						midscale="8"
+						minendscale="7"
+						maxendscale="15"
+						startcolor=".1 .1 .1"
+						endcolor=".1 .1 .1"
+						startanchor=".5"
+						endanchor="0"
+					/>
+				</simpleemitter>
+				
+				
+				<simpleemitter
+					position="0 -26 0"
+					bone="Bip02 Pelvis"
+					offsetsphere="3"
+					spawnrate="45"
+					minparticlelife="250"
+					maxparticlelife="750"
+					material="/shared/effects/materials/flame.material"
+					gravity="-4"
+					direction="0 1 0"
+					maxspeed="30"
+					angle="40"
+					inheritvelocity=".25"
+					limitinheritvelocity="200"
+				>
+					<particle
+						maxangle="360"
+						startalpha="0"
+						midalpha=".4"
+						endalpha="0"
+						midalphapos=".2"
+						minstartscale="5"
+						maxstartscale="10"
+						midscale="4"
+						minendscale="6"
+						maxendscale="5"
+						startcolor="1 .3 0"
+						endcolor="0 0 0"
+						startanchor=".5"
+						endanchor="0"
+					/>
+				</simpleemitter>
+				
+				
+				<template name="steam_spout1">
+				<simpleemitter
+					bone="{bone}"
+					direction="{dir}"
+					maxangle="30"
+					spawnrate="50"
+					minparticlelife="750"
+					maxparticlelife="900"
+					minspeed="15"
+					maxspeed="45"
+					gravity="-2"
+					material="/shared/effects/materials/flame.material"
+				>
+					<particle
+						maxangle="360"
+							startalpha="0"
+							midalpha=".4"
+							endalpha="0"
+							midalphapos=".2"
+							minstartscale="5"
+							maxstartscale="10"
+							midscale="7"
+							minendscale="15"
+							maxendscale="10"
+							startcolor=".75"
+							endcolor="0"
+							startanchor=".5"
+							endanchor="0"
+					/>
+				</simpleemitter>
+			</template>
+			
+			<instance name="steam_spout1" bone="_bone_fx_01" dir="0 1 0" />
+			<instance name="steam_spout1" bone="_bone_fx_02" dir="0 1 0" />
+			
+			
+			
+			
+			
+			
+			
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+</effect>
+<!-- [min|max][start|mid|end]property[speed][pos] -->

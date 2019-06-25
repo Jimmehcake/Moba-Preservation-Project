@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="ability_02" useentityeffectscale="1" >
+	<definitions>
+	
+		<particlesystem name="system0" space="world" scale="1.2">
+			
+			
+			<light
+				life="250"			
+				startcolor="3 2 12"				
+				endcolor="0 0 0"
+				midcolorpos=".2"
+				falloffstart="00"
+				falloffend="255"
+				position="0 0 20"	
+			/>
+
+			
+			
+			<simpleemitter
+				spawnrate="1000"
+				count="1"
+				speed="300"
+				angle="0"
+				direction="0 0 1"
+				particlelife="500"
+			>
+				<particle
+					scale="2.5"
+				>
+					<model
+						model="/shared/effects/models/circle_of_bones/model.mdf"
+						life="500"
+						startscale=".75"
+						endscale=".25"
+						yawspeed="1500"
+						anim="idle"
+					>
+						<instance name="smoke" bone="_bone_fx_11" />
+					</model>
+				</particle>
+			</simpleemitter>
+			
+			<simpleemitter	
+				bone="_bone_centerofchest"
+				count="1"
+				particlelife="2000"
+				spawnrate="10000"
+				gravity="-0"
+				speed="0.0"
+				acceleration="0.0"		
+				position="0 0 0"			
+			>
+				<particle>	
+
+					<simpleemitter			
+						count="40"
+						spawnrate="1055"
+						particlelife="800"
+						gravity="0"
+						minspeed="300"
+						maxspeed="500"
+						drag=".02"
+						acceleration="0.0"
+						timenudge="0"
+						position="0 0 0"
+						offsetsphere="0 20"
+					>
+						<particle
+						minscale=".1"
+						maxscale=".35"
+						turn="1"
+						>
+							<model
+								pitch="-90"
+								life="400"
+								anim="idle"
+								model="/heroes/geomancer/ability_04/effects/shard/model.mdf"
+								material="../../effects/crystal.material"
+								color="0 0 1"
+								midscalepos=".8"
+								startalpha=".7"
+								midalpha=".7"
+								endalpha="0"
+								midalphapos=".7"
+							/>
+							<billboard
+								delay="250"
+								position="0 0 0"
+								startsize="0"
+								midsize="0"
+								midsizepos=".375"
+								endsize="175"
+								life="250"
+								startcolor="0 2 5"
+								midcolor="0 .5 1"
+								endcolor="0"
+								midcolorpos=".2"
+								depthbias="-25"
+								maxroll="359"
+								material="/shared/effects/materials/blink.material"
+							/>
+						</particle>
+						</simpleemitter>
+				</particle>
+			</simpleemitter>	
+
+			<billboard
+					position="0 0 100"
+					life="300"
+					delay="200"
+					startsize="0"
+					endsize="700"
+					startcolor="0 0 .5"
+					midcolor="0 0 .5"
+					endcolor="0"
+					material="/shared/effects/materials/flare_01.material"
+				/>
+
+      </particlesystem>
+   </definitions>
+   <thread>
+      <spawnparticlesystem instance="instance0" particlesystem="system0" />
+      <waitfordeath instance="instance0" />
+      <!-- <die /> -->
+   </thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->
+

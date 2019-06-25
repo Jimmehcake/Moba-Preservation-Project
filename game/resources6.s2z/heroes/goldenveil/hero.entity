@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hero
+	name="Hero_Goldenveil"
+	
+	team="Hellbourne"
+	icon="icon.tga"
+	portrait="icon.tga"
+	model="model.mdf"
+	skin=""
+	
+	
+	passiveeffect=""
+	spawneffect=""
+	respawneffect="/shared/effects/respawn.effect"
+	selectedsound="sounds/voice/select_%.wav"
+	selectedflavorsound="sounds/voice/select_flavour_%.wav"
+	confirmmovesound="sounds/voice/move_%.wav"
+	confirmattacksound="sounds/voice/attack_%.wav"
+	nomanasound="sounds/voice/no_mana.wav"
+	cooldownsound="sounds/voice/cooldown.wav"
+	announcersound="sounds/voice/hero_select.wav"
+	tauntedsound="sounds/voice/taunt_prior.wav"
+	tauntkillsound="sounds/voice/taunt_after.wav"
+	
+	preglobalscale="1.6"
+	modelscale="1.3"
+	effectscale="1"
+	boundsheight="112"
+	boundsradius="24"
+	selectionradius="44"
+	targetoffset="0 0 64"
+
+	category="cc"
+	difficulty="3"
+
+	solorating="2"
+	junglerating="0"
+	carryrating="0"
+	supportrating="3"
+	initiatorrating="2"
+	gankerrating="4"
+	pusherrating="0"
+	rangedrating="5"
+	meleerating="0"
+
+	movespeed="290"
+	turnrate="360"
+	turnsmoothing="0.05"
+
+	maxhealth="210"
+	healthregen="0.25"
+	maxmana="0"
+	manaregen="0.01"
+
+	armor="-1.2"
+	magicarmor="5"
+
+	inventory0="Ability_Goldenveil1"
+	inventory1="Ability_Goldenveil2"
+	inventory2="Ability_Goldenveil3"
+	inventory3="Ability_Goldenveil4"
+	inventory4="Ability_AttributeBoost"
+	inventory5="Ability_Goldenveil2a"
+	inventory6="Ability_Goldenveil2b"
+	inventory7=""
+	inventory8="Ability_Taunt"
+	inventory9=""
+	inventory10=""
+	inventory11="Ability_Dance"
+	inventory12="Ability_AutomatedCourier"
+
+	attackduration="1300"
+	attackactiontime="500"
+	attackcooldown="1700"
+	attackdamagemin="30"
+	attackdamagemax="33"
+	attacknumanims="2"
+	attackoffset="0 50 50"
+	attackprojectile="Projectile_GoldenveilAttack"
+	attackrange="600"
+	attackstarteffect=""
+	attackactioneffect=""
+	attackimpacteffect=""
+	attacktype="ranged"
+	combattype="Hero"
+
+	aggrorange="800"
+	sightrangeday="1800"
+	sightrangenight="800"
+	wanderrange="250"
+
+	primaryattribute="Intelligence"
+	strength="16"
+	strengthperlevel="1.5"
+	agility="19"
+	agilityperlevel="1.8"
+	intelligence="21"
+	intelligenceperlevel="2.6"
+	
+	previewmodel="preview.mdf"
+	previewpos="0 0 -80"
+	previewangles="0 0 0"
+	previewscale="2"
+	
+	storemodel="preview.mdf"
+	storepos="0 0 -20"
+	storeangles="0 0 0"
+	storescale="2.2"
+	
+	portraitcampos="32 0 8"
+	portraitangles="0 0 10"
+	
+	corpsetime="1350"
+	corpsefadetime="3500"
+	corpsefadeeffect="/shared/effects/corpse_sink.effect"
+>
+
+	<recommendeditem name="Item_ManaPotion" />
+	<recommendeditem name="Item_MinorTotem" />
+	<recommendeditem name="Item_RunesOfTheBlight" />
+	<recommendeditem name="Item_HealthPotion" />
+	<recommendeditem name="Item_HomecomingStone" />
+	
+	<recommendeditem name="Item_FlamingEye" />
+	<recommendeditem name="Item_Strength5" />
+	<recommendeditem name="Item_Bottle" />
+	<recommendeditem name="Item_Striders" />
+	<recommendeditem name="Item_PlatedGreaves" />
+	<recommendeditem name="Item_Intelligence6" />	
+	<recommendeditem name="Item_Intelligence7" />
+	<recommendeditem name="Item_RestorationStone" />
+	<recommendeditem name="Item_Morph" />
+
+
+	<onspawn>
+		<pausevoiceovers duration="6000" />
+		
+		<!-- VFX -->
+		<hasavatarkey name="Hero_Goldenveil.Alt">
+			<activatemodifierkey name="Goldenveil_Alt_Sound" />
+			<applystate name="State_Goldenveil_Alt_Sound_Initiator" target="source_entity" duration="2000" />
+		</hasavatarkey>
+		<else>
+			<hasavatarkey name="Hero_Goldenveil.Alt2" />
+			<else>
+				<hasavatarkey name="Hero_Goldenveil.Alt3" />
+				<else>
+					<hasavatarkey name="Hero_Goldenveil.Alt4" />
+					<else>
+						<hasavatarkey name="Hero_Goldenveil.Alt5" />
+						<else>
+							<activatemodifierkey name="Goldenveil_Sound" />
+							<applystate name="State_Goldenveil_Sound_Initiator" target="source_entity" duration="2000" />
+						</else>
+					</else>
+				</else>
+			</else>
+		</else>
+	</onspawn>
+	
+	<onassist>
+		<!-- Interaction -->
+		<hasmodifier name="goldenveil_noVox" entity="this_owner_entity" />
+		<else>
+			<chance threshold="0.50">
+				<hasavatarkey name="Hero_Goldenveil.Alt">
+					<pausevoiceovers duration="6000" />
+					<delayannouncer duration="6000" source="target_entity" sourceonly="true" />
+					<delayannouncer duration="6000" source="this_entity" sourceonly="true" />
+					<playeffect effect="alt/sounds/interactions/assist_audio.effect" source="this_entity" target="this_entity" />
+				</hasavatarkey>
+				<else>
+					<hasavatarkey name="Hero_Goldenveil.Alt2" />
+					<else>
+						<hasavatarkey name="Hero_Goldenveil.Alt3" />
+						<else>
+							<hasavatarkey name="Hero_Goldenveil.Alt4" />
+							<else>
+								<hasavatarkey name="Hero_Goldenveil.Alt5" />
+								<else>
+									<pausevoiceovers duration="3000" />
+									<delayannouncer duration="3000" source="target_entity" sourceonly="true" />
+									<delayannouncer duration="3000" source="this_entity" sourceonly="true" />
+									<playeffect effect="sounds/interactions/assist_audio.effect" source="this_entity" target="this_entity" />
+								</else>
+							</else>
+						</else>
+					</else>
+				</else>
+			</chance>
+		</else>
+	</onassist>
+	
+	<onkill>
+		<!-- Interaction -->
+		<hasmodifier name="goldenveil_noVox" entity="this_owner_entity" />
+		<else>
+			<targettype type="illusion" />
+			<else>
+				<cantarget targetscheme="enemy_heroes" >
+				<pushentityproxy entity="this_proxy_entity" />
+				<chance threshold="0.50">  
+					<compare a="stack_entity" b="inflictor_entity" op="ne"> <!--To prevent interaction to play if you have taunted them-->
+						<pausevoiceovers duration="3000" /> 
+						<delayannouncer duration="3000" source="target_entity" sourceonly="true" />
+						<delayannouncer duration="3000" source="this_entity" sourceonly="true " />
+						<hasavatarkey name="Hero_Goldenveil.Alt">
+							<playeffect effect="alt/sounds/interactions/kill_audio.effect" source="this_entity" target="this_entity" />
+						</hasavatarkey>
+						<else>
+							<hasavatarkey name="Hero_Goldenveil.Alt2">
+							</hasavatarkey>
+							<else>
+								<hasavatarkey name="Hero_Goldenveil.Alt3" />
+								<else>
+									<hasavatarkey name="Hero_Goldenveil.Alt4" />
+									<else>
+										<playeffect effect="sounds/interactions/kill_audio.effect" source="this_entity" target="this_entity" />
+									</else>
+								</else>
+							</else>
+						</else>						
+					</compare>
+				</chance>
+				</cantarget>
+			</else>
+		</else>
+	</onkill>
+		
+	<modifier key="Goldenveil_Perched" modpriority="100"
+		flying="true"
+		flyheight="300"
+		treewalking="true"
+		sightrangeday="1000"
+		idleanim="ability_2_idle"
+		
+		attackrange="450"
+	>
+	</modifier>
+	
+	<modifier key="Goldenveil_Midair" modpriority="100"
+		unittype="Goldenveil_Midair"
+		idleanim="ability_2_idle"
+	/>
+
+	<modifier key="ult_boost" modpriority="100">
+		<aura state="Ult_Boost_Goldenveil" radius="0" targetscheme="self" continuous="false"/>
+	</modifier>
+	
+	<altavatar key="Hero_Goldenveil.Alt"
+		preglobalscale="1.6"
+
+		icon2="alt/icon.tga"
+		portrait="alt/icon.tga"
+		model="alt/model.mdf"
+		
+		passiveeffect=""
+
+	    selectedsound="alt/sounds/voice/select_%.wav"
+	    selectedflavorsound="alt/sounds/voice/select_flavour_%.wav"
+	    confirmmovesound="alt/sounds/voice/move_%.wav"
+	    confirmattacksound="alt/sounds/voice/attack_%.wav"
+	    nomanasound="alt/sounds/voice/no_mana.wav"
+	    cooldownsound="alt/sounds/voice/cooldown.wav"
+	    tauntedsound="alt/sounds/voice/taunt_prior.wav"
+	    tauntkillsound="alt/sounds/voice/taunt_after.wav"
+
+		previewmodel="alt/preview.mdf"
+		previewpos="0 0 -80"
+		previewangles="0 0 0"
+		previewscale="2"
+
+		storemodel="alt/preview.mdf"
+		storepos="0 0 -20"
+		storeangles="0 0 0"
+		storescale="2.2"
+
+		portraitcampos="25 -10 11"
+		portraitangles="0 0 10"
+	/>
+	
+	<altavatar key="Hero_Goldenveil.Alt2"
+		preglobalscale="1.6"
+
+		icon2="alt2/icon.tga"
+		portrait="alt2/icon.tga"
+		model="alt2/model.mdf"
+		
+		passiveeffect=""
+
+	    selectedsound="alt2/sounds/voice/select_%.wav"
+	    selectedflavorsound="alt2/sounds/voice/select_flavour_%.wav"
+	    confirmmovesound="alt2/sounds/voice/move_%.wav"
+	    confirmattacksound="alt2/sounds/voice/attack_%.wav"
+	    nomanasound="alt2/sounds/voice/no_mana.wav"
+	    cooldownsound="alt2/sounds/voice/cooldown.wav"
+	    tauntedsound="alt2/sounds/voice/taunt_prior.wav"
+	    tauntkillsound="alt2/sounds/voice/taunt_after.wav"
+
+		previewmodel="alt2/preview.mdf"
+		previewpos="0 0 -80"
+		previewangles="0 0 0"
+		previewscale="2"
+
+		storemodel="alt2/preview.mdf"
+		storepos="0 0 -20"
+		storeangles="0 0 0"
+		storescale="2.2"
+
+		portraitcampos="22 -5 11"
+		portraitangles="0 0 10"
+	/>
+	
+	<altavatar key="Hero_Goldenveil.Alt3"
+		preglobalscale="1.5"
+
+		icon2="alt3/icon.tga"
+		portrait="alt3/icon.tga"
+		model="alt3/model.mdf"
+		
+		passiveeffect=""
+
+	    selectedsound="alt3/sounds/voice/select_%.wav"
+	    selectedflavorsound="alt3/sounds/voice/select_flavour_%.wav"
+	    confirmmovesound="alt3/sounds/voice/move_%.wav"
+	    confirmattacksound="alt3/sounds/voice/attack_%.wav"
+	    nomanasound="alt3/sounds/voice/no_mana.wav"
+	    cooldownsound="alt3/sounds/voice/cooldown.wav"
+	    tauntedsound="alt3/sounds/voice/taunt_prior.wav"
+	    tauntkillsound="alt3/sounds/voice/taunt_after.wav"
+
+		previewmodel="alt3/preview.mdf"
+		previewpos="0 0 -80"
+		previewangles="0 0 0"
+		previewscale="2"
+
+		storemodel="alt3/preview.mdf"
+		storepos="0 0 -20"
+		storeangles="0 0 0"
+		storescale="2.2"
+
+		portraitcampos="35 -5 8"
+		portraitangles="0 0 10"
+	>
+		<onspawn>
+			<ownsproduct target="this_entity" product="aa.Hero_Nomad.Alt13 aa.Hero_Goldenveil.Alt3 aa.Hero_Mumra.Alt7 aa.Hero_Dreadknight.Alt9 aa.Hero_SirBenzington.Alt12" >
+				<applystate name="Songkran_Set" continuous="true"/>
+			</ownsproduct>
+		</onspawn>
+	</altavatar>	
+	
+	<altavatar key="Hero_Goldenveil.Alt4"
+		preglobalscale="1.5"
+
+		icon2="alt3/icon.tga"
+		portrait="alt3/icon.tga"
+		model="alt4/model.mdf"
+		
+		passiveeffect=""
+
+	    selectedsound="alt4/sounds/voice/select_%.wav"
+	    selectedflavorsound="alt4/sounds/voice/select_flavour_%.wav"
+	    confirmmovesound="alt4/sounds/voice/move_%.wav"
+	    confirmattacksound="alt4/sounds/voice/attack_%.wav"
+	    nomanasound="alt4/sounds/voice/no_mana.wav"
+	    cooldownsound="alt4/sounds/voice/cooldown.wav"
+	    tauntedsound="alt4/sounds/voice/taunt_prior.wav"
+	    tauntkillsound="alt4/sounds/voice/taunt_after.wav"
+
+		previewmodel="alt3/preview.mdf"
+		previewpos="0 0 -80"
+		previewangles="0 0 0"
+		previewscale="2"
+
+		storemodel="alt3/preview.mdf"
+		storepos="0 0 -20"
+		storeangles="0 0 0"
+		storescale="2.2"
+
+		portraitcampos="35 -5 8"
+		portraitangles="0 0 10"
+	>
+		<onspawn>
+			<ownsproduct target="this_entity" product="aa.Hero_Nomad.Alt15 aa.Hero_Goldenveil.Alt4 aa.Hero_Mumra.Alt8 aa.Hero_Dreadknight.Alt10 aa.Hero_SirBenzington.Alt13" >
+				<applystate name="Songkran_Set" continuous="true"/>
+			</ownsproduct>
+		</onspawn>	
+	</altavatar>
+	
+	<altavatar key="Hero_Goldenveil.Alt5"
+			preglobalscale="1.5"
+
+			icon2="alt5/icon.tga"
+			portrait="alt5/icon.tga"
+			model="alt5/model.mdf"
+			
+			passiveeffect=""
+
+			previewmodel="alt5/preview.mdf"
+			previewpos="0 0 -80"
+			previewangles="0 0 0"
+			previewscale="2"
+
+			storemodel="alt5/preview.mdf"
+			storepos="0 0 -20"
+			storeangles="0 0 0"
+			storescale="2.2"
+			
+			selectedsound="alt5/sounds/voice/select_%.wav"
+			selectedflavorsound="alt5/sounds/voice/select_flavour_%.wav"
+			confirmmovesound="alt5/sounds/voice/move_%.wav"
+			confirmattacksound="alt5/sounds/voice/attack_%.wav"
+			nomanasound="alt5/sounds/voice/no_mana.wav"
+			cooldownsound="alt5/sounds/voice/cooldown.wav"
+			tauntedsound="alt5/sounds/voice/taunt_prior.wav"
+			tauntkillsound="alt5/sounds/voice/taunt_after.wav"
+
+			portraitcampos="-40 -20 0"
+			portraitangles="0 0 10"
+	/>
+</hero>

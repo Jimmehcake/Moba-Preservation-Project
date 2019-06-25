@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="" deferred="true" >
+	<definitions>
+
+		<particlesystem name="system0" space="entity" scale="0.8">
+			<sound
+			    soundloop="true"
+				randomloop="true"
+				minfadein="500"
+				maxfadein="2000"
+				fadeout="2000"
+				volume=".3" 
+				sample="/heroes/goldenveil/ability_02/sounds/idle.ogg"
+				linearfalloff="true"
+				minfalloffstart="0"
+				maxfalloffstart="5000"
+				minfalloffend="3000"
+				maxfalloffend="5000"
+			/>
+			
+			<sound
+				volume=".8"
+				linearfalloff="true"
+				falloffstart="2000"
+				falloffend="5000"
+				sample="/heroes/goldenveil/ability_02/sounds/tree_idle_spot_%.ogg"
+			
+			/>
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<spawnmodifier instance="instance1" modifier="modifier0"/> 
+		<waitfordeath instance="instance0" />
+	</thread>
+</effect>
+
+

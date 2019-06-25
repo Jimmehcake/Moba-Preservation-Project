@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect persistent="1" name="deathExplosionLarge" >
+	<definitions>
+		<particlesystem name="system0" space="world" scale=".7" >
+
+			<sound
+		        norestart="true"
+		        channelid="saphabone"
+				linearfalloff="true" 
+				falloffstart="800"
+				falloffend="1300"
+				volume="1"
+				sample="/heroes/sapphire/ability_01/sounds/cast_vox_who_%.wav"
+			/>
+			
+			<model
+				life="500"
+				bone="_bone_centerofchest"
+				position="0 0 0"
+				expirelife="500"
+				name="emitter0" 
+				anim="idle"
+				model="/shared/effects/models/circle_of_bones/model.mdf"
+				scale="1"
+				startcolor="0 0 0"
+				midcolor="0 0 0"
+				endcolor="0 0 0"
+				midcolorpos=".75"
+				startalpha="0"
+				midalpha="0"
+				endalpha="0"
+				midalphapos=".4"
+				rollspeed="3000"
+			>
+			
+				<template name="trails">
+				<!-- 	<simpleemitter
+						bone="{bone}"
+						spawnrate="15"
+						minparticlelife="250"
+						maxparticlelife="500"
+						gravity="-5"
+						position="0 0 0"
+						offsetsphere="0 0 0"
+						material="/shared/effects/materials/dust_smoke_02.material"
+						depthbias="25"
+					>
+						<particle 
+							minangle="0"
+							maxangle="360"
+							minanglespeed="-6"
+							maxanglespeed="6"
+							color="0 0 0"
+							startsize="30"
+							endsize="80"
+							startalpha=".4"
+							midalpha=".4"
+							endalpha="0"
+							minscale=".9"
+							maxscale="1.2"
+						/>
+					</simpleemitter> -->
+					<trailemitter
+						directionalspace="local"
+						bone="{bone}"
+						spawnrate="100"
+						particlelife="300"
+						angle="0"
+						speed="25"
+						drag=".1"
+						texpostime="150"
+						texposscale="0"
+						mintexstretchscale=".2" maxtexstretchscale="1"
+						material="/shared/effects/materials/light_trail.material"
+						gravity="-3"
+					>
+						<particle
+							startcolor=".6 .5 .2" 
+							endcolor="0"
+							startsize="30"
+							endsize="3"
+						/>
+					</trailemitter>
+					
+				</template>
+			
+				
+				<instance name="trails" bone="_bone_fx_01"/>
+				<instance name="trails" bone="_bone_fx_02"/>
+				<instance name="trails" bone="_bone_fx_03"/>
+				<instance name="trails" bone="_bone_fx_04"/>
+				<instance name="trails" bone="_bone_fx_05"/>
+				
+			</model>
+			
+				<simpleemitter
+					life="500"
+					spawnrate="25"
+					minparticlelife="250"
+					maxparticlelife="500"
+					gravity="-5"
+					position="0 0 40"
+					offsetsphere="40"
+					material="/shared/effects/materials/dust_smoke_02.material"
+					depthbias="25"
+				>
+					<particle 
+						minangle="0"
+						maxangle="360"
+						minanglespeed="-6"
+						maxanglespeed="6"
+						color="0 0 0"
+						startsize="30"
+						endsize="80"
+						startalpha=".4"
+						midalpha=".4"
+						endalpha="0"
+						minscale=".9"
+						maxscale="1.2"
+					/>
+				</simpleemitter>
+				<simpleemitter
+					life="500"
+					spawnrate="25"
+					minparticlelife="250"
+					maxparticlelife="500"
+					gravity="-5"
+					position="0 0 40"
+					offsetsphere="40"
+					material="/shared/effects/materials/pyroclast_01.material"
+					depthbias="25"
+				>
+					<particle 
+						minangle="0"
+						maxangle="360"
+						minanglespeed="-6"
+						maxanglespeed="6"
+						color=".36 .33 .2"
+						startsize="30"
+						endsize="80"
+						startalpha=".4"
+						midalpha=".4"
+						endalpha="0"
+						minscale="2"
+						maxscale="3"
+					/>
+				</simpleemitter>
+				<simpleemitter
+					life="500"
+					offsetsphere="50 50 50"
+					spawnrate="222"			
+					count="21"
+					particlelife="1300"			
+					gravity="3"					
+					acceleration="0"
+					speed="50"
+					position="0 0 30"					
+					material="/shared/effects/materials/pyroclast_01.material"	
+				>
+					<particle
+						minangle="-360"
+						maxangle="360"
+						color=".36 .33 .2"
+						startsize="40"
+						endsize="150"
+						minanglespeed="-30"
+						maxanglespeed="73"
+						startalpha="0"
+						midalpha=".5"
+						endalpha="0"
+						frame="1"
+						framespeed="1"
+						anchor="1"
+						lockup="0"
+						lockright="false"							
+						turn="false"
+					/>
+				</simpleemitter>	
+				<simpleemitter
+					delay="50"
+					life="300"
+					offsetsphere="10"
+					spawnrate="12"			
+					particlelife="1300"			
+					gravity="3"					
+					acceleration="0"
+					speed="50"
+					position="0 0 0"					
+				>
+					<particle
+					>
+						<debris
+							position="0 0 10"
+							delay="0"
+							minscale=".3"
+							maxscale=".5"
+							minlife="900"
+							maxlife="1300"
+							model="/shared/effects/models/debris/debris.mdf"
+							anim="idle"	
+							minspeed="800.0"
+							maxspeed="1000.0"
+							drag="0.005"
+							minrotationspeed="-300.0"
+							maxrotationspeed="300.0"
+							gravity="100.0"
+							minangle="0"
+							color=".6 .6 .3"
+							maxangle="50"
+							collide="true"
+							startalpha="1.0"
+							midalpha="1.0"
+							endalpha="0.0"
+							midalphapos="0.9"
+							bounce="0.7"
+							reflect="0.6"
+							animpose="false"
+						/>	
+					</particle>
+				</simpleemitter>	
+		
+				<billboard
+					position="0 0 50"
+					life="100"
+					startcolor=".2 0 1"
+					endcolor="0"
+					alpha="1"
+					size="378"
+					depthbias="-20"
+					material="/shared/effects/materials/whitedot.material"
+					turn="1"
+					yaw="90"
+					lockup="true"
+					lockright="1"
+					directionalspace="local"
+				/>	
+				<billboard
+					position="0 -30 50"
+					life="300"
+					startcolor="1.0 .5 .1"
+					endcolor="0"
+					alpha="1"
+					size="178"
+					startwidth="200"
+					endwidth="600"
+					depthbias="-20"
+					material="/shared/effects/materials/light_trail.material"
+					turn="1"
+					yaw="90"
+					lockup="true"
+					lockright="1"
+					directionalspace="local"
+				/>	
+				<billboard
+					position="0 -50 70"
+					life="200"
+					startcolor="1"
+					endcolor="0"
+					alpha="1"
+					size="58"
+					startwidth="100"
+					endwidth="300"
+					depthbias="-20"
+					material="/shared/effects/materials/flux_ray.material"
+					turn="1"
+					yaw="90"
+					lockup="true"
+					lockright="1"
+					directionalspace="local"
+				/>	
+				<billboard
+					position="0 -40 20"
+					life="200"
+					startcolor="1"
+					endcolor="0"
+					alpha="1"
+					size="58"
+					startwidth="100"
+					endwidth="300"
+					depthbias="-20"
+					material="/shared/effects/materials/flux_ray.material"
+					turn="1"
+					yaw="90"
+					lockup="true"
+					lockright="1"
+					directionalspace="local"
+				/>	
+				<simpleemitter
+					life="400"
+					position="0 0 50"
+					spawnrate="100"
+					minparticlelife="200" maxparticlelife="400"
+					gravity="-15"
+					minspeed="300"
+					maxspeed="800"
+					drag=".05"
+					direction="0 .5 .1"
+					minangle="-30" maxangle="30"
+					offsetsphere="50"
+					material="/shared/effects/materials/spark_10.material"
+					inheritvelocity=".05"
+				>
+					<particle
+						minangle="-360" maxangle="360"
+						color="1 1 .5"
+						anglespeed="20"
+						minscale="1" maxscale="2.5"
+						startsize="8" endsize="2"
+						startalpha="1" midalpha=".3" endalpha="0"
+						startheightdistort=".1"
+					/>
+					<particle
+						minangle="-360" maxangle="360"
+						color="1 .8 .4"
+						anglespeed="20"
+						minscale="1" maxscale="2.5"
+						startsize="12" endsize="4"
+						startalpha=".6" midalpha=".2" endalpha="0"
+						startheightdistort=".1"
+					/>
+				</simpleemitter>
+
+			<template name="hand_trail">
+				<simpleemitter
+					life="500"
+					bone="{bone}"
+					spawnrate="45"
+					minparticlelife="150"
+					maxparticlelife="300"
+					gravity="-5"
+					position="0 0 30"
+					offsetsphere="18"
+					material="/shared/effects/materials/soul_projectile2.material"
+					depthbias="25"
+				>
+					<particle 
+						minangle="0"
+						maxangle="360"
+						minanglespeed="-6"
+						maxanglespeed="6"
+						startcolor="1"
+						midcolor=".75 .4 .1"
+						endcolor="0 0 0"
+						midcolorpos=".25"
+						startsize="20"
+						endsize="50"
+						startanchor="0"
+						endanchor="0"
+						minscale="1.2"
+							maxscale="1.6"
+					/>
+				</simpleemitter>
+			
+			</template>
+			<instance name="hand_trail" bone="_bone_lefthand"  direction="0 -1 -1" />
+			<instance name="hand_trail" bone="_bone_rightheand"  direction="0 1 -1" />
+			<instance name="hand_trail" bone="_bone_leftfoot"  direction="0 1 -1" />
+			<instance name="hand_trail" bone="_bone_rightfoot"  direction="0 1 -1" />
+			<!-- <instance name="hand_trail" bone="_bone_leftheand"  direction="0 -1 -1" /> -->
+
+      </particlesystem>
+   </definitions>
+<thread>
+	<spawnparticlesystem instance="instance0" particlesystem="system0" />
+	<spawnmodifier instance="instance1" />
+	
+	<waitfordeath instance="instance0" />
+	<waitfordeath instance="instance1" />
+	
+	<!-- <die /> -->
+</thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->
+

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="false">
+	<definitions>
+		<particlesystem name="system0" space="world" scale=".9">
+			
+			<trackeremitter
+				timenudge="500"
+				position="0 10 0"
+				offsetradial="65 0 0"
+				targetbone="_bone_head"
+				tracktype="angular"
+				trackspeed="4"
+				spawnrate="150"
+				direction="0 0 1"
+				minangle="0"
+				maxangle="60"
+				minparticlelife="400"
+				maxparticlelife="500"
+				distancelife="true"
+				minspeed="250"
+				maxspeed="300"
+				drag="0.01"
+				gravity="-10"
+				inheritvelocity="1"
+				limitinheritvelocity="500"
+				material="/shared/effects/materials/smoke_01.material"
+				particlecolor="1"
+			>
+				<template name="sand_particle">
+					<particle
+						maxangle="360"
+						startalpha="0"
+						midalpha=".5"
+						endalpha="0"
+						midalphapos=".2"
+						startcolor=".1"
+						endcolor="{color}"
+						minsize="20"
+						maxsize="100"
+						startscale=".5"
+						midscale="1"
+						endscale="1.5"
+						heightdistort=".1"
+					/>
+				</template>
+				<instance name="sand_particle" color=".5 .5 1" />
+				<instance name="sand_particle" color=".5 .5 1" />
+				<instance name="sand_particle" color=".5 .5 1" />
+			</trackeremitter>
+			
+			<simpleemitter
+				bone="_bone_center"
+				position="0 10 0"
+				spawnrate="5"
+				offsetsphere="50 50 0"
+				particlelife="1000"
+			>
+				<particle turn="1">
+					<terrainemitter
+						count="1"
+						minparticlelife="750"
+						maxparticlelife="1000"
+						material="/shared/effects/materials/earth_cracks_add_purple.material"
+					>
+						<particle
+							startalpha="0"
+							midalpha=".25"
+							endalpha="0"
+							midalphapos=".1"
+							startcolor=".5"
+							endcolor="0"
+							lockup="true"
+							lockright="true"							
+							pitch="-90"
+							minsize="80"
+							maxsize="160"
+							minangle="-90"
+							maxangle="90"
+						/>
+					</terrainemitter>
+				</particle>
+			</simpleemitter>
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+</effect>

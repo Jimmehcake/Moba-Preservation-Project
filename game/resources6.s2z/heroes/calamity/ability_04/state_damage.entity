@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Calamity_Ability4_Damage"
+	
+	effecttype=""
+	
+	icon="icon.tga"
+	passiveeffect=""
+
+	ishidden="true"
+
+	maxcharges="15"
+>
+	<onframe />
+
+	<oninflict>
+		<damage effecttype="Magic" amount="81,108,135" />
+		<addcharges count="1" />
+	</oninflict>
+
+	<onrefresh>
+		<evaluate a="charges" b="0.1" op="mult" />
+		<evaluate a="1" b="result" op="sub" />
+		<damage effecttype="Magic" amount="81,108,135" b="result" op="mult" />
+		<addcharges count="1" />
+	</onrefresh>
+</state>

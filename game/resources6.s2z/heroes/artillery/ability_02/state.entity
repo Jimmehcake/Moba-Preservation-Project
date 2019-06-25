@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Artillery_Ability2"
+	
+	icon="icon.tga"
+	passiveeffect="effects/state_enemy.effect"
+	
+	movespeedslow="0.15"
+
+	effecttype="StatusDebuff"
+	allowtransfer="true"
+>
+	<altavatar key="Hero_Artillery.Alt6" modpriority="90"
+		passiveeffect="/heroes/artillery/alt6/ability_02/effects/state_enemy.effect"
+	/>
+	
+	<altavatar key="Hero_Artillery.Alt7" modpriority="90"
+		passiveeffect="/heroes/artillery/alt7/ability_02/effects/state_enemy.effect"
+	/>
+	
+	<altavatar key="Hero_Artillery.Alt8" modpriority="90"
+		passiveeffect="/heroes/artillery/alt8/ability_02/effects/state_enemy.effect"
+	/>
+
+	<altavatar key="Hero_Artillery.Alt9" modpriority="90"
+		icon="../alt9/ability_02/icon.tga"
+		passiveeffect="/heroes/artillery/alt9/ability_02/effects/state_enemy.effect"
+	/>
+	
+	<altavatar key="Hero_Artillery.Alt10" modpriority="90"
+		icon="../alt9/ability_02/icon.tga"
+		passiveeffect="/heroes/artillery/alt9/ability_02/effects/state_enemy.effect"
+	/>
+	
+	<altavatar key="Hero_Artillery.Alt11" modpriority="90"
+		icon="../alt11/ability_02/icon.tga"
+		passiveeffect="/heroes/artillery/alt11/ability_02/effects/state_enemy.effect"
+	/>
+	
+	<altavatar key="Hero_Artillery.set_ascension" modpriority="90"
+		passiveeffect="/heroes/artillery/set_ascension/ability_02/effects/state_enemy.effect"
+	/>
+</state>

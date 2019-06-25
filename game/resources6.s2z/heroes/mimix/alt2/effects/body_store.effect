@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect  deferred="true" useentityeffectscale="1">
+	<definitions>
+		<particlesystem name="system0" space="entity" scale="1">
+			<sound
+				    dampen="0.5"
+				    channelid="storeaud"
+					sound2d="true"
+					volume=".5"
+					sample="../sounds/store_audio.wav"
+			/>
+			
+			<model	
+				position="0 -2 3"
+				parentmodel="true"
+				parentskeleton="true"
+				color=".8"
+				alpha=".4"
+				material="/shared/effects/materials/shell_rim_white.material"
+			/>
+			
+			<model	
+				position="0 -7 2"
+				parentmodel="true"
+				parentskeleton="true"
+				color=".5 .75 1"
+				material="/shared/effects/materials/shell2.material"
+			/>
+			
+			<model	
+				life="2000"
+				loop="true"
+				position="0 -7 2"
+				parentmodel="true"
+				parentskeleton="true"
+				startcolor=".5 .75 1"
+				midcolor=".75 .25 1"
+				endcolor="0"
+				startalpha="0"
+				midalpha=".5"
+				endalpha="0"
+				midalphapos=".4"
+				material="/shared/effects/materials/shell_rim_white.material"
+			>
+				<skeletonemitter
+					spawnrate="60"
+					material="/shared/effects/materials/phantom_white_reveal.material"
+					minparticlelife="600"
+					maxparticlelife="750"
+					minspeed="0"
+					gravity="-3"
+					maxspeed="20"
+					depthbias="20"
+					scale="2"
+				>
+					<particle
+						anchor="1"
+						maxangle="360"
+						minstartscale="6"
+						maxstartscale="8"
+						minendscale="12"
+						maxendscale="20"
+						startcolor=".1 .1 .4"
+						endcolor=".6 .2 1"
+						startalpha="0"
+						midalpha=".3"
+						endalpha="0"
+						startframe="0"
+						endframe="1"
+					/>
+				</skeletonemitter>
+				
+				<skeletonemitter
+					spawnrate="50"
+					material="/shared/effects/materials/crack_10.material"
+					minparticlelife="600"
+					maxparticlelife="750"
+					minspeed="0"
+					maxspeed="8"
+					gravity="-2"
+					depthbias="20"
+					scale="2"
+				>
+					<particle
+						anchor="1"
+						maxangle="360"
+						startscale="0"
+						minendscale="12"
+						maxendscale="15"
+						startcolor=".35"
+						endcolor="0"
+						startalpha="0"
+						midalpha=".25"
+						endalpha="0"
+						color="1"
+						startframe="0"
+						endframe="1"
+					/>
+				</skeletonemitter>
+			</model>
+			
+			<simpleemitter
+				count="2"
+				spawnrate="9"
+				position="0 -2 0"
+				minangle="0"
+				maxangle="0"
+				direction="0 1 0"
+				offsetsphere="2"
+			>
+				<particle anchor="0" turn="true">
+					<model
+						life="8000"
+						model="../model_store_l.mdf"
+						anim="idle"
+						startcolor="0 .4 .8"
+						midcolor="1 .4 .8"
+						endcolor="1 .4 .8"
+						startalpha=".45"
+						midalpha=".55"
+						endalpha="0"
+						midalphapos=".25"
+						material="/shared/effects/materials/shell_rim_white.material"
+					/>
+					<model
+						life="8300"
+						model="../model_store_l.mdf"
+						anim="idle"
+						startcolor=".15 .25 1"
+						midcolor=".15 .25 1"
+						endcolor="0"
+						midcolorpos=".75"
+						material="/shared/effects/materials/shell2.material"
+						startparam0="0"
+						endparam0="1"
+					/>
+				</particle>
+			</simpleemitter>
+			
+			<simpleemitter
+				delay="8300"
+				spawnrate="4"
+				position="0 -2 0"
+				minangle="0"
+				maxangle="0"
+				direction="0 1 0"
+				offsetsphere="3"
+			>
+				<particle anchor="0" turn="true">
+					<model
+						life="800"
+						model="../model_0.mdf"
+						anim="idle"
+						startcolor="0 .4 .8"
+						midcolor="1 .4 .8"
+						endcolor="1 .4 .8"
+						startalpha=".45"
+						midalpha=".55"
+						endalpha="0"
+						midalphapos=".25"
+						material="/shared/effects/materials/shell_rim_white.material"
+					/>
+					<model
+						life="833"
+						model="../model_0.mdf"
+						anim="idle"
+						startcolor=".15 .25 1"
+						midcolor=".15 .25 1"
+						endcolor="0"
+						midcolorpos=".75"
+						material="/shared/effects/materials/shell2.material"
+						startparam0="0"
+						endparam0="1"
+					/>
+				</particle>
+			</simpleemitter>
+			
+			<billboard
+				delay="3450"
+				life="150"
+				bone="Bone001"
+				startalpha="1"
+				midalpha=".65"
+				endalpha="0"
+				midalphapos=".75"
+				startparam=".25"
+				endparam="0"
+				startsize="0"
+				endsize="250"
+				depthbias="-20"
+				material="/shared/effects/materials/refract_ring.material"
+				position="5 -5 0"
+			/>
+			
+			<billboard
+				delay="4850"
+				life="150"
+				bone="Bone011"
+				startalpha="1"
+				midalpha=".5"
+				endalpha="0"
+				midalphapos=".75"
+				startparam=".25"
+				endparam="0"
+				startsize="0"
+				endsize="250"
+				depthbias="-20"
+				material="/shared/effects/materials/refract_ring.material"
+				position="5 -5 0"
+			/>
+		</particlesystem>
+		
+		<particlesystem name="system1" space="entity" scale="1.5">
+
+			<model	
+				delay="3100"
+				life="300"
+				parentmodel="true"
+				parentskeleton="true"
+				startcolor=".4 .6 1"
+				midcolor=".2 0 .6"
+				endcolor="0 0 0"
+				material="/shared/effects/materials/shell_flat_outline.material"
+				alpha="2"
+			/> 
+			<model	
+				delay="3100"
+				life="400"
+				parentmodel="true"
+				parentskeleton="true"
+				startcolor="0 2 4"
+				midcolor=".5 .3 1"
+				endcolor="0 0 0"
+				material="/shared/effects/materials/shell2.material"
+				startalpha="1"
+				endalpha="20"
+			/>
+			
+			<model	
+				delay="3100"
+				life="2000"
+				loop="true"
+				position="0 -7 2"
+				parentmodel="true"
+				parentskeleton="true"
+				startcolor=".5 .75 1"
+				midcolor=".75 .25 1"
+				endcolor="0"
+				startalpha="0"
+				midalpha=".5"
+				endalpha="0"
+				midalphapos=".4"
+				material="/shared/effects/materials/shell_rim_white.material"
+			>
+				<skeletonemitter
+					spawnrate="60"
+					material="/shared/effects/materials/phantom_white_reveal.material"
+					minparticlelife="600"
+					maxparticlelife="750"
+					minspeed="0"
+					gravity="-3"
+					maxspeed="20"
+					depthbias="20"
+					scale="1.5"
+				>
+					<particle
+						anchor="1"
+						maxangle="360"
+						minstartscale="6"
+						maxstartscale="8"
+						minendscale="12"
+						maxendscale="20"
+						startcolor=".1 .1 .4"
+						endcolor=".6 .2 1"
+						startalpha="0"
+						midalpha=".3"
+						endalpha="0"
+						startframe="0"
+						endframe="1"
+					/>
+				</skeletonemitter>
+				
+				<skeletonemitter
+					spawnrate="50"
+					material="/shared/effects/materials/crack_10.material"
+					minparticlelife="600"
+					maxparticlelife="750"
+					minspeed="0"
+					maxspeed="8"
+					gravity="-2"
+					depthbias="20"
+					scale="2"
+				>
+					<particle
+						anchor="1"
+						maxangle="360"
+						startscale="0"
+						minendscale="12"
+						maxendscale="15"
+						startcolor=".35"
+						endcolor="0"
+						startalpha="0"
+						midalpha=".25"
+						endalpha="0"
+						color="1"
+						startframe="0"
+						endframe="1"
+					/>
+				</skeletonemitter>
+			</model>
+			
+			<skeletonemitter
+				delay="3100"
+				life="400"
+				spawnrate="150"
+				material="/shared/effects/materials/crack_10.material"
+				minparticlelife="300"
+				maxparticlelife="400"
+				minspeed="0"
+				maxspeed="8"
+				gravity="-25"
+				depthbias="-3"
+				offsetsphere="1"
+			>
+				<particle
+					maxangle="360"
+					startscale="5"
+					endscale="6"
+					startcolor=".45"
+					endcolor="0"					
+					anchor="1"
+				/>
+			</skeletonemitter>
+			
+			<simpleemitter
+				delay="3100"
+				position="0 0 20"
+				life="660"
+				spawnrate="300"
+				depthbias="-2"
+				minparticlelife="300"
+				maxparticlelife="400"
+				minspeed="1100"
+				maxspeed="1800"
+				direction="0 0 1"
+				drag="0.03"
+				minangle="75"
+				maxangle="90"
+          		material="/shared/effects/materials/ring_04_reveal.material"
+			>
+				<particle
+					color="1 .5 1"
+					startsize="20"
+					endsize="30"
+					scale=".5"
+					midsizepos=".25"
+					startframe="0"
+					endframe="1"
+					rollspeed="150"
+					yawspeed="400"
+					minangle="-45"
+					maxangle="45"
+				>
+					<billboard
+						life="650"
+						material="/shared/effects/materials/glow_01.material"
+						startcolor="1.75 0 1"
+						endcolor="0"
+						startsize="20"
+						endsize="25"
+						midsizepos=".25"
+					/>
+					<billboard
+						life="650"
+						material="/shared/effects/materials/glow_01.material"
+						startcolor="1"
+						endcolor="0"
+						startsize="10"
+						endsize="7"
+						midsizepos=".25"
+					/>
+				</particle>
+				
+				<particle
+					color=".2 .5 1"
+					startsize="20"
+					endsize="30"
+					scale=".5"
+					midsizepos=".25"
+					startframe="0"
+					endframe="1"
+					rollspeed="150"
+					yawspeed="400"
+					minangle="-45"
+					maxangle="45"
+				>
+					<billboard
+						life="650"
+						material="/shared/effects/materials/glow_01.material"
+						startcolor="0 .5 1.75"
+						endcolor="0"
+						startsize="20"
+						endsize="25"
+						midsizepos=".25"
+					/>
+					<billboard
+						life="650"
+						material="/shared/effects/materials/glow_01.material"
+						startcolor="1"
+						endcolor="0"
+						startsize="10"
+						endsize="7"
+						midsizepos=".25"
+					/>
+				</particle>
+			</simpleemitter>
+	
+			<billboard
+				delay="2800"
+				life="250"
+				startalpha="1"
+				midalpha="1"
+				endalpha="0"
+				midalphapos=".75"
+				startparam=".25"
+				endparam="0"
+				startsize="500"
+				endsize="850"
+				depthbias="-100"
+				material="/shared/effects/materials/refract_ring.material"
+				position="-20 -35 70"
+			/>
+			<simpleemitter
+				delay="3100"
+				life="1500"
+				spawnrate="10"			
+				material="/shared/effects/materials/refract_ring.material"
+				minparticlelife="300"
+				maxparticlelife="400"
+				position="-20 -35 70"
+				offsetsphere="0"
+			>
+				<particle
+					color="1.0 1.0 1.0"
+					startalpha="0.0"
+					midalpha="1"
+					endalpha="0.0"
+					midalphapos="0.75"
+					startparam="0.5"
+					endparam=".0"
+					startsize="0"
+					endsize="800"
+					anchor="1"
+				/>
+			</simpleemitter>
+			
+		<template name="smokybody" >
+			<simpleemitter
+				delay="2800"
+				bone="{bone}"
+				spawnrate="5"
+				minparticlelife="300"
+				maxparticlelife="800"
+				gravity="-1.0"
+				speed="0.20"
+				drag="1"
+				material="/shared/effects/materials/phantom_smoke_17.material"
+				offsetsphere="3"
+				depthbias="-1"
+			>
+				<particle
+					startcolor="1"
+					midcolor="0 .5 .5"
+					endcolor="0"
+					minangle="0"
+					maxangle="90"
+					startsize="0"
+					midsize="15"
+					endsize="0"
+					startanchor="1"
+					endanchor="0"
+					scale="{scale}"
+				/>
+			</simpleemitter>
+		
+			<simpleemitter
+				delay="2800"
+				bone="{bone}"
+				spawnrate="10"
+				minparticlelife="200"
+				maxparticlelife="400"
+				gravity="0"
+				speed="0.20"
+				drag="2.0"
+				material="/shared/effects/materials/crack_10.material"
+				offsetsphere="3"
+				position="0 0 0"
+				depthbias="-1"
+			>
+				<particle
+					startcolor="0"
+					midcolor="1 1 1"
+					endcolor="0"
+					minangle="0"
+					maxangle="90"
+					minanglespeed="0"
+					maxanglespeed="30"
+					startsize="2"
+					endsize="10"
+					startframe="0"
+					endframe="1"
+					startanchor="1"
+					endanchor="0"
+					scale="{scale}"
+				/>
+			</simpleemitter>
+
+			<billboard
+				delay="2800"
+				bone="{bone}"
+				material="/shared/effects/materials/flare_02.material"
+				color="0 .3 .5"	
+				startsize="20"				
+				endsize="30"
+				depthbias="-1"
+				loop="true"
+				life="300"
+				scale="{scale}"
+			/>
+		</template>	
+		<instance name="smokybody" bone="Bip01 Neck" scale=".35" />
+		<instance name="smokybody" bone="Bip01 Spine" scale="1" />
+		<instance name="smokybody" bone="Bip01 Pelvis" scale="1.5" />
+			
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<spawnparticlesystem instance="instance1" particlesystem="system1" />
+      	<waitfordeath instance="instance0" />
+		<waitfordeath instance="instance1" />
+		<!-- <die /> -->
+	</thread>
+</effect>

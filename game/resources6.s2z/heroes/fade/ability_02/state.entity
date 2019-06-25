@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Fade_Ability2_Stunned"
+	
+	icon="/heroes/fade/ability_02/icon.tga"
+	passiveeffect="/heroes/fade/ability_02/effects/state_rings.effect"
+	frozen="true"
+	stunned="true"
+	
+	ishidden="true"
+	
+	effecttype="StatusDisable"
+
+	allowtransfer="true"
+
+	negativeeffect="stunned"
+>
+	<onexpired>
+		<playanim name="idle" target="target_entity" />
+	</onexpired>
+	
+	<altavatar key="Hero_Fade.Alt4" modpriority="90"
+		passiveeffect="/heroes/fade/alt4/ability_02/effects/state_rings.effect"
+	/>
+	
+	<altavatar key="Hero_Fade.Alt5" modpriority="90"
+		passiveeffect="/heroes/fade/alt5/ability_02/effects/state_rings.effect"
+	/>
+	
+	<altavatar key="Hero_Fade.Alt6" modpriority="90"
+		passiveeffect="/heroes/fade/alt6/ability_02/effects/state_rings.effect"
+		icon="/heroes/fade/alt6/ability_02/icon.tga"
+	/>
+	
+	<altavatar key="Hero_Fade.Alt8" modpriority="90"
+		passiveeffect="/heroes/fade/alt8/ability_02/effects/state_rings.effect"
+		icon="/heroes/fade/alt8/ability_02/icon.tga"
+	/>
+	
+	<altavatar key="Hero_Fade.Alt9" modpriority="90"
+		passiveeffect="/heroes/fade/alt9/ability_02/effects/state_rings.effect"
+	/>
+	
+	<altavatar key="Hero_Fade.Alt10" modpriority="90"
+		passiveeffect="/heroes/fade/alt10/ability_02/effects/state_rings.effect"
+	/>
+	
+	<altavatar key="Hero_Fade.set_ascension" modpriority="90"
+		passiveeffect="/heroes/fade/set_ascension/ability_02/effects/state_rings.effect"
+	/>
+</state>

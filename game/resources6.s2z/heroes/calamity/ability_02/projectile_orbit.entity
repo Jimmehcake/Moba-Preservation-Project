@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectile
+	name="Projectile_Calamity_Ability2_Orbit"
+	
+	modelscale="1"
+	model="dragon/model.mdf"
+	traileffect="effects/trail.effect"
+
+	effectscale="1"
+	
+	canturn="true"
+	flying="true"
+	flyheight="0"
+	
+	orbitclockwise="true"
+	orbit="true"
+	orbitspeed="70"
+	orbitminspeed="70"
+	orbitmaxspeed="375"
+	orbitmodelangles="0"
+	
+	touchradius="70"
+	touchtargetactivescheme="nonillusion_nonself_stealth"
+	touchtargetscheme="enemy_units"
+	toucheffecttype="Magic"
+	
+	inheritvisibilityfromtarget="true"
+	
+	disjointable="false"
+
+	touchradiusdiradjust="true"
+>
+	<ontouch>
+		<applystate name="State_Calamity_Ability2_Damage" target="target_entity" duration="4000" />
+	</ontouch>
+	
+	<altavatar key="Hero_Calamity.Alt"
+		model="../alt/ability_02/dragon/model.mdf"
+		traileffect="../alt/ability_02/effects/trail.effect"
+		modelscale="1"
+	/>
+	
+	<altavatar key="Hero_Calamity.Alt2"
+		model="../alt2/ability_02/dragon/model.mdf"
+		traileffect="../alt2/ability_02/effects/trail.effect"
+		modelscale="3"
+	/>
+	
+	<altavatar key="Hero_Calamity.Alt3"
+		model="../alt3/ability_02/bird/model.mdf"
+		traileffect="../alt3/ability_02/effects/trail.effect"
+		modelscale="1.75"
+	>
+		<onspawn>
+			<compare a="param" b="1" op="eq" >
+				<activatemodifierkey name="bird" />
+			</compare>
+			<else>
+				<compare a="param" b="2" op="eq" >
+					<activatemodifierkey name="butterfly" />
+				</compare>
+				<else>
+					<activatemodifierkey name="plant" />
+				</else>
+			</else>
+		</onspawn>
+
+		<modifier key="bird" modpriority="1"
+			model="../alt3/ability_02/bird/model.mdf"
+			traileffect="../alt3/ability_02/effects/trail.effect"
+			modelscale="1.75"
+		/>
+
+		<modifier key="butterfly" modpriority="1"
+			model="../alt3/ability_02/butterfly/model.mdf"
+			traileffect="../alt3/ability_02/effects/trail.effect"
+			modelscale="2.25"
+		/>
+
+		<modifier key="plant" modpriority="1"
+			model="../alt3/ability_02/plant/model.mdf"
+			traileffect="../alt3/ability_02/effects/trail.effect"
+			modelscale="1.5"
+		/>
+	</altavatar>
+	
+	<altavatar key="Hero_Calamity.Alt4"
+		model="../alt4/ability_02/skull/model.mdf"
+		traileffect="../alt4/ability_02/effects/trail.effect"
+		modelscale="2.5"
+	/>
+	
+	<altavatar key="Hero_Calamity.Alt5"
+		model="../alt5/ability_02/air_dragon/model.mdf"
+		traileffect="../alt5/ability_02/effects/trail.effect"
+		modelscale="1.8"
+	/>
+	
+	<altavatar key="Hero_Calamity.Alt6"
+		model="../alt6/ability_02/skull/model.mdf"
+		traileffect="../alt6/ability_02/effects/trail.effect"
+		modelscale="1.8"
+	/>
+	
+	<altavatar key="Hero_Calamity.Alt8"
+		model="../alt8/ability_02/parrot/model.mdf"
+		traileffect="../alt8/ability_02/effects/trail.effect"
+		modelscale="1.8"
+	/>
+	
+	<altavatar key="Hero_Calamity.Alt9"
+		model="../alt9/ability_02/dragon/model.mdf"
+		traileffect="../alt9/ability_02/effects/trail.effect"
+		modelscale="1.8"
+		flyheight="80"
+	/>
+
+</projectile>

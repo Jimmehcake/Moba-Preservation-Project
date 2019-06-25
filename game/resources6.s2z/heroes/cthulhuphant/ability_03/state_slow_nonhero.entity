@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Cthulhuphant_Ability3_Slow_Nonhero"
+
+	icon="icon.tga"
+	effecttype="StatusDebuff"
+	passiveeffect="effects/state_nonhero.effect"
+	
+	movespeedslow="0.3"
+>
+
+	<onframe />
+
+</state>

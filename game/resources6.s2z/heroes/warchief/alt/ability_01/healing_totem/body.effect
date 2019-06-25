@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="ability_04_impact">
+	<definitions>
+
+		
+		<particlesystem name="system0" space="world" useentityeffectscale="true" scale="1">
+			
+			<sound
+			    delay="50"
+			    channelid="wara"
+			    norestart="true"
+				volume=".5"
+				sample="/heroes/warchief/ability_01/sounds/cast_2.wav"
+				linearfalloff="true"
+				falloffstart="600" 
+				falloffend="1300" 
+			/>
+			<model
+				model="model.mdf"
+				expirelife="0"
+				scale="1.5"
+			/>
+			
+			<groundsprite
+				expirelife="1000"
+				startalpha="1"
+				endalpha="0"
+				position="0 0 0"
+				color=".2 .5 .2"
+				size="50"
+				material="/shared/effects/materials/whitedot_ground.material"
+			/>
+			
+			<groundsprite
+				expirelife="1000"
+				startalpha="1"
+				endalpha="0"
+				position="0 0 0"
+				color="0 .1 0"
+				size="50"
+				material="/shared/effects/materials/corona_07_ground.material"
+			/>
+			
+			<simpleemitter
+				spawnrate="100"
+				minparticlelife="300"
+				maxparticlelife="1700"
+				expirelife="500"
+				startparticlecolor="1"
+				endparticlecolor="0"
+				offsetsphere="40 40 0"
+				direction="0 0 1"
+				angle="0"
+				minspeed="50"
+				maxpseed="450"
+				material="/shared/effects/materials/flare_03.material"
+			>
+				<particle
+					startcolor=".5 1 .5"
+					midcolor=".5 1 .5"
+					endcolor="0"
+					size="1"
+					maxangle="360"
+					minscale="1"
+					maxscale="3"
+				/>
+			</simpleemitter>
+			
+
+			
+			<billboard
+				position="0 10 40"
+				expirelife="0"
+				size="50"
+				color=".1 .25 .1"
+				material="/shared/effects/materials/corona_01.material"
+			/>
+			
+			<billboard
+				position="0 10 40"
+				expirelife="0"
+				rollspeed="100"
+				size="20"
+				color=".4 .8 .4"
+				material="/shared/effects/materials/blink.material"
+			/>
+			
+			
+				
+      </particlesystem>
+   </definitions>
+   <thread>
+      <spawnparticlesystem instance="instance0"  particlesystem="system0" />	
+	  <spawnmodifier instance="instance1" modifier="modifier0"/>  
+	  <waitfordeath instance="instance0" />
+	  <waitfordeath instance="instance1" />	  
+      <!-- <die /> -->
+   </thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->
+

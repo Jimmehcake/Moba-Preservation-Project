@@ -1,0 +1,1560 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="1">
+
+	<definitions>
+		<particlesystem name="system0" space="world" scale="1">
+
+			<sound
+				volume="1"
+				sample="/heroes/rocky/ability_02/sounds/ability_02_impact.wav"
+				linearfalloff="true"
+				falloffstart="0" 
+				falloffend="2500" 
+			/>
+			
+			<sound
+				volume="1"
+				sample="/heroes/artillery/alt9/sounds/ab4_imp.wav"
+				linearfalloff="true"
+				falloffstart="0" 
+				falloffend="2500" 
+			/>
+
+
+			<light
+				delay="150"
+				position="0 0 50"
+				life="400"
+				startcolor="10"
+				midcolor="6 7 2"
+				midcolorpos=".1"
+				endcolor="0"
+				falloffstart="0"
+				falloffend="1000"
+			/>
+			
+			
+			<simpleemitter
+				delay="150"
+				count="1"
+				spawnrate="222"
+				particlelife="5000"
+				offsetsphere="0 0 0"
+			>
+				<particle>
+					<groundsprite			
+						life="2750"
+						material="/shared/effects/materials/dirtpile_groundsprite.material"
+						size="300"
+						color=".75 .75 .75"
+						startalpha="1"
+						midalpha="1"
+						endalpha="0"
+						midalphapos=".85"
+						minyaw="0"
+						maxyaw="360"
+						position="0 0 0"
+					/>
+
+					<groundsprite
+						delay="100"
+						life="2750"
+						material="/shared/effects/materials/ground_smash_overlay.material"
+						size="150"
+						color="1 1 1"
+						startalpha=".55"
+						midalpha=".55"
+						endalpha="0"
+						midalphapos=".85"
+					/>
+
+					<groundsprite			
+						life="2750"
+						material="/shared/effects/materials/ground_scorch.material"
+						size="220"			
+						startalpha="1"
+						midalpha="1"
+						endalpha="0"
+						midalphapos=".85"
+						maxyaw="360"
+					/>
+				</particle>
+			</simpleemitter>
+
+			<model
+				delay="150"
+				model="/heroes/artillery/ability_04/effects/explosion_higher/model.mdf"
+				anim="idle"
+				scale="1.25"
+				life="2000"
+				startalpha="1"	
+				midalpha="1"				
+				endalpha="0"
+				midalphapos=".9"
+				position="0 0 0"
+				minyaw="0"
+				maxyaw="360"
+			>
+			</model>
+
+			<groundsprite		
+				delay="150"
+				life="3000"
+				material="/shared/effects/materials/ground_scorch.material"
+				size="350"			
+				startalpha="1"
+				midalpha="1"
+				endalpha="0"
+				maxyaw="360"
+			/>
+			
+			<simpleemitter	
+				delay="150"
+				speed="300"
+				life="300"				
+				endspawnrate="700"
+				count="15"
+				position="0 0 90"
+				minparticlelife="400"			
+				maxparticlelife="700"				
+				material="/shared/effects/materials/pyroclast_06.material"			
+				offsetsphere="95"
+				depthbias="-20"
+			>
+				<particle 
+					minanglespeed="-80"
+					maxanglespeed="80"
+					startcolor=".1 .2 .3"
+					endcolor="0 .1 .1"
+					size="40"
+					midsizepos=".65"
+					endsize="70"
+					startscale="2"
+					endscale="4"
+					endstickiness=".9"
+					startalpha=".4"
+					midalpha="2"
+					endalpha="0"
+				/>
+			</simpleemitter>
+			
+			<billboard
+				delay="150"
+				life="1000"
+				position="0 0 0"			
+				startcolor=".1 .5 0"
+				endcolor="0"
+				size="350"
+				depthbias="-100"
+				material="/shared/effects/materials/whitedot.material"
+			/>
+			
+			
+			<!-- explosion -->
+			<simpleemitter
+				delay="200"
+				count="300"
+				spawnrate="2000"
+				minparticlelife="300"
+				maxparticlelife="400"
+				drag=".005"
+				offsetphere="140 140 20"
+				gravity="10"
+				minspeed="650"
+				maxspeed="3250"								
+				direction="0 0 1"
+				position="0 0 0"
+				depthbias="-30"
+				material="/shared/effects/materials/blob_add.material"
+			>			
+				<particle
+					startcolor=".5 1 0"
+					endcolor="0"
+					startsize="3"
+					endsize="0"
+					minscale="1"
+					maxscale="3"
+				/>
+				<particle
+					startcolor=".75 1.5 0"
+					endcolor="0"
+					startsize="5"
+					endsize="0"
+					minscale="1"
+					maxscale="3"
+					endstickiness=".4"
+					startheightdistort=".05"
+					endheightdistortion="0"
+					turn="1"
+				/>
+			</simpleemitter>
+
+			
+			<simpleemitter	
+				delay="200"
+				life="400"				
+				spawnrate="2000"
+				count="4"
+				position="0 0 0"
+				minparticlelife="200"			
+				maxparticlelife="350"				
+				material="/shared/effects/materials/smash_add.material"			
+				depthbias="-100"
+				offsetsphere="5"
+			>
+				<particle 
+					minangle="0"
+					maxangle="360"
+					startcolor="0"
+					midcolor=".25 .5 0"
+					endcolor="0"
+					minsize="130"
+					maxsize="200"
+					startscale="1"
+					endscale="3"
+				/>
+			</simpleemitter>
+			
+			
+			<simpleemitter	
+				delay="150"
+				speed="300"
+				life="300"				
+				endspawnrate="700"
+				count="35"
+				position="0 0 0"
+				minparticlelife="200"			
+				maxparticlelife="500"				
+				material="/shared/effects/materials/soul_projectile2.material"			
+				depthbias="-30"
+				offsetsphere="115"
+			>
+				<particle 
+					minangle="0"
+					maxangle="360"
+					minanglespeed="-150"
+					maxanglespeed="150"
+					startcolor="2"
+					midcolor=".25 .68 .1"
+					endcolor="0 0 0"
+					size="40"
+					midsizepos=".75"
+					endsize="70"
+					startscale="1"
+					endscale="2"
+					endstickiness="1"
+				/>
+			</simpleemitter>
+
+
+
+
+
+
+			
+			
+			<!-- smoke -->
+			<simpleemitter	
+				delay="150"
+				spawnrate="11500"
+				life="1200"				
+				count="20"			
+				position="0 0 150"
+				minparticlelife="1000"			
+				maxparticlelife="1500"	
+				depthbias="-100"			
+				material="/shared/effects/materials/pyroclast_01.material"			
+				offsetsphere="125 125 100"
+				minspeed="0"
+				maxspeed="620"
+				angle="10"
+				direction="0 0 1"
+				drag=".01"
+				gravity="15"
+			>
+				<particle 
+					minangle="-25"
+					maxangle="25"
+					minanglespeed="-100"
+					maxanglespeed="100"
+					startcolor="0 .2 .3"
+					endcolor=".1"
+					startsize="100"
+					midsize="100"
+					endsize="200"
+					startalpha="0"
+					midalpha="1"
+					endalpha="0"
+				/>
+				<particle 
+					minangle="-25"
+					maxangle="25"
+					minanglespeed="-50"
+					maxanglespeed="50"
+					startcolor=".3 .35 .45"
+					endcolor="0"
+					startsize="150"
+					midsize="150"
+					endsize="220"
+					startalpha="0"
+					midalpha="1"
+					endalpha="0"
+				/>
+			</simpleemitter>
+			
+			
+			<simpleemitter	
+				delay="150"
+				spawnrate="11500"
+				life="1200"				
+				count="30"			
+				position="0 0 150"
+				minparticlelife="1500"			
+				maxparticlelife="2550"	
+				depthbias="-10"			
+				material="/shared/effects/materials/smoke_particle.material"			
+				offsetsphere="155 155 50"
+				minspeed="0"
+				maxspeed="520"
+				minangle="0"
+				maxangle="12"
+				direction="0 0 1"
+				gravity="8"
+				drag=".005"
+			>
+				<particle 
+					minangle="-25"
+					maxangle="25"
+					minanglespeed="-100"
+					maxanglespeed="100"
+					color=".45 .42 .35"
+					startsize="150"
+					endsize="400"
+					startalpha="0"
+					midalpha=".3"
+					endalpha="0"
+				/>
+				<particle 
+					minangle="-25"
+					maxangle="25"
+					minanglespeed="-100"
+					maxanglespeed="100"
+					color=".45"
+					startsize="150"
+					endsize="400"
+					startalpha="0"
+					midalpha=".3"
+					endalpha="0"
+				/>
+				<particle 
+					minangle="-25"
+					maxangle="25"
+					minanglespeed="-50"
+					maxanglespeed="50"
+					color=".2"
+					startsize="150"
+					midsize="150"
+					endsize="420"
+					startalpha="0"
+					midalpha=".3"
+					endalpha="0"
+				/>
+			</simpleemitter>
+			
+			
+
+			<simpleemitter	
+				delay="150"
+				spawnrate="11500"
+				life="3000"				
+				count="20"			
+				position="0 0 150"
+				minparticlelife="2500"			
+				maxparticlelife="3750"	
+				depthbias="-25"			
+				material="/shared/effects/materials/smoke_particle.material"			
+				offsetsphere="155 155 50"
+				minspeed="0"
+				maxspeed="100"
+				minangle="0"
+				maxangle="12"
+				direction="0 0 1"
+				gravity="4"
+				drag=".005"
+			>
+				<particle 
+					minangle="-25"
+					maxangle="25"
+					minanglespeed="-100"
+					maxanglespeed="100"
+					color="0 0 0"
+					startsize="150"
+					endsize="400"
+					startalpha="0"
+					midalpha=".3"
+					endalpha="0"
+				/>
+			</simpleemitter>
+
+			<simpleemitter	
+				delay="150"
+				spawnrate="11500"
+				life="1200"				
+				count="8"			
+				position="0 0 150"
+				minparticlelife="500"			
+				maxparticlelife="1150"	
+				depthbias="10"			
+				material="/shared/effects/materials/dust_puff.material"			
+				offsetsphere="55 55 60"
+				minspeed="0"
+				maxspeed="720"
+				minangle="0"
+				maxangle="12"
+				direction="0 0 1"
+				gravity="12"
+				drag=".005"
+			>
+				<particle 
+					minangle="-25"
+					maxangle="25"
+					minanglespeed="-100"
+					maxanglespeed="100"
+					color=".15 .11 .10"
+					startsize="100"
+					endsize="150"
+					startalpha="0"
+					midalpha="1"
+					endalpha="0"
+				/>
+			</simpleemitter>
+			
+ 
+		
+			
+			<!-- rune -->
+			<billboard
+				delay="50"
+				life="500"
+				
+				startcolor="0 .2 0"
+				midcolor=".15 .5 0"
+				endcolor="0"
+				midcolorpos=".3"
+				
+				midalphapos="0.75"
+				startsize="100"
+				midsize="150"
+				endsize="600"
+				midsizepos=".3"
+				depthbias="-30"
+				position="0 0 -80"
+				material="/shared/effects/materials/corona_01.material"
+				lockup="true"
+				pitch="90"
+			/>
+			
+	
+			
+			<!-- blink -->
+			<billboard
+				delay="50"
+				life="600"
+				startcolor=".9 1.5 0"
+				endcolor="0 0 0"
+				startalpha="1.0"
+				midalpha="1.0"
+				endalpha="0.0"
+				midalphapos="0.75"
+				startparam="0.05"
+				endparam="0.0"
+				
+				maxroll="360"
+				startsize="100"
+				
+				endsize="800"
+				depthbias="0"
+				position="0 0 -80"
+				material="/shared/effects/materials/stomp_02.material"
+				lockup="true"
+				pitch="90"
+			/>
+	
+			<billboard
+				delay="150"
+				life="1200"
+				startcolor="1 1 0"
+				endcolor="0 0 0"
+				startalpha="1.0"
+				midalpha="1.0"
+				endalpha="0.0"
+				midalphapos="0.75"
+				startparam="0.05"
+				endparam="0.0"
+				
+				roll="60"
+				startsize="150"
+				midsize="200"
+				endsize="300"
+				scale=".5"
+				midsizepos=".4"
+				
+				depthbias="0"
+				position="0 0 -80"
+				material="/shared/effects/materials/blink.material"
+				lockup="true"
+				pitch="90"
+			/>
+				
+			<simpleemitter
+				delay="50"
+				count="20"
+				minparticlelife="400"
+				maxparticlelife="600"
+				direction="0 0 1"
+				minangle="80"
+				maxangle="85"
+				minspeed="2000"
+				maxspeed="8000"
+				drag="0.01"
+				material="/shared/effects/materials/wave.material"
+			>
+				<particle
+					lockup="true"
+					lockright="true"
+					pitch="-90"
+					turn="1"
+					angle="-90"
+					startalpha="0"
+					midalpha="0.25"
+					endalpha="0"
+					startcolor="0"
+					midcolor=".06 .05 .04"
+					endcolor="0"
+					minsize="150"
+					maxsize="250"
+					minstartscale=".25"
+					maxstartscale=".5"
+					minendscale="1.25"
+					maxendscale="1.5"
+					depthbias="-150"
+				/>
+			</simpleemitter>		
+			
+			
+			
+			<!-- boom -->
+			<simpleemitter	
+				spawnrate="740"
+				minparticlelife="800"
+				maxparticlelife="1200"
+				count="15"
+				gravity="0"
+				minspeed="45"
+				maxspeed="120"
+				drag="0"
+				acceleration="0"
+
+				material="/shared/effects/materials/star_03.material"
+				offsetsphere="0 0 0"
+				minangle="0"
+				maxangle="360"
+				position="0 0 -80"
+				direction="0 0 1"
+			>
+				<particle 
+					minangle="0"
+					maxangle="0"
+					minanglespeed="0"
+
+					startcolor="0 0 0"
+					midcolor="1.5 1 .6"
+					endcolor="0 0 0"
+					midcolorpos=".5"
+
+					maxanglespeed="0"
+					startframe="0"
+					endframe="0"
+
+					startsize="1"
+					midsize="28"
+					endsize="1"
+					midsizepos=".5"
+
+					startalpha="1"
+					midalpha="1"
+					endalpha="1"
+					midalphapos=".5"
+					startstickiness="0"
+					endstickiness="0"
+				/>
+
+				<particle 
+					minangle="0"
+					maxangle="0"
+					minanglespeed="0"
+
+					startcolor="0 0 0"
+					midcolor="1.3 1 .5"
+					endcolor="0 0 0"
+					midcolorpos=".5"
+
+					maxanglespeed="0"
+					startframe="0"
+					endframe="0"
+
+					startsize="1"
+					midsize="18"
+					endsize="1"
+					midsizepos=".5"
+
+					startalpha="1"
+					midalpha="1"
+					endalpha="1"
+					midalphapos=".5"
+					startstickiness="0"
+					endstickiness="0"
+					midstickinesspos="0"
+
+					weight=".2"
+				/>
+			</simpleemitter>
+
+			<simpleemitter
+				spawnrate="740"
+				minparticlelife="850"
+				maxparticlelife="1500"
+				count="25"
+				gravity="0"
+				minspeed="45"
+				maxspeed="120"
+				drag="0"
+				acceleration="0"
+				position="0 0 -80"
+
+				material="/shared/effects/materials/frost_flash_10.material"
+				offsetsphere="0 0 0"
+				minangle="0"
+				maxangle="360"
+				direction="0 0 1"
+			>
+				<particle 
+					minangle="0"
+					maxangle="0"
+					minanglespeed="0"
+
+					startcolor="0 0 0"
+					midcolor=".8 1 1.5"
+					endcolor="0 0 0"
+					midcolorpos=".5"
+
+					maxanglespeed="0"
+					startframe="0"
+					endframe="0"
+
+					startsize="1"
+					midsize="68"
+					endsize="1"
+					midsizepos=".5"
+
+					startalpha="1"
+					midalpha="1"
+					endalpha="1"
+					midalphapos=".5"
+					startstickiness="0"
+					endstickiness="0"
+				/>
+
+				<particle 
+					minangle="0"
+					maxangle="0"
+					minanglespeed="0"
+
+					startcolor="0 0 0"
+					midcolor=".8 1 1.5"
+					endcolor="0 0 0"
+					midcolorpos=".5"
+
+					maxanglespeed="0"
+					startframe="0"
+					endframe="0"
+
+					startsize="1"
+					midsize="48"
+					endsize="1"
+					midsizepos=".5"
+
+					startalpha="1"
+					midalpha="1"
+					endalpha="1"
+					midalphapos=".5"
+					startstickiness="0"
+					endstickiness="0"
+					midstickinesspos="0"
+
+					weight=".2"
+				/>
+			</simpleemitter>
+
+
+			
+			
+			<billboard
+				life="300"
+				position="0 0 0"			
+				startcolor=".4 .5 0"
+				endcolor="0"
+				endsize="1550"
+				depthbias="-100"
+				lockup="1"
+				pitch="90"
+				maxroll="360"
+				material="/shared/effects/materials/pulse.material"
+			/>
+
+			<billboard
+				life="300"
+				position="0 0 0"			
+				startcolor=".1 .2 0"
+				endcolor="0"
+				endsize="1150"
+				depthbias="-100"
+				lockup="1"
+				pitch="90"
+				material="/shared/effects/materials/corona_06.material"
+			/>
+			
+			<billboard
+				delay="0"
+				life="1500"
+				position="0 0 0"
+				material="/shared/effects/materials/whitedot.material"
+				startcolor=".05 .25 0"
+				endcolor="0 0 0"
+				startsize="500"
+				endsize="500"
+				depthbias="-50"
+				lockup="1"
+				lockright="1"
+				pitch="-90"
+			/>
+
+			<billboard
+				life="400"
+				position="0 0 50"
+				startalpha=".75"
+				midalpha=".75"
+				endalpha="0"
+				startsize="300"
+				endsize="1500"
+				depthbias="-100"
+				startparam="0.15"
+				endparam=".15"
+				lockup="1"
+				pitch="90"
+				material="/shared/effects/materials/refract_ring.material"
+			/>
+			
+		</particlesystem>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<particlesystem name="bottomSpout" space="world"  scale="1">
+			<billboard
+				delay="0"
+				life="500"
+				position="0 -150 25"
+				material="/shared/effects/materials/whitedot.material"
+				startcolor="1 .5 0"
+				midcolor="1 .5 0"
+				endcolor="0 0 0"
+				startsize="250"
+				endsize="250"
+				depthbias="-100"
+				lockup="1"
+				lockright="1"
+				pitch="-90"
+			/>
+
+			<billboard
+				life="400"
+				position="0 -150 50"
+				startalpha=".75"
+				midalpha=".75"
+				endalpha="0"
+				startsize="150"
+				endsize="850"
+				depthbias="-100"
+				startparam="0.15"
+				endparam=".15"
+				lockup="1"
+				pitch="90"
+				material="/shared/effects/materials/refract_ring.material"
+			/>
+		
+			<model
+				model="/heroes/artillery/ability_04/effects/explosion_higher/model.mdf"
+				anim="idle"
+				scale=".8"
+				life="2000"
+				startalpha="1"	
+				midalpha="1"				
+				endalpha="0"
+				midalphapos=".9"
+				position="0 -150 0"
+				minyaw="0"
+				maxyaw="360"
+			>
+			</model>
+
+			<simpleemitter
+				count="1"
+				spawnrate="222"
+				particlelife="5000"
+				offsetsphere="0 0 0"
+				position="0 0 0"
+			>
+				<particle>
+					<groundsprite			
+						life="2000"
+						material="/shared/effects/materials/dirtpile_groundsprite.material"
+						size="130"
+						color=".75 .75 .75"						
+						startalpha=".75"
+						midalpha=".75"
+						endalpha="0"
+						midalphapos=".85"
+						minyaw="0"
+						maxyaw="360"
+						position="0 -130 0"
+					/>
+
+					<groundsprite
+						delay="100"
+						life="2000"
+						material="/shared/effects/materials/ground_smash_overlay.material"
+						size="70"
+						color="1 1 1"
+						startalpha=".5"
+						midalpha=".5"
+						endalpha="0"
+						midalphapos=".85"
+						position="0 -130 0"
+					/>
+					
+					<groundsprite			
+						life="2000"
+						material="/shared/effects/materials/ground_scorch.material"
+						size="100"			
+						startalpha="1"
+						midalpha="1"
+						endalpha="0"
+						midalphapos=".85"
+						position="0 -130 0"
+					/>
+				</particle>
+			</simpleemitter>
+
+			<simpleemitter
+				count="20"
+				minparticlelife="850"
+				maxparticlelife="1250"
+				spawnrate="65"
+				minspeed="250"
+				maxspeed="350"
+				gravity="20"
+				direction="0 0 1"
+				minangle="0"
+				maxangle="1"
+				drag="0.01"
+				material="/shared/effects/materials/pyroclast_03.material"
+				offsetsphere="15 15 10"
+				position="0 -150 0"
+			>
+				<particle
+					depthbias="-100"
+					startcolor=".4"
+					midcolor=".4"
+					endcolor="0"
+					height="250"
+					startwidth="25"
+					endwidth="75"
+					startscale="1"
+					endscale="2"
+					startalpha="1"
+					endalpha="0"
+					lockup="1"
+					lockright="1"
+					minyaw="0"
+					maxyaw="360"
+					yawspeed="-35"
+				/>
+			</simpleemitter>
+
+			<simpleemitter
+				count="20"
+				minparticlelife="50"
+				maxparticlelife="1000"
+				spawnrate="35"
+				minspeed="25"
+				maxspeed="50"
+				gravity="2"
+				direction="0 0 0"
+				material="/shared/effects/materials/pyroclast_03.material"
+				offsetsphere="25 25 10"
+				position="0 -150 25"
+			>
+				<particle
+					minangle="0"
+					maxangle="360"
+					depthbias="-25"
+					startcolor=".4"
+					midcolor=".4"
+					endcolor="0"
+					startscale="50"
+					endscale="50"
+					startalpha="0"
+					midalpha=".5"
+					endalpha="0"
+				/>
+			</simpleemitter>
+
+		</particlesystem>
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<particlesystem name="topSpout" space="world"  scale="1.35">
+
+			<billboard
+				delay="0"
+				life="500"
+				position="0 100 25"
+				material="/shared/effects/materials/whitedot.material"
+				startcolor="1 .5 0"
+				midcolor="1 .5 0"
+				endcolor="0 0 0"
+				startsize="250"
+				endsize="250"
+				depthbias="-100"
+				lockup="1"
+				lockright="1"
+				pitch="-90"
+			/>
+
+			<billboard
+				life="400"
+				position="0 100 50"
+				startalpha=".75"
+				midalpha=".75"
+				endalpha="0"
+				startsize="150"
+				endsize="850"
+				depthbias="-100"
+				startparam="0.15"
+				endparam=".15"
+				lockup="1"
+				pitch="90"
+				material="/shared/effects/materials/refract_ring.material"
+			/>
+		
+			<model
+				model="/heroes/artillery/ability_04/effects/explosion_higher/model.mdf"
+				anim="idle"
+				scale=".8"
+				life="2000"
+				startalpha="1"	
+				midalpha="1"				
+				endalpha="0"
+				midalphapos=".9"
+				position="0 100 0"
+				minyaw="0"
+				maxyaw="360"
+				color=".6"
+			>
+			</model>
+
+			<simpleemitter
+				count="1"
+				spawnrate="222"
+				particlelife="5000"
+				offsetsphere="0 0 0"
+				position="0 0 0"
+			>
+				<particle>
+					<groundsprite			
+						life="2000"
+						material="/shared/effects/materials/dirtpile_groundsprite.material"
+						size="130"
+						color=".75 .75 .75"						
+						startalpha=".75"
+						midalpha=".75"
+						endalpha="0"
+						midalphapos=".85"
+						minyaw="0"
+						maxyaw="360"
+						position="0 100 0"
+					/>
+
+					<groundsprite
+						delay="100"
+						life="2000"
+						material="/shared/effects/materials/ground_smash_overlay.material"
+						size="70"
+						color="1 1 1"
+						startalpha=".5"
+						midalpha=".5"
+						endalpha="0"
+						midalphapos=".85"
+						position="0 100 0"
+					/>
+					
+					<groundsprite			
+						life="2000"
+						material="/shared/effects/materials/ground_scorch.material"
+						size="100"			
+						startalpha="1"
+						midalpha="1"
+						endalpha="0"
+						midalphapos=".85"
+						position="0 100 0"
+					/>
+				</particle>
+			</simpleemitter>
+
+			<simpleemitter
+				count="20"
+				minparticlelife="850"
+				maxparticlelife="1250"
+				spawnrate="65"
+				minspeed="250"
+				maxspeed="350"
+				gravity="20"
+				direction="0 0 1"
+				minangle="0"
+				maxangle="1"
+				drag="0.01"
+				material="/shared/effects/materials/pyroclast_03.material"
+				offsetsphere="15 15 10"
+				position="0 100 0"
+			>
+				<particle
+					depthbias="-100"
+					startcolor=".4"
+					midcolor=".4"
+					endcolor="0"
+					height="250"
+					startwidth="25"
+					endwidth="75"
+					startscale="1"
+					endscale="2"
+					startalpha="1"
+					endalpha="0"
+					lockup="1"
+					lockright="1"
+					minyaw="0"
+					maxyaw="360"
+					yawspeed="-35"
+				/>
+			</simpleemitter>
+
+			<simpleemitter
+				count="20"
+				minparticlelife="50"
+				maxparticlelife="1000"
+				spawnrate="35"
+				minspeed="25"
+				maxspeed="50"
+				gravity="2"
+				direction="0 0 0"
+				material="/shared/effects/materials/pyroclast_03.material"
+				offsetsphere="25 25 10"
+				position="0 100 25"
+			>
+				<particle
+					minangle="0"
+					maxangle="360"
+					depthbias="-25"
+					startcolor=".4"
+					midcolor=".4"
+					endcolor="0"
+					startscale="50"
+					endscale="50"
+					startalpha="0"
+					midalpha=".5"
+					endalpha="0"
+				/>
+			</simpleemitter>
+
+		</particlesystem>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<particlesystem name="rightSpout" space="world"  scale="1">
+
+			<billboard
+				delay="0"
+				life="500"
+				position="150 0 25"
+				material="/shared/effects/materials/whitedot.material"
+				startcolor="1 .5 0"
+				midcolor="1 .5 0"
+				endcolor="0 0 0"
+				startsize="250"
+				endsize="250"
+				depthbias="-100"
+				lockup="1"
+				lockright="1"
+				pitch="-90"
+			/>
+
+			<billboard
+				life="400"
+				position="150 0 50"
+				startalpha=".75"
+				midalpha=".75"
+				endalpha="0"
+				startsize="150"
+				endsize="850"
+				depthbias="-100"
+				startparam="0.15"
+				endparam=".15"
+				lockup="1"
+				pitch="90"
+				material="/shared/effects/materials/refract_ring.material"
+			/>
+		
+			<model
+				model="/heroes/artillery/ability_04/effects/explosion_higher/model.mdf"
+				anim="idle"
+				scale=".8"
+				life="2000"
+				startalpha="1"	
+				midalpha="1"				
+				endalpha="0"
+				midalphapos=".9"
+				position="150 0 0"
+				minyaw="0"
+				maxyaw="360"
+				color=".7"
+			>
+			</model>
+
+			<simpleemitter
+				count="1"
+				spawnrate="222"
+				particlelife="5000"
+				offsetsphere="0 0 0"
+				position="0 0 0"
+			>
+				<particle>
+					<groundsprite			
+						life="2000"
+						material="/shared/effects/materials/dirtpile_groundsprite.material"
+						size="130"
+						color=".75 .75 .75"						
+						startalpha=".75"
+						midalpha=".75"
+						endalpha="0"
+						midalphapos=".85"
+						minyaw="0"
+						maxyaw="360"
+						position="150 0 0"
+					/>
+
+					<groundsprite
+						delay="100"
+						life="2000"
+						material="/shared/effects/materials/ground_smash_overlay.material"
+						size="70"
+						color="1 1 1"
+						startalpha=".5"
+						midalpha=".5"
+						endalpha="0"
+						midalphapos=".85"
+						position="150 0 0"
+					/>
+					
+					<groundsprite			
+						life="2000"
+						material="/shared/effects/materials/ground_scorch.material"
+						size="100"			
+						startalpha="1"
+						midalpha="1"
+						endalpha="0"
+						midalphapos=".85"
+						position="150 0 0"
+					/>
+				</particle>
+			</simpleemitter>
+
+			<simpleemitter
+				count="20"
+				minparticlelife="850"
+				maxparticlelife="1250"
+				spawnrate="65"
+				minspeed="250"
+				maxspeed="350"
+				gravity="20"
+				direction="0 0 1"
+				minangle="0"
+				maxangle="1"
+				drag="0.01"
+				material="/shared/effects/materials/pyroclast_03.material"
+				offsetsphere="15 15 10"
+				position="150 0 0"
+			>
+				<particle
+					depthbias="-100"
+					startcolor=".4"
+					midcolor=".4"
+					endcolor="0"
+					height="250"
+					startwidth="25"
+					endwidth="75"
+					startscale="1"
+					endscale="2"
+					startalpha="1"
+					endalpha="0"
+					lockup="1"
+					lockright="1"
+					minyaw="0"
+					maxyaw="360"
+					yawspeed="-35"
+				/>
+			</simpleemitter>
+
+			<simpleemitter
+				count="20"
+				minparticlelife="50"
+				maxparticlelife="1000"
+				spawnrate="35"
+				minspeed="25"
+				maxspeed="50"
+				gravity="2"
+				direction="0 0 0"
+				material="/shared/effects/materials/pyroclast_03.material"
+				offsetsphere="25 25 10"
+				position="150 0 25"
+			>
+				<particle
+					minangle="0"
+					maxangle="360"
+					depthbias="-25"
+					startcolor=".4"
+					midcolor=".4"
+					endcolor="0"
+					startscale="50"
+					endscale="50"
+					startalpha="0"
+					midalpha=".5"
+					endalpha="0"
+				/>
+			</simpleemitter>
+
+		</particlesystem>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+		<particlesystem name="leftSpout" space="world"  scale=".85">
+
+			<billboard
+				delay="0"
+				life="500"
+				position="-150 0 25"
+				material="/shared/effects/materials/whitedot.material"
+				startcolor="1 .5 0"
+				midcolor="1 .5 0"
+				endcolor="0 0 0"
+				startsize="250"
+				endsize="250"
+				depthbias="-100"
+				lockup="1"
+				lockright="1"
+				pitch="-90"
+			/>
+
+			<billboard
+				life="400"
+				position="-150 0 50"
+				startalpha=".75"
+				midalpha=".75"
+				endalpha="0"
+				startsize="150"
+				endsize="850"
+				depthbias="-100"
+				startparam="0.15"
+				endparam=".15"
+				lockup="1"
+				pitch="90"
+				material="/shared/effects/materials/refract_ring.material"
+			/>
+		
+			<model
+				model="/heroes/artillery/ability_04/effects/explosion_higher/model.mdf"
+				anim="idle"
+				scale=".8"
+				life="2000"
+				startalpha="1"	
+				midalpha="1"				
+				endalpha="0"
+				midalphapos=".9"
+				position="-150 0 0"
+				minyaw="0"
+				maxyaw="360"
+				color=".7"
+			>
+			</model>
+
+			<simpleemitter
+				count="1"
+				spawnrate="222"
+				particlelife="5000"
+				offsetsphere="0 0 0"
+				position="0 0 0"
+			>
+				<particle>
+					<groundsprite			
+						life="2000"
+						material="/shared/effects/materials/dirtpile_groundsprite.material"
+						size="130"
+						color=".75 .75 .75"						
+						startalpha=".75"
+						midalpha=".75"
+						endalpha="0"
+						midalphapos=".85"
+						minyaw="0"
+						maxyaw="360"
+						position="-150 0 0"
+					/>
+
+					<groundsprite
+						delay="100"
+						life="2000"
+						material="/shared/effects/materials/ground_smash_overlay.material"
+						size="70"
+						color="1 1 1"
+						startalpha=".5"
+						midalpha=".5"
+						endalpha="0"
+						midalphapos=".85"
+						position="-150 0 0"
+					/>
+					
+					<groundsprite			
+						life="2000"
+						material="/shared/effects/materials/ground_scorch.material"
+						size="100"			
+						startalpha="1"
+						midalpha="1"
+						endalpha="0"
+						midalphapos=".85"
+						position="-150 0 0"
+					/>
+				</particle>
+			</simpleemitter>
+
+			<simpleemitter
+				count="20"
+				minparticlelife="850"
+				maxparticlelife="1250"
+				spawnrate="65"
+				minspeed="250"
+				maxspeed="350"
+				gravity="20"
+				direction="0 0 1"
+				minangle="0"
+				maxangle="1"
+				drag="0.01"
+				material="/shared/effects/materials/pyroclast_03.material"
+				offsetsphere="15 15 10"
+				position="-150 0 0"
+			>
+				<particle
+					depthbias="-100"
+					startcolor=".4"
+					midcolor=".4"
+					endcolor="0"
+					height="250"
+					startwidth="25"
+					endwidth="75"
+					startscale="1"
+					endscale="2"
+					startalpha="1"
+					endalpha="0"
+					lockup="1"
+					lockright="1"
+					minyaw="0"
+					maxyaw="360"
+					yawspeed="-35"
+				/>
+			</simpleemitter>
+
+			<simpleemitter
+				count="20"
+				minparticlelife="50"
+				maxparticlelife="1000"
+				spawnrate="35"
+				minspeed="25"
+				maxspeed="50"
+				gravity="2"
+				direction="0 0 0"
+				material="/shared/effects/materials/pyroclast_03.material"
+				offsetsphere="25 25 10"
+				position="-150 0 25"
+			>
+				<particle
+					minangle="0"
+					maxangle="360"
+					depthbias="-25"
+					startcolor=".4"
+					midcolor=".4"
+					endcolor="0"
+					startscale="50"
+					endscale="50"
+					startalpha="0"
+					midalpha=".5"
+					endalpha="0"
+				/>
+			</simpleemitter>	
+					
+		</particlesystem>
+	
+	</definitions>
+
+	<thread>
+		<camerashake2 scale="10" radius="1000" duration="400" frequency="30" />
+		
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<spawnparticlesystem instance="instance1" particlesystem="leftSpout" />
+		<spawnparticlesystem instance="instance2" particlesystem="rightSpout" />
+		<spawnparticlesystem instance="instance3" particlesystem="topSpout" />
+		<spawnparticlesystem instance="instance4" particlesystem="bottomSpout" />
+		
+		<waitfordeath instance="instance0" />
+		<waitfordeath instance="instance1" />
+		<waitfordeath instance="instance2" />
+		<waitfordeath instance="instance3" />
+		<waitfordeath instance="instance4" />
+	</thread>
+
+</effect>

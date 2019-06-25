@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true" useentityeffectscale="true">
+
+	<definitions>
+
+		<particlesystem name="system0" space="world" scale="1">
+
+		<sound
+				linearfalloff="true" 
+				falloffstart="0"
+				falloffend="1500"
+				volume=".90"
+				sample="../../sounds/imp_%.wav"
+			/>
+			
+			<simpleemitter
+				bone="_bone_centerofchest"
+				count="50"
+				minparticlelife="200"
+				maxparticlelife="400"
+				minspeed="100"
+				maxspeed="300"
+				gravity="20"
+				material="/shared/effects/materials/purple_goop_blend_ground.material"
+			>
+				<particle
+					maxangle="360"
+					startsize="15"
+					endsize="30"
+					startalpha="1"
+					midalpha="1"
+					endalpha="0"
+					minscale="1"
+					maxscale="2"
+					startcolor="1"
+					endcolor="1 .5 .7"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				bone="_bone_centerofchest"
+				count="10"
+				minparticlelife="200"
+				maxparticlelife="500"
+				minspeed="100"
+				material="/shared/effects/materials/purple_goop_blend_ground.material"
+			>
+				<particle
+					maxangle="360"
+					startsize="15"
+					endsize="50"
+					startalpha="1"
+					midalpha="1"
+					endalpha="0"
+					minscale="1"
+					maxscale="2"
+					startcolor="1"
+					endcolor=".5"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				bone="_bone_centerofchest"
+				count="10"
+				minparticlelife="200"
+				maxparticlelife="400"
+				speed="200"
+				material="/shared/effects/materials/flames_02.material"
+			>
+				<particle
+					turn="1"
+					startsize="15"
+					endsize="40"
+					startalpha="1"
+					midalpha="1"
+					endalpha="0"
+					minscale="1"
+					maxscale="2"
+					startcolor=".75 .2 1"
+					endcolor=".35 0 .5"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				bone="_bone_centerofchest"
+				count="10"
+				minparticlelife="200"
+				maxparticlelife="400"
+				speed="200"
+				material="/shared/effects/materials/blood_white.material"
+			>
+				<particle
+					maxangle="360"
+					startsize="15"
+					endsize="70"
+					startalpha="1"
+					midalpha="1"
+					endalpha="0"
+					minscale="1"
+					maxscale="2"
+					startcolor=".5 0 .5"
+					endcolor=".25 0 .25"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				bone="_bone_centerofchest"
+				count="10"
+				minparticlelife="200"
+				maxparticlelife="400"
+				speed="200"
+				material="/shared/effects/materials/fire_purple.material"
+			>
+				<particle
+					maxangle="360"
+					startsize="15"
+					endsize="40"
+					startalpha="1"
+					midalpha="1"
+					endalpha="0"
+					minscale="1"
+					maxscale="2"
+					startcolor=".5 0 1"
+					endcolor="0 0 .25"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				bone="_bone_centerofchest"
+				count="10"
+				minparticlelife="200"
+				maxparticlelife="700"
+				speed="50"
+				material="/shared/effects/materials/magma_overlay.material"
+			>
+				<particle
+					maxangle="360"
+					startsize="15"
+					endsize="70"
+					startalpha="1"
+					midalpha="1"
+					endalpha="0"
+					minscale="1"
+					maxscale="2"
+					startcolor=".5 0 .5"
+					endcolor=".15 0 .25"
+				/>
+			</simpleemitter>
+
+		</particlesystem>
+
+	</definitions>
+
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0"/>
+		<waitfordeath instance="instance0" />
+	</thread>
+
+</effect>

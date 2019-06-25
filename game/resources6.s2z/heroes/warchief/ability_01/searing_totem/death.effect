@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="ability_04_impact">
+	<definitions>
+
+		<modifier
+			alpha="0"
+			life="30000"
+		/>
+		
+		<particlesystem name="system0" space="world" useentityeffectscale="true" scale="1">
+		<sound   
+				volume=".8"
+				sample="/heroes/warchief/ability_01/sounds/end.wav"
+				linearfalloff="true"
+				falloffstart="400" 
+				falloffend="1000" 
+			/>
+			
+			<sound   
+				volume=".5"
+				sample="/heroes/warchief/ability_01/sounds/fire_death.wav"
+				linearfalloff="true"
+				falloffstart="400" 
+				falloffend="1000" 
+			/>
+			
+			<groundsprite
+				life="1000"
+				startalpha="1"
+				endalpha="0"
+				position="10 0 0"
+				size="70"
+				material="/shared/effects/materials/fire_ground.material"
+			/>
+			
+			<simpleemitter
+				position="0 0 40"
+				count="100"
+				minspeed="100"
+				maxspeed="200"
+				minparticlelife="100"
+				particlelife="400"
+				material="/shared/effects/materials/soul_projectile2.material"
+			>
+				<particle
+					maxangle="360"
+					minanglespeed="-500"
+					maxanglespeed="500"
+					startcolor="1 .5 .2"
+					midcolor="1 0 0"
+					endcolor="0"
+					startsize="50"
+					endsize="10"
+				/>
+				
+				<particle
+					maxangle="360"
+					minanglespeed="-500"
+					maxanglespeed="500"
+					startcolor="1 .8 .5"
+					midcolor="1 .5 0"
+					endcolor="0"
+					startsize="50"
+					endsize="10"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				position="0 0 40"
+				count="100"
+				minspeed="100"
+				maxspeed="200"
+				minparticlelife="100"
+				particlelife="400"
+				gravity="-20"
+				drag=".02"
+				material="/shared/effects/materials/spark_11.material"
+			>
+				<particle
+					startcolor="1"
+					midcolor="1"
+					endcolor="0"
+					maxangle="360"
+					size="3"
+				/>
+			</simpleemitter>
+				
+      </particlesystem>
+   </definitions>
+   <thread>
+      <spawnparticlesystem instance="instance0"  particlesystem="system0" />	
+	  <spawnmodifier instance="instance1" modifier="modifier0"/>  
+	  <waitfordeath instance="instance0" />
+	  <waitfordeath instance="instance1" />	  
+      <!-- <die /> -->
+   </thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->
+

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect useentityeffectscale="true" deferred="false">
+	<definitions>
+	
+			
+		<modifier
+			name="modifier0"
+			color="3 0 0"
+			alpha=".5"
+		/>
+		
+		<particlesystem name="system0" space="entity" scale="1">
+			
+			<sound  
+		        soundloop="true"
+				fadein="250"
+				fadeout="250"
+				volume="1"
+				sample="/heroes/warchief/ability_02/sounds/core_loop.wav"
+				linearfalloff="true"
+				falloffstart="400" 
+				falloffend="1000" 
+			/>
+			
+			<sound  
+		        soundloop="true"
+				fadein="250"
+				fadeout="250"
+				volume="1"
+				sample="../../sounds/ab2_loop.wav"
+				linearfalloff="true"
+				falloffstart="400" 
+				falloffend="1000" 
+			/>
+			
+			<model
+				parentmodel="1"
+				parentskeleton="1"
+				color=".85 0 0"
+				alpha=".5"
+				material="material.material"
+			/>
+			
+			<template name="spirit_fire" >
+				<twopointemitter
+					bone_a="{bonea}"
+					bone_b="{boneb}"
+					spawnrate="{spawnrate}"
+					offsetsphere="10"
+					minparticlelife="500"
+					maxparticlelife="1000"
+					direction="0 0 1"
+					angle="0"
+					minspeed="100"
+					maxspeed="200"
+					material="/shared/effects/materials/blood_puddle.material"
+				>
+					<particle
+						color=".8"
+						startsize="15"
+						endsize="15"
+						startframe="0"
+						endframe="1"
+						maxangle="360"
+						minscale="1"
+						maxscale="2"
+					/>
+				</twopointemitter>
+				
+				<twopointemitter
+					bone_a="{bonea}"
+					bone_b="{boneb}"
+					spawnrate="{spawnrate}"
+					offsetsphere="10"
+					minparticlelife="500"
+					maxparticlelife="1000"
+					direction="0 0 1"
+					angle="0"
+					minspeed="150"
+					maxspeed="300"
+					material="/shared/effects/materials/blood_drop_red.material"
+				>
+					<particle
+						color=".7 .5 .3"
+						startsize="10"
+						endsize="0"
+						startframe="0"
+						endframe="1"
+						maxangle="360"
+						minscale="1"
+						maxscale="2"
+					/>
+				</twopointemitter>
+			</template>
+			
+			<instance name="spirit_fire" spawnrate="10" bonea="Bip01 R UpperArm" boneb="Bip01 L UpperArm" />
+			
+			<instance name="spirit_fire" spawnrate="5" bonea="Bip01 R UpperArm" boneb="Bip01 R Forearm" />
+			<instance name="spirit_fire" spawnrate="5" bonea="Bip01 R Forearm" boneb="Bip01 R Hand" />
+			
+			<instance name="spirit_fire" spawnrate="5" bonea="Bip01 L UpperArm" boneb="Bip01 L Forearm" />
+			<instance name="spirit_fire" spawnrate="5" bonea="Bip01 L Forearm" boneb="Bip01 L Hand" />
+			
+			<instance name="spirit_fire" spawnrate="5" bonea="Bone026" boneb="Bone027" />
+			<instance name="spirit_fire" spawnrate="5" bonea="Bone030" boneb="Bone031" />
+
+			
+
+				
+
+		</particlesystem>
+		
+	
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<spawnmodifier instance="instance1" modifier="modifier0"/>  
+		<waitfordeath instance="instance0" />
+		<waitfordeath instance="instance2" /> 
+		<!-- <die /> -->
+	</thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->
+

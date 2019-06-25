@@ -1,0 +1,630 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect  deferred="true" useentityeffectscale="1">
+	<definitions>
+		<particlesystem name="system0" space="entity" scale="1">
+		<sound
+				    dampen="0.5"
+				    channelid="storeaud"
+					sound2d="true"
+					volume=".5"
+					sample="../sounds/store_audio.wav"
+				/>	
+				
+		<sound
+		            delay="2500"
+				    dampen="0.5"
+				    channelid="storeaudv"
+					sound2d="true"
+					volume=".7"
+					sample="../sounds/voice/select_3.wav"
+				/>	
+			
+		
+			
+			<model
+				life="3200"
+				model="/heroes/javaras/alt8/coffin/model_store_l.mdf"
+				material="/heroes/javaras/alt8/coffin/material.material"
+				anim="idle"	
+				startalpha="1"
+				midalpha="1"
+				endalpha="0"
+				midalphapos=".85"
+			>
+				<simpleemitter
+					delay="100"
+					life="400"
+					bone="Bone034"
+					spawnrate="200"
+					offsetsphere="10 10 80"
+					position="5 0 65"
+					minparticlelife="800"
+					maxparticlelife="1000"
+					material="/shared/effects/materials/light_rays2.material"
+				>
+					<particle
+						anchor="1"
+						angle="90"	
+						startcolor="0"
+						midcolor="1 .7 .3"
+						endcolor="0"
+						midcolorpos=".1"
+						startsize="0"
+						endsize="60"
+						startwidth="0"
+						midwidth="40"
+						endwidth="20"
+						scale="1"
+					/>
+				</simpleemitter>
+				
+				<simpleemitter
+					delay="100"
+					life="400"
+					bone="Bone034"
+					spawnrate="200"
+					offsetsphere="10 10 80"
+					position="-5 0 65"
+					minparticlelife="800"
+					maxparticlelife="1000"
+					material="/shared/effects/materials/light_rays2.material"
+				>
+					<particle
+						anchor="1"
+						angle="270"	
+						startcolor="0"
+						midcolor="1 .7 .3"
+						endcolor="0"
+						midcolorpos=".1"
+						startsize="0"
+						endsize="60"
+						startwidth="0"
+						midwidth="40"
+						endwidth="20"
+						scale="1"
+					/>
+				</simpleemitter>
+				
+				<simpleemitter
+					delay="250"
+					life="400"
+					bone="Bone033"
+					spawnrate="200"
+					offsetsphere="10 10 80"
+					position="0 0 65"
+					minparticlelife="800"
+					maxparticlelife="1000"
+					material="/shared/effects/materials/light_rays2.material"
+				>
+					<particle
+						anchor="1"
+						angle="90"	
+						startcolor="0"
+						midcolor=".8 .6 .3"
+						endcolor="0"
+						midcolorpos=".1"
+						startsize="0"
+						endsize="50"
+						startwidth="0"
+						midwidth="25"
+						endwidth="10"
+						scale="2"
+					/>
+				</simpleemitter>
+			</model>
+			
+			<simpleemitter
+				delay="350"
+				life="200"
+				position="0 -50 0"
+				spawnrate="300"			
+				minparticlelife="1150"
+				maxparticlelife="1300"
+				gravity="0"
+				material="/shared/effects/materials/smoke_particle.material"
+				offsetsphere="15"
+				direction="0 0 1"
+				minangle="70"
+				maxangle="90"
+				drag="0.055"
+				minspeed="220"
+				maxspeed="250"
+				directionalspace="local"
+				inheritvelocity="0.2"
+				depthbias="0"					
+			>
+				<particle 
+					minangle="0"
+					maxangle="360"
+					minanglespeed="-30"
+					color=".5 .35 .2"
+					maxanglespeed="30"
+					startsize="50"
+					endsize="70"
+					startalpha="0"
+					midalpha=".2"
+					endalpha="0"
+					midalphapos=".2"
+					startanchor="0"
+					endanchor="0"	
+					minscale=".8"
+					maxscale="1.5"
+				 />	
+			</simpleemitter>
+			
+			<simpleemitter
+				delay="350"
+				life="200"
+				position="0 -50 0"
+				spawnrate="300"			
+				minparticlelife="1000"
+				maxparticlelife="1200"
+				gravity="0"
+				material="/shared/effects/materials/sand_blend.material"
+				offsetsphere="15"
+				direction="0 0 1"
+				minangle="70"
+				maxangle="90"
+				drag="0.055"
+				minspeed="220"
+				maxspeed="250"
+				directionalspace="local"
+				inheritvelocity="0.2"
+				depthbias="0"					
+			>
+				<particle 
+					minangle="0"
+					maxangle="360"
+					minanglespeed="-30"
+					startcolor=".6 .5 .3"
+					endcolor=".3 .25 .1"
+					maxanglespeed="30"
+					maxstartsize="33"
+					midsize="32"
+					endsize="35"
+					startalpha="0"
+					midalpha=".5"
+					endalpha="0"
+					midalphapos=".1"
+					startanchor="0"
+					endanchor="0"	
+					minscale=".5"
+					maxscale=".7"
+				 />	
+			</simpleemitter>
+			
+			<simpleemitter
+				delay="350"
+				life="200"
+				position="0 -50 0"
+				spawnrate="200"			
+				minparticlelife="1000"
+				maxparticlelife="1200"
+				gravity="0"
+				material="/shared/effects/materials/ember_reveal.material"
+				offsetsphere="15"
+				direction="0 0 1"
+				minangle="70"
+				maxangle="90"
+				drag="0.055"
+				minspeed="220"
+				maxspeed="250"
+				directionalspace="local"
+				
+				depthbias="0"					
+			>
+				<particle 
+					minangle="0"
+					maxangle="360"
+					minanglespeed="-30"
+					startcolor=".6 .5 .3"
+					endcolor=".3 .25 .1"
+					maxanglespeed="30"
+					maxstartsize="33"
+					midsize="32"
+					endsize="35"
+					startalpha="0"
+					midalpha=".5"
+					endalpha="0"
+					midalphapos=".1"
+					startanchor="0"
+					endanchor="0"	
+					minscale=".5"
+					maxscale=".7"
+					startframe="0"
+					midframe="0"
+					endframe="1"
+				 />	
+			</simpleemitter>
+			
+			<!-- <model
+				delay="1500"
+				life="2000"
+				model="/heroes/javaras/alt8/coffin/model_store_l.mdf"
+				anim="idle"
+				material="/heroes/nomad/sand.material"
+				startcolor="1 1 1"
+				endcolor=".5 .4 .35"
+				startalpha="0"
+				midalpha="1"
+				endalpha="0"
+				midalphapos=".6"
+			/> -->
+			
+			<!-- <model
+				life="2000"
+				model="/heroes/javaras/alt8/coffin/model_store_l.mdf"
+				anim="idle"
+				material="/shared/effects/materials/shell_rim_white.material"
+				color="1 .7 .3"
+				startalpha="0"
+				midalpha="2"
+				endalpha="0"
+				scale="1"
+			/> -->
+			
+			
+			
+			<simpleemitter
+				delay="2200"
+				life="700"
+				position="8 -60 100"
+				spawnrate="150"	
+				particlelife="800"
+				gravity="13"
+				material="/shared/effects/materials/sand_blend.material"
+				offsetsphere="30 10 100"
+				direction="1 0 0"
+				minangle="-180"
+				maxangle="180"
+				speed=".02"
+				directionalspace="global"
+				inheritvelocity=".1"
+				colide="true"
+			>
+				<particle
+					minangle="0"
+					maxangle="360"
+					anglespeed="20"
+					maxstartsize="33"
+					midsize="32"
+					endsize="0"
+					startcolor=".6 .5 .3"
+					endcolor=".3 .25 .1"				
+					startstickeness="1"
+					endstickiness="0"
+					startalpha="0"
+					midalpha="1"
+					endalpha="0"
+					midalphapos=".75"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				delay="2200"
+				life="700"
+				position="8 -60 100"
+				spawnrate="110"	
+				particlelife="800"
+				gravity="16.5"
+				material="/shared/effects/materials/ember_reveal.material"
+				offsetsphere="30 10 100"
+				direction="1 0 0"
+				minangle="-180"
+				maxangle="180"
+				speed=".02"
+				directionalspace="global"
+				inheritvelocity=".1"
+				colide="true"
+			>
+				<particle
+					minangle="0"
+					maxangle="360"
+					anglespeed="20"
+					maxstartsize="30"
+					midsize="35"
+					endsize="20"
+					startcolor=".3 .25 .1"
+					endcolor=".3 .25 .1"				
+					startstickeness="1"
+					endstickiness="0"
+					startalpha="0"
+					midalpha="1"
+					endalpha="0"
+					midalphapos=".75"
+					startframe="0"
+					midframe="0"
+					endframe="1"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				delay="2200"
+				life="600"
+				position="8 -60 100"
+				spawnrate="50"	
+				particlelife="700"
+				gravity="16.5"
+				material="/shared/effects/materials/neb_orange_add.material"
+				offsetsphere="30 10 100"
+				direction="1 0 0"
+				minangle="-180"
+				maxangle="180"
+				speed=".02"
+				directionalspace="global"
+				inheritvelocity=".1"
+				colide="true"
+			>
+				<particle	
+					width="25"				
+					startheight="5"
+					midheight="55"
+					endheight="60"
+					startcolor="1"
+					midcolor="1"
+					endcolor="0"				
+					startstickeness="1"
+					endstickiness="0"
+					startalpha="0"
+					midalpha="1"
+					endalpha="0"
+					midalphapos=".75"
+					startframe="0"
+					midframe="0"
+					endframe="1"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				delay="2200"
+				life="700"
+				position="-40 -30 100"
+				spawnrate="150"	
+				particlelife="800"
+				gravity="13"
+				material="/shared/effects/materials/sand_blend.material"
+				offsetsphere="30 10 100"
+				direction="1 0 0"
+				minangle="-180"
+				maxangle="180"
+				speed=".02"
+				directionalspace="global"
+				inheritvelocity=".1"
+				colide="true"
+			>
+				<particle
+					minangle="0"
+					maxangle="360"
+					anglespeed="20"
+					maxstartsize="33"
+					midsize="32"
+					endsize="0"
+					startcolor=".6 .5 .3"
+					endcolor=".3 .25 .1"				
+					startstickeness="1"
+					endstickiness="0"
+					startalpha="0"
+					midalpha="1"
+					endalpha="0"
+					midalphapos=".75"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				delay="2200"
+				life="700"
+				position="-40 -30 100"
+				spawnrate="110"	
+				particlelife="800"
+				gravity="16.5"
+				material="/shared/effects/materials/ember_reveal.material"
+				offsetsphere="30 10 100"
+				direction="1 0 0"
+				minangle="-180"
+				maxangle="180"
+				speed=".02"
+				directionalspace="global"
+				inheritvelocity=".1"
+				colide="true"
+			>
+				<particle
+					minangle="0"
+					maxangle="360"
+					anglespeed="20"
+					maxstartsize="30"
+					midsize="35"
+					endsize="20"
+					startcolor=".3 .25 .1"
+					endcolor=".3 .25 .1"				
+					startstickeness="1"
+					endstickiness="0"
+					startalpha="0"
+					midalpha="1"
+					endalpha="0"
+					midalphapos=".75"
+					startframe="0"
+					midframe="0"
+					endframe="1"	
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				delay="2200"
+				life="600"
+				position="-40 -30 100"
+				spawnrate="50"	
+				particlelife="700"
+				gravity="16.5"
+				material="/shared/effects/materials/neb_orange_add.material"
+				offsetsphere="30 10 100"
+				direction="1 0 0"
+				minangle="-180"
+				maxangle="180"
+				speed=".02"
+				directionalspace="global"
+				inheritvelocity=".1"
+				colide="true"
+			>
+				<particle	
+					width="25"				
+					startheight="5"
+					midheight="55"
+					endheight="60"
+					startcolor="1"
+					midcolor="1"
+					endcolor="0"				
+					startstickeness="1"
+					endstickiness="0"
+					startalpha="0"
+					midalpha="1"
+					endalpha="0"
+					midalphapos=".75"
+					startframe="0"
+					midframe="0"
+					endframe="1"
+				/>
+			</simpleemitter>
+			
+			
+		
+		</particlesystem>
+		
+		<particlesystem name="system1"  delay="6700" space="world"   scale="1.5">
+
+			<template name="smoke">
+				<trailemitter
+					delay="2500"
+					bone="{bone}"
+					spawnrate="70"
+					particlelife="1000"
+					gravity="-7"
+					material="/shared/effects/materials/solid_bolt.material"
+					position="{position}"
+					inheritvelocity=".2"
+					drag=".1"
+					direction="0 0 -1"
+					speed="10"
+				>
+					<particle
+						color=".5 .35 -1"
+						startsize="20"
+						endsize="1"
+						startalpha="0"
+						midalpha=".1"
+						endalpha="0"
+					/>
+				</trailemitter>
+				
+				<trailemitter
+					delay="2500"
+					bone="{bone}"
+					spawnrate="70"
+					particlelife="1000"
+					gravity="-7"
+					material="/shared/effects/materials/ember_reveal.material"
+					position="{position}"
+					inheritvelocity=".2"
+					drag=".1"
+					direction="0 0 -1"
+					speed="10"
+				>
+					<particle
+						color=".6"
+						startsize="20"
+						endsize="1"
+						startalpha="0"
+						midalpha=".1"
+						endalpha="0"
+						startframe="0"
+						midframe="0"
+						endframe="1"
+					/>
+				</trailemitter>
+				
+				
+				<simpleemitter
+					delay="2500"
+					bone="{bone}"
+					spawnrate="20"
+				
+					particlelife="500"
+					material="/shared/effects/materials/light_rays2.material"
+				>
+					<particle
+						anchor="1"
+						maxangle="360"
+						minanglespeed="-100"
+						maxanglespeed="100"
+						startcolor=".8 .7 .3"
+						endcolor="0"
+						startsize="0"
+						endsize="100"
+						startwidth="0"
+						minendwidth="20"
+						maxendwidth="40"
+						scale=".45"
+					/>
+				</simpleemitter>
+				
+			
+				
+				<simpleemitter
+					delay="2500"
+					bone="{bone}"
+					spawnrate="20"
+					minparticlelife="500"
+					maxparticlelife="800"			
+					gravity="-5"
+					minspeed="10"
+					maxspeed="50"
+					drag=".05"
+					material="/shared/effects/materials/spark_11.material"
+					offsetsphere="10"
+					minangle="20"
+					maxangle="90"
+					direction="0 0 1"
+					directionalspace="global"
+					inheritvelocity=".1"
+				>
+					<particle 
+						minangle="0"
+						maxangle="360"
+						startcolor="0"
+						midcolor="1 .5 .2"
+						endcolor="0 0 0"
+						midcolorpos=".3"
+						minstartsize="2"
+						maxstartsize="4"
+						endsize="0"
+					/>
+					<particle 
+						minangle="0"
+						maxangle="360"
+						startcolor="1 1 1"
+						midcolor="1 1 1"
+						endcolor="0 0 0"
+						midcolorpos=".3"
+						minstartsize="5"
+						maxstartsize="7"
+						endsize="0"
+					/>
+				</simpleemitter>
+			</template>
+			
+			
+			<instance name="smoke" bone="_bone_weapon005" position="0 0 0"/>
+			<instance name="smoke" bone="_bone_weapon3" position="0 0 0"/>
+
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<spawnparticlesystem instance="instance1" particlesystem="system1" />
+      	<waitfordeath instance="instance0" />
+		<waitfordeath instance="instance1" />
+		<!-- <die /> -->
+	</thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->
+

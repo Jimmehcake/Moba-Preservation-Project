@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gadget
+	name="Gadget_Calamity_Ability1_Pulse_Art"
+	
+	lifetime="1000"
+	
+	icon=""
+	portrait=""
+	model="/shared/models/invis.mdf"
+	passiveeffect=""
+
+	preglobalscale="2.00,2.25,2.50,3.00"
+	modelscale="1"
+	effectscale="1"
+
+	boundsheight="0"
+	boundsradius="0"
+	isselectable="false"
+	iscontrollable="false"
+	selectionradius="0"
+	targetoffset="0 0 0"
+
+	canrotate="false"
+	ismobile="false"	
+	
+	attacktype="none"
+	combattype="Ranged"
+	
+	sightrangeday="0"
+	sightrangenight="0"
+	
+	alwaysvisible="true"
+	
+	alwaystransmitdata="true"
+
+	unitwalking="true"
+	canattack="false"
+	deathtime="0"
+	corpsetime="0"
+	invulnerable="true"
+	flying="false"
+	drawonmap="false"
+	
+	clearvision="false"
+	
+	noblockneutralspawn="true" 
+>
+	<onspawn>
+		<hasavatarkey name="Hero_Calamity.Alt">
+			<playeffect effect="../alt/ability_01/effects/flamespin.effect" source="this_entity" target="this_entity" occlude="true" />
+		</hasavatarkey>
+		<else>
+			<hasavatarkey name="Hero_Calamity.Alt2">
+				<playeffect effect="../alt2/ability_01/effects/flamespin.effect" source="this_entity" target="this_entity" occlude="true" />
+			</hasavatarkey>
+			<else>
+				<hasavatarkey name="Hero_Calamity.Alt3">
+					<playeffect effect="../alt3/ability_01/effects/flamespin.effect" source="this_entity" target="this_entity" occlude="true" />
+				</hasavatarkey>
+				<else>				
+					<hasavatarkey name="Hero_Calamity.Alt4">
+						<playeffect effect="../alt4/ability_01/effects/flamespin.effect" source="this_entity" target="this_entity" occlude="true" />
+					</hasavatarkey>
+					<else>
+						<hasavatarkey name="Hero_Calamity.Alt5">
+							<playeffect effect="../alt5/ability_01/effects/flamespin.effect" source="this_entity" target="this_entity" occlude="true" />
+						</hasavatarkey>
+						<else>
+							<hasavatarkey name="Hero_Calamity.Alt6">
+								<playeffect effect="../alt6/ability_01/effects/flamespin.effect" source="this_entity" target="this_entity" occlude="true" />
+							</hasavatarkey>
+							<else>
+								<hasavatarkey name="Hero_Calamity.Alt8">
+									<playeffect effect="../alt8/ability_01/effects/flamespin.effect" source="this_entity" target="this_entity" occlude="true" />
+								</hasavatarkey>
+								<else>
+								<hasavatarkey name="Hero_Calamity.Alt9">
+									<playeffect effect="../alt9/ability_01/effects/flamespin.effect" source="this_entity" target="this_entity" occlude="true" />
+								</hasavatarkey>
+								<else>
+									<playeffect effect="effects/flamespin.effect" source="this_entity" target="this_entity" occlude="true" />
+								</else>
+							</else>
+						</else>
+					</else>
+				</else>
+			</else>
+		</else>
+		</else>
+	</onspawn>
+	
+</gadget>

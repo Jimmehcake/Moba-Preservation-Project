@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+	<definitions>
+		<particlesystem name="system0" space="world" scale=".5">
+			<sound
+			    life="700"
+				volume=".3"
+				sample="/heroes/chi/ability_04/sounds/charge.wav"
+				linearfalloff="true"
+				falloffstart="800"
+				falloffend="1300" 
+			/>
+			<groundsprite
+				life="500"
+				startcolor="0"
+				midcolor="1"
+				endcolor="1"
+				midcolorpos=".05"
+				size="100"
+				scale="2"
+				material="/shared/effects/materials/ember_reveal.material"
+				startframe="0"
+				endframe="1"
+				maxyaw="360"	
+			/>
+			<!-- <groundsprite
+				life="500"
+				color="1 .7 .3"
+				startalpha="0"
+				midalpha="1"
+				endalpha=".5"
+				midalphapos=".05"
+				size="100"
+				scale="1.5"
+				material="/shared/effects/materials/chialt2_lotus02.material"
+				startframe="0"
+				endframe="1"
+				maxyaw="360"	
+				yawspeed="-100"
+			/> -->
+			<simpleemitter
+				count="1"	
+				particlelife="2000"				
+			>
+				<particle >
+					<groundsprite
+						life="1500"
+						material="/shared/effects/materials/chialt2_lotus02.material"
+						size="140"
+						color="1 .7 .3"
+						startalpha="1"
+						endalpha="0"
+						midalphapos=".8"
+						maxyaw="360"	
+						yawspeed="-100"
+					/>
+					<groundsprite
+						life="1500"
+						material="/shared/effects/materials/selection_indicator_b_add.material"
+						size="130"
+						color="1 .7 .3"
+						startalpha="1"
+						endalpha="0"
+						midalphapos=".8"
+						maxyaw="360"	
+						yawspeed="-100"
+					/>
+				</particle>
+			</simpleemitter>
+			<simpleemitter
+				startparticlecolor="1" endparticlecolor="0" midparticlecolorpos=".9"
+				offsetsphere="150 150 0"
+				spawnrate="12"
+				particlelife="650"
+				position="0 0 10"
+				direction="0 0 1"
+				material="/shared/effects/materials/light_rays.material"
+			>
+				<particle
+					startcolor="0 0 0"
+					midcolor=".3 .3 .2"
+					endcolor="0 0 0"
+					midcolorpos=".2"
+					minwidth="30"
+					maxwidth="60"
+					scale="3"
+					minstartheight="100"
+					maxstartheight="150"
+					endheight="800"
+					endwidth="100"
+					lockup="1"
+					lockright="false"
+				/>
+				<particle
+					startcolor="0 0 0"
+					midcolor=".3 .15 0"
+					endcolor="0 0 0"
+					midcolorpos=".2"
+					minwidth="30"
+					maxwidth="60"
+					scale="3"
+					minstartheight="100"
+					maxstartheight="150"
+					endheight="800"
+					endwidth="100"
+					lockup="1"
+					lockright="false"
+				/>
+			</simpleemitter>
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+</effect>

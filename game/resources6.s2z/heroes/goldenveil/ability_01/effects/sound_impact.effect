@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="" deferred="true" >
+	<definitions>
+
+		<particlesystem name="system0" space="entity" scale="0.8">
+		
+			<sound
+			    pitchshift="true"
+				minpitch="0.9"
+				maxpitch="1.1"
+			    randomloop="true"
+				soundloop="true"
+				fadein="200"
+				fadeout="500"
+				linearfalloff="true" 
+				falloffstart="400"
+				falloffend="1300"
+				volume=".5"
+				sample="/heroes/goldenveil/ability_01/sounds/hit_loop.wav"
+			/>
+			
+			<sound
+			    randomloop="true"
+				soundloop="true"
+				fadein="100"
+				fadeout="250"
+				linearfalloff="true" 
+				falloffstart="400"
+				falloffend="1300"
+				volume=".5"
+				sample="/heroes/goldenveil/ability_01/sounds/hit_loop2.wav"
+			/>
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+</effect>
+
+

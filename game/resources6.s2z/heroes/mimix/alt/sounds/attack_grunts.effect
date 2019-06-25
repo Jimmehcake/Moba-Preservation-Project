@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+	<definitions>
+		<particlesystem name="system0" space="world" scale="1">
+		
+		<sound
+		    norestart="true"
+			channelid="miattack"
+			linearfalloff="true"
+			falloffstart="400"
+			falloffend="1300"
+			minvolume=".8"
+			maxvolume="1"
+			sample="attack_grunt_%.wav"
+		/>
+
+
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+      	<waitfordeath instance="instance0" />
+	</thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][pos] -->
+

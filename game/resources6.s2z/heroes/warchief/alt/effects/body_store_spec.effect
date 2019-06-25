@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+	<definitions>
+		<particlesystem name="system0" space="world" scale=".8">
+			<!-- glow eyes -->
+			<billboard
+				bone="_bone_lefteye"
+				size="3"
+				color="1 0 0"
+				depthbias="-5"
+				material="/shared/effects/materials/whitedot.material"
+			/>
+			
+			<billboard
+				bone="_bone_righteye"
+				size="3"
+				color="1 0 0"
+				depthbias="-5"
+				material="/shared/effects/materials/whitedot.material"
+			/>
+						
+			<billboard
+				bone="Bip01 L Finger1"
+				position="0 0  10"
+				alpha="1"			
+				size="50"
+				startparam="0.15"
+				endparam="0"
+				color=".7 0 0"
+				material="/shared/effects/materials/whitedot.material"
+				depthbias="-5"
+			/>
+			<billboard
+				bone="Bip01 R Finger1"
+				position="0 0  10"
+				alpha="1"			
+				size="50"
+				startparam="0.15"
+				endparam="0"
+				color=".7 0 0"
+				material="/shared/effects/materials/whitedot.material"
+				depthbias="-5"
+			/>
+			<!-- burning arms-->
+			<model
+				model="/heroes/warchief/alt/ability_03/effects/arms/model.mdf"
+				parentskeleton="1"
+				color="2 0 0"
+			/>
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+</effect>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="ability_04_impact">
+	<definitions>
+
+		<modifier
+			alpha="0"
+			life="30000"
+		/>
+		
+		<particlesystem name="system0" space="world" useentityeffectscale="true" scale="1">
+
+		<sound  
+                delay="0"		
+				volume=".2"
+				sample="/heroes/warchief/ability_01/sounds/end.wav"
+				linearfalloff="true"
+				falloffstart="400" 
+				falloffend="1000" 
+			/>
+			
+			<sound   
+				delay="500"
+				volume=".5"
+				sample="/heroes/warchief/ability_01/sounds/light_death.wav"
+				linearfalloff="true"
+				falloffstart="400" 
+				falloffend="1000" 
+			/>
+			<groundsprite
+				life="1000"
+				startalpha="1"
+				endalpha="0"
+				position="10 0 0"
+				size="70"
+				color=".5"
+				material="/shared/effects/materials/dirtpile_cracks_groundsprite.material"
+			/>
+			
+			<billboard
+				position="0 0 40"
+				life="400"
+				startsize="0"
+				endsize="200"
+				startcolor=".2 .5 1"
+				endcolor="0"
+				material="/shared/effects/materials/whitedot.material"
+			/>
+			
+			<simpleemitter
+				count="5"
+				position="0 0 40"
+				minparticlelife="150"
+				maxparticlelife="300"
+				material="/shared/effects/materials/femme_lightning_07.material"
+			>
+				<particle
+					startsize="0"
+					endsize="150"
+					framespeed="5"
+					startcolor="0 .5 1"
+					endcolor="0"
+					maxangle="360"
+				/>
+			</simpleemitter>
+			
+			<billboard
+				position="0 0 50"
+				startsize="0"
+				endsize="300"
+				startcolor="0 .5 1"
+				endcolor="0 0 0"
+				life="200"
+				material="/shared/effects/materials/corona_01.material"
+			/>
+			
+			<simpleemitter
+				life="250"
+				position="0 0 70"
+				spawnrate="35"		
+				particlelife="600"			
+				speed="180"
+				drag="0.02"
+				material="/shared/effects/materials/smokering.material"
+				offsetsphere="15"
+			>
+				<particle 
+					minangle="0"
+					maxangle="360"
+					minanglespeed="-40"
+					maxanglespeed="-40"
+					startcolor=".05 .05 .1"
+					endcolor="0"		
+					startsize="50"
+					endsize="200"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				position="0 0 70"
+				mincount="15"
+				maxcount="30"
+				spawnrate="2000"
+				minparticlelife="500"
+				maxparticlelife="850"
+				minspeed="500"
+				maxspeed="650"
+				drag="0.1"
+				gravity="8"
+				direction="0 0 1"
+				material="/shared/effects/materials/energy_reveal_white.material"
+			>
+				<particle
+					maxangle="359"
+					startscale="10"
+					midscale="30"
+					minendscale="30"
+					maxendscale="50"
+					startcolor=".25 .75 1"
+					endcolor="0 .5 1"
+					midcolorpos=".5"
+					startframe=".1"
+					endframe=".8"
+				/>
+			</simpleemitter>
+			
+				
+      </particlesystem>
+   </definitions>
+   <thread>
+      <spawnparticlesystem instance="instance0"  particlesystem="system0" />	
+	  <spawnmodifier instance="instance1" modifier="modifier0"/>  
+	  <waitfordeath instance="instance0" />
+	  <waitfordeath instance="instance1" />	  
+      <!-- <die /> -->
+   </thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->
+

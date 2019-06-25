@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<affector
+	name="Affector_Mimix_Ability4"
+
+	radiusstart="50"
+	radiusend="400"
+	
+	lifetime="500"
+	maximpactspertarget="1"
+	targetselection="all"
+	targetscheme="ally_illusions"
+	effecttype="Magic"
+	persist="true"
+	impacteffect=""
+>
+	<onspawn>
+		
+		<!-- art stuff -->
+		<hasavatarkey name="Hero_Mimix.Alt2">
+			<playeffect effect="../alt2/ability_04/effects/cast.effect" source="this_entity" />
+		</hasavatarkey>
+		<else>
+			<playeffect effect="effects/cast.effect" source="this_entity" />
+		</else>
+		
+	</onspawn>
+	
+</affector>

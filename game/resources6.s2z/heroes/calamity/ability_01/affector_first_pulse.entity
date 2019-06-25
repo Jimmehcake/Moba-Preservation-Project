@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<affector
+	name="Affector_Calamity_Ability1_First_Pulse"
+
+	lifetime="150"
+	radiusstart="50"
+	radiusmid="225,250,275,300"
+	radiusend="225,250,275,300"
+	radiusmidpos="0.67"
+	
+	targetselection="all"
+	targetscheme="enemy_units"
+	effecttype="Magic"
+	maximpactspertarget="1"
+
+	effect=""
+>
+	<!-- damage outward -->
+	<onimpact>
+		<damage effecttype="Magic" amount="40,80,120,160" />
+		<hasavatarkey name="Hero_Calamity.Alt">
+			<playeffect effect="../alt/ability_01/effects/impact.effect" source="target_entity" />
+		</hasavatarkey>
+		<else>
+			<hasavatarkey name="Hero_Calamity.Alt2">
+				<playeffect effect="../alt2/ability_01/effects/impact.effect" source="target_entity" />
+			</hasavatarkey>
+			<else>
+				<hasavatarkey name="Hero_Calamity.Alt3">
+					<playeffect effect="../alt3/ability_01/effects/impact.effect" source="target_entity" />
+				</hasavatarkey>
+				<else>
+					<hasavatarkey name="Hero_Calamity.Alt4">
+						<playeffect effect="../alt4/ability_01/effects/impact.effect" source="target_entity" />
+					</hasavatarkey>
+					<else>
+						<hasavatarkey name="Hero_Calamity.Alt5">
+							<playeffect effect="../alt5/ability_01/effects/impact.effect" source="target_entity" />
+						</hasavatarkey>
+						<else>
+							<hasavatarkey name="Hero_Calamity.Alt6">
+								<playeffect effect="../alt6/ability_01/effects/impact.effect" source="target_entity" />
+							</hasavatarkey>
+							<else>
+								<hasavatarkey name="Hero_Calamity.Alt8">
+									<playeffect effect="../alt8/ability_01/effects/impact.effect" source="target_entity" />
+								</hasavatarkey>
+								<else>
+								<hasavatarkey name="Hero_Calamity.Alt9">
+									<playeffect effect="../alt9/ability_01/effects/impact.effect" source="target_entity" />
+								</hasavatarkey>
+								<else>
+									<playeffect effect="effects/impact.effect" source="target_entity" />
+								</else>
+							</else>
+						</else>
+					</else>
+				</else>
+			</else>
+		</else>
+		</else>
+	</onimpact>
+	
+	<!-- pull inward -->
+	<onexpired>
+		<areaofeffect
+			radius="225,250,275,300"
+			targetselection="all"
+			targetscheme="enemy_units"
+			effecttype="Magic"
+			center="this_position"
+		>
+			<targettype type="Boss" />
+			<else>
+				<applystate name="State_Calamity_Ability1_Pull" target="target_entity" proxy="this_entity" duration="2250" />
+			</else>
+		</areaofeffect>
+	</onexpired>
+</affector>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="Set_FourSymbols_Dragon"
+	passiveeffect="/heroes/sapphire/alt3/effects/set_body.effect"
+	deathpersist="true"
+	ishidden="true"
+	propagatetoillusions="true"
+>
+</state>

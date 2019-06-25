@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true" useentityeffectscale="1">
+
+	<definitions>
+
+		<particlesystem name="system0" space="world" scale=".9">
+		
+		<sound  
+				volume="1"
+				sample="/heroes/warchief/ability_03/sounds/core_imp_%.wav"
+				linearfalloff="true"
+				falloffstart="800" 
+				falloffend="1300" 
+			/>
+			
+			<sound  
+				volume=".7"
+				sample="../../sounds/ab3_imp.wav"
+				linearfalloff="true"
+				falloffstart="800" 
+				falloffend="1300" 
+			/>
+			
+			<billboard
+				life="300"
+				bone="_bone_centerofchest"
+				startsize="0"
+				endsize="100"
+				startcolor="1 0 0"
+				endcolor="0"
+				material="/shared/effects/materials/whitedot.material"
+			/>
+			
+			<simpleemitter
+				count="50"
+				bone="_bone_centerofchest"
+				speed="500"
+				drag=".03"
+				particlelife="400"
+				material="/shared/effects/materials/phantom_white.material"
+			>
+				<particle
+					maxangle="360"
+					startsize="100"
+					endsize="20"
+					startcolor=".75 0 0"
+					endcolor=".35 0 0"
+					startalpha="1"
+					endalpha="0"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				bone="_bone_centerofchest"
+				count="5"
+				speed="200"
+				drag=".02"
+				gravity="-20"
+				particlelife="800"
+			>
+				<particle
+					maxangle="360"
+					maxyaw="360"
+					maxpitch="360"
+					minanglespeed="-400"
+					maxanglespeed="400"
+					minyawspeed="-400"
+					maxyawspeed="400"
+					minpitchspeed="-400"
+					maxpitchspeed="400"
+				>
+					<trailemitter
+						spawnrate="100"
+						particlelife="200"
+						life="800"
+						position="0 50 0"
+						texposscale=".7"
+						startparticlealpha="1"
+						midparticlealpha="1"
+						endparticlealpha="0"
+						material="/shared/effects/materials/soul_projectile_white.material"
+					>
+						<particle
+							startcolor="1 0 0"
+							endcolor="1 0 0"
+							startsize="40"
+							endsize="0"
+						/>
+					</trailemitter>
+				</particle>
+			</simpleemitter>
+				
+
+	</particlesystem>
+</definitions>
+
+<thread>
+	<spawnparticlesystem instance="instance0" particlesystem="system0" />
+	<spawnmodifier instance="instance1" modifier="modifier0"/>  
+	<waitfordeath instance="instance0" />
+</thread>
+
+</effect>
+

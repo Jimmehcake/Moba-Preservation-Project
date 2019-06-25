@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="1">
+
+	<definitions>
+	
+		<modifier
+			life="10000"
+			startalpha="1"
+			midalpha="0"
+			endalpha="0"
+			midalphapos=".17"
+		/>
+		
+		<particlesystem name="system0" space="world" scale="1">
+			<template name="fire">
+				<beam
+					life="1500"
+					bone_a="{bone_a}"
+					bone_b="{bone_b}"
+					material="/shared/effects/materials/beam.material"
+					framespeed="2.5"
+					size="{size}"
+					alpha=".5"
+					color="1 .5 0"
+				/>
+			</template>
+			
+			<instance name="fire" bone_a="_bone_bow01" bone_b="_bone_bow03" size="3"/>
+			<instance name="fire" bone_a="_bone_bow03" bone_b="_bone_bow02" size="3"/>
+			
+			<instance name="fire" bone_a="_bone_string04" bone_b="_bone_string05" size="3"/>
+			<instance name="fire" bone_a="_bone_string03" bone_b="_bone_string06" size="3"/>
+			<instance name="fire" bone_a="_bone_string02" bone_b="_bone_string07" size="3"/>
+			<instance name="fire" bone_a="_bone_string01" bone_b="_bone_string08" size="3"/>
+			
+			<simpleemitter		
+				bone="_bone_origin"
+				position="0 0 10"
+				life="2000"
+				inheritvelocity=".2"
+				spawnrate="200"			
+				particlelife="1800"			
+				gravity="0"
+				speed="20"
+				drag=".02"
+				depthbias="0"
+				material="/shared/effects/materials/smoke_17.material"
+				offsetsphere="50 50 5"
+				minangle="-265"
+				maxangle="265"
+				direction="0 0 0"
+			>
+				<particle 
+					minangle="0"
+					maxangle="360"
+					minanglespeed="-10"
+					maxanglespeed="10"
+					startsize="15"
+					endsize="50"
+					param=".0141151"
+					startalpha="0.0"
+					midalpha=".4"
+					endalpha="0"
+					midalphapos=".1"
+					color="1"
+				/>
+			</simpleemitter>
+			
+			<template name="pyrotechnics">
+				<controller bone="_bone_origin">
+					<simpleemitter
+						delay="1200"
+						count="100"
+						drag=".001"
+						particlelife="1800"
+						position="{position}"
+						gravity="20"
+						minspeed="200"
+						maxspeed="400"
+						direction="0 0 1"
+						offsetsphere="5"
+						minangle="0"
+						maxangle="10"
+						material="/shared/effects/materials/spark_10.material"
+						inheritvelocity="0"
+						collide="true"
+						expirelife="1000"
+					>			
+						<particle
+							startcolor="1"
+							endcolor="0"
+							midcolorpos=".75"
+							size="10"
+							angle="90"
+						>
+							<trailemitter
+								position="0 0 0"
+								spawnrate="10"
+								particlelife="400"
+								texpostime="400"
+								direction="0 0 0"
+								texstretchscale="1"
+								material="/shared/effects/materials/flux_ray.material"
+							>
+								<particle
+									startcolor="1"
+									midcolor="1 .5 0"
+									endcolor="0 0 0"
+									startsize="5"
+									midsize="10"
+									endsize="0"
+									midsizepos="0.2"
+									startalpha="1"
+									endalpha="0"
+								/>
+							</trailemitter>
+						</particle>
+					</simpleemitter>
+					
+					<simpleemitter
+						delay="2000"
+						life="2100"
+						position="{position2}"
+						spawnrate="75"
+						particlelife="1600"
+						gravity="1.0"
+						speed="10.0"
+						drag="0.0"
+						acceleration="0.0"
+						minangle="0"
+						maxangle="0"
+						direction="0 1 0"
+						particledirectionalspace="local"
+						offsetsphere="30 30 100"
+					>
+						<particle
+						>
+							<billboard
+								life="100"
+								material="/shared/effects/materials/flash_01.material"
+								lockup="1"
+								lockright="1"
+								pitch="90"
+								param=".012"
+								minsize="10"
+								maxsize="20"
+								directionalspace="local"
+								color=".25 .225 .2"
+								depthbias="-50"
+							/>
+						</particle>
+					</simpleemitter>
+				</controller>
+			</template>
+			
+			<instance name="pyrotechnics" position="50 0 5" position2="50 0 50"/>
+			<instance name="pyrotechnics" position="-50 0 5" position2="-50 0 50"/>
+			
+			<template name="fire">
+				<beam
+					life="2000"
+					loop="true"
+					bone_a="{bone_a}"
+					position_a="0 0 0"
+					position_b="0 0 0"
+					bone_b="{bone_b}"
+					material="/shared/effects/materials/beam.material"
+					framespeed="2.5"
+					size="{size}"
+					alpha=".5"
+					startcolor="0"
+					midcolor="1 .5 0"
+					endcolor="0"
+					startalpha="0"
+					midalpha="1"
+					endalpha="0"
+				/>
+			</template>
+			
+			<model
+				position="0 0 0"
+				scale="1"
+				model="../ability_01/effects/lasers/model.mdf"
+				life="2000"
+				anim="idle"
+			>
+				<instance name="fire" bone_a="_bone_lasers" bone_b="_bone_laser01" size="3"/>
+				<instance name="fire" bone_a="_bone_lasers" bone_b="_bone_laser02" size="3"/>
+				<instance name="fire" bone_a="_bone_lasers" bone_b="_bone_laser03" size="3"/>
+				<instance name="fire" bone_a="_bone_lasers" bone_b="_bone_laser04" size="3"/>
+				<instance name="fire" bone_a="_bone_lasers" bone_b="_bone_laser05" size="3"/>
+				<instance name="fire" bone_a="_bone_lasers" bone_b="_bone_laser06" size="3"/>
+				<instance name="fire" bone_a="_bone_lasers" bone_b="_bone_laser07" size="3"/>
+			</model>
+			
+			<template name="shiny">
+				<controller bone="{bone}">
+					<billboard
+						life="2300"
+						delay="{delay}"
+						position="{position}"
+						startcolor=".5"
+						midcolor="1"
+						midcolorpos=".9"				
+						endcolor="0"
+						startsize="50"
+						endsize="200"
+						material="/shared/effects/materials/whitedot.material"
+					/>
+				</controller>
+
+			</template>
+			
+			<instance name="shiny" bone="_bone_centerofchest" position="0 0 0" delay="1000"/>
+		</particlesystem>
+
+	</definitions>
+
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<wait duration="1400"/>
+		<spawnmodifier instance="instance1"/>
+		<waitfordeath instance="instance0"/>
+		<waitfordeath instance="instance1" />
+	</thread>
+
+</effect>

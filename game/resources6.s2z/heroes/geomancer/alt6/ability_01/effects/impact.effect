@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="1" useentityeffectscale="1">
+
+	<definitions>
+
+		<particlesystem name="system0" space="world"  scale=".5">
+			
+			<model
+				life="350"
+				parentmodel="true"
+				parentskeleton="true"
+				startcolor="0 0 0"
+				midcolor="0 2 2"
+				endcolor="0 0 0"
+				midcolorpos=".25"
+				startscale="1"
+				midscale="1"
+				endscale="1"
+				midscalepos=".4"
+				material="/shared/effects/materials/shell2.material"
+			/>
+
+			<simpleemitter
+			bone="_bone_centerofchest"
+				speed="300"
+				life="300"
+				endspawnrate="700"
+				count="15"
+				position="0 0 0"
+				minparticlelife="400"
+				maxparticlelife="700"
+				material="/shared/effects/materials/pyroclast_06.material"
+				offsetsphere="95"
+				depthbias="-20"
+			>
+				<particle 
+					minanglespeed="-80"
+					maxanglespeed="80"
+					startcolor=".3"
+					endcolor=".1"
+					size="40"
+					midsizepos=".65"
+					endsize="70"
+					startscale="2"
+					endscale="4"
+					endstickiness=".9"
+					startalpha=".4"
+					midalpha="2"
+					endalpha="0"
+				/>
+			</simpleemitter>
+
+			<billboard
+			bone="_bone_centerofchest"
+				life="1000"
+				position="0 0 0"
+				startcolor="0 .25 .5"
+				endcolor="0"
+				size="300"
+				depthbias="-25"
+				material="/shared/effects/materials/whitedot.material"
+			/>
+			
+			<billboard
+			bone="_bone_centerofchest"
+				life="1000"
+				position="0 0 0"
+				startcolor=".5"
+				endcolor="0"
+				size="150"
+				depthbias="-25"
+				material="/shared/effects/materials/whitedot.material"
+			/>
+
+			<simpleemitter
+			bone="_bone_centerofchest"
+				life="250"
+				spawnrate="350"
+				minparticlelife="200"
+				maxparticlelife="350"
+				mingravity="0"
+				maxgravity="25"
+				speed="50"
+				position="0 0 0"
+				offsetsphere="120 120 50"
+				material="/shared/effects/materials/soul_projectile2.material"
+				depthbias="-25"
+			>
+				<particle 
+					minangle="0"
+					maxangle="360"
+					minanglespeed="-6"
+					maxanglespeed="6"
+					startcolor=".15"
+					endcolor="0"
+					startalpha="1"
+					endalpha="0"
+					startsize="100"
+					minendsize="30"
+					maxendsize="60"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+			bone="_bone_centerofchest"
+				spawnrate="11500"
+				life="1200"
+				count="20"
+				position="0 0 0"
+				minparticlelife="1000"
+				maxparticlelife="1500"
+				depthbias="-40"
+				material="/shared/effects/materials/pyroclast_01.material"
+				offsetsphere="85 85 100"
+				minspeed="0"
+				maxspeed="620"
+				angle="10"
+				direction="0 0 1"
+				drag=".01"
+				gravity="15"
+			>
+				<particle 
+					minangle="-25"
+					maxangle="25"
+					minanglespeed="-100"
+					maxanglespeed="100"
+					startcolor=".8 .7 .6"
+					endcolor=".1"
+					startsize="100"
+					midsize="100"
+					endsize="200"
+					startalpha="0"
+					midalpha="1"
+					endalpha="0"
+				/>
+				<particle 
+					minangle="-25"
+					maxangle="25"
+					minanglespeed="-50"
+					maxanglespeed="50"
+					startcolor=".45"
+					endcolor="0"
+					startsize="150"
+					midsize="150"
+					endsize="220"
+					startalpha="0"
+					midalpha="1"
+					endalpha="0"
+				/>
+			</simpleemitter>
+
+			<simpleemitter
+			bone="_bone_centerofchest"
+				life="1000"
+				spawnrate="50"
+				minparticlelife="1000"
+				maxparticlelife="1500"
+				gravity="-5"
+				minspeed="10"
+				maxspeed="70"
+				drag="0"
+				acceleration="10"
+				position="0 0 30"
+				material="/shared/effects/materials/smoke_particle.material"
+				offsetsphere="50 50 50"
+				inheritvelocity=".5"
+				direction="0 0 1"
+				depthbias="-25"
+			>
+				<particle 
+					minangle="0"
+					maxangle="360"
+					minanglespeed="-30"
+					startcolor=".35 .25 .1"
+					endcolor="0 0 0"
+					maxanglespeed="30"
+					startsize="75"
+					endsize="125"
+					startalpha="0"
+					midalpha=".75"
+					endalpha="0"
+					midalphapos=".2"
+					startanchor="0"
+					endanchor="0"
+				 />
+			</simpleemitter>
+
+			<simpleemitter
+			bone="_bone_centerofchest"
+				count="1"
+				spawnrate="1000"
+				particlelife="3000"
+				acceleration="0.0"
+				minangle="0"
+				maxangle="0"
+				direction="0 1 0"
+				offsetsphere="0 0 0"
+			>
+				<particle
+					turn="1"
+				>
+					<simpleemitter
+						bone="_bone_centerofchest"
+						count="10"
+						minparticlelife="500"
+						maxparticlelife="1000"
+						spawnrate="35"
+						minspeed="250"
+						maxspeed="350"
+						gravity="20"
+						direction="0 0 1"
+						minangle="0"
+						maxangle="1"
+						drag="0.01"
+						material="/shared/effects/materials/pyroclast_03.material"
+						offsetsphere="25 25 35"
+						position="0 0 0"
+						depthbias="-50"
+					>
+						<particle
+							depthbias="-100"
+							color=".75 .7 .65"
+							minheight="100"
+							maxheight="185"
+							startwidth="25"
+							endwidth="50"
+							startscale="2"
+							endscale="5"
+							startalpha=".5"
+							endalpha="0"
+							lockup="1"
+							lockright="1"
+							minyaw="0"
+							maxyaw="360"
+							yawspeed="-35"
+						/>
+					</simpleemitter>
+					
+					<simpleemitter
+						bone="_bone_centerofchest"
+						count="10"
+						minparticlelife="500"
+						maxparticlelife="1000"
+						spawnrate="35"
+						minspeed="250"
+						maxspeed="350"
+						gravity="20"
+						direction="0 0 1"
+						minangle="0"
+						maxangle="1"
+						drag="0.01"
+						material="/shared/effects/materials/whitedot.material"
+						offsetsphere="50 50 25"
+						position="0 0 0"
+						depthbias="-50"
+					>
+						<particle
+							depthbias="-100"
+							startcolor="0 .125 .25"
+							endcolor="0 0 0"
+							minheight="100"
+							maxheight="150"
+							startwidth="25"
+							endwidth="50"
+							startscale="2"
+							endscale="5"
+							startalpha=".5"
+							endalpha="0"
+							lockup="1"
+							lockright="1"
+							minyaw="0"
+							maxyaw="360"
+							yawspeed="-35"
+						/>
+					</simpleemitter>
+
+					<simpleemitter
+						bone="_bone_centerofchest"
+						count="20"
+						minparticlelife="50"
+						maxparticlelife="1000"
+						spawnrate="35"
+						minspeed="25"
+						maxspeed="50"
+						gravity="2"
+						direction="0 0 0"
+						material="/shared/effects/materials/pyroclast_03.material"
+						offsetsphere="25 25 10"
+						position="0 0 50"
+					>
+						<particle
+							minangle="0"
+							maxangle="360"
+							depthbias="-25"
+							color=".25 .25 .25"
+							startscale="50"
+							endscale="50"
+							startalpha="0"
+							midalpha=".35"
+							endalpha="0"
+						/>
+						
+						<particle
+							minangle="0"
+							maxangle="360"
+							depthbias="-25"
+							color="0 0 0"
+							startscale="50"
+							endscale="50"
+							startalpha="0"
+							midalpha=".35"
+							endalpha="0"
+						/>
+					</simpleemitter>
+
+					<simpleemitter
+						bone="_bone_centerofchest"
+						count="2"
+						minparticlelife="50"
+						maxparticlelife="1000"
+						spawnrate="35"
+						minspeed="25"
+						maxspeed="50"
+						gravity="2"
+						direction="0 0 0"
+						material="/shared/effects/materials/pyroclast_03.material"
+						offsetsphere="75 75 10"
+						position="0 0 50"
+					>
+						<particle
+							minangle="0"
+							maxangle="360"
+							depthbias="-25"
+							color="0 0 0"
+							startscale="50"
+							endscale="150"
+							startalpha="0"
+							midalpha=".25"
+							endalpha="0"
+						/>
+					</simpleemitter>
+
+				</particle>
+			</simpleemitter>
+
+			<billboard
+			bone="_bone_centerofchest"
+				life="350"
+				startcolor="0 .25 .5"
+				endcolor="0 0 0"
+				size="275"
+				position="0 0 0"
+				material="/heroes/drunkenmaster/effects/material.material"
+				lockup="1"
+				lockright="1"
+				pitch="90"
+				rollspeed="720"
+				depthbias="-25"
+			/>
+
+			<billboard
+			bone="_bone_centerofchest"
+				life="300"
+				position="0 0 0"
+				startcolor="0 .5 1"
+				endcolor="0"
+				endsize="550"
+				depthbias="-75"
+				lockup="1"
+				lockright="1"
+				pitch="90"
+				material="/shared/effects/materials/corona_06.material"
+			/>
+
+		</particlesystem>
+
+	</definitions>
+
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+
+</effect>

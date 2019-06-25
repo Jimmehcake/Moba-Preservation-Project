@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Chi_Ability4_Timer"
+
+	icon="icon.tga"
+	ishidden="true"
+	
+	impactinterval="100"
+	maxcharges="5"
+
+	effecttype=""
+	allowtransfer="false"
+>	
+	<oninflict>
+		<!-- Max number of impacts -->
+		<setcharges a="3,4,5" />
+		
+		<!-- Linear affectors -->
+		<pushability name="Ability_Chi4" />
+		<getrange entity="stack_entity" />
+		<setvar0 a="result" b="0" op="add" />
+		<setpos0 position="this_owner_position" positionend="this_owner_position" offset="0 125 0" />
+		<setpos1 position="this_owner_position" positionend="this_owner_position" offset="0 150 0" />
+		<spawnlinearaffector name="Affector_Chi_Ability4_Line" target="pos0" direction="pos1" minlength="var0" maxlength="var0" />
+		<spawnlinearaffector name="Affector_Chi_Ability4" target="pos0" direction="pos1" proxy="this_entity" minlength="var0" maxlength="var0" />
+		
+		<!-- SFX -->
+		<play2dsound sample="/heroes/metal_warden/ability_04/sounds/core_exp.wav" volume=".5" dampen="1" sourceonly="true" targetonly="false" duration="300" />
+	</oninflict>
+	
+	<onimpact>
+		<compare a="charges" b="0" op="gt">
+			<!-- Linear affectors -->
+			<pushability name="Ability_Chi4" />
+			<getrange entity="stack_entity" />
+			<setvar0 a="result" b="0" op="add" />
+			<setpos0 position="this_owner_position" positionend="this_owner_position" offset="0 125 0" />
+			<setpos1 position="this_owner_position" positionend="this_owner_position" offset="0 150 0" />
+			<spawnlinearaffector name="Affector_Chi_Ability4_Line" target="pos0" direction="pos1" minlength="var0" maxlength="var0" />
+			<spawnlinearaffector name="Affector_Chi_Ability4" target="pos0" direction="pos1" proxy="this_entity" minlength="var0" maxlength="var0" />
+			
+			<removecharge />		
+			<compare a="charges" b="0" op="le">
+				<expire />
+			</compare>
+			
+			<!-- SFX -->
+			<play2dsound sample="/heroes/metal_warden/ability_04/sounds/core_exp.wav" volume=".5" dampen="1" sourceonly="true" targetonly="false" duration="300" />
+		</compare>
+	</onimpact>
+</state>

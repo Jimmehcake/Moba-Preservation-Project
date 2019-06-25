@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Cthulhuphant_Ability3"
+
+	icon="icon.tga"
+	ishidden="false"
+	passiveeffect="effects/hand.effect"
+
+	modifierkey="Cthulhuphant_Spirited"
+
+	effecttype="StatusDebuff"
+	allowtransfer="true"
+
+	morphpriority="50"
+	morphattacktargetscheme="all_units"
+	morphattacknonlethal="true"
+
+	silenced="true"
+	perplexed="true"
+	movespeedmultiplier="1"
+
+>
+	<onframe>
+		<targettype type="alive" target="this_proxy_entity" />
+		<else>
+			<areaofeffect
+				radius="1600"
+				source="this_owner_entity"
+				targetselection="closest"
+				targetscheme="other_ally_heroes"
+				maxtotalimpacts="1"
+				effecttype=""
+				center="this_owner_entity"
+				ignoreinvulnerable="false"
+			>
+				<order command="stop" force="true" source="this_owner_entity" target="target_entity" />
+				<order command="attack" force="true" forceduration="3000" source="this_owner_entity" target="target_entity" />
+				<setproxy entity="this_entity" target="target_entity" />
+			</areaofeffect>
+
+			<compare a="result" b="0" op="eq">
+				<areaofeffect
+					radius="1600"
+					source="this_owner_entity"
+					targetselection="closest"
+					targetscheme="other_ally_units"
+					maxtotalimpacts="1"
+					effecttype=""
+					center="this_owner_entity"
+					ignoreinvulnerable="false"
+				>
+					<order command="stop" force="true" source="this_owner_entity" target="target_entity" />
+					<order command="attack" force="true" forceduration="3000" source="this_owner_entity" target="target_entity" />
+					<setproxy entity="this_entity" target="target_entity" />
+				</areaofeffect>
+			
+				<compare a="result" b="0" op="eq">
+					<areaofeffect
+						radius="1600"
+						source="this_owner_entity"
+						targetselection="closest"
+						targetscheme="all_other_units"
+						maxtotalimpacts="1"
+						effecttype=""
+						center="this_owner_entity"
+						ignoreinvulnerable="false"
+					>
+						
+						<order command="stop" force="true" source="this_owner_entity" target="target_entity" />
+						<order command="attack" force="true" forceduration="3000" source="this_owner_entity" target="target_entity" />
+						<setproxy entity="this_entity" target="target_entity" />
+					</areaofeffect>
+				</compare>
+			</compare>
+		</else>
+	</onframe>
+
+	<onexpired>
+		<order command="stop" force="true" source="this_owner_entity" />
+	</onexpired>
+
+</state>

@@ -1,0 +1,649 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hero
+	name="Hero_Artillery"
+	
+	team="Legion"
+	icon="alt/icon.tga"
+	portrait="alt/icon.tga"
+	model="alt/model.mdf"
+	skin=""
+	
+	passiveeffect=""
+
+	spawneffect=""
+	respawneffect="/shared/effects/respawn.effect"
+	selectedsound="alt/sounds/voice/select_%.wav"
+	selectedflavorsound="alt/sounds/voice/select_flavour_%.wav"
+	confirmmovesound="alt/sounds/voice/move_%.wav"
+	confirmattacksound="alt/sounds/voice/attack_%.wav"
+	nomanasound="alt/sounds/voice/no_mana.wav"
+	announcersound="sounds/voice/hero_select.wav"
+	cooldownsound="alt/sounds/voice/cooldown.wav"
+	tauntedsound="alt/sounds/voice/taunt_prior.wav"
+	tauntkillsound="alt/sounds/voice/taunt_after.wav"
+	
+	preglobalscale="1.82"
+	modelscale="1"
+	effectscale="0.9"
+	boundsheight="112"
+	boundsradius="24"
+	selectionradius="48"
+	targetoffset="0 0 90"
+	infoheight="200"
+
+	category="physical"
+	difficulty="2"
+
+	solorating="0"
+	junglerating="0"
+	carryrating="5"
+	supportrating="0"
+	initiatorrating="0"
+	gankerrating="0"
+	pusherrating="0"
+	rangedrating="5"
+	meleerating="0"
+	
+	movespeed="295"
+	turnrate="540"
+	turnsmoothing="0.075"
+
+	maxhealth="150"
+	healthregen="0.25"
+	maxmana="0"
+	manaregen="0.01"
+
+	armor="-.86"
+	magicarmor="5.0"
+
+	inventory0="Ability_Artillery1"
+	inventory1="Ability_Artillery2"
+	inventory2="Ability_Artillery3"
+	inventory3="Ability_Artillery4"
+	inventory4="Ability_AttributeBoost"
+	inventory5=""
+	inventory6=""
+	inventory8="Ability_Taunt"
+	inventory9=""
+	inventory10=""
+	inventory11="Ability_Dance"
+	inventory12="Ability_AutomatedCourier"
+
+	attackduration="1000"
+	attackactiontime="350"
+	attackcooldown="1700"
+	attackdamagemin="20"
+	attackdamagemax="24"
+	attackoffset="17 100 106"
+	attacknumanims="1"	
+	attackprojectile="Projectile_Artillery"
+	attackrange="600"
+	attackstarteffect=""
+	attackactioneffect=""
+	attackimpacteffect=""
+	attacktype="ranged"
+	combattype="Hero"
+
+	aggrorange="800"
+	sightrangeday="1800"
+	sightrangenight="800"
+	wanderrange="250"
+
+	primaryattribute="Agility"
+	strength="18"
+	strengthperlevel="1.8"
+	agility="24"
+	agilityperlevel="2.4"
+	intelligence="13"
+	intelligenceperlevel="1.5"
+	
+	previewmodel="alt/preview.mdf"
+	previewpos="0 0 -85"
+	previewangles="0 0 0"
+	previewscale="1.5"
+	
+	storemodel="alt/model_store.mdf"
+	storepos="0 0 -21"
+	storeangles="0 0 0"
+	storescale="1.60"
+	
+	corpsetime="2000"
+	corpsefadetime="5000"
+	corpsefadeeffect="/shared/effects/corpse_sink.effect"
+>
+	<recommendeditem name="Item_ManaPotion" />
+	<recommendeditem name="Item_MinorTotem" />
+	<recommendeditem name="Item_RunesOfTheBlight" />
+	<recommendeditem name="Item_HealthPotion" />
+	<recommendeditem name="Item_HomecomingStone" />
+	
+	<recommendeditem name="Item_FlamingEye" />
+	<recommendeditem name="Item_Strength5" />
+	<recommendeditem name="Item_Striders" />
+	<recommendeditem name="Item_Intelligence7" />
+	<recommendeditem name="Item_PortalKey" />
+	<recommendeditem name="Item_Evasion" />
+	<recommendeditem name="Item_Morph" />
+	
+	<modifier key="frost" modpriority="80"
+		attackprojectile="Projectile_Frost"
+	/>
+	
+	<modifier key="Artillery_Machinegun" modpriority="100"
+		aggrorange="0"
+	>
+	</modifier>
+	
+	<altavatar key="Hero_Artillery.Alt"
+		preglobalscale="1.45"
+		icon2="icon.tga"
+		portrait="icon.tga"
+		model="model.mdf"
+		previewmodel="preview.mdf"
+		previewpos="-15 0 -70"
+		previewangles="0 0 0"
+		previewscale="1.25"
+		
+		attackoffset="0 135 105"
+		attacknumanims="2"
+		
+		selectedsound="sounds/voice/select_%.wav"
+		selectedflavorsound="sounds/voice/select_flavour_%.wav"
+		confirmmovesound="sounds/voice/move_%.wav"
+		confirmattacksound="sounds/voice/attack_%.wav"
+		nomanasound="sounds/voice/no_mana.wav"
+		cooldownsound="sounds/voice/cooldown.wav"
+		tauntedsound="sounds/voice/taunt_prior.wav"
+		tauntkillsound="sounds/voice/taunt_after.wav"
+		
+		storemodel="model_store.mdf"
+		storepos="0 0 -20"
+		storeangles="0 0 0"
+		storescale="1.30"
+	/>
+	
+	<altavatar key="Hero_Artillery.Alt2"
+		preglobalscale="1.45"
+		icon2="alt2/icon.tga"
+		portrait="alt2/icon.tga"
+		model="alt2/model.mdf"
+		infoheight="160"
+		
+		previewmodel="alt2/model_store.mdf"
+		previewpos="-15 0 -70"
+		previewangles="0 0 0"
+		previewscale="1.25"
+		
+		attackoffset="-5 135 90"
+		attacknumanims="2"
+		attackprojectile="Projectile_Artillery_Alt2"
+		
+		selectedsound="alt2/sounds/voice/select_%.wav"
+		selectedflavorsound="alt2/sounds/voice/select_flavour_%.wav"
+		confirmmovesound="alt2/sounds/voice/move_%.wav"
+		confirmattacksound="alt2/sounds/voice/attack_%.wav"
+		nomanasound="alt2/sounds/voice/no_mana.wav"
+		cooldownsound="alt2/sounds/voice/cooldown.wav"
+		tauntedsound="alt2/sounds/voice/taunt_prior.wav"
+		tauntkillsound="alt2/sounds/voice/taunt_after.wav"
+		
+		storemodel="alt2/model_store.mdf"
+		storepos="0 0 -20"
+		storeangles="0 0 0"
+		storescale="1.30"
+	/>
+	
+	<altavatar key="Hero_Artillery.Alt3"
+		preglobalscale="1.55"
+		icon2="alt3/icon.tga"
+		portrait="alt3/icon.tga"
+		model="alt3/model.mdf"
+		infoheight="160"
+		
+		previewmodel="alt3/model_store.mdf"
+		previewpos="-15 0 -70"
+		previewangles="0 0 0"
+		previewscale="1.25"
+		
+		attackoffset="-5 135 90"
+		attacknumanims="2"
+		attackprojectile="Projectile_Artillery_Alt3"
+		
+		selectedsound="alt3/sounds/voice/select_%.wav"
+		selectedflavorsound="alt3/sounds/voice/select_flavour_%.wav"
+		confirmmovesound="alt3/sounds/voice/move_%.wav"
+		confirmattacksound="alt3/sounds/voice/attack_%.wav"
+		nomanasound="alt3/sounds/voice/no_mana.wav"
+		cooldownsound="alt3/sounds/voice/cooldown.wav"
+		tauntedsound="alt3/sounds/voice/taunt_prior.wav"
+		tauntkillsound="alt3/sounds/voice/taunt_after.wav"
+		
+		storemodel="alt3/model_store.mdf"
+		storepos="0 0 -25"
+		storeangles="0 0 0"
+		storescale="1.50"
+	/>
+	
+	<altavatar key="Hero_Artillery.Alt4"
+		preglobalscale="1.45"
+		icon2="alt4/icon.tga"
+		portrait="alt4/icon.tga"
+		model="alt4/model.mdf"
+		infoheight="160"
+		passiveeffect="alt4/effects/body.effect"
+		
+		previewmodel="alt4/model_store.mdf"
+		previewpos="-15 0 -70"
+		previewangles="0 0 0"
+		previewscale="1.25"
+		
+		attackoffset="-5 50 90"
+		attacknumanims="2"
+		attackprojectile="Projectile_Artillery_Alt4"
+		
+		selectedsound="alt4/sounds/voice/select_%.wav"
+		selectedflavorsound="alt4/sounds/voice/select_flavour_%.wav"
+		confirmmovesound="alt4/sounds/voice/move_%.wav"
+		confirmattacksound="alt4/sounds/voice/attack_%.wav"
+		nomanasound="alt4/sounds/voice/no_mana.wav"
+		cooldownsound="alt4/sounds/voice/cooldown.wav"
+		tauntedsound="alt4/sounds/voice/taunt_prior.wav"
+		tauntkillsound="alt4/sounds/voice/taunt_after.wav"
+		
+		storemodel="alt4/model_store.mdf"
+		storepos="0 0 -20"
+		storeangles="0 0 0"
+		storescale="1.30"
+	/>
+	
+	<altavatar key="Hero_Artillery.Alt5"
+		preglobalscale="1.8"
+		icon2="alt5/icon.tga"
+		portrait="alt5/icon.tga"
+		model="alt5/model.mdf"
+		infoheight="160"
+		
+		previewmodel="alt5/model_store.mdf"
+		previewpos="-15 0 -70"
+		previewangles="0 0 0"
+		previewscale="1.25"
+		
+		passiveeffect="alt5/effects/body.effect"
+		
+		attackoffset="20 100 140"
+		attacknumanims="2"
+		attackprojectile="Projectile_Artillery_Alt4"
+		attackactioneffect="alt5/effects/attack.effect"
+		
+		selectedsound="alt5/sounds/voice/select_%.wav"
+		selectedflavorsound="alt5/sounds/voice/select_flavour_%.wav"
+		confirmmovesound="alt5/sounds/voice/move_%.wav"
+		confirmattacksound="alt5/sounds/voice/attack_%.wav"
+		nomanasound="alt5/sounds/voice/no_mana.wav"
+		cooldownsound="alt5/sounds/voice/cooldown.wav"
+		tauntedsound="alt5/sounds/voice/taunt_prior.wav"
+		tauntkillsound="alt5/sounds/voice/taunt_after.wav"
+		
+		storemodel="alt5/model_store.mdf"
+		storepos="0 0 -20"
+		storeangles="0 0 0"
+		storescale="1.30"
+	/>
+	
+	<altavatar key="Hero_Artillery.Alt6"
+		preglobalscale="1.4"
+		icon2="alt6/icon.tga"
+		portrait="alt6/icon.tga"
+		model="alt6/model.mdf"
+		infoheight="160"
+		
+		previewmodel="alt6/model_store.mdf"
+		previewpos="-15 0 -70"
+		previewangles="0 0 0"
+		previewscale="1.25"
+		
+		passiveeffect="alt6/effects/body.effect"
+		
+		attackoffset="10 80 60"
+		attacknumanims="2"
+		attackprojectile="Projectile_Artillery"
+		attackactioneffect="alt6/effects/attack.effect"
+		
+		selectedsound="alt6/sounds/voice/select_%.wav"
+		selectedflavorsound="alt6/sounds/voice/select_flavour_%.wav"
+		confirmmovesound="alt6/sounds/voice/move_%.wav"
+		confirmattacksound="alt6/sounds/voice/attack_%.wav"
+		nomanasound="alt6/sounds/voice/no_mana.wav"
+		cooldownsound="alt6/sounds/voice/cooldown.wav"
+		tauntedsound="alt6/sounds/voice/taunt_prior.wav"
+		tauntkillsound="alt6/sounds/voice/taunt_after.wav"
+		
+		storemodel="alt6/rulian_model.mdf"
+		storepos="0 0 -20"
+		storeangles="0 0 0"
+		storescale="1.30"
+	>
+		<onframe>
+           <setactivemodifierkey name="Artillery_Alt6_Sound" />
+		</onframe>
+	 
+		<onspawn propagatetoillusions="false" >
+			<ownsproduct target="this_entity" product="aa.Hero_FlintBeastwood.Alt9" />
+			<compare a="result" b="1" op="eq">
+				<activatemodifierkey name="Rulian_Bonus"/>
+			</compare>
+		</onspawn>
+	
+		<onrespawn propagatetoillusions="false" >
+			<ownsproduct target="this_entity" product="aa.Hero_FlintBeastwood.Alt9" />
+			<compare a="result" b="1" op="eq">
+				<activatemodifierkey name="Rulian_Bonus" />
+			</compare>
+		</onrespawn>
+		
+		<modifier key="Rulian_Bonus" modpriority="200"
+			passiveeffect="alt6/effects/rulian_bonus.effect"
+			attackactioneffect="alt6/effects/rulian_attack.effect"
+			attackprojectile="Projectile_Artillery_Rulian"
+			model="alt6/rulian_model.mdf"
+	    >
+			<onlevelup>
+			    <playeffect effect="/heroes/flint_beastwood/alt9/effects/levelup_sound.effect" source="source_entity"/>
+			</onlevelup>
+		</modifier>
+	</altavatar>
+	
+	<altavatar key="Hero_Artillery.Alt7"
+		preglobalscale="1.4"
+		icon2="alt7/icon.tga"
+		portrait="alt7/icon.tga"
+		model="alt7/model.mdf"
+		infoheight="160"
+		
+		previewmodel="alt7/model_store.mdf"
+		previewpos="-15 0 -70"
+		previewangles="0 0 0"
+		previewscale="1.25"
+		
+		passiveeffect="alt7/effects/body.effect"
+		portraitcampos="-25 0 50"
+		
+		attackoffset="0 50 100"
+		attacknumanims="2"
+		attackprojectile="Projectile_Artillery"
+		attackactioneffect="alt7/effects/attack.effect"
+		
+		selectedsound="alt7/sounds/voice/select_%.wav"
+		selectedflavorsound="alt7/sounds/voice/select_flavour_%.wav"
+		confirmmovesound="alt7/sounds/voice/move_%.wav"
+		confirmattacksound="alt7/sounds/voice/attack_%.wav"
+		nomanasound="alt7/sounds/voice/no_mana.wav"
+		cooldownsound="alt7/sounds/voice/cooldown.wav"
+		tauntedsound="alt7/sounds/voice/taunt_prior.wav"
+		tauntkillsound="alt7/sounds/voice/taunt_after.wav"
+		
+		storemodel="alt7/model_store.mdf"
+		storepos="0 0 -20"
+		storeangles="0 0 0"
+		storescale="1.30"
+	/>
+	
+	<altavatar key="Hero_Artillery.Alt8"
+		preglobalscale="1.4"
+		icon2="alt8/icon.tga"
+		portrait="alt8/icon.tga"
+		model="alt8/model.mdf"
+		infoheight="160"
+		
+		previewmodel="alt8/preview.mdf"
+		previewpos="-15 0 -70"
+		previewangles="0 0 0"
+		previewscale="1.25"
+		
+		passiveeffect="alt8/effects/body_sound.effect"
+		portraitcampos="10 -40 26"
+		
+		attackoffset="10 135 105"
+		attacknumanims="2"
+		attackactioneffect=""
+		
+		selectedsound="alt8/sounds/voice/select_%.wav"
+		selectedflavorsound="alt8/sounds/voice/select_flavour_%.wav"
+		confirmmovesound="alt8/sounds/voice/move_%.wav"
+		confirmattacksound="alt8/sounds/voice/attack_%.wav"
+		nomanasound="alt8/sounds/voice/no_mana.wav"
+		cooldownsound="alt8/sounds/voice/cooldown.wav"
+		tauntedsound="alt8/sounds/voice/taunt_prior.wav"
+		tauntkillsound="alt8/sounds/voice/taunt_after.wav"
+		
+		storemodel="alt8/preview.mdf"
+		storepassiveeffect="alt8/effects/body_store.effect"
+		storepos="0 0 -20"
+		storeangles="0 0 0"
+		storescale="1.30"
+	>
+		<onspawn propagatetoillusions="true">
+			<ownsproduct target="this_entity" product="aa.Hero_Kane.Alt9 aa.Hero_Artillery.Alt8" />
+			<compare a="result" b="1" op="eq">
+				<spawnunit name="Pet_Ursa" target="this_entity" source="target_entity" offset="0 -100" facing="source_entity" pushentity="true" />
+			</compare>
+		</onspawn>
+		
+		<onrespawn propagatetoillusions="true">
+			<ownsproduct target="this_entity" product="aa.Hero_Kane.Alt9 aa.Hero_Artillery.Alt8" />
+			<compare a="result" b="1" op="eq">
+				<spawnunit name="Pet_Ursa" target="this_entity" source="target_entity" offset="0 -100" facing="source_entity" pushentity="true" />
+			</compare>
+		</onrespawn>
+	</altavatar>
+	
+	<altavatar key="Hero_Artillery.set_ascension"
+		preglobalscale="1.4"
+		icon2="set_ascension/icon.tga"
+		portrait="set_ascension/icon.tga"
+		model="set_ascension/model.mdf"
+		infoheight="220"
+		
+		previewmodel="set_ascension/preview.mdf"
+		previewpos="-15 0 -70"
+		previewangles="0 0 0"
+		previewscale="1.25"
+		
+		passiveeffect="set_ascension/effects/body.effect"
+		portraitcampos="-5 10 43"
+		attackoffset="13 90 115"
+		attacknumanims="2"
+		attackprojectile="Projectile_Artillery"
+		attackactioneffect="set_ascension/projectile/effects/onshoot_sound.effect"
+		
+		selectedsound="set_ascension/sounds/voice/select_%.wav"
+		selectedflavorsound="set_ascension/sounds/voice/select_flavour_%.wav"
+		confirmmovesound="set_ascension/sounds/voice/move_%.wav"
+		confirmattacksound="set_ascension/sounds/voice/attack_%.wav"
+		nomanasound="set_ascension/sounds/voice/no_mana.wav"
+		cooldownsound="set_ascension/sounds/voice/cooldown.wav"
+		tauntedsound="set_ascension/sounds/voice/taunt_prior.wav"
+		tauntkillsound="set_ascension/sounds/voice/taunt_after.wav"
+		
+		storemodel="set_ascension/preview.mdf"
+		storepos="0 0 -45"
+		storeangles="0 0 0"
+		storescale="1.30"
+		
+		corpsetime="0"
+	    corpsefadetime="2000"
+	/>
+	
+	<altavatar key="Hero_Artillery.Alt9"
+		preglobalscale="1.6"
+		icon2="Alt9/icon.tga"
+		portrait="Alt9/icon.tga"
+		model="Alt9/model.mdf"
+		infoheight="160"
+		
+		previewmodel="Alt9/preview.mdf"
+		previewpos="-15 0 -70"
+		previewangles="0 0 0"
+		previewscale="1.25"
+		
+		passiveeffect="Alt9/effects/body.effect"
+		portraitcampos="5 -10 25"
+		portraitangles="0 0 20"
+		
+		attackoffset="0 50 100"
+		attacknumanims="2"
+		attackprojectile="Projectile_Artillery_Alt4"
+		attackactioneffect="Alt9/effects/attack.effect"
+		
+		selectedsound="Alt9/sounds/voice/select_%.wav"
+		selectedflavorsound="Alt9/sounds/voice/select_flavour_%.wav"
+		confirmmovesound="Alt9/sounds/voice/move_%.wav"
+		confirmattacksound="Alt9/sounds/voice/attack_%.wav"
+		nomanasound="Alt9/sounds/voice/no_mana.wav"
+		cooldownsound="Alt9/sounds/voice/cooldown.wav"
+		tauntedsound="Alt9/sounds/voice/taunt_prior.wav"
+		tauntkillsound="Alt9/sounds/voice/taunt_after.wav"
+		
+		storemodel="Alt9/preview.mdf"
+		storepassiveeffect="alt9/effects/body_store.effect"
+		storepos="0 0 -20"
+		storeangles="0 0 0"
+		storescale="1.30"
+	>
+		<onspawn>
+			<ownsproduct target="this_entity" product="aa.Hero_Ellonia.Alt7 aa.Hero_Pearl.Alt8 aa.Hero_Artillery.Alt10 aa.Hero_Berzerker.Alt11 aa.Hero_Vindicator.Alt10 aa.Hero_SirBenzington.Alt9" >
+				<applystate name="State_pet_sango_set" target="this_entity" continuous="true" />
+			</ownsproduct>
+		</onspawn>
+		
+		<onrespawn>
+			<ownsproduct target="this_entity" product="aa.Hero_Ellonia.Alt7 aa.Hero_Pearl.Alt8 aa.Hero_Artillery.Alt10 aa.Hero_Berzerker.Alt11 aa.Hero_Vindicator.Alt10 aa.Hero_SirBenzington.Alt9" >
+				<applystate name="State_pet_sango_set" target="this_entity" continuous="true" />
+			</ownsproduct>
+		</onrespawn>
+		
+		<onframe>
+			<teleport source="stack_entity" target="this_owner_entity" interpolate="false" />
+		</onframe>
+	</altavatar>
+	
+	<altavatar key="Hero_Artillery.Alt10"
+		preglobalscale="1.6"
+		icon2="Alt9/icon.tga"
+		portrait="Alt9/icon.tga"
+		model="Alt10/model.mdf"
+		infoheight="160"
+		
+		previewmodel="Alt9/preview.mdf"
+		previewpos="-15 0 -70"
+		previewangles="0 0 0"
+		previewscale="1.25"
+		
+		passiveeffect="Alt9/effects/body.effect"
+		portraitcampos="5 -10 25"
+		portraitangles="0 0 20"
+		
+		attackoffset="0 50 100"
+		attacknumanims="2"
+		attackprojectile="Projectile_Artillery_Alt4"
+		attackactioneffect="Alt9/effects/attack.effect"
+		
+		selectedsound="Alt10/sounds/voice/select_%.wav"
+		selectedflavorsound="Alt10/sounds/voice/select_flavour_%.wav"
+		confirmmovesound="Alt10/sounds/voice/move_%.wav"
+		confirmattacksound="Alt10/sounds/voice/attack_%.wav"
+		nomanasound="Alt10/sounds/voice/no_mana.wav"
+		cooldownsound="Alt10/sounds/voice/cooldown.wav"
+		tauntedsound="Alt10/sounds/voice/taunt_prior.wav"
+		tauntkillsound="Alt10/sounds/voice/taunt_after.wav"
+		
+		storemodel="Alt9/preview.mdf"
+		storepassiveeffect="alt9/effects/body_store.effect"
+		storepos="0 0 -20"
+		storeangles="0 0 0"
+		storescale="1.30"
+	>
+		<onspawn>
+			<ownsproduct target="this_entity" product="aa.Hero_Ellonia.Alt7 aa.Hero_Pearl.Alt8 aa.Hero_Artillery.Alt10 aa.Hero_Berzerker.Alt11 aa.Hero_Vindicator.Alt10 aa.Hero_SirBenzington.Alt9" >
+				<applystate name="State_pet_sango_set" target="this_entity" continuous="true" />
+			</ownsproduct>
+		</onspawn>
+		
+		<onrespawn>
+			<ownsproduct target="this_entity" product="aa.Hero_Ellonia.Alt7 aa.Hero_Pearl.Alt8 aa.Hero_Artillery.Alt10 aa.Hero_Berzerker.Alt11 aa.Hero_Vindicator.Alt10 aa.Hero_SirBenzington.Alt9" >
+				<applystate name="State_pet_sango_set" target="this_entity" continuous="true" />
+			</ownsproduct>
+		</onrespawn>
+		
+		<onframe>
+			<teleport source="stack_entity" target="this_owner_entity" interpolate="false" />
+		</onframe>
+	</altavatar>
+	
+	<altavatar key="Hero_Artillery.Alt11"
+		preglobalscale="1.6"
+		icon2="alt11/icon.tga"
+		portrait="alt11/icon.tga"
+		model="alt11/model.mdf"
+		infoheight="210"
+		
+		previewmodel="alt11/preview.mdf"
+		previewpos="-15 0 -70"
+		previewangles="0 0 0"
+		previewscale="1.25"
+		
+		passiveeffect="alt11/effects/body.effect"
+		
+		portraitcampos="-20 0 60"
+		portraitangles="0 0 0"
+		
+		attackoffset="0 50 100"
+		attacknumanims="2"
+		attackprojectile="Projectile_Artillery"
+		attackactioneffect="alt11/effects/attack.effect"
+		
+		selectedsound="alt11/sounds/voice/select_%.wav"
+		selectedflavorsound="alt11/sounds/voice/select_flavour_%.wav"
+		confirmmovesound="alt11/sounds/voice/move_%.wav"
+		confirmattacksound="alt11/sounds/voice/attack_%.wav"
+		nomanasound="alt11/sounds/voice/no_mana.wav"
+		cooldownsound="alt11/sounds/voice/cooldown.wav"
+		tauntedsound="alt11/sounds/voice/taunt_prior.wav"
+		tauntkillsound="alt11/sounds/voice/taunt_after.wav"
+		
+		storemodel="alt11/preview.mdf"
+		storepassiveeffect="alt11/effects/body_store.effect"
+		storepos="0 -100 -50"
+		storeangles="0 0 0"
+		storescale="1.55"
+	>
+		<onspawn propagatetoillusions="false">
+			<ownsproduct target="this_entity" product="aa.Hero_Mumra.Alt6 aa.Hero_Fade.Alt6 aa.Hero_Artillery.Alt11 aa.Hero_Vanya.Alt5 aa.Hero_Gunblade.Alt8 aa.Hero_Hellbringer.Alt7 aa.Hero_Accursed.Alt7">
+				<activatemodifierkey name="Cyber_set" />
+			</ownsproduct>
+		</onspawn>
+
+		<onrespawn propagatetoillusions="false">
+			<ownsproduct target="this_entity" product="aa.Hero_Mumra.Alt6 aa.Hero_Fade.Alt6 aa.Hero_Artillery.Alt11 aa.Hero_Vanya.Alt5 aa.Hero_Gunblade.Alt8 aa.Hero_Hellbringer.Alt7 aa.Hero_Accursed.Alt7">
+				<activatemodifierkey name="Cyber_set" />
+			</ownsproduct>
+		</onrespawn>
+		
+		<onkilled>
+			<ownsproduct target="this_entity" product="aa.Hero_Mumra.Alt6 aa.Hero_Fade.Alt6 aa.Hero_Artillery.Alt11 aa.Hero_Vanya.Alt5 aa.Hero_Gunblade.Alt8 aa.Hero_Hellbringer.Alt7 aa.Hero_Accursed.Alt7">
+				<deactivatemodifierkey name="Cyber_set" />
+			</ownsproduct>
+		</onkilled>
+		
+		<modifier key="iamsheeped" modpriority="100"
+			passiveeffect=""
+		>
+			<deactivatemodifierkey name="Cyber_set" />
+		</modifier>
+		
+		<modifier key="Cyber_set" modpriority="1000"
+			tooleffectpath37="alt11/effects/body_set_cyber.effect"
+		/>
+	</altavatar>
+	
+</hero>

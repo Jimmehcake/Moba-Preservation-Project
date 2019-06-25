@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model name="rig.max" file="guitar.model" type="K2" high="guitar.model" med="guitar.model" low="guitar.model" >
+
+	<anim name="idle" clip="default_1.clip" fps="15" loop="true" blendtime ="250"/>
+	
+</model>

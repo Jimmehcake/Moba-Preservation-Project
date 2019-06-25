@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ability
+	name="Ability_Fade3"
+
+	icon="icon.tga"
+	
+	anim="ability_3"
+	casttime="0"
+	castactiontime="0"
+	
+	maxlevel="4"
+	requiredlevel="1,3,5,7"
+
+	actiontype="target_self"
+	frontqueue="true"
+	inheritmovement="true"
+	noninterrupting="true"
+
+	manacost="50"
+	cooldowntime="22000,19000,16000,13000"
+>	
+	<onimpact>
+		<applystate name="State_Fade_Ability3" target="this_owner_entity" duration="2500" />
+		<spawnaffector name="Affector_Fade_Ability3" target="target_entity" />
+	</onimpact>
+	
+	<altavatar key="Hero_Fade.Alt6" modpriority="1" 
+	    icon="/heroes/fade/alt6/ability_03/icon.tga"
+	/>
+		
+</ability>

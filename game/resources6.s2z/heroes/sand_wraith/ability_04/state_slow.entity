@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_SandWraith_Ability4_Slow"
+
+	
+	
+	icon="icon.tga"
+	passiveeffect=""
+	displaylevel="true"
+
+	movespeedslow="0.15"
+	
+	effecttype="StatusDebuff"
+	allowtransfer="true"
+>
+	<onframe />
+	
+	<altavatar key="Hero_SandWraith.Alt4"	
+		icon="../alt4/ability_04/icon.tga"
+	/>
+	
+	<altavatar key="Hero_SandWraith.Alt9" 
+	    icon="/heroes/sand_wraith/alt9/ability_04/icon.tga"
+	/>
+	
+</state>

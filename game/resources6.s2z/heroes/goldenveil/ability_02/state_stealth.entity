@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Goldenveil_Ability2_Stealth"
+
+	icon="icon.tga"
+	passiveeffect="ability_2_idle"
+	
+	anim="ability_2_idle"
+	
+	ishidden="true"
+	
+	effecttype="StatusStealth"
+	allowtransfer="false"
+
+	stealthtype="hero"
+	fadetime="0"
+
+>		
+	<!-- If the player idle for X duration, then start idle sound to give the player an incentive to move -->
+	<oninflict>
+		<applystate name="State_Goldenveil_Idle_Sound_Countdown" target="source_entity" duration="15000" />
+	</oninflict>
+	
+	<!-- If the player moves, turn the sound state check off -->
+	<onexpired>
+		<expirestate name="State_Goldenveil_Idle_Sound_Countdown" target="source_entity" />
+	</onexpired>
+
+
+</state>

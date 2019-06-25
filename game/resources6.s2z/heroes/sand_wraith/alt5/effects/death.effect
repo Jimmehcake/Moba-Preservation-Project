@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+
+	<definitions>
+		<modifier
+			life="15000"
+			startalpha="1"
+			midalpha="0"
+			endalpha="0"
+			midalphapos=".6"
+		/>
+	
+		<particlesystem name="system0" space="world" scale=".9">
+		
+		<sound
+		        delay="3000"
+				linearfalloff="true" 
+				falloffstart="1300"
+				falloffend="1300"
+				volume="1"
+				sample="../sounds/ab1_blop.wav"
+			/>
+			
+			<simpleemitter
+				life="2800"
+				spawnrate="3"
+				position="0 0 1"
+				offsetsphere="10 10 0"
+				bone="_bone_origin"
+				particlelife="1000"
+			>
+				<particle
+				
+				>
+					<billboard
+						life="1000"
+						position="0 0 0"
+						material="/shared/effects/materials/refract_ring2_depth.material"
+						startalpha=".2"
+						midalpha=".5"
+						endalpha="0"
+						midalphapos=".8"
+						
+						color="2"
+						
+						minscale="1"
+						maxscale="1.3"
+						
+						startsize="10"
+						midsize="100"
+						endsize="120"
+						midsizepos=".4"
+						
+						param=".1"
+						depthbias="0"
+						lockup="true"
+						lockright="true"
+						pitch="90"
+					/>
+				</particle>
+			</simpleemitter>
+		
+			<simpleemitter
+				life="2800"
+				spawnrate="10"
+				position="0 0 1"
+				offsetsphere="10 10 0"
+				bone="_bone_origin"
+				particlelife="800"
+			>
+				<particle
+				
+				>
+					<billboard
+						life="800"
+						position="0 0 0"
+						material="/shared/effects/materials/blob.material"
+						startalpha="0"
+						midalpha="1"
+						endalpha="0"
+						midalphapos=".5"
+						
+						color="2"
+						
+						minscale=".5"
+						maxscale=".8"
+						
+						startsize="10"
+						midsize="100"
+						endsize="120"
+						midsizepos=".5"
+						
+						depthbias="-30"
+						lockup="true"
+						lockright="true"
+						pitch="90"
+					/>
+					
+					<billboard
+						life="800"
+						position="0 0 0"
+						material="/shared/effects/materials/whitedot.material"
+						startalpha="1"
+						midalpha=".3"
+						endalpha="0"
+						midalphapos=".8"
+						
+						startcolor=".2"
+						midcolor="0 .2 1"
+						endcolor="0"
+						midcolorpos=".5"
+						
+						minscale=".8"
+						maxscale="1.4"
+						
+						startsize="10"
+						midsize="100"
+						endsize="120"
+						midsizepos=".5"
+						
+						depthbias="-30"
+						lockup="true"
+						lockright="true"
+						pitch="90"
+					/>
+					
+					<billboard
+						life="800"
+						position="0 0 0"
+						material="/shared/effects/materials/lightning_01.material"
+						startalpha="0"
+						midalpha="0"
+						endalpha="0"
+						midalphapos=".8"
+						
+						startcolor="0"
+						midcolor=".1 .3 .4"
+						endcolor="0"
+						midcolorpos=".7"
+						
+						minscale=".8"
+						maxscale="1.4"
+						
+						startsize="10"
+						midsize="100"
+						endsize="120"
+						midsizepos=".5"
+						
+						depthbias="-30"
+						lockup="true"
+						lockright="true"
+						pitch="90"
+						
+						minroll="-180"
+						maxroll="180"
+					/>
+				</particle>
+			</simpleemitter>
+
+			<billboard
+				life="3800"
+				position="0 0 0"
+				material="/shared/effects/materials/whitedot.material"
+				startalpha="1"
+				midalpha=".3"
+				endalpha="0"
+				midalphapos=".8"
+				
+				startcolor="0 .1 .3"
+				midcolor="0 .3 .5"
+				endcolor="0 .1 .3"
+				midcolorpos=".5"
+				
+				size="180"
+				
+				depthbias="-30"
+				lockup="true"
+				lockright="true"
+				pitch="90"
+			/>
+			
+			<billboard
+				delay="2900"
+				life="2000"
+				position="0 0 0"
+				material="/shared/effects/materials/refract_ripple.material"
+				startalpha="1"
+				midalpha="1"
+				endalpha="0"
+				midalphapos=".7"
+				
+				color="1"
+				
+				startsize="10"
+				midsize="150"
+				endsize="180"
+				midsizepos=".4"
+				
+				startparam=".02"
+				midparam=".02"
+				endparam="0"
+				midparampos=".7"
+				
+				depthbias="-10"
+				lockup="true"
+				lockright="true"
+				pitch="90"
+			/>
+			
+			<billboard
+				delay="2900"
+				life="2000"
+				position="0 0 0"
+				material="/shared/effects/materials/whitedot.material"
+				startalpha="1"
+				midalpha=".3"
+				endalpha="0"
+				midalphapos=".8"
+				
+				startcolor="0 .1 .3"
+				midcolor="0 .3 .5"
+				endcolor="0 .1 .3"
+				midcolorpos=".5"
+				
+				startsize="10"
+				midsize="150"
+				endsize="180"
+				midsizepos=".4"
+				
+				depthbias="-30"
+				lockup="true"
+				lockright="true"
+				pitch="90"
+			/>
+			
+			<controller scale="1.8">
+				<billboard
+					delay="2500"
+					life="2500"
+					position="0 0 15"
+					material="/shared/effects/materials/whitedot.material"
+					
+					startcolor="0"
+					midcolor="0 .5 1"
+					endcolor="0"
+					midcolorpos=".4"
+					
+					startwidth="10"
+					midwidth="60"
+					endwidth="10"
+					midwidthpos=".4"
+					
+					startheight="10"
+					midheight="150"
+					endheight="50"
+					midheightpos=".4"
+					
+					depthbias="0"
+					lockup="true"
+					lockright="true"
+					pitch="90"
+				/>
+				
+				<billboard
+					delay="2500"
+					life="2500"
+					position="0 0 15"
+					material="/shared/effects/materials/whitedot.material"
+					
+					startcolor="0"
+					midcolor="1"
+					endcolor="0"
+					midcolorpos=".4"
+					
+					startwidth="10"
+					midwidth="40"
+					endwidth="10"
+					midwidthpos=".4"
+					
+					startheight="10"
+					midheight="80"
+					endheight="40"
+					midheightpos=".4"
+					
+					depthbias="0"
+					lockup="true"
+					lockright="true"
+					pitch="90"
+				/>
+			</controller>
+		
+			<!--splash-->
+			
+			<controller scale=".7" position="0 0 30" delay="3000">
+				<simpleemitter
+					depthbias="-30"
+					life="300"
+					minparticlelife="750"				
+					maxparticlelife="1300"
+					count="100"
+					spawnrate="1000"
+					speed="500"
+					gravity="20"
+					direction="0 0 0"
+					minangle="0"
+					maxangle="360"
+					drag="0.05"
+					material="/shared/effects/materials/whitewater_02.material"
+					offsetsphere="20"
+					collide="1"
+					directionalspace="local"
+				>
+					<particle 
+						minangle="0"
+						maxangle="160"
+						minanglespeed="-10"
+						maxanglespeed="10"
+						startsize="50"
+						midsize="80"
+						endsize="100"
+						midsizepos=".7"
+						
+						
+						startcolor=".2"
+						midcolor="0 .1 .2"					
+						endcolor="0"	
+
+						
+						startalpha="0"
+						midalpha=".8"
+						endalpha="0"
+						minscale=".5"
+						maxscale="1"
+					/>
+				</simpleemitter>
+				
+				<simpleemitter
+					depthbias="-30"
+					life="300"
+					minparticlelife="750"				
+					maxparticlelife="1300"
+					count="200"
+					spawnrate="500"
+					speed="500"
+					gravity="20"
+					direction="0 0 0"
+					minangle="0"
+					maxangle="360"
+					drag="0.05"
+					material="/shared/effects/materials/refract_outsplash.material"
+					offsetsphere="50"
+					collide="1"
+					directionalspace="local"
+				>
+					<particle 
+						minangle="0"
+						maxangle="160"
+						minanglespeed="-10"
+						maxanglespeed="10"
+						startsize="50"
+						midsize="80"
+						endsize="200"
+						midsizepos=".7"
+
+						color="1"
+						
+						startalpha="0"
+						midalpha=".8"
+						endalpha="0"
+						minscale=".5"
+						maxscale="1"
+						param=".1"
+					/>
+				</simpleemitter>
+				
+				<simpleemitter
+					depthbias="-30"
+					life="300"
+					minparticlelife="450"				
+					maxparticlelife="700"				
+					spawnrate="12540"
+					count="20"
+					minspeed="250"
+					maxspeed="150"
+					gravity="25"
+					direction="0 0 1"
+					minangle="-90"
+					maxangle="90"
+					drag="0.01"
+					material="/shared/effects/materials/blood_white.material"
+					offsetsphere="15 15 5"
+				>
+					<particle 
+						minangle="0"
+						maxangle="160"
+						minanglespeed="-10"
+						maxanglespeed="10"
+						startsize="71"
+						endsize="180"
+						startcolor="1"
+						midcolor=".6 .8 1"					
+						endcolor="2"				
+						startalpha="0"
+						midalpha="1"
+						endalpha="0"
+						minscale=".5"
+						maxscale="1"
+					/>
+				</simpleemitter>
+			</controller>
+			
+			<billboard
+				delay="3000"
+				life="1000"
+				position="0 0 0"
+				material="/shared/effects/materials/refract_ring.material"
+				startalpha="1"
+				midalpha="1"
+				endalpha="0"
+				midalphapos=".4"
+				
+				color="1"
+				
+				startsize="10"
+				midsize="200"
+				endsize="250"
+				midsizepos=".4"
+				
+				startparam=".1"
+				midparam=".1"
+				endparam="0"
+				midparampos=".4"
+				
+				depthbias="-10"
+				lockup="true"
+				lockright="true"
+				pitch="90"
+			/>
+		</particlesystem>
+
+	</definitions>
+
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<spawnmodifier instance="instance1"/>
+		<waitfordeath instance="instance0"/>
+		<waitfordeath instance="instance1"/>
+	</thread>
+
+</effect>

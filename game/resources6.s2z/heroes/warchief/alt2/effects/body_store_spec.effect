@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="ability_04_impact">
+	<definitions>
+		<particlesystem name="system0" space="world" useentityeffectscale="true" scale="1">
+			<!-- glow eyes -->
+			<billboard
+				bone="_bone_lefteye"
+				position="0 0 -2"
+				size="5"
+				color="0 .75 1"
+				depthbias="-5"
+				material="/shared/effects/materials/whitedot.material"
+			/>
+			<billboard
+				bone="_bone_righteye"
+				position="0 0 -2"
+				size="5"
+				color="0 .75 1"
+				depthbias="-5"
+				material="/shared/effects/materials/whitedot.material"
+			/>
+			<model
+				model="/heroes/warchief/alt2/ability_03/effects/arms/model.mdf"
+				parentskeleton="1"
+				color="0 .5 1"
+			/>
+			<!-- burning arms-->
+			<controller bone="Bip01 R Forearm">
+				<beam 
+					position_a="-30 0 0"
+					position_b="25 0 0"
+					color="0 .75 1"
+					size="60"
+					framespeed="1.2"
+					material="/shared/effects/materials/femme_fire_trail.material"
+				/>
+			</controller>
+			<controller bone="Bip01 L Forearm">
+				<beam 
+					position_a="-30 0 0"
+					position_b="25 0 0"
+					color="0 .75 1"
+					size="60"
+					framespeed="1.2"
+					material="/shared/effects/materials/femme_fire_trail.material"
+				/>
+			</controller>
+      </particlesystem>
+   </definitions>
+   <thread>
+      <spawnparticlesystem instance="instance0"  particlesystem="system0" />	
+	  <spawnmodifier instance="instance1" modifier="modifier0"/>  
+	  <waitfordeath instance="instance0" />
+	  <waitfordeath instance="instance1" />	  
+      <!-- <die /> -->
+   </thread>
+</effect>
+<!-- [min|max][start|mid|end]property[speed][position] -->

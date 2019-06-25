@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Sapphire_Ally_Spot"
+
+	icon=""
+	passiveeffect=""
+	propagatetoillusions="false"
+	effecttype=""
+	ishidden="true"
+>
+ <onframe>
+	<areaofeffect
+    radius="950"
+    targetscheme="other_ally_heroes"
+    targetselection="closest"
+    ignoreinvulnerable="true"
+   >
+		<hasmodifier entity="target_entity" name="Warchief_Sound">
+			<playeffect effect="sounds/interactions/meet_warchief.effect" target="source_entity" occlude="true" />
+			<expirestate name="State_Sapphire_Ally_Spot" source="source_entity" />
+			<expire />
+		</hasmodifier>
+		<else>
+				<playeffect effect="sounds/interactions/meet_random.effect" target="source_entity" occlude="true" />
+				<expirestate name="State_Sapphire_Ally_Spot" source="source_entity" />
+				<expire />
+			<else>
+			</else>
+		</else>
+   </areaofeffect>
+   </onframe>
+
+</state>

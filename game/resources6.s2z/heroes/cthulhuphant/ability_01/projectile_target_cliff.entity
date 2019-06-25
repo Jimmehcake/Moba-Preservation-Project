@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectile
+	name="Projectile_Cthulhuphant_Ability1_TargetCliff"
+
+	speed="1500"
+	gravity="2000"
+
+	modelscale="1.0"
+	model=""
+	
+	canturn="true"
+	flying="true"
+	flyheight="0"
+	
+	touchcliffs="true"
+	
+	touchradius="20"
+	touchradiusdiradjust="true"
+	touchtargetscheme="Nothing"
+	toucheffecttype=""
+	maxtouchespertarget="1"
+>	
+	<ontouch>
+		<kill target="this_proxy_entity" source="" />
+		<kill target="this_entity" source="" />
+		<!-- <playanim name="idle" target="source_entity" /> -->
+
+	</ontouch>
+
+</projectile>

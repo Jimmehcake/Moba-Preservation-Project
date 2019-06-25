@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+	<definitions>
+		<particlesystem name="system0" space="world" scale="1">
+			<sound
+			    soundloop="true"
+				randomloop="true"
+			    fadein="100"
+				fadeout="200"
+				pitchshift="true"
+				minpitch="0.5"
+				maxpitch="1.5"
+                volume=".6"
+				sample="/heroes/sapphire/sounds/trail_loop.wav"
+				linearfalloff="true"
+			    falloffstart="800"
+				falloffend="1300"
+			/>
+			
+			<model
+				position="0 0 0"
+				expirelife="500"
+				name="emitter0" 
+				anim="idle"
+				model="/shared/effects/models/circle_of_bones/model.mdf"
+				scale=".6"
+				startcolor="0 0 0"
+				midcolor="0 0 0"
+				endcolor="0 0 0"
+				midcolorpos=".75"
+				startalpha="0"
+				midalpha="0"
+				endalpha="0"
+				midalphapos=".4"
+				rollspeed="1500"
+			>
+			
+				<template name="trails">
+					<trailemitter
+						name="trail01"
+						position="0 0 0"
+						bone="{bone}"
+						spawnrate="100"
+						particlelife="500"
+						subframepose="1"
+						texpostime="1000"
+						texposscale="0"
+						texstretchscale="1"
+						material="/shared/effects/materials/soul_projectile_white2.material"
+					>
+						<particle
+							startcolor="{sc}"
+							endcolor="0 0 0"
+							startalpha="1"
+							midalpha="0"
+							endalpha="0"
+							size="20"
+						/>
+					</trailemitter>
+				</template>
+				
+				<instance name="trails" bone="_bone_fx_01" sc="0 .3 .5"/>
+				<instance name="trails" bone="_bone_fx_02" sc="0 .3 .5"/>
+				<!-- <instance name="trails" bone="_bone_fx_03" sc="0 .1 .5"/> -->
+				<instance name="trails" bone="_bone_fx_04" sc=".4 .3 0"/>
+				<instance name="trails" bone="_bone_fx_05" sc=".4 .3 0"/>
+				
+			</model>
+				
+			<model
+				position="0 0 0"
+				expirelife="500"
+				name="emitter0" 
+				anim="idle"
+				model="/shared/effects/models/circle_of_bones/model.mdf"
+				scale=".5"
+				startcolor="0 0 0"
+				midcolor="0 0 0"
+				endcolor="0 0 0"
+				midcolorpos=".75"
+				startalpha="0"
+				midalpha="0"
+				endalpha="0"
+				midalphapos=".4"
+				rollspeed="1300"
+			>
+			
+				<template name="trails">
+					<twopointtrailemitter
+						name="trail01"
+						position="0 0 0"
+						bone_a="{bone01}"
+						bone_b="{bone02}"
+						spawnrate="100"
+						particlelife="500"
+						subframepose="1"
+						texpostime="1000"
+						texposscale="0"
+						texstretchscale="1"
+						material="/shared/effects/materials/soul_projectile_white2.material"
+					>
+						<particle
+							startcolor="0 .3 .5"
+							endcolor="0 0 0"
+							startalpha="0"
+							midalpha="0"
+							endalpha="0"
+						/>
+					</twopointtrailemitter>
+				</template>
+				
+				<instance name="trails" bone01="_bone_fx_01"  bone02="_bone_fx_02"/>
+				<instance name="trails" bone01="_bone_fx_03"  bone02="_bone_fx_04"/>
+				<instance name="trails" bone01="_bone_fx_05"  bone02="_bone_fx_06"/>
+				<instance name="trails" bone01="_bone_fx_05"  bone02="_bone_fx_08"/>
+				<instance name="trails" bone01="_bone_fx_05"  bone02="_bone_fx_10"/>
+				
+			</model>
+
+			
+			<billboard
+				expirelife="500"
+				startcolor="0 .35 .5"
+				endcolor="0"
+				size="75"
+				depthbias="0"
+				material="/shared/effects/materials/whitedot.material"
+			/>
+			
+			
+			<simpleemitter
+				count="1"
+				spawnrate="1000"
+				particlelife="250"
+				position="0 0 0"
+				material="/shared/effects/materials/whitedot.material"
+				particledirectionalspace="local"
+				offsetdirection="0 0 0"
+				offsetradial="0"
+			>
+				<particle
+					startcolor="0 .15 .5"
+					endcolor="0 0 0"
+					startsize="100"
+					endsize="300"
+					param="0.5"
+					startalpha=".3"
+					midalpha=".15"
+					endalpha="0"
+					midalphapos=".75"
+					lockup="true"
+					lockright="1"
+					pitch="0"
+					flare="0"
+					yaw="00"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				spawnrate="100"
+				particlelife="250"
+				position="0 0 0"
+				material="/shared/effects/materials/crack_8_ground.material"
+
+			>
+				<particle
+					startcolor="0 0 0"					
+					midcolor="0 .4 1"
+					endcolor="0 0 0"
+					midcolorpos=".1"
+					maxangle="360"
+					startsize="80"
+					endsize="20"
+					minscale=".6"
+					maxscale=".7"
+				/>
+			</simpleemitter>
+
+		</particlesystem>
+	</definitions>
+	
+<thread>
+	<spawnparticlesystem instance="instance1" particlesystem="system0" />
+	<spawnmodifier instance="instance0"/>
+	<waitfordeath  instance="instance0"/>
+	<waitfordeath  instance="instance1"/>
+</thread>
+</effect>

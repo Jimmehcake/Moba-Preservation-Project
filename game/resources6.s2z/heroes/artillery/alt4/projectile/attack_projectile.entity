@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectile
+	name="Projectile_Artillery_Alt4"
+
+	speed="2000"
+	gravity="0"
+	modelscale=".75"
+	model="/heroes/emerald_warden/ability_01/effects/arrows/arrow.mdf"
+
+	impacteffect="effects/impact.effect"
+	traileffect="effects/trail.effect"
+>
+	<altavatar key="Hero_Artillery.Alt5" modpriority="90"
+		traileffect="../../alt5/effects/trail.effect"
+	/>
+	
+	<altavatar key="Hero_Artillery.Alt9" modpriority="90"
+		modelscale="1.85"
+		model="/heroes/artillery/alt9/effects/arrow/arrow.mdf"
+		impacteffect="../../alt9/effects/impact.effect"
+		traileffect="../../alt9/effects/trail.effect"
+	/>
+	
+	<altavatar key="Hero_Artillery.Alt10" modpriority="90"
+		modelscale="1.85"
+		model="/heroes/artillery/alt9/effects/arrow/arrow.mdf"
+		impacteffect="../../alt9/effects/impact.effect"
+		traileffect="../../alt9/effects/trail.effect"
+	/>
+</projectile>

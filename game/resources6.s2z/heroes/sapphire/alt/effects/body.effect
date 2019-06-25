@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+	<definitions>
+		<particlesystem name="system0" space="entity" scale="1">
+			<model
+				model="/shared/models/invis.mdf"
+				bone="_bone_fx_01"
+				scale="1"
+				position="0 0 0"
+			>
+				<billboard
+					position="10 0 0"
+					expirelife="250"
+					startcolor="0 .2 .1"
+					endcolor="0 0 0"
+					size="25"
+					rollspeed="-1250"
+					depthbias="-5"
+					material="/shared/effects/materials/whitedot_blend.material"
+				/>
+				<billboard
+					position="10 0 0"
+					expirelife="250"
+					startcolor="0 .3 0"
+					endcolor="0 0 0"
+					size="15"
+					rollspeed="-1250"
+					depthbias="-5"
+					material="/shared/effects/materials/whitedot.material"
+				/>
+				
+				<billboard
+					position="10 0 0"
+					expirelife="250"
+					startcolor=".5 .5 0"
+					endcolor="0 0 0"
+					size="7"
+					rollspeed="-1250"
+					depthbias="-5"
+					material="/shared/effects/materials/whitedot.material"
+				/>
+
+				<billboard
+					material="/shared/effects/materials/blink.material"
+					startcolor="0 0 0"
+					midcolor="0 .3 0"
+					endcolor="0"
+					maxroll="360"
+					size="35"
+					depthbias="0"
+					life="500"
+					directionalspace="local"
+					rollspeed="-50"
+					loop="true"
+					position="10 0 0"
+				/>
+			</model>			
+			<template name="horn_glow">	
+				<beam
+					bone_a="{bone_a}"
+					bone_b="{bone_b}"
+					startsize="50"
+					endsize="60"
+					loop="true"
+					life="250"
+					startcolor="0 .3 .1"
+					midcolor="0 .25 0"
+					endcolor="0 .3 .1"
+					midcolorpos=".8"
+					material="/shared/effects/materials/bow_glow_03.material"
+					framespeed="1"
+					depthbias="-5"
+					anchor="1"
+				/>
+			</template>
+			<instance name="horn_glow" bone_a="_bone_horn_right01" bone_b="_bone_horn_right02" size="30" />
+			<instance name="horn_glow" bone_a="_bone_horn_left01" bone_b="_bone_horn_left02" size="30" />
+			<model
+				model="/shared/models/invis.mdf"
+				bone="_bone_fx_01"
+				scale="1"
+				position="0 0 0"
+				roll="90"
+			>
+				<simpleemitter
+					spawnrate="10"
+					particlelife="610"
+					speed="0"
+					position="0 0 8"
+					acceleration="11"
+					material="/shared/effects/materials/flare_03.material"
+					offsetsphere="7 7 0"
+					drag="0.05"
+				>
+					<particle
+						startcolor="0 1 .5"
+						midcolor="0 1 0"
+						endcolor="0 0 0"
+						size="4"
+						turn="1"
+						maxangle="360"
+						anchor="1"
+					/>
+				</simpleemitter>
+			</model>
+			<controller particledirectionspace="local" bone="Bip01 L Hand">
+				<billboard
+					expirelife="250"
+					material="/shared/effects/materials/whitedot.material"
+					startcolor="0 .2 .1"
+					endcolor="0 0 0"
+					size="30"
+					depthbias="-5"
+					width="40" hight="140"
+					
+				/>
+			</controller>
+			<template name="hand_trail">
+				<trailemitter
+					directionalspace="local"
+					bone="{bone}"
+					spawnrate="100"
+					particlelife="500"
+					direction="{direction}"
+					angle="0"
+					speed="25"
+					drag=".1"
+					texpostime="150"
+					texposscale="0"
+					mintexstretchscale=".2" maxtexstretchscale="1"
+					material="/shared/effects/materials/light_trail.material"
+					size="{size}"
+					gravity="-3"
+				>
+					<particle
+						startcolor="0 .5 .1" 
+						endcolor="0"
+						startsize="10"
+						endsize="3"
+					/>
+				</trailemitter>
+			</template>
+			<instance name="hand_trail" bone="Bip01 L Forearm"  direction="0 -1 -1" />
+			<instance name="hand_trail" bone="Bip01 L Forearm"  direction="0 1 -1" position="-5 -5 0"/>
+			<instance name="hand_trail" bone="Bip01 L Hand"  direction="0 1 -1" position="0 -5 2"/>
+			<instance name="hand_trail" bone="Bip01 L Forearm"  direction="0 1 -1" position="3 3 0"/>
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+</effect>

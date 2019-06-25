@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+
+	<definitions>
+
+		<particlesystem name="system0" space="world" scale="1">
+
+		<template name="sand">
+
+				<simpleemitter
+					position="0 5 0"
+					spawnrate="40"
+					bone="{bone}"
+					particlelife="800"
+					gravity="13"
+					material="/shared/effects/materials/purple_goop_blend.material"
+					offsetsphere="10 10 10"
+					direction="1 1 0"
+					minangle="-180"
+					maxangle="180"
+					speed="1"
+					directionalspace="global"
+					inheritvelocity=".1"
+					colide="true"
+					life="1500"
+				>
+					<particle
+						minangle="0"
+						maxangle="360"
+						anglespeed="20"
+						maxstartsize="33"
+						midsize="22"
+						endsize="0"
+						startcolor=".6 .5 .3 "
+						endcolor=".3 .25 .1"				
+						startstickeness="1"
+						endstickiness="0"
+						startalpha="0"
+						midalpha="1"
+						endalpha="0"
+						midalphapos=".75"
+					/>
+				</simpleemitter>
+			
+			<simpleemitter
+				startspawnrate="120"
+				endspawnrate="0"
+				bone="{bone}"
+				maxparticlelife="800"
+				life="1500"
+				gravity="5"				
+				direction="1 1 0"
+				minangle="-180"
+				maxangle="180"
+				drag="0.1"
+				speed="350"
+				inheritvelocity=".3"
+				depthbias="-20"
+			>
+				<particle
+				 turn="true"
+				>
+					<billboard
+						material="/shared/effects/materials/purple_goop_blend_ground.material"
+						minangle="0"
+						maxangle="360"
+						anglespeed="40"
+						startsize="15"
+						midsize="30"
+						endsize="30"
+						lockup="true"
+						lockright="true"
+						pitch="90"
+						startcolor=".15"
+						endcolor="0"
+						startalpha=".5"
+						endalpha="0"
+						directionalspace="local"
+					/>
+				</particle>
+			</simpleemitter>				
+				
+			</template>
+			
+
+			<instance name="sand" bone="Bip01 L Hand"/>
+
+			
+		</particlesystem>
+
+	</definitions>
+
+	<thread>
+		<wait duration="1000"/>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+
+</effect>

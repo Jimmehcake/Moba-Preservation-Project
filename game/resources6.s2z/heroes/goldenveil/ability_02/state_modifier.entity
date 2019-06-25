@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Goldenveil_Ability2_Modifier"
+	
+	ishidden="true"
+	passiveeffect=""
+	
+	effecttype=""
+
+	modifierkey="Goldenveil_tree"
+>
+</state>

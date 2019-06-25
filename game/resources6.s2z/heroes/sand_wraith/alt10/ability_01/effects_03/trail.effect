@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="	" deferred="1">
+	<definitions>
+		<particlesystem name="system0" space="world" scale="0.75">
+			<sound
+				linearfalloff="true" 
+				falloffstart="0"
+				falloffend="2500"
+				volume=".6"
+				sample="/heroes/sand_wraith/ability_01/sounds/cast2.wav"
+			/>
+			<sound
+				soundloop="true"
+				fadein="300"
+				fadeout="500"
+				linearfalloff="true" 
+				falloffstart="0"
+				falloffend="2500"
+				volume=".55"
+				sample="/heroes/sand_wraith/ability_01/sounds/trail.wav"
+			/>
+			<simpleemitter
+				spawnrate="5"
+				minparticlelife="400"
+				maxparticlelife="650"
+				gravity="-10"
+				material="/shared/effects/materials/cloud_blend.material"
+				offsetsphere="25 25 0"
+				depthbias="-5"
+				minspeed="50"
+				maxspeed="100"
+				drag="0.5"
+			>
+				<particle
+					maxangle="360"
+					minanglespeed="250"
+					maxanglespeed="350"
+					startsize="15"
+					endsize="22"
+					color="1 .7 .3"
+					startalpha="1"
+					endalpha="0"
+					minscale="5.5"
+					maxscale="8.3"
+					anchor="1"
+				/>
+			</simpleemitter>
+			<simpleemitter
+				spawnrate="10"
+				minparticlelife="600"
+				maxparticlelife="850"
+				gravity="0"
+				material="/shared/effects/materials/cloud_blend.material"
+				offsetsphere="20 20 5"
+				depthbias="-5"
+				minspeed="50"
+				maxspeed="100"
+				drag="0.5"
+			>
+				<particle
+					maxangle="360"
+					minanglespeed="-50"
+					maxanglespeed="50"
+					startsize="15"
+					endsize="22"
+					color="1 .7 .3"
+					startalpha="1"
+					endalpha="0"
+					minscale="5.5"
+					maxscale="8.3"
+				/>
+			</simpleemitter>
+			<simpleemitter
+				spawnrate="10"
+				minparticlelife="550"
+				maxparticlelife="750"
+				gravity="0"
+				material="/shared/effects/materials/phantom_smoke_04.material"
+				offsetsphere="20 20 5"
+				depthbias="-5"
+				minspeed="50"
+				maxspeed="100"
+				drag="0.5"
+			>
+				<particle
+					maxangle="360"
+					minanglespeed="-50"
+					maxanglespeed="50"
+					startsize="15"
+					endsize="22"
+					startcolor="1 .7 .3"
+					endcolor="0"
+					startalpha="1"
+					endalpha="0"
+					minscale="5.5"
+					maxscale="8.3"
+				/>
+			</simpleemitter>
+			<simpleemitter
+				spawnrate="10"
+				minparticlelife="650"
+				maxparticlelife="950"
+				gravity="0"
+				material="/shared/effects/materials/smoke_particle.material"
+				offsetsphere="20 20 5"
+				depthbias="-5"
+				minspeed="50"
+				maxspeed="100"
+				drag="0.5"
+			>
+				<particle
+					minangle="0"
+					maxangle="360"
+					minanglespeed="-50"
+					maxanglespeed="50"
+					startsize="25"
+					endsize="45"
+					color="1 .7 .3"
+					startalpha=".8"
+					endalpha="0"
+					minscale="5.5"
+					maxscale="8.3"
+				/>
+			</simpleemitter>
+			<controller scale=".8">
+			<billboard
+				material="/shared/effects/materials/whitedot_blend.material"
+				color=".2 .12 0"
+				lockup="ture"
+				pitch="90"
+				size="280"
+				rollspeed="1000"
+			/>
+			<billboard
+				material="/shared/effects/materials/whitedot_blend.material"
+				color=".2 .12 0"
+				size="220"
+				rollspeed="1000"
+			/>
+			<simpleemitter
+				spawnrate="6"
+				particlelife="500"
+				material="/shared/effects/materials/twirl_09.material"
+				offsetsphere="0"
+				directionalspace="local"
+			>
+				<particle
+					maxangle="360"
+					anglespeed="500"
+					startsize="200"
+					endsize="0"
+					startcolor="0"
+					midcolor=".7 .5 .3"
+					endcolor=".7 .5 .3"
+					anchor="1"
+				/>
+			</simpleemitter>
+			<simpleemitter
+				spawnrate="10"
+				particlelife="500"
+				material="/shared/effects/materials/twirl_12.material"
+				offsetsphere="0"
+				directionalspace="local"
+			>
+				<particle
+					minyaw="0"
+					maxyaw="360"
+					minroll="0"
+					maxroll="360"
+					minpitch="0"
+					maxpitch="360"
+					minyawspeed="220"
+					maxyawspeed="320"
+					minrollspeed="220"
+					maxrollspeed="320"
+					minpitchspeed="220"
+					maxpitchspeed="320"
+					anglespeed="500"
+					startsize="200"
+					endsize="50"
+					startcolor="0"
+					midcolor=".7 .5 .3"
+					endcolor=".7 .5 .3"
+					anchor="1"
+					lockright="ture"
+				/>
+			</simpleemitter>
+			<billboard
+				material="/shared/effects/materials/twirl_10.material"
+				color=".7 .5 .3"
+				size="160"
+				rollspeed="400"
+				roll="90"
+			/>
+			<billboard
+				material="/shared/effects/materials/twirl_11.material"
+				color=".9 .7 .5"
+				size="200"
+				rollspeed="150"
+				roll="90"
+			/>
+			<billboard
+				material="/shared/effects/materials/whitedot.material"
+				color=".05 .03 .01"
+				lockup="ture"
+				pitch="90"
+				size="200"
+				rollspeed="200"
+				roll="90"
+			/>
+			<simpleemitter
+				spawnrate="10"
+				minparticlelife="300"
+				maxparticlelife="400"
+				material="/shared/effects/materials/twirl_12.material"
+				offsetsphere="0"
+			>
+				<particle
+					maxangle="360"
+					minanglespeed="600"
+					maxanglespeed="800"
+					startsize="160"
+					endsize="80"
+					startcolor=".8 .6 .3"
+					endcolor="0"
+				/>
+			</simpleemitter>
+			</controller>
+			<simpleemitter
+				spawnrate="20"
+				minparticlelife="450"
+				maxparticlelife="650"
+				gravity="-10"
+				material="/shared/effects/materials/sand_blend.material"
+				offsetsphere="30 30 10"
+				depthbias="-5"
+				minspeed="50"
+				maxspeed="100"
+				drag="0.5"
+			>
+				<particle
+					maxangle="360"
+					startsize="20"
+					endsize="16"
+					color="1 .7 .3"
+					startalpha="0"
+					midalpha=".5"
+					endalpha="0"
+					minscale="3.5"
+					maxscale="5.3"
+				/>
+			</simpleemitter>
+      </particlesystem>
+   </definitions>
+<thread>
+	<spawnparticlesystem instance="instance0" particlesystem="system0" />
+	<spawnmodifier instance="instance1" modifier="modifier0"/>  
+	<waitfordeath instance="instance0" />
+	<wait duration="20000"/>
+	<!-- <die /> -->
+</thread>
+</effect>
+<!-- [min|max][start|mid|end]property[speed][position] -->

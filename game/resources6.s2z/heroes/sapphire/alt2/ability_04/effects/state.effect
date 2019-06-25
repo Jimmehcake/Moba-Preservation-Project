@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect useentityeffectscale="true" deferred="true">
+	<definitions>
+		<modifier
+			name="modifier0"
+			alpha=".3"
+		/>
+		<particlesystem name="system0" space="world" scale="2">
+			<sound
+			    forcestereo="true"
+				volume="1" 
+				sample="/heroes/sapphire/alt2/sounds/ab4_state_%.wav"
+				linearfalloff="true"
+				minfalloffstart="0"
+				maxfalloffstart="400"
+				minfalloffend="700"
+				maxfalloffend="1300"
+			/>
+			
+			<model 
+				parentmodel="true"
+				parentskeleton="true"
+				scale="1.01"
+				color="1 .3 0"
+				material="/shared/effects/materials/shell_flat_outline.material"
+			/>
+			
+			<model
+				life="1000"
+				parentmodel="true"
+				parentskeleton="true"
+				color="1.00 0.6 0"
+				midcolorpos=".3"
+				material="/shared/effects/materials/shell_energy_reveal2.material"
+				startparam0="0"
+				endparam0="1"
+				inheritparentmodifiers="false"
+				loop="ture"	
+			/>
+			
+			<model
+				life="1000"
+				parentmodel="true"
+				parentskeleton="true"
+				startcolor="1.00 0.6 0.14"
+				midcolor="1.00 0.6 0.14"
+				endcolor="1.00 0.3 0"
+				midcolorpos=".3"
+				material="/shared/effects/materials/shell_energy_reveal2.material"
+				startparam0="0"
+				midparam0=".8"
+				endparam0="1"
+				inheritparentmodifiers="false"
+				loop="ture"	
+			/>
+			
+			<model
+				life="1000"
+				parentmodel="true"
+				parentskeleton="true"
+				startcolor="1.00 0.6 0.14"
+				midcolor="1.00 0.6 0.14"
+				endcolor="1"
+				midcolorpos=".3"
+				material="/shared/effects/materials/shell_pulse_reveal.material"
+				startparam0="0"
+				midparam0=".8"
+				endparam0="1"
+				inheritparentmodifiers="false"
+				loop="ture"	
+			/>
+			
+			<model
+				parentmodel="true"
+				parentskeleton="true"
+				color="1 .6 0"
+				scale="1"
+				material="/shared/effects/materials/shell2.material"
+				position="0 0 0"
+			/>
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<spawnmodifier instance="instance1" modifier="modifier0"/>  
+		<waitfordeath instance="instance0" />
+		<waitfordeath instance="instance1" /> 
+		<!-- <die /> -->
+	</thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->
+

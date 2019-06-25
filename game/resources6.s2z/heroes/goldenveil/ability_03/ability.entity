@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ability
+	name="Ability_Goldenveil3"
+
+	statuseffecttooltip="State_Goldenveil_Ability3_Ready"
+
+	icon="icon.tga"
+
+	passiveeffect=""
+	
+	anim="ability_3"
+	casttime="0"
+	castactiontime="0"
+	
+	maxlevel="4"
+	requiredlevel="1,3,5,7"
+
+	actiontype="passive"
+>
+
+	<onlearn propagatetoillusions="false">
+		<pushentitysearch global="true" targetscheme="enemy_main_base_structure" ignoreinvulnerable="true" />
+		<applystate name="State_Goldenveil_Ability3" continuous="true" target="stack_entity" proxy="this_entity" />
+	</onlearn>
+
+	<onupgrade propagatetoillusions="false">
+		<pushentitysearch global="true" targetscheme="enemy_main_base_structure" ignoreinvulnerable="true" />
+		<applystate name="State_Goldenveil_Ability3" continuous="true" target="stack_entity" proxy="this_entity" />
+	</onupgrade>
+	
+	<onrespawn propagatetoillusions="false">
+		<pushentitysearch global="true" targetscheme="enemy_main_base_structure" ignoreinvulnerable="true" />
+		<applystate name="State_Goldenveil_Ability3" continuous="true" target="stack_entity" proxy="this_entity" />
+	</onrespawn>
+	
+</ability>

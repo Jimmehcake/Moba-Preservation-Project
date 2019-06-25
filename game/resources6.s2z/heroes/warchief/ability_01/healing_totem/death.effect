@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="ability_04_impact">
+	<definitions>
+
+		<modifier
+			alpha="0"
+			life="30000"
+		/>
+		
+		<particlesystem name="system0" space="world" useentityeffectscale="true" scale="1">
+		
+		<sound   
+				volume=".8"
+				sample="/heroes/warchief/ability_01/sounds/end.wav"
+				linearfalloff="true"
+				falloffstart="400" 
+				falloffend="1000" 
+			/>
+			
+			<sound   
+				volume=".5"
+				sample="/heroes/warchief/ability_01/sounds/heal_death.wav"
+				linearfalloff="true"
+				falloffstart="400" 
+				falloffend="1000" 
+			/>
+			
+			<billboard
+				position="0 0 50"
+				startsize="0"
+				endsize="300"
+				startcolor=".5 1 .2"
+				endcolor="0 0 0"
+				life="200"
+				material="/shared/effects/materials/corona_01.material"
+			/>
+			
+			<simpleemitter
+				position="0 0 40"
+				offsetsphere="20 20 40"
+				count="400"
+				maxgravity="0"
+				mingravity="-10"
+				direction="0 0 1"
+				angle="60"
+				maxspeed="800"
+				drag=".05"
+				particlelife="1000"
+				
+			>
+				<particle
+					maxyaw="360"
+					maxroll="360"
+					maxangle="360"
+					minanglespeed="-700"
+					maxanglespeed="700"
+					minyawspeed="-700"
+					maxyawspeed="700"
+					minpitchspeed="-700"
+					maxpitchspeed="700"
+				>
+					<billboard
+						position="0 10 0"
+						maxroll="360"
+						startcolor="1 1 .5"
+						endcolor="0"
+						size="3"
+						life="1000"
+						material="/shared/effects/materials/spark_11.material"
+					/>
+				</particle>
+			</simpleemitter>
+				
+      </particlesystem>
+   </definitions>
+   <thread>
+      <spawnparticlesystem instance="instance0"  particlesystem="system0" />	
+	  <spawnmodifier instance="instance1" modifier="modifier0"/>  
+	  <waitfordeath instance="instance0" />
+	  <waitfordeath instance="instance1" />	  
+      <!-- <die /> -->
+   </thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->
+

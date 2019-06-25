@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Warchief_Ability2_Self"
+	
+	icon="icon.tga"
+	passiveeffect="effects/state_channel.effect"
+	
+	disarmed="true"
+	effecttype=""
+	
+	impactinterval="50"
+
+	modifierkey="Warchief_W_Active"
+>
+
+	<onframe>
+		<!-- Custom channeling script -->
+		<targettype type="silenced">
+			<expire />
+		</targettype>
+		<else>
+			<targettype type="stunned">
+				<expire />
+			</targettype>
+		</else>
+	</onframe>
+	
+	<onactivatepreimpact ignoreresponsetype="Staccato Item_NonInterrupting"> <!-- Because it is not technically considered a channel, still responds to all items. -->
+		<entitytype type="Ability_Warchief2" source="inflictor_entity" target="inflictor_entity"/>
+		<else>
+			<!-- Item_NonInterrupting responsetype on flagged items prevent them from breaking the channel -->
+			<expire />
+		</else>
+	</onactivatepreimpact>
+	
+	<onimpact>
+		<!-- Accumulator switch mechanic -->
+		<pushability name="Ability_Warchief2" />
+		<setaccumulator value="0" entity="stack_entity" />
+		<setactivemodifierkey name="Warchief_W_Switched" />
+	</onimpact>
+	
+	<onexpired>		
+		<hidechannelbar toolname="Ability_Warchief2" />
+		<playanim name="idle" target="this_owner_entity" />
+		
+		<!-- Art -->
+		<hasavatarkey name="Hero_Warchief.Alt2">
+			<playeffect effect="../alt2/ability_02/effects/death.effect" source="this_proxy_position" target="" occlude="true" />
+		</hasavatarkey>
+		<else>
+			<hasavatarkey name="Hero_Warchief.Alt">
+				<playeffect effect="../alt/ability_02/effects/death.effect" source="this_proxy_position" target="" occlude="true" />
+			</hasavatarkey>
+			<else>
+				<playeffect effect="effects/death.effect" source="this_proxy_position" target="" occlude="true" />
+			</else>
+		</else>
+		
+		<selectentity source="source_entity" targets="source_entity" />
+		<delete target="this_proxy_entity" />
+		
+		<!-- Circe mimic case -->
+		<targettype type="mimic" target="source_entity">
+			<areaofeffect
+				center="source_entity"
+				radius="99999"
+				targetscheme="my_nonillusion_heroes"
+				targetselection="all"
+			>
+				<entitytype type="Hero_Warchief" target="target_entity">
+					<applystate name="State_Warchief_Ability2_Mimic" duration="50" target="source_owner_entity" proxy="target_entity" />
+				</entitytype>
+			</areaofeffect>
+		</targettype>
+	</onexpired>
+	
+	<modifier key="Warchief_W_Switched" modpriority="100"
+		impactinterval=""
+	>
+		<onimpact />
+	</modifier>
+	
+	<altavatar key="Hero_Warchief.Alt" modpriority="1"
+		passiveeffect="../alt/ability_02/effects/state_channel.effect"
+	/>
+	
+	<altavatar key="Hero_Warchief.Alt2" modpriority="1"
+		passiveeffect="../alt2/ability_02/effects/state_channel.effect"
+	/>
+</state>

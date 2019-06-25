@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<affector
+	name="Affector_Cthulhuphant_Ability4"
+
+	radius="200"
+	arcstart="180"
+	arcmid="320"
+	arcend="360"
+	arcmidpos="0.7"
+
+	speed="1000"
+	lifetime="500"
+	maximpactspertarget="1"
+	targetselection="all"
+	targetscheme="enemy_units"
+	effecttype="Magic"
+	
+	destroytrees="true"
+	
+	impacteffect="effects/impact.effect"
+	effect="effects/shock.effect"
+>
+	<onimpact>
+		<setvar0 a="param" b="10,15,20,25" op="mult" />
+		<setvar0 a="10,20,30,40" b="var0" op="add" />
+		<damage effecttype="Magic" amount="1" b="var0" op="mult" />
+	</onimpact>
+	
+	<altavatar key="Hero_Cthulhuphant.Alt"
+		effect="effects/shock_alt.effect"
+	/>
+	
+	<altavatar key="Hero_Cthulhuphant.Alt2"
+		effect="effects/shock_alt2.effect"
+	/>
+	
+	<altavatar key="Hero_Cthulhuphant.Alt3"
+		effect="effects/shock_alt3.effect"
+	/>
+	
+	<altavatar key="Hero_Cthulhuphant.Alt4"
+		effect="effects/shock_alt4.effect"
+	/>
+	
+	<altavatar key="Hero_Cthulhuphant.Alt6"
+		effect="../alt6/ability_04/effects/shock.effect"
+	/>
+
+</affector>

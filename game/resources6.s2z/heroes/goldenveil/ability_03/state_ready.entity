@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Goldenveil_Ability3_Ready"
+	
+	icon="icon.tga"
+	passiveeffect="effects/state.effect"
+	
+	effecttype=""
+
+	healthregen="10,20,30,40"
+	
+>
+	<altavatar key="Hero_Goldenveil.Alt"
+		passiveeffect="../alt/ability_03/effects/state.effect"
+ 	/>
+	
+	<altavatar key="Hero_Goldenveil.Alt2"
+		passiveeffect="../alt2/ability_03/effects/state.effect"
+ 	/>
+	
+	<altavatar key="Hero_Goldenveil.Alt3"
+		passiveeffect="../alt3/ability_03/effects/state.effect"
+ 	/>
+	
+	<altavatar key="Hero_Goldenveil.Alt4"
+		passiveeffect="../alt3/ability_03/effects/state.effect"
+ 	/>
+	
+	<altavatar key="Hero_Goldenveil.Alt5"
+		passiveeffect="../alt5/ability_03/effects/state.effect"
+ 	/>
+	
+</state>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Goldenveil_Ability2_Stealth_Linger"
+
+	icon="icon.tga"
+	passiveeffect="ability_2_idle"
+	
+	anim="ability_2_idle"
+	
+	ishidden="true"
+	
+	effecttype="StatusStealth"
+	allowtransfer="false"
+
+	stealthtype="hero"
+	fadetime="0"
+
+>		
+
+</state>

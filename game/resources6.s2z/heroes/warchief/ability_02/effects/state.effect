@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect useentityeffectscale="true" deferred="true">
+	<definitions>
+	
+			
+		<modifier
+			name="modifier0"
+			life="3000"
+			startcolor="1 2 3"
+			midcolor="1 2 3"
+			endcolor="1 1 1"
+			midcolorpos="0.889"
+		/>
+		
+		<particlesystem name="system0" space="world" scale="1.2">
+
+		
+			<simpleemitter
+				bone="_bone_centerofchest"
+				spawnrate="20"
+				speed="200"
+				drag=".07"
+				gravity="-30"
+				particlelife="500"
+				material="/shared/effects/materials/phantom_white.material"
+			>
+				<particle
+					startcolor="0 .5 1"
+					endcolor="0 .1 1"
+					startsize="20"
+					endsize="70"
+					startwidth="40"
+					endwidth="140"
+					startalpha="1"
+					endalpha="0"
+					maxangle="360"
+					minanglespeed="-100"
+					maxanglespeed="100"
+				/>
+				<particle
+					startcolor="0 .75 1"
+					endcolor="0 .25 1"
+					startsize="20"
+					endsize="70"
+					startwidth="40"
+					endwidth="140"
+					startalpha="1"
+					endalpha="0"
+					maxangle="360"
+					minanglespeed="-100"
+					maxanglespeed="100"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				bone="_bone_centerofchest"
+				spawnrate="20"
+				speed="200"
+				drag=".07"
+				gravity="-30"
+				particlelife="500"
+				material="/shared/effects/materials/soul_projectile3.material"
+			>
+				<particle
+					startcolor="0 .2 .4"
+					endcolor="0"
+					startsize="20"
+					endsize="70"
+					startalpha="1"
+					endalpha="0"
+					maxangle="90"
+					minanglespeed="-100"
+					maxanglespeed="100"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				bone="_bone_centerofchest"
+				spawnrate="100"
+				speed="100"
+				drag=".05"
+				gravity="-20"
+				minparticlelife="500"
+				maxparticlelife="1000"
+			>
+				<particle
+					startscale="0"
+					midscale="1"
+					endscale="1"
+				>
+					<controller
+						maxroll="360"
+						maxpitch="360"
+						maxyaw="360"
+						minrollspeed="-100"
+						maxrollspeed="100"
+						minyawspeed="-100"
+						maxyawspeed="100"
+						minpitchspeed="-100"
+						maxpitchspeed="100"
+					>
+						<billboard
+							position="0 30 0"
+							directionalspace="local"
+							life="1000"
+							startcolor="0 2 2"
+							midcolor="0 .5 2"
+							endcolor="0"
+							size="2"
+							maxroll="360"
+							material="/shared/effects/materials/spark.material"
+						/>
+					</controller>
+				</particle>
+			</simpleemitter>
+
+			
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<spawnmodifier instance="instance1" modifier="modifier0"/>  
+		<waitfordeath instance="instance0" />
+		<waitfordeath instance="instance1" /> 
+		<!-- <die /> -->
+	</thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->
+

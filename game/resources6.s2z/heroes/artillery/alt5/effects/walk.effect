@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="1">
+
+	<definitions>
+		
+		<particlesystem name="system0" space="world" scale="1">
+					<sound
+				soundloop="true"
+				fadein="500"
+				fadeout="250"
+				linearfalloff="true" 
+				falloffstart="0"
+				falloffend="800"
+				volume=".6"
+				sample="/heroes/artillery/alt5/sounds/walk.wav"
+			/>
+			
+								<sound
+				soundloop="true"
+				fadein="500"
+				fadeout="250"
+				linearfalloff="true" 
+				falloffstart="0"
+				falloffend="800"
+				volume=".3"
+				sample="/heroes/artillery/alt5/sounds/engine_walk.wav"
+			/>
+			
+			<template name="thruster">
+				<controller scale="{scale}" bone="{bone}">
+					<simpleemitter
+						position="{position}"
+						spawnrate="7"
+						minparticlelife="200"
+						maxparticlelife="300"
+						direction="0 -1 0"
+						speed="50"
+						angle="0"
+						drag="0.02"
+						gravity="30"
+						material="/shared/effects/materials/corona_06.material"
+					>
+						<template name="pulse">
+							<particle
+								startcolor="{color}"
+								endcolor="0"
+								startsize="5"
+								midsize="15"
+								endsize="35"
+								lockright="true"
+								pitch="60"
+							/>
+						</template>
+						<instance name="pulse" color="1 .5 0" />
+					</simpleemitter>
+
+					<simpleemitter
+						position="{position}"
+						spawnrate="7"
+						minparticlelife="200"
+						maxparticlelife="300"
+						direction="0 -1 0"
+						speed="50"
+						angle="0"
+						drag="0.02"
+						gravity="10"
+						material="/shared/effects/materials/corona_07_blend.material"
+					>
+						<template name="pulse">
+							<particle
+								color="{color}"
+								startalpha="1"
+								midalpha="1"
+								endalpha="0"
+								startsize="5"
+								midsize="15"
+								endsize="35"
+								lockright="true"
+								pitch="60"
+							/>
+						</template>
+						<instance name="pulse" color=".125 .125 1" />
+					</simpleemitter>
+				</controller>
+			</template>
+			
+			<instance name="thruster" bone="Box003" scale="1" position="0 0 0" />
+			<instance name="thruster" bone="Box003" scale=".5" position="0 0 0" />
+			
+			<instance name="thruster" bone="Box003" scale="1" position="0 0 13" />
+			<instance name="thruster" bone="Box003" scale=".5" position="0 0 13" />
+		</particlesystem>
+
+	</definitions>
+
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />		
+		<waitfordeath instance="instance0" />
+	</thread>
+
+</effect>

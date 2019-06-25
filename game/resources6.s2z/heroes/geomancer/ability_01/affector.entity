@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<affector
+	name="Affector_Geomancer_Ability1"
+	
+	radius="250"
+	impacteffect="effects/impact.effect"
+	targetselection="all"
+	targetscheme="enemy_units"
+	effecttype="Magic"
+>
+	<onimpact>
+		<applystate name="State_Stunned" duration="1500" />
+		<damage effecttype="Magic" amount="100,150,200,250" />
+	</onimpact>
+	
+	<altavatar key="Hero_Geomancer.Alt6" modpriority="90"
+		impacteffect="../alt6/ability_01/effects/impact.effect"
+	/>
+	
+</affector>

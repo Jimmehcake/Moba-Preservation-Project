@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect useentityeffectscale="1" persistent="true">
+	<definitions>
+		<particlesystem name="system0" space="world" scale="1">
+			<sound
+				linearfalloff="true" 
+				falloffstart="0" falloffend="2000"
+				volume=".5"
+				sample="sounds/impact.wav"
+			/>			
+			<trackeremitter
+				spawnrate="250" count="2"
+				bone="_bone_centerofchest"
+				owner="target"
+				targetbone="_bone_centerofchest" targetowner="source" tracktype="angular"
+				trackspeed="11.0"
+				gravity="-50" drag="0"				
+				particlelife="2000"				
+				offsetsphere="5 5 5"
+				minspeed="210.0" maxspeed="220.0"
+				acceleration="30.0"
+				direction="0.0 0.0 1.0"
+				inheritvelocity="0.0"
+				distancelife="true"
+				expirelife="500"
+			>
+				<particle>
+					<template name="soul">
+						<trailemitter
+							life="2000" particlelife="750"
+							bone="Box03"
+							spawnrate="50"							
+							texpostime="750" texposscale="1" texstretchscale="0"
+							position="0 0 0"
+							material="{material}"
+							expirelife="500"
+						>
+							<particle
+								startsize="0" midsize="{midsize}" endsize="0" midsizepos=".45"
+								startcolor=".35" midcolor=".35" endcolor=".35"
+								startalpha="{startalpha}" midalpha="{midalpha}" endalpha="0" midalphapos=".7"
+							/>
+						</trailemitter>
+					</template>
+					<instance name="soul" midsize="12" startalpha=".5" midalpha=".3" material="/shared/effects/materials/trail_yellow.material"/>
+					<instance name="soul" midsize="15" startalpha=".4" midalpha=".1" material="/shared/effects/materials/trail_yellow.material"/>
+				</particle>
+			</trackeremitter>	
+			
+			<!-- <billboard
+				bone="_bone_centerofchest"
+				life="275"
+				material="/shared/effects/materials/glow_05.material"
+				startsize="100"
+				endsize="220"
+				depthbias="-30"
+				color="1"
+				startalpha="1"
+				midalpha="1"
+				endalpha="0"
+				lockup="1"
+				pitch="90"
+			/> -->
+			
+			<!-- <simpleemitter
+				bone="_bone_centerofchest"
+				count="10"
+
+				minparticlelife="150"
+				maxparticlelife="200"
+				particlealpha=".65"
+				material="/shared/effects/materials/splatter_blend.material"
+			>
+				<particle
+					startframe="0"
+					endframe=".9"
+					startsize="50"
+					endsize="100"
+					color=".1 .3 .65"
+					startalpha="1"
+					endalpha="0"
+					maxangle="360"
+					minscale="2.3"
+					maxscale="2.3"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				bone="_bone_centerofchest"
+				count="10"
+				offsetsphere="20"
+				offsetradial="20 20 0"
+				minparticlelife="150"
+				maxparticlelife="300"
+				particlealpha=".65"
+				material="/shared/effects/materials/water.material"
+			>
+				<particle
+					startframe="0"
+					endframe=".9"
+					startsize="50"
+					endsize="100"
+					color="1"
+					maxangle="360"
+					minscale="1"
+					maxscale="1"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				bone="_bone_centerofchest"
+				count="10"
+				offsetsphere="20"
+				offsetradial="20 20 0"
+				minparticlelife="150"
+				maxparticlelife="300"
+				particlealpha=".65"
+				material="/shared/effects/materials/good_tower_01_reveal.material"
+			>
+				<particle
+					startframe="0"
+					endframe="1"
+					startsize="50"
+					endsize="100"
+					color="1"
+					maxangle="360"
+					minscale="2"
+					maxscale="2"
+				/>
+			</simpleemitter>
+			
+
+			<billboard
+				bone="_bone_centerofchest"
+				life="275"
+				material="/shared/effects/materials/corona_07.material"
+				startsize="100"
+				endsize="200"
+				depthbias="-30"
+				startcolor=".5 .5 .7"
+				endcolor="0"
+				lockup="1"
+				pitch="90"
+			/> -->
+
+			
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+</effect>

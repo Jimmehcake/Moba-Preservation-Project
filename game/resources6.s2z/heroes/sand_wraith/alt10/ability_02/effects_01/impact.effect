@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true" useentityeffectscale="false">
+	<definitions>
+		<particlesystem name="system0" space="world" scale="1">
+			<sound
+				linearfalloff="true" 
+				falloffstart="0"
+				falloffend="2200"
+				volume=".5"
+				sample="/items/recipes/sand_scepter/sounds/imp.wav"
+			/>
+			<simpleemitter
+				count="5"
+				particlelife="1300"				
+				spawnrate="650"
+				minspeed="100"
+				maxspeed="750"
+				gravity="40"
+				direction="0 0 1"
+				minangle="0"
+				maxangle="1"
+				drag="0.01"
+				material="/shared/effects/materials/cloud_blend.material"
+				offsetsphere="0 0 10"
+				position="0 0 40"
+			>
+				<particle 
+					depthbias="-100"
+					startcolor=".7 .8 .8"
+					endcolor=".3 .4 .5"					
+					height="200"
+					startwidth="30"
+					endwidth="100"
+					startscale="1"
+					endscale="2"
+					startalpha="1"
+					endalpha="0"
+					lockup="1"
+					lockright="1"
+				/>
+				<particle 
+					depthbias="-100"
+					startcolor=".7 .8 .8"
+					endcolor=".4 .5 .5"					
+					height="200"
+					startwidth="30"
+					endwidth="100"
+					startscale="1"
+					endscale="2"
+					startalpha="1"
+					endalpha="0"
+					lockup="1"
+					pitch="180"
+					lockright="1"
+				/>
+			</simpleemitter>
+			<billboard	
+				bone="_bone_centerofchest"			
+				life="400"
+				material="/shared/effects/materials/whitedot.material"
+				position="0 0 0"
+				startcolor=".2 .9 1"					
+				endcolor="0 0 0"
+				size="230"
+				depthbias="-30"
+			/>			
+			<billboard
+				position="0 0 100"
+				lockup="1"
+				pitch="90"
+				startsize="0"
+				endsize="250"
+				life="300"
+				startcolor=".1 .3 .3"
+				endcolor=".3 .5 .5"	
+				startalpha="1"
+				midalpha="1"
+				midalphapos=".75"
+				endalpha="0"
+				material="/shared/effects/materials/pyroclast_ring.material"
+			/>
+			<billboard
+				delay="50"
+				position="0 0 100"
+				lockup="1"
+				pitch="90"
+				startsize="0"
+				endsize="250"
+				life="300"
+				startcolor=".1 .3 .3"
+				endcolor=".3 .5 .5"	
+				startalpha="1"
+				midalpha="1"
+				midalphapos=".75"
+				endalpha="0"
+				material="/shared/effects/materials/pyroclast_ring.material"
+			/>
+<!-- 			<billboard
+				position="0 0 100"
+				startsize="0"
+				endsize="450"
+				life="300"
+				startcolor=".2 .5 1"
+				endcolor="0"
+				material="/shared/effects/materials/whitedot.material"
+			/> -->
+			<billboard
+				position="0 0 100"
+				startsize="0"
+				endsize="350"
+				life="250"
+				startalpha="1"
+				endalpha="0"
+				param=".05"
+				material="/shared/effects/materials/refract_swell.material"
+			/>
+			<billboard
+				position="0 0 100"
+				startsize="0"
+				endsize="250"
+				life="200"
+				startcolor=".8 .9 1"
+				midcolor=".4 .6 1"
+				endcolor="0"	
+				material="/shared/effects/materials/cartoon_water.material"
+				maxroll="360"
+			/>
+			<billboard
+				position="0 0 100"
+				startsize="0"
+				endsize="330"
+				life="300"
+				startcolor=".8 .9 1"
+				midcolor=".4 .6 1"
+				endcolor="0"	
+				material="/shared/effects/materials/spray.material"
+				maxroll="360"
+			/>
+			<simpleemitter		
+				position="0 0 100"
+				count="30"
+				minparticlelife="500"		
+				maxparticlelife="600"		
+				offsetsphere="10"
+				material="/shared/effects/materials/bubble_add.material"	
+				depthbias="-20"	
+				gravity="35"
+				minspeed="300"
+				maxspeed="500"
+				drag="0.01"
+			>
+				<particle	
+					color=".6 .8 .8"
+					startsize="4.5"
+					endsize="1.5"
+					minscale="2.5"
+					maxscale="3"		
+				/> 
+				<particle	
+					color=".6 .7 .8"
+					startsize="4.5"
+					endsize="1.5"
+					minscale="2.5"
+					maxscale="3"		
+				/> 
+			</simpleemitter> 
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+</effect>

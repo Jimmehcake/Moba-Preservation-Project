@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="chainsofdoom" deferred="true">
+
+	<definitions>
+
+		<particlesystem name="system0" space="world" scale="1">
+			
+			<sound
+			    soundloop="true"
+				fadein="100"
+				fadeout="1000"
+				linearfalloff="true" 
+				falloffstart="1300"
+				falloffend="1300"
+				volume=".8"
+				sample="/heroes/kane/ability_04/sounds/state_loop.wav"
+			/>
+		
+
+			<template name="eye" >
+				<!-- background -->
+				<billboard
+					bone="{bone}"
+					position="{position}"
+					expirelife="500"
+					startalpha=".65"
+					endalpha="0"
+					material="/shared/effects/materials/whitedot_blend.material"
+					color="1 .7 0"
+					height="50"
+					width="80"
+				/>
+
+				<!-- iris -->
+				<billboard
+					bone="{bone}"
+					position="{position}"
+					expirelife="500"
+					startalpha="1"
+					endalpha="0"
+					material="/shared/effects/materials/black_spot2.material"
+					height="15"
+					width="30"
+				/>
+			
+				<!-- pupil -->
+				<billboard
+					bone="{bone}"
+					position="{position}"
+					material="/shared/effects/materials/fire_scrolling.material"
+					width="9"
+					height="14"
+					flare="1"
+					roll="90"
+					color=".5 1 .5"
+				/>
+				<billboard
+					bone="{bone}"
+					position="{position}"
+					material="/shared/effects/materials/fire_scrolling.material"
+					width="9"
+					height="15"
+					flare="1"
+					roll="-90"
+					color=".5 1 .5"
+				/>
+				<billboard
+					bone="{bone}"
+					position="{position}"
+					expirelife="500"
+					startalpha="1"
+					endalpha="0"
+					material="/shared/effects/materials/black_spot2.material"
+					height="10"
+					width="4"
+				/>
+				
+				<billboard
+					bone="{bone}"
+					position="{position}"
+					expirelife="500"
+					startalpha="1"
+					endalpha="0"
+					material="/shared/effects/materials/eyemask_two.material"
+					width="35"
+					height="30"
+					color="0 0 0"
+				/>
+	
+			</template>
+			
+			<instance name="eye" bone="_bone_overhead" position="0 0 100" />
+			
+				
+		</particlesystem>
+
+	</definitions>
+
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+
+</effect>

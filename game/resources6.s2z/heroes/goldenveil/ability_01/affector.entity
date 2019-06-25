@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<affector
+	name="Affector_Goldenveil_Ability1"
+
+	radius="300"
+	
+	lifetime="2750"
+	impactinterval="250"
+	maximpactsperinterval="1"
+	targetselection="closest"
+	targetscheme="visible_enemy_units"
+	effecttype="Magic"
+	effect="effects/affector_day.effect"
+	
+>
+	<onspawn>
+		<setscriptvalue name="impact_effect" value="effects/impact.effect" entity="this_entity" />
+		
+	</onspawn>
+	
+	<onframe>
+		<!-- Audio for impact -->
+		<areaofeffect
+			    radius="350"
+				targetscheme="visible_enemy_units"
+				targetselection="closest"
+				ignoreinvulnerable="true"
+				maxtotalimpacts="1"
+			>
+			   <applystate name="State_Goldenveil_Sound" continuous="true" target="source_entity" stack="false" timeout="frametime"/>	
+		</areaofeffect>
+	</onframe>
+	
+	<onimpact>
+		
+		<damage effecttype="Magic" amount="15,25,35,45" />
+		
+		<!-- Art -->
+		<hasavatarkey name="Hero_Goldenveil.Alt">
+			<playeffect effect="../alt/ability_01/effects/impact.effect" source="target_entity" />
+		</hasavatarkey>
+		<else>
+			<hasavatarkey name="Hero_Goldenveil.Alt2">
+				<playeffect effect="../alt2/ability_01/effects/impact.effect" source="target_entity" />
+			</hasavatarkey>
+			<else>
+				<hasavatarkey name="Hero_Goldenveil.Alt3">
+					<playeffect effect="../alt3/ability_01/effects/impact.effect" source="target_entity" />
+				</hasavatarkey>
+				<else>
+					<hasavatarkey name="Hero_Goldenveil.Alt4">
+						<playeffect effect="../alt3/ability_01/effects/impact.effect" source="target_entity" />
+					</hasavatarkey>
+					<else>
+						<hasavatarkey name="Hero_Goldenveil.Alt5">
+							<playeffect effect="../alt5/ability_01/effects/impact.effect" source="target_entity" />
+						</hasavatarkey>
+						<else>
+							<playeffect effect="effects/impact.effect" source="target_entity" />
+						</else>
+					</else>
+				</else>
+			</else>
+		</else>
+	
+	</onimpact>
+	
+	
+	<altavatar key="Hero_Goldenveil.Alt"
+		effect="../alt/ability_01/effects/affector_day.effect"
+ 	/>
+	
+	<altavatar key="Hero_Goldenveil.Alt2"
+		effect="../alt2/ability_01/effects/affector_day.effect"
+ 	/>
+	
+	<altavatar key="Hero_Goldenveil.Alt3"
+		effect="../alt3/ability_01/effects/affector_day.effect"
+ 	/>
+	
+	<altavatar key="Hero_Goldenveil.Alt4"
+		effect="../alt3/ability_01/effects/affector_day.effect"
+ 	/>
+	
+	<altavatar key="Hero_Goldenveil.Alt5"
+		effect="../alt5/ability_01/effects/affector_day.effect"
+ 	/>
+	
+</affector>

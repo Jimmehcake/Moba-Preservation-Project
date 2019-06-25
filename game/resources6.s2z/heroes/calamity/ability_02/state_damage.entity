@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Calamity_Ability2_Damage"
+	
+	icon="icon.tga"
+	passiveeffect=""
+
+	maxcharges="5"
+	
+	effecttype="StatusDebuff"
+	allowtransfer="true"
+>
+	<onframe />
+
+	<oninflict>
+		<damage effecttype="Magic" amount="25,50,70,95" target="this_owner_entity" />
+		<addcharges count="1" />
+		<setproxy target="this_spawner_entity" />
+	</oninflict>
+
+	<onrefresh>
+		<pushentity entity="this_spawner_entity" />
+		<condition test="stack_entity != this_proxy_entity" >
+			<evaluate a=".10" b="charges" op="mult" />
+			<setvar0 a="1" b="result" op="sub" />
+
+			<evaluate a="25,50,70,95" />
+			<evaluate a="result" b="var0" op="mult" />
+			<damage effecttype="Magic" amount="1" b="result" op="mult" />
+			
+			<addcharges count="1" />
+			<setproxy target="this_spawner_entity" />
+		</condition>
+	</onrefresh>
+</state>

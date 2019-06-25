@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="body">
+	<definitions>
+		<particlesystem name="system0" space="world">
+			
+			<model
+				parentskeleton="1"
+				position="0 0 0"
+				scale="1.02"
+				model="body/model.mdf"
+				material="body/material.material"
+				
+				startcolor="0 0 1"
+				midcolor="1"
+				endcolor="0 0 1"
+				life="5000"
+				loop="true"
+				startalpha="1"
+				midalpha="0"
+				endalpha="1"
+				
+				inheritparentmodifiers="true"
+				parentalpha="true"
+				parentteamcolor="true"
+			>
+			</model>
+			
+			<billboard			
+	
+				bone="_bone_lefteye"
+				color=".61 0 0"
+				size="5"
+				material="/shared/effects/materials/glow_01.material"
+				loop="true"
+				depthbias="-2"
+				position="0 0 0"
+			/>		
+			
+			<billboard			
+	
+				bone="_bone_righteye"
+				color=".61 0 0"
+				size="5"
+				material="/shared/effects/materials/glow_01.material"
+				loop="true"
+				depthbias="-2"
+				position="0 0 0"
+			/>
+
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+		<!-- <die /> -->
+	</thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->
+

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+	<definitions>
+		<particlesystem name="system0" space="world" scale="1.0">
+			<model
+				model="../weapon.mdf"
+				parentskeleton="true"
+				material="/shared/effects/materials/shell4.material"
+				color=".75 1.25 40"
+			/>
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+
+</effect>

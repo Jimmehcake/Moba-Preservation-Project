@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectile
+	name="Projectile_Artillery_Ability4_Alt3"
+	speed="2000"
+	gravity="9000"
+
+	modelscale="1"
+	model="/shared/models/invis.mdf"
+	traileffect="effects/trail.effect"
+>
+	<onimpact>
+		<areaofeffect
+			center="this_entity"
+			radius="250"
+			targetselection="all"
+			targetscheme="enemy_units"
+			effecttype="Magic"
+		>
+			<applystate name="State_Stunned_Knockdown" duration="2000" />
+			<playanim name="knock_1" target="target_entity" />
+			<playeffect effect="/heroes/artillery/ability_04/effects/impact.effect" source="target_entity" target="target_entity"/>
+			<damage effecttype="Magic" amount="200,350,500" />
+		</areaofeffect>
+		<playeffect effect="/heroes/artillery/ability_04/effects/explosion.effect" source="this_position" target="" occlude="true" />
+	</onimpact>
+	
+</projectile>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true" >
+
+	<definitions>
+			
+		
+		<particlesystem name="system0" space="world" scale="1">
+			
+			<sound  
+				volume="1"
+				sample="/heroes/warchief/ability_02/sounds/core_end.wav"
+				linearfalloff="true"
+				falloffstart="400" 
+				falloffend="1000" 
+			/>
+			
+			<simpleemitter
+				position="0 0 100"
+				count="1"
+				particlelife="250"
+				material="/shared/effects/materials/whitedot.material"
+			>
+				<particle
+					startsize="0"
+					endsize="200"
+					startcolor="0 1 1"
+					endcolor="0"
+					scale="1.5"
+				/>
+			</simpleemitter>
+			
+			
+			
+			<simpleemitter
+				position="0 0 100"
+				count="5"
+				maxparticlelife="300"
+				minparticlelife="150"
+				material="/shared/effects/materials/pyroclast_ring.material"
+			>
+				<particle
+					startsize="300"
+					endsize="0"
+					color="0 .5 1"
+					startalpha="0"
+					midalpha=".7"
+					endalpha="1"
+					maxangle="360"
+					scale="1.5"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				position="0 0 100"
+				count="1"
+				particlelife="300"
+				material="/shared/effects/materials/corona_07.material"
+			>
+				<particle
+					startsize="200"
+					endsize="0"
+					startcolor="0"
+					endcolor="0 1 1"
+					scale="1.5"
+				/>
+			</simpleemitter>
+			
+			
+			<simpleemitter
+				position="0 0 100"
+				count="200"
+				particlelife="400"
+				offsetsphere="100"
+				particlecolor="2"
+				material="/shared/effects/materials/spark.material"
+			>
+				<particle
+					startcolor="0"
+					endcolor=".25 .7 1"
+					startsize="10"
+					endsize="0"
+					startstickiness="0"
+					endstickiness="1"
+				/>
+			</simpleemitter>
+
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<spawnmodifier instance="instance1" modifier="modifier0"/>  
+		<waitfordeath instance="instance0" />
+		<waitfordeath instance="instance1" /> 
+		<!-- <die /> -->
+	</thread>
+
+</effect>

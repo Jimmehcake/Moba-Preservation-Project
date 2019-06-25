@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Chi_Ability2"
+
+	icon="icon.tga"
+	passiveeffect=""
+	displaylevel="true"
+
+	ishidden="true"
+
+	modifierkey="ChiOrb"
+	modifierkey2=""
+	effecttype=""
+>	
+	<onframe>
+		<takemana amount="4,8,12,16" b="frametime" op="mult" triggeractionscript="true" costovertime="true" />
+		<compare a="source_mana" b="1" op="le">
+			<expire />
+		</compare>
+		
+		<!-- Leash range -->
+		<distance source="source_entity" target="this_proxy_entity" />
+		<compare a="result" b="2000" op="gt">
+			<expire />
+		</compare>
+	</onframe>
+	
+	<onexpired>
+		<spawnprojectile name="Projectile_Chi_Ability2" source="this_proxy_entity" bind="this_proxy_entity" bindturn="true" proxy="this_proxy_entity" target="source_entity" pushentity="true" />
+		<setactivemodifierkey name="Chi2_Return" entity="stack_entity" />		
+		<applystate name="State_Chi_Ability2_Disabled" target="source_entity" duration="7000" />		
+		
+		<!-- SFX -->
+		<playeffect effect="effects/return_audio.effect" source="stack_proxy_entity" target="stack_proxy_entity" occlude="true" />
+		
+		<!-- anim -->
+		<playanim name="ability_2_end" target="source_entity" />
+	</onexpired>
+</state>

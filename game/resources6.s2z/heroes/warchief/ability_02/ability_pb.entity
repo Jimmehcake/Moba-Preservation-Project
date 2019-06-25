@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ability
+	name="Ability_Warchief2pb"
+	
+	icon="iconc.tga"
+	
+	castactiontime="0"
+	casttime="0"
+	
+	actiontype="self_position"
+
+	manacost="0"
+	cooldowntime="0"
+	
+	nosilence="true"
+	nostun="true"
+	noresponse="true"
+	
+	baselevel="1"
+	maxlevel="1"
+	keyslot="2"
+	
+	noshuffle="true"
+>
+	<onimpact>
+		<expirestate name="State_Warchief_Ability2_Self" target="source_owner_entity" />
+		<breakchannel entity="source_owner_entity" />
+	</onimpact>
+	
+	<!-- Ability on the wolf to cancel -->
+</ability>

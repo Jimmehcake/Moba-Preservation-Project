@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<affector
+	name="Affector_SandWraith_Ability1_Sticky"
+	
+	lifetime="8000"
+>
+	<onframe>
+		<compare a="proxy_entity" b="0" op="eq">
+			<spawnunit name="Gadget_SandWraith_Ability1_PathSticky" target="target_position" fixedposition="true" pushentity="true" />
+			<setproxy target="stack_entity" />
+		</compare>
+		<else>
+			<distance source="proxy_entity" />
+			<compare a="result" b="85" op="ge">
+				<spawnunit name="Gadget_SandWraith_Ability1_PathSticky" target="target_position" fixedposition="true" pushentity="true" />
+				<setproxy target="stack_entity" />
+			</compare>
+		</else>
+	</onframe>
+</affector>

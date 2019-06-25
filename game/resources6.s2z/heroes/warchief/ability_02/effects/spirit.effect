@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect useentityeffectscale="true" deferred="false">
+	<definitions>
+	
+			
+		<modifier
+			name="modifier0"
+			color="0 3 3"
+			alpha=".5"
+		/>
+		
+		<particlesystem name="system0" space="entity" scale="1">
+		
+		<sound  
+		        soundloop="true"
+				fadein="250"
+				fadeout="250"
+				volume="1"
+				sample="/heroes/warchief/ability_02/sounds/core_loop.wav"
+				linearfalloff="true"
+				falloffstart="400" 
+				falloffend="1000" 
+			/>
+			
+			
+			<model
+				parentmodel="1"
+				parentskeleton="1"
+				color="0 .5 3"
+				material="/shared/effects/materials/shell_rim_white.material"
+			/>
+			
+			<template name="spirit_fire" >
+				<twopointemitter
+					bone_a="{bonea}"
+					bone_b="{boneb}"
+					spawnrate="{spawnrate}"
+					offsetsphere="20"
+					particlelife="1000"
+				>
+					<particle
+						anchor="1"
+					>
+						<trailemitter
+							life="500"
+							spawnrate="30"
+							directionalspace="global"
+							particlelife="250"
+							direction="0 0 1"
+							angle="10"
+							speed="400"
+							material="/shared/effects/materials/soul_projectile3.material"
+						>
+							<particle
+								startcolor="0 .5 1"
+								endcolor="0"
+								startsize="20"
+								endsize="5"
+							/>
+						</trailemitter>
+					</particle>
+					
+					<particle
+						anchor="1"
+					>
+						<trailemitter
+							life="500"
+							spawnrate="30"
+							directionalspace="global"
+							particlelife="400"
+							direction="0 0 1"
+							angle="10"
+							speed="400"
+							material="/shared/effects/materials/soul_projectile3.material"
+						>
+							<particle
+								startcolor="0 .15 1"
+								endcolor="0"
+								startsize="20"
+								endsize="5"
+							/>
+						</trailemitter>
+					</particle>
+					
+					<particle
+						anchor="1"
+					>
+						<trailemitter
+							life="500"
+							spawnrate="30"
+							directionalspace="global"
+							particlelife="250"
+							direction="0 0 1"
+							angle="10"
+							speed="400"
+							material="/shared/effects/materials/soul_projectile3.material"
+						>
+							<particle
+								startcolor="0 .75 1"
+								endcolor="0"
+								startsize="20"
+								endsize="5"
+							/>
+						</trailemitter>
+					</particle>
+				</twopointemitter>
+			</template>
+			
+			<instance name="spirit_fire" spawnrate="30" bonea="Bip01 R UpperArm" boneb="Bip01 L UpperArm" />
+			
+			<instance name="spirit_fire" spawnrate="10" bonea="Bip01 R UpperArm" boneb="Bip01 R Forearm" />
+			<instance name="spirit_fire" spawnrate="10" bonea="Bip01 R Forearm" boneb="Bip01 R Hand" />
+			
+			<instance name="spirit_fire" spawnrate="10" bonea="Bip01 L UpperArm" boneb="Bip01 L Forearm" />
+			<instance name="spirit_fire" spawnrate="10" bonea="Bip01 L Forearm" boneb="Bip01 L Hand" />
+			
+			<instance name="spirit_fire" spawnrate="10" bonea="Bone026" boneb="Bone027" />
+			<instance name="spirit_fire" spawnrate="10" bonea="Bone030" boneb="Bone031" />
+
+			
+
+				
+
+		</particlesystem>
+		
+		
+		<particlesystem name="system1" space="world" scale="1">
+			
+			
+			<simpleemitter
+				bone="_bone_centerofchest"
+				spawnrate="50"
+				gravity="-20"
+				particlelife="1000"
+			>
+				<particle
+				>
+					<controller
+						maxroll="360"
+						maxpitch="360"
+						maxyaw="360"
+						minrollspeed="-100"
+						maxrollspeed="100"
+						minyawspeed="-100"
+						maxyawspeed="100"
+						minpitchspeed="-100"
+						maxpitchspeed="100"
+					>
+						<billboard
+							position="0 70 0"
+							directionalspace="local"
+							life="1000"
+							startcolor="0 .5 2"
+							midcolor="0 0 5"
+							endcolor="0"
+							size="10"
+							maxroll="360"
+							minscale=".5"
+							maxscale="1"
+							material="/shared/effects/materials/spark.material"
+						/>
+					</controller>
+				</particle>
+			</simpleemitter>
+		
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<spawnparticlesystem instance="instance2" particlesystem="system1" />
+		<spawnmodifier instance="instance1" modifier="modifier0"/>  
+		<waitfordeath instance="instance0" />
+		<waitfordeath instance="instance1" /> 
+		<waitfordeath instance="instance2" /> 
+		<!-- <die /> -->
+	</thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->
+

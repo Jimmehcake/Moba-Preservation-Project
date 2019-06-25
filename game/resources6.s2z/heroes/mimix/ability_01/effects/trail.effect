@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="cyclone" deferred="true" useentityeffectscale="0">
+	<definitions>
+		<particlesystem name="system0" space="world" scale="1">
+			<model
+				model="/heroes/ichor/ability_01/effects/projectile/model.mdf"
+				material="/shared/effects/materials/shell6.material"
+				anim="idle"
+				color=".05 0 .5"
+				alpha="0"
+			>
+				<model
+					model="/heroes/ichor/ability_01/effects/projectile/model.mdf"
+					material="/shared/effects/materials/shell6.material"
+					anim="idle"
+					scale=".9"
+					alpha="0"
+					color="0 0.2 0.5"
+				>
+					<simpleemitter
+						spawnrate="30"
+						particlelife="500"
+						material="/shared/effects/materials/whitedot_blend.material"
+					>
+						<particle
+							color="0"
+							startalpha=".65"
+							midalpha=".65"
+							endalpha="0"
+							size="90"
+						/>
+					</simpleemitter>
+					<simpleemitter
+						spawnrate="60"
+						particlelife="400"
+						gravity="-1.2" minspeed="300" maxspeed="600" drag=".2"
+						direction="1 5 0"
+						material="/shared/effects/materials/spark_10.material"
+						offsetsphere="25"
+						minangle="0" maxangle="90"
+					>
+						<particle
+							minangle="0" maxangle="360"
+							minpitchspeed="-180" maxpitchspeed="180" 
+							startalpha="1" endalpha="0"
+							startcolor="0 .3 .5" midcolor="0 .3 .5" endcolor="1" midcolorpos=".3"
+							minstartsize="3" maxstartsize="8" endsize="0" scale="2.3"
+							depthbias="-150"
+						>
+								<billboard
+									life="40" loop="true"
+									minstartsize="6" maxstartsize="7" midsize="0" minendsize="4" maxendsize="6"
+									color="0 .3 .6"
+									depthbias="-150"
+									material="/shared/effects/materials/whitedot.material"
+								/>
+						</particle>
+					</simpleemitter>
+					<simpleemitter
+						bone="Box014"
+						life="500"
+						spawnrate="30"
+						particlelife="600"
+						gravity="-5.0"
+						minspeed="20" maxspeed="50"
+						material="/shared/effects/materials/dust_smoke_02.material"
+						offsetsphere="6"
+						inheritvelocity=".025"
+					>
+						<particle
+							startcolor="0 .5 1" midcolor=".1 .5 .5" endcolor="0 0 0" midcolorpos=".75"
+							minangle="-360" maxangle="360"
+							startalpha=".7" endalpha="0"
+							minanglespeed="0" maxanglespeed="30"
+							startsize="55" endsize="70" scale=".7"
+							startanchor=".2" endanchor="0"
+						/>
+					</simpleemitter>
+					<template name="trails">
+						<twopointtrailemitter
+							bone_a="{bone01}" bone_b="{bone02}"
+							timenudge="150" spawnrate="50"
+							minparticlelife="70" maxparticlelife="500"
+							gravity="5"
+							subframepose="1"
+							drag="0.05"
+							minspeed="30" maxspeed="220"
+							direction="0 -1 0"
+							texpostime="70" texposscale="0"
+							mintexstretchscale=".3" maxtexstretchscale="2.9"
+							material="/shared/effects/materials/smokey_trail.material"
+							startparticlealpha="1" endparticlealpha="0"
+							depthbias="-15"
+						>
+							<particle
+								color="0 0.1 0.3"
+								startalpha=".75" midalpha=".6" endalpha="0" midalphapos=".3"
+							/>
+						</twopointtrailemitter>
+					</template>
+					<instance name="trails" bone01="Box014" bone02="Box006"/>
+					<instance name="trails" bone01="Box009" bone02="Box008"/>
+					<instance name="trails" bone01="Box004" bone02="Box008"/>
+				</model>
+				<!-- spark -->
+				<simpleemitter
+					bone="Box001"
+					spawnrate="30"
+					particlelife="500"
+					gravity="1"
+					minspeed="85" maxspeed="120"
+					drag=".02"
+					depthbias="-28"
+					material="/shared/effects/materials/sparks_reveal_gradient_02.material"
+					offsetsphere="3"
+					minangle="0" maxangle="135"
+					direction="0 0 1"
+				>
+					<particle
+						minangle="0" maxangle="0"
+						minanglespeed="0" maxanglespeed="0"
+						startcolor="0 .4 .4" midcolor="0 .3 .4" endcolor="0 0 0"
+						startframe="0" endframe="1"
+						minscale="1" maxscale="1.5"
+						minstartsize="6" maxstartsize="24" endsize="2"
+						startalpha=".2" midalpha="1" endalpha="0" midalphapos=".2"
+						startstickiness=".3" endstickiness="0"
+						turn="true"
+					/>
+				</simpleemitter>
+				<simpleemitter
+					spawnrate="50"
+					minparticlelife="700" maxparticlelife="800"
+					gravity="1"
+					minspeed="60" maxspeed="300"
+					direction="0 0 0"
+					position="0 45 0"
+					collide="1"
+					drag=".05"
+					material="/shared/effects/materials/smoke_17.material"
+					minangle="0" maxangle="360"
+					depthbias="-5"
+				>
+					<particle
+						minangle="-360" maxangle="360"
+						minanglespeed="-100" maxanglespeed="100"
+						startcolor=".05" endcolor="0.000000 0.270000 0.540000"
+						startsize="15" endsize="70"
+						startalpha=".5" midalpha="1" endalpha=".15" midalphapos=".2"
+					/>
+				</simpleemitter>
+			</model>
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+</effect>

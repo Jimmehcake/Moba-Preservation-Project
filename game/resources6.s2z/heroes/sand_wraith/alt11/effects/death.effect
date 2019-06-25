@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="death" deferred="1">
+	<definitions>
+		<modifier
+			name="modifier0"
+			alpha="0"
+		/>
+		<particlesystem name="system0" space="entity" scale="1.1">
+					
+			<sound
+		        norestart="true"
+				channelid="sanddeath"
+				linearfalloff="true" 
+				falloffstart="0"
+				falloffend="1300"
+				volume="1"
+				sample="../sounds/death_foley.wav"
+			/>
+			
+			<billboard
+				life="300"
+				depthbias="-75"
+				material="/shared/effects/materials/starlight.material"
+				startcolor="1 0 0"
+				endcolor="0"	
+				startsize="50"
+				endsize="200"
+				position="0 0 5"		
+			/>
+			<billboard
+				life="1500"
+				depthbias="-75"
+				material="/shared/effects/materials/whitedot.material"
+				startcolor=".5 0 0"
+				midcolor=".5 0 0"
+				endcolor="0"	
+				size="100"
+				position="0 0 5"	
+			/>
+			<simpleemitter
+				count="20"
+				minparticlelife="250"
+				maxparticlelife="400"
+				offsetsphere="20 20 5"
+				minspeed="100.0"
+				maxspeed="350"
+				drag=".02"
+				minangle="70"
+				maxangle="90"
+				material="/shared/effects/materials/spark_12.material"
+			>
+				<particle
+					minstartscale="20"
+					maxstartscale="30"
+					endscale="0"
+					startalpha="1"
+					midalpha="1"
+					endalpha="0"
+					midalphapos=".87"	
+					color="1 .4 .4"
+					lockup="1"
+					anchor="0"
+					directionalspace="local"
+					maxyaw="360"
+					maxroll="360"
+					maxpitch="360"
+				>
+					<billboard
+						
+						minlife="200" maxlife="250" loop="true" scale="1"
+						minstartsize="6" maxstartsize="7" midsize="0" minendsize="4" maxendsize="6"
+						color=".7 .2 .2"						
+						material="/shared/effects/materials/star_03.material"
+					/>
+				</particle>
+			</simpleemitter> 
+			
+			<billboard
+				life="800"
+				material="/shared/effects/materials/poker_08.material"
+				width="3"
+				height="4"
+				startscale="30"
+				midscale="25"
+				endscale="0"
+				startalpha="1"
+				midalpha="1"
+				endalpha="0"
+				midalphapos=".87"
+				position="0 0 50"
+				color="1"
+				lockup="1"
+				anchor="0"
+				directionalspace="local"
+				maxyaw="360"
+				yawspeed="400"
+			/>	
+      </particlesystem>
+   </definitions>
+   <thread>
+      <spawnparticlesystem instance="instance0" particlesystem="system0" />
+	  <spawnmodifier instance="instance1" modifier="modifier0"/>  
+      <waitfordeath instance="instance0" />
+      <waitfordeath instance="instance1" />
+      <!-- <die /> -->
+   </thread>
+</effect>
+<!-- [min|max][start|mid|end]property[speed][position] -->

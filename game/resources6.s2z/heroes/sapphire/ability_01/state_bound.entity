@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Sapphire_Ability1_Bound"
+	
+	ishidden="true"
+	passiveeffect="effects/trail.effect"
+
+	immobilized="true"
+	stunned="true"
+	effecttype=""
+>
+	<altavatar key="Hero_Sapphire.Alt" modpriority="1"
+		passiveeffect="../alt/ability_01/effects/trail.effect"
+	/>
+	<altavatar key="Hero_Sapphire.Alt2" modpriority="1"
+		passiveeffect="../alt2/ability_01/effects/trail.effect"
+	/>	
+	<altavatar key="Hero_Sapphire.Alt3" modpriority="1"
+		passiveeffect="../alt3/ability_01/effects/trail.effect"
+	/>
+	<altavatar key="Hero_Sapphire.Alt4" modpriority="1"
+		passiveeffect="../alt4/ability_01/effects/trail.effect"
+	/>
+</state>

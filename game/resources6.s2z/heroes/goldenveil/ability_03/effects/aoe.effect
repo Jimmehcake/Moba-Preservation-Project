@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="1">
+
+	<definitions>
+
+		<particlesystem name="system0" space="world" scale="0.7">
+			
+			<sound
+				linearfalloff="true" 
+				falloffstart="1000"
+				falloffend="2500"
+				volume="0.8" 
+				sample="/heroes/hantumon/ability_01/sounds/ability_01.wav"
+				fadein="100"
+				fadeout="9000"
+			/>
+				
+			<simpleemitter		
+				spawnrate="40"			
+				particlelife="1900"			
+				gravity="-.2"
+				speed="40"
+				drag=".01"
+				acceleration="0"
+				position="0 0 0"
+
+				material="/shared/effects/materials/neb_blend.material"
+				offsetsphere="0 0 0"
+				minangle="265"
+				maxangle="265"
+				direction="0 0 -1"
+				offsetdirection="0 0 0"
+				offsetradial="0 0 0"
+			>
+				<particle 
+						maxangle="360"			
+						minanglespeed="-50"
+						maxanglespeed="50"					
+						scale="5"					
+						color="0.3 0.4 0"	
+						startalpha="0"
+						midalpha="0.2"
+						endalpha="0"
+						midalphapos="0.2"
+						startsize="150"					
+						endsize="150"	
+						
+					lockup="true"
+					lockright="false"
+					pitch="90"
+					yaw="0"					
+				/>
+			</simpleemitter>
+
+			<simpleemitter
+				spawnrate="20"
+				particlelife="2000"
+				gravity="0"
+				speed="0"
+				position="0 0 75"
+				acceleration="0"
+				material="/shared/effects/materials/flare_03.material"
+				offsetsphere="220 220 50"
+				drag="0.05"
+				direction="1 0 0"
+				depthbias="-50"
+			>
+				<particle
+					startstickiness="0"
+					endstickiness=".25"
+					startcolor=".75"
+					midcolor=".05 .15 .3"
+					endcolor="0 0 0"
+					startsize="10"
+					endsize="0"	
+					turn="0"
+					heightdistort="0.02"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				spawnrate="10"
+				minparticlelife="1000"
+				maxparticlelife="1000"
+				gravity="0"
+				speed="0"
+				position="0 0 75"
+				acceleration="10"
+				material="/shared/effects/materials/flare_03.material"
+				offsetsphere="220 220 50"
+				drag="0.05"
+				direction="1 0 0"
+				depthbias="-50"
+			>
+				<particle
+					startstickiness="0"
+					endstickiness=".25"
+					startcolor="1"
+					midcolor="0 .7 1"
+					endcolor="0 0 0"
+					startsize="25"
+					endsize="0"	
+					turn="0"
+					heightdistort="0.02"
+				/>
+			</simpleemitter>	
+
+
+		</particlesystem>
+	</definitions>
+	<thread>
+<!-- 		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+ -->		<!-- <die /> -->
+	</thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->
+

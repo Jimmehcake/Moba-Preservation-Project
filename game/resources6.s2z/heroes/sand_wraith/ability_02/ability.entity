@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ability
+	name="Ability_SandWraith2"
+	
+	icon="icon.tga"
+	
+	anim="idle"
+	casttime="0"
+	castactiontime="0"
+	
+	maxlevel="4"
+	requiredlevel="1,3,5,7"
+
+	actiontype="no_target"
+	
+	cooldowntime="30000"
+	manacost="15,25,35,45"
+	
+>
+	<onimpact>
+		<disjoint target="this_owner_entity" />
+		<orderdisjoint target="this_owner_entity" />
+		<applystate name="State_SandWraith_Ability2_Self" target="this_owner_entity" duration="200" />
+		<hasavatarkey name="Hero_SandWraith.Alt3" >
+			<playeffect effect="../alt3/ability_02/effects/implode.effect" source="this_owner_position" occlude="true" />
+		</hasavatarkey>
+		<else>
+			<hasavatarkey name="Hero_SandWraith.Alt4" >
+				<playeffect effect="../alt4/ability_02/effects/implode.effect" source="this_owner_position" occlude="true" />
+			</hasavatarkey>
+			<else>
+				<hasavatarkey name="Hero_SandWraith.Alt9" >
+					<playeffect effect="../alt9/ability_02/effects/implode.effect" source="this_owner_position" occlude="true" />
+				</hasavatarkey>
+				<else>
+					<hasavatarkey name="Hero_SandWraith.Alt10" >
+						<hasmodifier name="rainstorm">
+							<playeffect effect="../alt10/ability_02/effects_01/implode.effect" source="this_owner_position" occlude="true" />
+						</hasmodifier>
+						<else>
+							<hasmodifier name="lightning">
+								<playeffect effect="../alt10/ability_02/effects_02/implode.effect" source="this_owner_position" occlude="true" />
+							</hasmodifier>
+							<else>
+								<playeffect effect="../alt10/ability_02/effects_03/implode.effect" source="this_owner_position" occlude="true" />
+							</else>
+						</else>
+					</hasavatarkey>
+					<else>
+						<hasavatarkey name="Hero_SandWraith.Alt11" >
+							<playeffect effect="../alt11/ability_02/effects/implode.effect" source="this_owner_position" occlude="true" />
+						</hasavatarkey>
+						<else>
+							<playeffect effect="effects/implode.effect" source="this_owner_position" occlude="true" />
+						</else>	
+					</else>
+				</else>
+			</else>
+		</else>
+		
+		<cantarget effecttype="Push" target="this_owner_entity" ignoreinvulnerable="true">
+			<spawnillusion 
+				target="this_owner_entity"
+				count="2"
+				spawncircular="true"
+				spawncircularradius="100"
+				spawncircularrotate="false"
+				pushentity="true"
+				lifetime="20000"
+				receivedamagemultiplier="4,3.5,3,2.5"
+				inflictdamagemultiplier="0.25,0.3,0.35,0.4"
+				spawneffect="effects/multiple_images.effect"
+				deatheffect="effects/multiple_images_death.effect"
+			/>
+			
+			<!-- Visual cast effect propagation to illusions -->
+			<hasavatarkey name="Hero_SandWraith.Alt3" >
+				<playeffect effect="../alt3/ability_02/effects/impact.effect" source="stack_position" occlude="true" />
+				<popentity />
+				<playeffect effect="../alt3/ability_02/effects/impact.effect" source="stack_position" occlude="true" />
+				<playeffect effect="../alt3/ability_02/effects/impact.effect" source="this_owner_position" occlude="true" />
+			</hasavatarkey>
+			<else>
+				<hasavatarkey name="Hero_SandWraith.Alt4" >
+					<playeffect effect="../alt4/ability_02/effects/impact.effect" source="stack_position" occlude="true" />
+					<popentity />
+					<playeffect effect="../alt4/ability_02/effects/impact.effect" source="stack_position" occlude="true" />
+					<playeffect effect="../alt4/ability_02/effects/impact.effect" source="this_owner_position" occlude="true" />
+				</hasavatarkey>
+				<else>
+					<hasavatarkey name="Hero_SandWraith.Alt5" >
+						<playeffect effect="../alt3/ability_02/effects/impact.effect" source="stack_position" occlude="true" />
+						<popentity />
+						<playeffect effect="../alt3/ability_02/effects/impact.effect" source="stack_position" occlude="true" />
+						<playeffect effect="../alt3/ability_02/effects/impact.effect" source="this_owner_position" occlude="true" />
+					</hasavatarkey>
+					<else>
+						<hasavatarkey name="Hero_SandWraith.Alt9" >
+							<playeffect effect="../alt9/ability_02/effects/impact.effect" source="stack_position" occlude="true" />
+							<popentity />
+							<playeffect effect="../alt9/ability_02/effects/impact.effect" source="stack_position" occlude="true" />
+							<playeffect effect="../alt9/ability_02/effects/impact.effect" source="this_owner_position" occlude="true" />
+						</hasavatarkey>
+						<else>
+							<hasavatarkey name="Hero_SandWraith.Alt10" >
+							<hasmodifier name="rainstorm">
+								<playeffect effect="../alt10/ability_02/effects_01/impact.effect" source="stack_position" occlude="true" />
+								<popentity />
+								<playeffect effect="../alt10/ability_02/effects_01/impact.effect" source="stack_position" occlude="true" />
+								<playeffect effect="../alt10/ability_02/effects_01/impact.effect" source="this_owner_position" occlude="true" />
+							</hasmodifier>
+							<else>
+								<hasmodifier name="lightning">
+									<playeffect effect="../alt10/ability_02/effects_02/impact.effect" source="stack_position" occlude="true" />
+									<popentity />
+									<playeffect effect="../alt10/ability_02/effects_02/impact.effect" source="stack_position" occlude="true" />
+									<playeffect effect="../alt10/ability_02/effects_02/impact.effect" source="this_owner_position" occlude="true" />
+								</hasmodifier>
+								<else>
+									<playeffect effect="../alt10/ability_02/effects_03/impact.effect" source="stack_position" occlude="true" />
+									<popentity />
+									<playeffect effect="../alt10/ability_02/effects_03/impact.effect" source="stack_position" occlude="true" />
+									<playeffect effect="../alt10/ability_02/effects_03/impact.effect" source="this_owner_position" occlude="true" />
+								</else>
+							</else>
+							</hasavatarkey>
+							<else>
+								<hasavatarkey name="Hero_SandWraith.Alt11" >
+									<playeffect effect="../alt11/ability_02/effects/impact.effect" source="stack_position" occlude="true" />
+									<popentity />
+									<playeffect effect="../alt11/ability_02/effects/impact.effect" source="stack_position" occlude="true" />
+									<playeffect effect="../alt11/ability_02/effects/impact.effect" source="this_owner_position" occlude="true" />
+								</hasavatarkey>
+								<else>
+									<playeffect effect="effects/impact.effect" source="stack_position" occlude="true" />
+									<popentity />
+									<playeffect effect="effects/impact.effect" source="stack_position" occlude="true" />
+									<playeffect effect="effects/impact.effect" source="this_owner_position" occlude="true" />
+								</else>
+							</else>	
+						</else>
+					</else>
+				</else>
+			</else>
+			</cantarget>
+			<else>
+				<spawnillusion 
+					target="this_owner_entity"
+					count="2"
+					pushentity="true"
+					lifetime="20000"
+					receivedamagemultiplier="4,3.5,3,2.5"
+					inflictdamagemultiplier="0.25,0.3,0.35,0.4"
+					spawneffect="effects/multiple_images.effect"
+					deatheffect="effects/multiple_images_death.effect"
+				/>
+				
+				<!-- Visual cast effect propagation to illusions -->
+				<hasavatarkey name="Hero_SandWraith.Alt3" >
+					<playeffect effect="../alt3/ability_02/effects/impact.effect" source="stack_position" occlude="true" />
+					<popentity />
+					<playeffect effect="../alt3/ability_02/effects/impact.effect" source="stack_position" occlude="true" />
+					<playeffect effect="../alt3/ability_02/effects/impact.effect" source="this_owner_position" occlude="true" />
+				</hasavatarkey>
+				<else>
+					<hasavatarkey name="Hero_SandWraith.Alt4" >
+						<playeffect effect="../alt4/ability_02/effects/impact.effect" source="stack_position" occlude="true" />
+						<popentity />
+						<playeffect effect="../alt4/ability_02/effects/impact.effect" source="stack_position" occlude="true" />
+						<playeffect effect="../alt4/ability_02/effects/impact.effect" source="this_owner_position" occlude="true" />
+					</hasavatarkey>
+					<else>
+						<hasavatarkey name="Hero_SandWraith.Alt5" >
+							<playeffect effect="../alt3/ability_02/effects/impact.effect" source="stack_position" occlude="true" />
+							<popentity />
+							<playeffect effect="../alt3/ability_02/effects/impact.effect" source="stack_position" occlude="true" />
+							<playeffect effect="../alt3/ability_02/effects/impact.effect" source="this_owner_position" occlude="true" />
+						</hasavatarkey>
+						<else>
+							<hasavatarkey name="Hero_SandWraith.Alt9" >
+								<playeffect effect="../alt9/ability_02/effects/impact.effect" source="stack_position" occlude="true" />
+								<popentity />
+								<playeffect effect="../alt9/ability_02/effects/impact.effect" source="stack_position" occlude="true" />
+								<playeffect effect="../alt9/ability_02/effects/impact.effect" source="this_owner_position" occlude="true" />
+							</hasavatarkey>
+							<else>
+								<hasavatarkey name="Hero_SandWraith.Alt10" >
+									<hasmodifier name="rainstorm">
+										<playeffect effect="../alt10/ability_02/effects_01/impact.effect" source="stack_position" occlude="true" />
+										<popentity />
+										<playeffect effect="../alt10/ability_02/effects_01/impact.effect" source="stack_position" occlude="true" />
+										<playeffect effect="../alt10/ability_02/effects_01/impact.effect" source="this_owner_position" occlude="true" />
+									</hasmodifier>
+									<else>
+										<hasmodifier name="lightning">
+											<playeffect effect="../alt10/ability_02/effects_02/impact.effect" source="stack_position" occlude="true" />
+											<popentity />
+											<playeffect effect="../alt10/ability_02/effects_02/impact.effect" source="stack_position" occlude="true" />
+											<playeffect effect="../alt10/ability_02/effects_02/impact.effect" source="this_owner_position" occlude="true" />
+										</hasmodifier>
+										<else>
+											<playeffect effect="../alt10/ability_02/effects_03/impact.effect" source="stack_position" occlude="true" />
+											<popentity />
+											<playeffect effect="../alt10/ability_02/effects_03/impact.effect" source="stack_position" occlude="true" />
+											<playeffect effect="../alt10/ability_02/effects_03/impact.effect" source="this_owner_position" occlude="true" />
+										</else>
+									</else>
+								</hasavatarkey>
+								<else>
+									<hasavatarkey name="Hero_SandWraith.Alt11" >
+										<playeffect effect="../alt11/ability_02/effects/impact.effect" source="stack_position" occlude="true" />
+										<popentity />
+										<playeffect effect="../alt11/ability_02/effects/impact.effect" source="stack_position" occlude="true" />
+										<playeffect effect="../alt11/ability_02/effects/impact.effect" source="this_owner_position" occlude="true" />
+									</hasavatarkey>
+									<else>
+										<playeffect effect="effects/impact.effect" source="stack_position" occlude="true" />
+										<popentity />
+										<playeffect effect="effects/impact.effect" source="stack_position" occlude="true" />
+										<playeffect effect="effects/impact.effect" source="this_owner_position" occlude="true" />
+									</else>
+								</else>	
+							</else>
+						</else>
+					</else>
+				</else>
+			</else>
+			
+		<starttimer duration="20000" />
+		<clearteamtarget />		
+	</onimpact>
+
+	<altavatar key="Hero_SandWraith.Alt4" modpriority="90"
+		icon="../alt4/ability_02/icon.tga"
+	/>
+	
+	<altavatar key="Hero_SandWraith.Alt9" 
+	    icon="/heroes/sand_wraith/alt9/ability_02/icon.tga"
+	/>
+	
+</ability>
+

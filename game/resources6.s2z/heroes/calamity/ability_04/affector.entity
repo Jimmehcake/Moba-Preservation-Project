@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<affector
+	name="Affector_Calamity_Ability4"
+
+	lifetime="10000"
+
+	radius="200"
+	arc="200"
+	targetselection="all"
+	targetscheme="enemy_units"
+	effecttype="Magic"
+	maximpactspertarget="1"
+
+	effect=""
+>
+	<onimpact>
+		<applystate name="State_Calamity_Ability4_Damage" target="target_entity" duration="2000" />
+	</onimpact>
+</affector>

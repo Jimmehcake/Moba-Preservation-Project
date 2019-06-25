@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+	<definitions>
+		
+		<particlesystem name="system0" space="world" scale="1">
+			
+			<template name="smoke">
+				<trailemitter
+					bone="{bone}"
+					spawnrate="70"
+					particlelife="1000"
+					gravity="-7"
+					material="/shared/effects/materials/solid_bolt.material"
+					position="{position}"
+					inheritvelocity=".2"
+					drag=".1"
+					direction="0 0 -1"
+					speed="10"
+				>
+					<particle
+						color=".5 .35 -1"
+						startsize="30"
+						endsize="1"
+						startalpha="0"
+						midalpha=".1"
+						endalpha="0"
+					/>
+				</trailemitter>
+				
+				
+				<simpleemitter
+					bone="{bone}"
+					spawnrate="20"
+				
+					particlelife="500"
+					material="/shared/effects/materials/light_rays2.material"
+				>
+					<particle
+						anchor="1"
+						maxangle="360"
+						minanglespeed="-100"
+						maxanglespeed="100"
+						startcolor=".9 .8 .5"
+						endcolor="0"
+						startsize="0"
+						endsize="100"
+						startwidth="0"
+						minendwidth="20"
+						maxendwidth="40"
+						scale=".6"
+					/>
+				</simpleemitter>
+				
+			
+				
+				<simpleemitter
+					bone="{bone}"
+					spawnrate="15"
+					minparticlelife="500"
+					maxparticlelife="1500"			
+					gravity="-5"
+					minspeed="10"
+					maxspeed="50"
+					drag=".05"
+					material="/shared/effects/materials/spark_11.material"
+					offsetsphere="15"
+					minangle="20"
+					maxangle="90"
+					direction="0 0 1"
+					directionalspace="global"
+					inheritvelocity=".1"
+				>
+<!-- 					<particle 
+						minangle="0"
+						maxangle="360"
+						startcolor="0"
+						midcolor="0 .2 1.5"
+						endcolor="0 0 0"
+						midcolorpos=".3"
+						minstartsize="5"
+						maxstartsize="10"
+						endsize="0"
+					/> -->
+					<particle 
+						minangle="0"
+						maxangle="360"
+						startcolor="1 1 1"
+						midcolor="1 1 1"
+						endcolor="0 0 0"
+						midcolorpos=".3"
+						minstartsize="5"
+						maxstartsize="10"
+						endsize="0"
+					/>
+				</simpleemitter>
+			</template>
+			
+			<instance name="smoke" bone="_bone_centerofchest" position="0 0 0"/>
+			<instance name="smoke" bone="_bone_weapon005" position="0 0 0"/>
+			<instance name="smoke" bone="_bone_weapon3" position="0 0 0"/>
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+</effect>

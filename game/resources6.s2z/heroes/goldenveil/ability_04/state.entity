@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Goldenveil_Ability4"
+	
+	icon="icon.tga"
+	passiveeffect=""
+
+	ishidden="true"
+	
+	effecttype=""
+	allowtransfer="false"
+	deathpersist="true"
+	propagatetoillusions="true"
+
+	visibility="self"
+	
+	maxcharges="3"
+	
+	inheritstatemodifierwhencopy="true"
+>
+	
+	<modifier key="Goldenveil_Fly1" modpriority="99"
+		passiveeffect="effects/fly_1.effect"
+	>
+	</modifier>
+	
+	<modifier key="Goldenveil_Fly2" modpriority="100"
+		passiveeffect="effects/fly_2.effect"
+	>
+	</modifier>
+	
+	<modifier key="Goldenveil_Fly3" modpriority="101"
+		passiveeffect="effects/fly_3.effect"
+	>
+	</modifier>
+	
+	<altavatar key="Hero_Goldenveil.Alt3"
+	>
+		<modifier key="Goldenveil_Fly1" modpriority="99"
+		passiveeffect="../alt3/ability_04/effects/fly_1.effect"
+		>
+		</modifier>
+		
+		<modifier key="Goldenveil_Fly2" modpriority="100"
+			passiveeffect="../alt3/ability_04/effects/fly_2.effect"
+		>
+		</modifier>
+		
+		<modifier key="Goldenveil_Fly3" modpriority="101"
+			passiveeffect="../alt3/ability_04/effects/fly_3.effect"
+		>
+		</modifier>
+	</altavatar>
+	
+	<altavatar key="Hero_Goldenveil.Alt4"
+	>
+		<modifier key="Goldenveil_Fly1" modpriority="99"
+		passiveeffect="../alt3/ability_04/effects/fly_1.effect"
+		>
+		</modifier>
+		
+		<modifier key="Goldenveil_Fly2" modpriority="100"
+			passiveeffect="../alt3/ability_04/effects/fly_2.effect"
+		>
+		</modifier>
+		
+		<modifier key="Goldenveil_Fly3" modpriority="101"
+			passiveeffect="../alt3/ability_04/effects/fly_3.effect"
+		>
+		</modifier>
+	</altavatar>
+	
+	
+	<altavatar key="Hero_Goldenveil.Alt5"
+	>
+		<modifier key="Goldenveil_Fly1" modpriority="99"
+		passiveeffect="../alt5/ability_04/effects/fly_1.effect"
+		>
+		</modifier>
+		
+		<modifier key="Goldenveil_Fly2" modpriority="100"
+			passiveeffect="../alt5/ability_04/effects/fly_2.effect"
+		>
+		</modifier>
+		
+		<modifier key="Goldenveil_Fly3" modpriority="101"
+			passiveeffect="../alt5/ability_04/effects/fly_3.effect"
+		>
+		</modifier>
+	</altavatar>
+	
+</state>

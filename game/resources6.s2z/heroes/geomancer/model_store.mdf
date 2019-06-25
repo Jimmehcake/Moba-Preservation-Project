@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model name="rig.max" file="high.model" type="K2" high="high.model" med="high.model" low="high.model">
+
+	<anim name="idle" clip="clips/default_1.clip" loop="true">
+	<startevent cmd="StopSound 1"/>
+		<frameevent frame="0" cmd="StartEffect effects/glow_0.effect"/>
+		<frameevent frame="5" cmd="StartEffect effects/glow_1.effect"/>
+		<frameevent frame="15" cmd="StartEffect effects/glow_2.effect"/>
+		<frameevent frame="21" cmd="StartEffect effects/glow_3.effect"/>
+		<frameevent frame="27" cmd="StartEffect effects/glow_4.effect"/>
+		<frameevent frame="35" cmd="StartEffect effects/glow_5.effect"/>
+		<frameevent frame="44" cmd="StartEffect effects/glow_6.effect"/>
+		<frameevent frame="52" cmd="StartEffect effects/glow_7.effect"/>
+		<frameevent frame="59" cmd="StartEffect effects/glow_8.effect"/>
+		<frameevent frame="66" cmd="StartEffect effects/glow_9.effect"/>
+		<frameevent frame="82" cmd="StartEffect effects/glow_10.effect"/>
+
+
+		<frameevent frame="75" cmd="StartEffect effects/glow_0.effect"/>
+		<frameevent frame="82" cmd="StartEffect effects/glow_1.effect"/>
+		<frameevent frame="92" cmd="StartEffect effects/glow_2.effect"/>
+		<frameevent frame="99" cmd="StartEffect effects/glow_3.effect"/>
+		<frameevent frame="103" cmd="StartEffect effects/glow_4.effect"/>
+		<frameevent frame="106" cmd="StartEffect effects/glow_5.effect"/>
+		<frameevent frame="116" cmd="StartEffect effects/glow_6.effect"/>
+		<frameevent frame="123" cmd="StartEffect effects/glow_7.effect"/>
+		<frameevent frame="133" cmd="StartEffect effects/glow_8.effect"/>
+		<frameevent frame="140" cmd="StartEffect effects/glow_9.effect"/>
+		<frameevent frame="148" cmd="StartEffect effects/glow_10.effect"/>
+		
+	</anim>
+	
+	  
+</model>

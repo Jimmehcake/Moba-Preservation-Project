@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="1">
+
+	<definitions>
+		
+		<particlesystem name="system0" space="world" scale="1">
+			<template name="rawkin_fingers">
+				<controller bone="{bone}">
+					<trailemitter
+						life="500"
+						position="3 0 0"
+						spawnrate="20"
+						particlelife="200"
+						texpostime="100"
+						direction="0 0 0"
+						texstretchscale="1"
+						material="/shared/effects/materials/flux_ray.material"
+					>
+						<particle
+							startcolor="1"
+							midcolor="1 .5 0"
+							endcolor="0 0 0"
+							startsize="1"
+							midsize="3"
+							endsize="0"
+							midsizepos="0.2"
+							startalpha="1"
+							endalpha="0"
+						/>
+					</trailemitter>
+				</controller>
+			</template>
+			
+			<instance name="rawkin_fingers" bone="Bip01 R Finger11"/>
+			<instance name="rawkin_fingers" bone="Bip01 R Finger21"/>
+			<instance name="rawkin_fingers" bone="Bip01 R Finger31"/>
+			<instance name="rawkin_fingers" bone="Bip01 R Finger41"/>
+			<instance name="rawkin_fingers" bone="Bip01 R Finger01"/>
+			
+			<instance name="rawkin_fingers" bone="Bip01 L Finger11"/>
+			<instance name="rawkin_fingers" bone="Bip01 L Finger21"/>
+			<instance name="rawkin_fingers" bone="Bip01 L Finger31"/>
+			<instance name="rawkin_fingers" bone="Bip01 L Finger41"/>
+			<instance name="rawkin_fingers" bone="Bip01 L Finger01"/>
+			
+			<simpleemitter
+				bone="Bip01 L Hand"
+				life="500"
+				position="0 10 0"
+				spawnrate="50"
+				particlelife="1600"
+				gravity="1.0"
+				speed="10.0"
+				drag="0.0"
+				acceleration="0.0"
+				minangle="0"
+				maxangle="0"
+				direction="0 1 0"
+				particledirectionalspace="local"
+				offsetsphere="15"
+			>
+				<particle
+				>
+					<billboard
+						life="100"
+						material="/shared/effects/materials/flash_01.material"
+						lockup="1"
+						lockright="1"
+						pitch="90"
+						param=".012"
+						minsize="10"
+						maxsize="20"
+						directionalspace="local"
+						color=".35 .325 .3"
+						depthbias="-50"
+					/>
+				</particle>
+			</simpleemitter>
+			
+			<simpleemitter
+				bone="_bone_string02"
+				count="10"
+				drag=".001"
+				particlelife="600"
+				position="0 0 0"
+				gravity="20"
+				minspeed="20"
+				maxspeed="100"
+				direction="0 0 1"
+				offsetsphere="15"
+				minangle="0"
+				maxangle="30"
+				material="/shared/effects/materials/spark_10.material"
+				inheritvelocity=".15"
+				collide="true"
+				expirelife="1000"
+			>			
+				<particle
+					startcolor="1"
+					endcolor="0"
+					midcolorpos=".75"
+					size="1"
+					angle="90"
+				>
+					<trailemitter
+						position="0 0 0"
+						spawnrate="20"
+						particlelife="1000"
+						texpostime="400"
+						direction="0 0 0"
+						texstretchscale="1"
+						material="/shared/effects/materials/flux_ray.material"
+					>
+						<particle
+							startcolor="1"
+							midcolor="1 .5 0"
+							endcolor="0 0 0"
+							startsize="2"
+							midsize="3"
+							endsize="0"
+							midsizepos="0.2"
+							startalpha="1"
+							endalpha="0"
+						/>
+					</trailemitter>
+				</particle>
+			</simpleemitter>
+		</particlesystem>
+
+	</definitions>
+
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />		
+		<waitfordeath instance="instance0" />
+	</thread>
+
+</effect>

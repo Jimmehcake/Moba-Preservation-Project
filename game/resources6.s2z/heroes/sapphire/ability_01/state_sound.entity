@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="Stunned_Sapphire_Sound"
+	
+	ishidden="true"
+	passiveeffect="effects/sound_stun.effect"
+
+	effecttype=""
+>
+	<onexpired>
+		<playeffect effect="effects/sound_stun_end.effect" source="this_owner_entity" target="" occlude="true" />
+	</onexpired>
+</state>

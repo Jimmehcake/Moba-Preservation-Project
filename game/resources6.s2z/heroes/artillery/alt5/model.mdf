@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model name="rig.max" file="high.model" type="K2" high="high.model" med="med.model" low="low.model" >
+
+	<anim name="idle" clip="clips/default_1.clip" loop="true" blendtime ="250"/>
+	
+	<anim name="portrait" clip="clips/portrait_1.clip" loop="true" fps="15"/> 
+	
+	<anim name="item_1" clip="clips/taunt_1.clip" fps="30"/>
+
+	<anim name="bored_1" clip="clips/bored_1.clip" fps="30">
+		<frameevent frame="46" cmd="StartEffect effects/bored.effect 3"/>
+		<endevent cmd="StopEffect 3"/>
+	</anim>
+
+	<anim name="walk_1" clip="clips/walk_1.clip" fps="28" loop="true">
+
+		
+		<startevent cmd="StartEffect effects/walk.effect 2"/>
+		<endevent cmd="StopEffect 2"/>
+	</anim>
+
+	<anim name="taunt_1" clip="clips/taunt_1.clip">
+		<frameevent frame="15" cmd="StartEffect effects/taunt.effect 7"/>
+		<frameevent frame="31" cmd="StartEffect effects/taunt1.effect 8"/>
+		<frameevent frame="50" cmd="StartEffect effects/taunt1.effect 9"/>
+		<frameevent frame="60" cmd="StartEffect effects/taunt1.effect 10"/>
+		<endevent cmd="StopEffect 7"/>
+		<endevent cmd="StopEffect 8"/>
+		<endevent cmd="StopEffect 9"/>
+		<endevent cmd="StopEffect 10"/>
+	</anim>
+
+	<anim name="death_1" clip="clips/death_1.clip" fps="30" loop="true" loopbackframe="-1">
+		<frameevent frame="1" cmd="PlaySoundLinear sounds/death_foley.wav 400 1300 1"/>
+		
+		<startevent cmd="StartEffect effects/death.effect 5"/>
+		<endevent cmd="StopEffect 5"/>
+	</anim>
+
+	<anim name="attack_1" clip="clips/attack_1.clip" fps="30">
+		<frameevent frame="12" cmd="PlaySoundLinear ../alt4/sounds/bow_%.wav 0 1300 .7"/>
+	</anim>
+	
+	<anim name="attack_2" clip="clips/attack_1.clip" fps="30">
+		<frameevent frame="12" cmd="PlaySoundLinear ../alt4/sounds/bow_%.wav 0 1300 .7"/>
+	</anim>
+	
+	<anim name="bunker_attack_1" clip="clips/attack_1.clip" fps="30">
+		<frameevent frame="12" cmd="PlaySoundLinear ../alt4/sounds/bow_%.wav 0 1300 .7"/>
+	</anim>
+	
+	<anim name="bunker_attack_2" clip="clips/attack_2.clip" fps="30">
+		<frameevent frame="12" cmd="PlaySoundLinear ../alt4/sounds/bow_%.wav 0 1300 .7"/>
+	</anim>
+	
+	<anim name="bunker_walk_1" clip="clips/bunker_walk_1.clip" fps="30">
+	</anim>
+
+	<anim name="ability_3" clip="clips/ability_2.clip" fps="30">
+	</anim>
+	
+	<anim name="ability_4" clip="clips/ability_4.clip" fps="30">
+	</anim>
+	
+	<anim name="ability_1" clip="clips/ability_1.clip" loop="true" startframe="0" numframes="30" loopbackframe="17" fps="60">
+		<startevent cmd="StartEffect ability_01/effects/cast.effect 2"/>
+		<startevent cmd="StartEffect ability_01/effects/loop_sound 4"/>
+		<frameevent frame="1" cmd="PlaySoundLinear sounds/start.wav 0 1300 1"/>
+		<endevent cmd="StopEffect 2"/>
+
+	</anim>
+	
+	<anim name="ability_1_end" clip="clips/ability_1.clip" loop="false" startframe="25" numframes="100" fps="30">
+	<frameevent frame="1" cmd="PlaySoundLinear sounds/end_2.wav 1300 2000 1"/>
+	</anim>
+		
+	<anim name="knock_1" clip="clips/knock_1.clip" loop="true" loopbackframe="-1"/>		
+			
+</model>

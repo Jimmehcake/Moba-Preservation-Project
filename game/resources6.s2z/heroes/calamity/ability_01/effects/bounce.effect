@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+	<definitions>
+		<particlesystem name="system0" space="world" scale="1.0" >
+			<sound
+			    forcestereo="true"
+				delay="300"
+				sample="../sounds/bounce_%.wav"
+				linearfalloff="true"
+				falloffstart="300" 
+				falloffend="850" 
+				volume="1"
+			/>
+			
+			<controller
+				delay="300"
+				life="1000"
+			>
+				<model
+					life="450"
+					model="ball/model.mdf"
+					anim="bounce"
+					scale="1.5"
+				>
+					<billboard
+						timenudge="1"
+						bone="Box001"
+						material="/shared/effects/materials/whitedot_blend.material"
+						color="1 .5 0"
+						size="100"
+					/>
+					<simpleemitter
+						bone="Box001"
+						spawnrate="60"
+						offsetsphere="0"
+						minparticlelife="400"
+						maxparticlelife="1000"
+						material="/shared/effects/materials/abstract_reveal_02.material"
+						maxspeed="50"
+						gravity="-10"
+						direction="0 0 1"
+						angle="60"
+						drag="0.02"
+					>
+						<particle
+							maxangle="360"
+							startalpha="0"
+							midalpha="1"
+							endalpha="1"
+							midalphapos=".2"
+							minsize="30"
+							maxsize="60"
+							startframe="0"
+							midframe=".5"
+							endframe="1"
+							midframepos=".25"
+							startcolor=".1 .05 0"
+							midcolor=".1 -.05 .05"
+							endcolor="0"
+						/>
+					</simpleemitter>
+					<trailemitter
+						bone="Box001"
+						spawnrate="30"
+						particlelife="200"
+						material="/shared/effects/materials/calamity_fire_scrolling_trail_blend.material"
+						texposscale="0"
+						texstretchscale="1.5"
+					>
+						<particle
+							startalpha="0"
+							midalpha="1"
+							endalpha="1"
+							midalphapos=".2"
+							startsize="0"
+							midsize="30"
+							endsize="100"
+							midsizepos=".1"
+						/>
+					</trailemitter>
+				</model>
+			</controller>
+
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+</effect>

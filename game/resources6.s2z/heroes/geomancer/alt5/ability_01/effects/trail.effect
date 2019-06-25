@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="1">
+	<definitions>
+
+	
+		<particlesystem name="system0" space="world" scale="1.25">
+		
+
+			<sound
+			    soundloop="true"
+			    fadein="200"
+			    fadeout="50"
+				linearfalloff="true" 
+				falloffstart="0"
+				falloffend="2500"
+				volume=".50"
+				sample="../../../ability_01/sounds/loop.wav"
+			/>	
+			
+			<sound
+			    forcestereo="true"
+			    soundloop="true"
+			    fadein="0"
+			    fadeout="300"
+				linearfalloff="true" 
+				falloffstart="1000"
+				falloffend="2500"
+				volume="1"
+				sample="../../../sounds/move.wav"
+			/>	
+		
+
+			<template name="dirt_trail">
+				<simpleemitter
+					delay="{delay}"
+					particlelife="{life}"
+					bone="_bone_fx_01"
+					spawnrate="6"
+					acceleration="0.0"
+					minangle="0"
+					maxangle="0"
+					direction="0 1 0"
+					offsetsphere="0 0 0"
+					position="0 -35 0"
+				>
+					<particle
+						turn="1"
+					>
+						<groundsprite
+							life="1500"
+							position="0 0 0"
+							material="/shared/effects/materials/geomancer_groundsprite.material"
+							size="125"
+							startcolor="{startcolor}"
+							endcolor="{endcolor}"
+							startalpha="0"
+							midalpha="1"
+							endalpha="0"
+							midalphapos=".1"
+							directionalspace="local"
+							yaw="180"
+						/>
+					</particle>
+				</simpleemitter>
+			</template>
+			
+			<instance name="dirt_trail" delay="300" life="400" startcolor=".6 .3 .3" endcolor=".2 0 0"/>
+			<instance name="dirt_trail" delay="600" life="400" startcolor=".3 .3 .6" endcolor="0 0 .2"/>
+			<instance name="dirt_trail" delay="900" life="400" startcolor=".3 .6 .3" endcolor="0 .2 0"/>
+			<instance name="dirt_trail" delay="1200" life="400" startcolor=".1 .6 .6" endcolor="0 .2 .2"/>
+
+			<template name="dirt_spouts">
+				<simpleemitter
+					delay="{delay}"
+					life="{life}"
+					bone="_bone_fx_01"
+					spawnrate="15"
+					particlelife="1000"
+					gravity="0"
+					speed="0"
+					drag="0"
+					acceleration="0"
+					position="0 0 0"
+					minangle="0"
+					maxangle="0"
+					direction="0 1 0"
+				>
+					<particle
+						turn="false"
+					>	
+						<groundsprite
+							life="750"
+							material="/shared/effects/materials/ground_smash_overlay.material"
+							minscale="1.05"
+							maxscale="1.84"
+							startsize="30"						
+							endsize="30"
+							color="1 1 1"
+							startalpha="1"
+							midalpha="1"
+							endalpha="0"
+							width="30"
+							directionalspace="local"
+						/>
+					</particle>
+				</simpleemitter>
+
+				<simpleemitter
+					bone="_bone_fx_01"
+					delay="{delay}"
+					life="{life}"
+					spawnrate="10"
+					particlelife="3000"
+					acceleration="0.0"
+					minangle="0"
+					maxangle="0"
+					direction="0 1 0"
+					offsetsphere="0 0 0"
+					position="0 100 0"
+				>
+					<particle
+						turn="1"
+					>
+						<simpleemitter
+							count="10"
+							minparticlelife="500"
+							maxparticlelife="1000"
+							spawnrate="35"
+							minspeed="250"
+							maxspeed="350"
+							gravity="20"
+							direction="0 0 1"
+							minangle="0"
+							maxangle="1"
+							drag="0.01"
+							material="/shared/effects/materials/pyroclast_03.material"
+							offsetsphere="10 10 50"
+							position="0 0 0"
+						>
+							<particle
+								depthbias="-100"
+								startcolor="{startcolor}"
+								endcolor="{endcolor}"
+								height="100"
+								startwidth="25"
+								endwidth="50"
+								startscale="1"
+								endscale="2"
+								startalpha="1"
+								endalpha="0"
+								lockup="1"
+								lockright="1"
+								minyaw="0"
+								maxyaw="360"
+								yawspeed="-35"
+							/>
+						</simpleemitter>
+
+						<simpleemitter
+							count="20"
+							minparticlelife="50"
+							maxparticlelife="1000"
+							spawnrate="35"
+							minspeed="25"
+							maxspeed="50"
+							gravity="2"
+							direction="0 0 0"
+							material="/shared/effects/materials/pyroclast_03.material"
+							offsetsphere="25 25 10"
+							position="0 0 50"
+						>
+							<particle
+								minangle="0"
+								maxangle="360"
+								depthbias="-25"
+								startcolor="{startcolor2}"
+								endcolor="{endcolor2}"
+								startscale="50"
+								endscale="50"
+								startalpha="0"
+								midalpha=".35"
+								endalpha="0"
+							/>
+							
+							<particle
+								minangle="0"
+								maxangle="360"
+								depthbias="-25"
+								color="0 0 0"
+								startscale="50"
+								endscale="50"
+								startalpha="0"
+								midalpha=".35"
+								endalpha="0"
+							/>
+						</simpleemitter>
+						
+						<simpleemitter
+							count="2"
+							minparticlelife="50"
+							maxparticlelife="1000"
+							spawnrate="35"
+							minspeed="25"
+							maxspeed="50"
+							gravity="2"
+							direction="0 0 0"
+							material="/shared/effects/materials/pyroclast_03.material"
+							offsetsphere="25 25 10"
+							position="0 0 50"
+						>
+							<particle
+								minangle="0"
+								maxangle="360"
+								depthbias="-25"
+								color="0 0 0"
+								startscale="50"
+								endscale="150"
+								startalpha="0"
+								midalpha=".25"
+								endalpha="0"
+							/>
+						</simpleemitter>
+					</particle>
+				</simpleemitter>
+			</template>
+			
+			<instance name="dirt_spouts" delay="0" life="400" startcolor=".85 .2 .2" endcolor=".2 0 0" startcolor2=".25 0 0" endcolor2="0 0 0"/>
+			<instance name="dirt_spouts" delay="300" life="400" startcolor=".2 .2 .85" endcolor="0 0 .2" startcolor2="0 0 .25" endcolor2="0 0 0"/>
+			<instance name="dirt_spouts" delay="600" life="400" startcolor=".2 .85 .2" endcolor="0 .2 0" startcolor2="0 .25 0" endcolor2="0 0 0"/>
+			<instance name="dirt_spouts" delay="900" life="400" startcolor=".2 .85 .85" endcolor="0 .2 .2" startcolor2="0 .25 .25" endcolor2="0 0 0"/>
+
+			<simpleemitter
+				bone="_bone_fx_01"
+				spawnrate="25"
+				particlelife="3000"
+				acceleration="0.0"
+				minangle="0"
+				maxangle="0"
+				direction="0 1 0"
+				offsetsphere="0 0 0"
+				position="0 100 0"
+			>
+				<particle
+					turn="1"
+				>
+					<simpleemitter
+						count="25"
+						minparticlelife="500"
+						maxparticlelife="1000"
+						spawnrate="650"
+						minspeed="100"
+						maxspeed="750"
+						gravity="10"
+						direction="0 0 1"
+						minangle="0"
+						maxangle="25"
+						drag="0.01"
+						material="/shared/effects/materials/sand_blend.material"
+						offsetsphere="20 20 0"
+						position="0 0 -15"
+						depthbias="-25"
+					>
+						<particle 
+							minangle="0"
+							maxangle="360"
+							minanglespeed="-60"
+							maxanglespeed="60"
+							startsize="25"
+							endsize="40"
+							color=".25 .2 .25"
+							startalpha="1"
+							midalpha="1"
+							endalpha="0"
+						/>
+					</simpleemitter>
+
+				</particle>
+			</simpleemitter>
+
+			<simpleemitter
+				bone="_bone_fx_01"
+				spawnrate="10"
+				particlelife="3000"
+				acceleration="0.0"
+				minangle="0"
+				maxangle="0"
+				direction="0 1 0"
+				offsetsphere="0 0 0"
+				position="0 100 0"
+			>
+				<particle
+					turn="1"
+				>
+					<simpleemitter
+						count="25"
+						minparticlelife="500"
+						maxparticlelife="1250"
+						spawnrate="650"
+						minspeed="100"
+						maxspeed="750"
+						gravity="10"
+						direction="0 0 1"
+						minangle="0"
+						maxangle="25"
+						drag="0.01"
+						material="/shared/effects/materials/dust_rock.material"
+						offsetsphere="0 0 0"
+						position="0 0 0"
+						depthbias="-25"
+					>
+						<particle 
+							minangle="0"
+							maxangle="360"
+							minanglespeed="-60"
+							maxanglespeed="60"
+							minstartsize="5"
+							maxstartsize="15"
+							minendsize="15"
+							maxendsize="30"
+							color=".5 .5 .5"
+							startalpha="1"
+							endalpha="0"
+						/>
+					</simpleemitter>
+
+				</particle>
+			</simpleemitter>
+
+			<simpleemitter
+				bone="_bone_fx_01"
+				offsetsphere="0 0 0"
+				spawnrate="75"
+				minparticlelife="250"
+				maxparticlelife="750"
+				gravity="-5"
+				acceleration="0"
+				speed="10"
+				position="0 100 0"
+				material="/shared/effects/materials/pyroclast_03.material"
+				inheritvelocity="0"
+				depthbias="-50"
+				
+			>
+				<particle
+					minangle="-360"
+					maxangle="360"
+					color=".5 .4 .3"
+					startsize="100"
+					endsize="200"
+					minanglespeed="-30"
+					maxanglespeed="33"
+					startalpha="0"
+					midalpha=".25"
+					endalpha="0"
+					frame="1"
+					framespeed="1"
+					lockup="0"
+					lockright="false"
+					turn="false"
+				/>
+			</simpleemitter>
+
+			<simpleemitter
+				bone="_bone_fx_01"
+				spawnrate="25"
+				particlelife="1500"
+				gravity="0"
+				speed="0"
+				drag="0"
+				acceleration="0"
+				position="0 0 0"
+				offsetsphere="25 25 0"
+				
+			>
+				<particle>
+				
+					<model
+						position="0 0 0"
+						minlife="800"
+						maxlife="1000"
+						name="emitter0"
+						anim="idle"
+						model="../../../alt4/ability_01/effects/little_rocks/model.mdf"
+						minscale=".75"
+						maxscale="1.75"
+						color=".5 .4 .35"
+						startalpha="1"
+						midalpha="1"
+						endalpha="0"
+						midalphapos=".9"
+						minyaw="0"
+						maxyaw="360"
+					>
+					</model>
+					
+				</particle>
+			</simpleemitter>
+
+      </particlesystem>
+   </definitions>
+<thread>
+	<spawnparticlesystem instance="instance0" particlesystem="system0" />
+	<spawnmodifier instance="instance1" modifier="modifier0"/>  
+	
+	<waitfordeath instance="instance0" />
+	<wait duration="20000"/>
+	<!-- <die /> -->
+</thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->

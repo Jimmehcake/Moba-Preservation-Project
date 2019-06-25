@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectile
+	name="Projectile_Sapphire_Ability1_Enemy"
+	
+	lifetime="300"
+	useexactlifetime="true"
+	gravity="0"
+	
+	canturn="true"
+	flying="true"
+	flyheight="0"
+	
+	touchradius="95"
+	touchradiusdiradjust="true"
+	touchtargetscheme="all_things"
+	touchignoreinvulnerable="false"
+	maxtouchespertarget="1"
+>
+	<ontouch>
+		<cantarget targetscheme="all_nonhero_units" ignoreinvulnerable="true" />
+		<else>
+			<targettype type="PseudoPet" />
+			<else>
+				<compare a="param" b="1" op="eq">					
+					<compare source="this_proxy_entity" target="target_entity" a="source_entity" b="target_entity" op="ne">
+						<targettype type="hero" source="target_entity" target="target_entity">
+							<compare source="this_owner_entity" target="target_entity" a="source_entity" b="target_entity" op="ne">
+								<setparam a="0" />
+								<cantarget target="this_proxy_entity" effecttype="Magic">
+									<damage effecttype="Magic" target="this_proxy_entity" amount="40,80,120,160" />
+									<applystate name="State_Stunned" target="this_proxy_entity" duration="1100,1400,1700,2000" />
+									<applystate name="Stunned_Sapphire_Sound" target="this_proxy_entity" duration="1100,1400,1700,2000" />
+									<unbind target="this_proxy_entity" />
+								</cantarget>
+								
+								<!-- Deal the damage/stun to the unit you hit into as well -->
+								<cantarget target="target_entity" targetscheme="enemy_units" effecttype="Magic">
+									<damage effecttype="Magic" target="target_entity" amount="40,80,120,160" />
+									<applystate name="State_Stunned" target="target_entity" duration="1100,1400,1700,2000" />									
+								</cantarget>
+								
+								<!-- VFX -->
+								<hasavatarkey name="Hero_Sapphire.Alt" >
+									<pausevoiceovers duration="4000" />
+									<playeffect effect="../alt/ability_01/effects/impact2.effect" source="this_position" target="" occlude="true" />
+								</hasavatarkey>
+								<else>
+									<hasavatarkey name="Hero_Sapphire.Alt2" >
+										<pausevoiceovers duration="4000" />
+										<playeffect effect="../alt2/ability_01/effects/impact2.effect" source="this_position" target="" occlude="true" />
+									</hasavatarkey>
+									<else>
+										<hasavatarkey name="Hero_Sapphire.Alt3" >
+											<pausevoiceovers duration="4000" />
+											<playeffect effect="../alt3/ability_01/effects/impact2.effect" source="this_position" target="" occlude="true" />
+										</hasavatarkey>
+										<else>
+											<hasavatarkey name="Hero_Sapphire.Alt4" >
+												<pausevoiceovers duration="4000" />
+												<playeffect effect="../alt4/ability_01/effects/impact2.effect" source="this_position" target="" occlude="true" />
+											</hasavatarkey>
+											<else>
+												<pausevoiceovers duration="4000" />
+												<playeffect effect="effects/impact2.effect" source="this_position" target="" occlude="true" />
+											</else>
+									</else>	
+									</else>	
+								</else>
+								
+								<kill target="this_entity" source="" />
+							</compare>
+						</targettype>
+						<else>
+							<setparam a="0" />
+							<cantarget target="this_proxy_entity" effecttype="Magic">
+								<damage effecttype="Magic" target="this_proxy_entity" amount="40,80,120,160" />
+								<applystate name="State_Stunned" target="this_proxy_entity" duration="1100,1400,1700,2000" />
+								<applystate name="Stunned_Sapphire_Sound" target="this_proxy_entity" duration="1100,1400,1700,2000" />
+								<unbind target="this_proxy_entity" />
+							</cantarget>							
+							
+							<!-- VFX -->
+							<hasavatarkey name="Hero_Sapphire.Alt" >
+								<playeffect effect="../alt/ability_01/effects/impact2.effect" source="this_position" target="" occlude="true" />
+							</hasavatarkey>
+							<else>
+								<hasavatarkey name="Hero_Sapphire.Alt2" >
+									<playeffect effect="../alt2/ability_01/effects/impact2.effect" source="this_position" target="" occlude="true" />
+								</hasavatarkey>
+								<else>
+									<hasavatarkey name="Hero_Sapphire.Alt3" >
+										<playeffect effect="../alt3/ability_01/effects/impact2.effect" source="this_position" target="" occlude="true" />
+									</hasavatarkey>
+									<else>
+										<hasavatarkey name="Hero_Sapphire.Alt4" >
+											<playeffect effect="../alt4/ability_01/effects/impact2.effect" source="this_position" target="" occlude="true" />
+										</hasavatarkey>
+										<else>
+											<playeffect effect="effects/impact2.effect" source="this_position" target="" occlude="true" />
+										</else>
+									</else>	
+								</else>	
+							</else>
+							
+							<kill target="this_entity" source="" />
+						</else>
+						
+					</compare>
+				</compare>
+			</else>
+		</else>
+	</ontouch>
+	
+	<ondeath>
+		<delete target="this_entity" />
+	</ondeath>
+</projectile>

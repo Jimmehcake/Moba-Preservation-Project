@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true" name="">
+	<definitions>
+	
+		<particlesystem name="system0" space="world">
+	
+	<sound
+	            randomloop="true"
+	            soundloop="true"
+				fadein="100"
+				fadeout="300"
+				linearfalloff="true" 
+				falloffstart="0"
+				falloffend="1000"
+				volume=".5"
+				sample="../sounds/move_loop.wav"
+			/>
+			
+			<sound
+			    mindelay="0"
+				maxdelay="2000"
+	            randomloop="true"
+	            soundloop="true"
+				fadein="100"
+				fadeout="1000"
+				linearfalloff="true" 
+				falloffstart="0"
+				falloffend="800"
+				volume="1"
+				sample="../sounds/move_vox_loop.wav"
+			/>
+			
+
+			
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0"/>
+		<waitfordeath instance="instance0"/>
+	</thread>
+</effect>

@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="1">
+	<definitions>
+
+	
+		<particlesystem name="system0" space="world" scale=".85">
+		<sound
+		        soundloop="true"
+				fadein="250"
+				fadeout="1050"
+				linearfalloff="true"
+				falloffstart="0"
+				falloffend="2200"
+				volume="1"
+				sample="../sounds/loop.wav"
+			/>
+			
+								
+		
+		<controller bone="_bone_fx_01" expirelife="1500" >
+		<!-- ground effects -->
+			<simpleemitter
+				spawnrate="20"
+				particlelife="1000"
+				direction="0 1 0"
+				directionalspace="local"
+				angle="0"
+				speed="1"
+			>
+				<particle
+				turn="1"
+				>
+					<billboard
+						position="90 0 0"
+						life="900"
+						startalpha=".25"
+						midalpha=".255"
+						endalpha="0"
+						midalphapos=".75"
+						startsize="0"
+						midsize="150"
+						endsize="150"
+						midsizepos=".1"
+						lockup="1"
+						lockright="1"
+						pitch="90"
+						depthbias="-50"
+						color=".6 .5 .5"
+						directionalspace="local"
+						material="/shared/effects/materials/geomancer_groundsprite.material"
+					/>
+					
+					<billboard
+						position="-90 0 0"
+						life="900"
+						startalpha=".25"
+						midalpha=".25"
+						endalpha="0"
+						midalphapos=".75"
+						startsize="0"
+						midsize="150"
+						endsize="150"
+						midsizepos=".1"
+						lockup="1"
+						lockright="1"
+						pitch="90"
+						roll="180"
+						depthbias="-50"
+						color=".6 .5 .5"
+						directionalspace="local"
+						material="/shared/effects/materials/geomancer_groundsprite.material"
+					/>
+				</particle>
+			</simpleemitter>
+			
+			<simpleemitter
+				spawnrate="20"
+				particlelife="1000"
+			>
+				<particle>
+					<billboard
+						life="900"
+						startalpha=".75"
+						midalpha=".75"
+						endalpha="0"
+						midalphapos=".75"
+						startsize="0"
+						midsize="300"
+						endsize="300"
+						midsizepos=".1"
+						lockup="1"
+						pitch="90"
+						maxroll="360"
+						depthbias="-50"
+						color=".35 .3 .3"
+						material="/shared/effects/materials/sand_groun.material"
+					/>
+				</particle>
+			</simpleemitter>
+			
+			<simpleemitter
+				spawnrate="20"
+				particlelife="1000"
+				particledirectionalspace="local"
+			>
+				<particle>
+					<billboard
+						life="900"
+						startalpha=".7"
+						midalpha=".7"
+						endalpha="0"
+						midalphapos=".75"
+						size="200"
+						lockup="1"
+						pitch="90"
+						maxroll="90"
+						depthbias="-20"
+						material="/shared/effects/materials/blackhole_overlay.material"
+					/>
+				</particle>
+			</simpleemitter>
+			
+			<simpleemitter
+				spawnrate="7"
+				particlelife="1000"
+				directionalspace="local"
+			>
+				<particle>
+					<simpleemitter
+						count="15"
+						direction="0 0 1"
+						minangle="70"
+						maxangle="90"
+						particlelife="700"
+						speed="1500"
+						drag=".05"
+						minparticlecolor=".75"
+						maxparticlecolor="1"
+						material="/shared/effects/materials/pyroclast_03.material"
+					>
+						<particle
+							startsize="30"
+							endsize="150"
+							maxangle="360"
+							minanglespeed="-150"
+							maxanglespeed="150"
+							startalpha=".5"
+							midalpha=".5"
+							endalpha="0"
+							startcolor=".5 .4 .3"
+							endcolor=".2 .2 .1"
+							minscale="1"
+							maxscale="2"
+						/>
+					</simpleemitter>
+					<simpleemitter
+						count="100"
+						direction="0 0 1"
+						minangle="0"
+						maxangle="50"
+						particlelife="700"
+						speed="800"
+						drag=".025"
+						gravity="30"
+						minparticlecolor=".25"
+						maxparticlecolor="1"
+						material="/shared/effects/materials/dust_puff.material"
+					>
+						<particle
+							startsize="30"
+							endsize="40"
+							maxangle="360"
+							minanglespeed="-150"
+							maxanglespeed="150"
+							startalpha="1"
+							midalpha="1"
+							endalpha="0"
+							midalphapos=".8"
+							startcolor=".5 .4 .3"
+							endcolor=".2 .2 .1"
+							minscale="1"
+							maxscale="2"
+						/>
+					</simpleemitter>
+				</particle>
+			</simpleemitter>
+			
+			<simpleemitter
+				spawnrate="30"
+				particlelife="1000"
+				directionalspace="local"
+			>
+				<particle>
+					<billboard
+						life="900"
+						startcolor=".15 0 .15"
+						midcolor=".15 0 .15"
+						endcolor="0"
+						startsize="150"
+						midsize="150"
+						endsize="0"
+						height="150"
+						lockup="1"
+						lockright="1"
+						pitch="90"
+						directionalspace="local"
+						depthbias="-20"
+						material="/shared/effects/materials/glow_01.material"
+					/>
+					<billboard
+						life="900"
+						startcolor=".15 .1 .15"
+						midcolor=".15 .1 .15"
+						endcolor="0"
+						startsize="70"
+						midsize="70"
+						endsize="0"
+						height="70"
+						lockup="1"
+						lockright="1"
+						pitch="90"
+						directionalspace="local"
+						depthbias="-20"
+						material="/shared/effects/materials/glow_01.material"
+					/>
+				</particle>
+			</simpleemitter>
+			
+			<simpleemitter
+				spawnrate="7"
+				particlelife="1000"
+				directionalspace="local"
+			>
+				<particle>
+					<billboard
+						life="500"
+						startcolor=".25 .1 .25"
+						midcolor=".25 .1 .25"
+						endcolor="0"
+						startsize="350"
+						endsize="0"
+						lockup="1"
+						lockright="1"
+						pitch="90"
+						directionalspace="local"
+						depthbias="-20"
+						material="/shared/effects/materials/corona_07.material"
+					/>
+				</particle>
+			</simpleemitter>
+		
+			
+			
+			<simpleemitter
+				delay="100"
+				spawnrate="30"
+				particlelife="1500"
+				offsetsphere="40 40 0"
+				directionalspace="local"
+			>
+				<particle
+					minscale="1"
+					maxscale="2"
+				>
+					<model
+						model="../../ability_04/effects/amethyst/model.mdf"
+						material="/heroes/geomancer/ability_04/effects/material_generic.material"
+						color=".7"
+						pitch="20"
+						minyaw="-40"
+						maxyaw="40"
+						life="750"
+						startscale="0"
+						midscale="1"
+						endscale="1"
+						midscalepos=".2"
+						directionalspace="local"
+					>
+						<model
+							model="../../ability_04/effects/amethyst/model.mdf"
+							color=".7"
+							life="750"
+							directionalspace="local"
+						/>
+					</model>
+					<simpleemitter
+						direction="0 0 1"
+						count="2"
+						angle="0"
+						minspeed="100"
+						maxspeed="200"
+						gravity="30"
+						particlelife="1000"
+					>
+						<particle>
+							<model
+								material="/heroes/geomancer/ability_04/effects/material_generic.material"
+								model="../../ability_04/effects/amethyst_explosion/model.mdf"
+								anim="idle"
+								color=".7"
+								maxyaw="360"
+								life="1000"
+								scale=".3"
+								directionalspace="local"
+							>
+								<model
+									model="../../ability_04/effects/amethyst_explosion/model.mdf"
+									anim="idle"
+									color=".7"
+									life="1000"
+									directionalspace="local"
+								/>
+							</model>
+						</particle>
+					</simpleemitter>
+				</particle>
+			</simpleemitter>
+			
+		</controller>
+			
+
+      </particlesystem>
+   </definitions>
+<thread>
+	<spawnparticlesystem instance="instance0" particlesystem="system0" />
+	<spawnmodifier instance="instance1" modifier="modifier0"/>  
+	
+	<waitfordeath instance="instance0" />
+	<wait duration="20000"/>
+	<!-- <die /> -->
+</thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->

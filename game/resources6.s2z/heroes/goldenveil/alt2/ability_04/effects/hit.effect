@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect useentityeffectscale="true" deferred="true">
+
+	<definitions>
+
+		<particlesystem name="system0" space="world" scale="1.5">
+
+		<sound
+				linearfalloff="true" 
+				falloffstart="128"
+				falloffend="1300"
+				volume=".7"
+				sample="/heroes/goldenveil/ability_04/sounds/imp.wav"
+			/>
+			
+			<simpleemitter	
+				bone="_bone_centerofchest"
+				count="25"
+				position="0 0 0"
+				minparticlelife="400"
+				maxparticlelife="600"
+				material="/shared/effects/materials/light_glow.material"
+				offsetsphere="0"
+				drag="0.05"
+
+				minspeed="220"
+				maxspeed="350"		
+			>
+				<particle
+					minangle="-360"
+					maxangle="360"
+
+					startsize="20"	
+					endsize="5"								
+					depthbias="-100"
+					startcolor="0"
+					midcolor=".65 1 .2"
+					endcolor="0"
+					midcolorpos=".5"
+					startalpha="1"
+					midalpha="1"
+					endalpha="0"
+					midalphapos=".25"
+					minscale="2"
+					maxscale="4"
+				/>
+			</simpleemitter>	
+			<simpleemitter
+				bone="_bone_centerofchest"
+				spawnrate="2000"
+				count="8"
+				life="400"
+				particlelife="400"
+				offsetsphere="0"
+				material="/shared/effects/materials/electric_impact_add.material"
+			>
+				<particle
+					startcolor="0"
+					midcolor=".2 .5 0"
+					midcolorpos="0.3"
+					endcolor="0"
+					startsize="25"
+					endsize="50"
+					maxangle="360"
+					depthbias="-180"
+					minendscale="1"
+					maxendscale="3"
+					height="12"
+					endwidth="45"
+					flare="1"
+			 	/>
+			</simpleemitter>
+			<billboard
+				bone="_bone_centerofchest"
+				life="100"
+				startcolor="1 1 .2"
+				midcolor=".75 .25 0"
+				midcolorpos="0.4"
+				endcolor="0"
+				startsize="150"
+				depthbias="0"
+				material="/shared/effects/materials/whitedot.material"
+				position="0 0 0"
+			/>
+			<billboard
+				bone="_bone_centerofchest"
+				life="500"
+				startcolor="1 1 .2"
+				midcolor=".75 .25 0"
+				midcolorpos="0.4"
+				endcolor="0"
+				startsize="150"
+				endsize="0"
+				depthbias="0"
+				material="/shared/effects/materials/whitedot.material"
+				position="0 0 0"
+			/>
+			<simpleemitter
+				bone="_bone_centerofchest"
+				count="30"
+				spawnrate="2000"
+				minparticlelife="200"
+				maxparticlelife="300"
+				drag=".005"
+				offsetphere="20"
+				gravity="-3"
+				minspeed="550"
+				maxspeed="850"								
+				direction="0 0 1"
+				position="0 0 0"
+				depthbias="-30"
+				material="/shared/effects/materials/blob_add.material"
+			>			
+				<particle
+					startcolor="1 .7 .1"
+					endcolor="0"
+					startsize="8"
+					endsize="0"
+					minscale="0.5"
+					maxscale="1"
+					endstickiness=".4"
+					startheightdistort=".05"
+					endheightdistortion="0"
+					turn="1"
+				/>
+			</simpleemitter>
+			<billboard
+				bone="_bone_centerofchest"
+				life="200"
+				color="1.0 1.0 1.0"
+				startalpha="1.0"
+				midalpha="1.0"
+				endalpha="0.0"
+				midalphapos="0.75"
+				startparam=".1"
+				endparam="0.0"
+				startsize="38"
+				endsize="200"
+				depthbias="-100"
+				position="0 0 20"
+				material="/shared/effects/materials/refract_ring.material"
+				lockup="true"
+				pitch="90"
+			/>		
+			<!-- <simpleemitter
+				life="500"
+				count="40"
+				spawnrate="999"
+				minparticlelife="600" maxparticlelife="800"
+				gravity="30"
+				minspeed="50" maxspeed="250"
+				drag=".02"
+				direction="0 -1 0"
+				offsetsphere="10"
+				acceleration="0.0"
+				bone="_bone_centerofchest"
+				inheritvelocity=".35"
+				collide="true"
+			>
+				<particle
+					minscale=".8"
+					maxscale="1"
+				>
+					<model
+						minyawspeed="-500"
+						maxyawspeed="500"
+						minrollspeed="-500"
+						maxrollspeed="500"
+						minpitchspeed="-500"
+						maxpitchspeed="500"
+						minyaw="0"
+						maxyaw="360"
+						minroll="0"
+						maxroll="360"
+						minpitch="0"
+						maxpitch="360"
+						scale="1.15"
+						model="/heroes/drunkenmaster/alt9/ability_02/effects/coin/model.mdf"
+						material="/heroes/drunkenmaster/alt9/ability_02/effects/material.material"
+						startalpha="1.0"
+						midalpha="1.0"
+						endalpha="0"
+						midalphapos="0.7"
+						color="2"
+					/>
+				</particle>
+			</simpleemitter> -->
+		 </particlesystem>
+	</definitions>
+
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+
+</effect>

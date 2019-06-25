@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+	<definitions>
+		<modifier
+			alpha="0"
+			life="200"
+			scale="0"
+		/>
+		<particlesystem name="system0" space="world" scale="1">
+		<!-- implode effect -->
+<!--
+			<simpleemitter
+				count="30"
+				particlelife="200"
+				offsetsphere="200"
+				position="0 0 100"
+				minparticlecolor=".5"
+				maxparticlecolor="1"
+				material="/shared/effects/materials/pyroclast_03.material"
+			>
+				<particle
+					startcolor=".8 .8 .5 "
+					endcolor=".5 .5 .3"	
+					size="50"
+					maxangle="360"
+					minscale="1"
+					maxscale="1.5"
+					startstickiness="0"
+					endstickiness="1"
+				/>
+			</simpleemitter>
+			<simpleemitter
+				count="100"
+				particlelife="200"
+				offsetsphere="200"
+				position="0 0 100"
+				minparticlecolor=".5"
+				maxparticlecolor="1"
+				material="/shared/effects/materials/sand_blend.material"
+			>
+				<particle
+					startcolor=".7 .7 .4"
+					endcolor=".5 .5 .3"	
+					size="25"
+					maxangle="360"
+					minscale="1"
+					maxscale="1.5"
+					startstickiness="0"
+					endstickiness="1"
+				/>
+			</simpleemitter>
+			<billboard
+				position="0 0 100"
+				startsize="550"
+				endsize="0"
+				life="200"
+				startcolor=".5 .5 .35"
+				endcolor=".3 .3 .1"	
+				material="/shared/effects/materials/pyroclast_ring.material"
+			/>
+			<billboard
+				position="0 0 100"
+				startsize="550"
+				endsize="0"
+				life="200"
+				startalpha="0"
+				endalpha="1"
+				color=".2 .1 .01"
+				material="/shared/effects/materials/whitedot_blend.material"
+			/>
+			-->
+		<!-- explode effect -->
+		<controller >
+			<billboard
+				position="0 0 10"
+				lockup="1"
+				pitch="90"
+				startsize="0"
+				endsize="450"
+				life="300"
+				startcolor=".3 .3 .1"
+				endcolor=".5 .5 .3"	
+				startalpha="1"
+				midalpha="1"
+				endalpha="0"
+				material="/shared/effects/materials/pyroclast_ring.material"
+			/>
+			<simpleemitter
+				count="30"
+				particlelife="600"
+				position="0 0 5"
+				direction="0 0 1"
+				minangle="90"
+				maxangle="90"
+				minspeed="150"
+				maxspeed="300"
+				minparticlecolor=".5"
+				maxparticlecolor="1"
+				material="/shared/effects/materials/cloud_blend.material"
+			>
+				<particle
+					minangle="0"
+					maxangle="360"
+					minanglespeed="-50"
+					maxanglespeed="50"
+					startsize="15"
+					endsize="22"
+					color=".4 .5 .6"		
+					startstickeness="1"
+					endstickiness="0"
+					startalpha="0"
+					midalpha=".7"
+					endalpha="0"
+					minscale="1.5"
+					maxscale="2.3"
+				/>
+			</simpleemitter>
+			<simpleemitter
+				count="100"
+				particlelife="600"
+				position="0 0 5"
+				direction="0 0 1"
+				minangle="90"
+				maxangle="90"
+				minspeed="150"
+				maxspeed="300"
+				minparticlecolor=".5"
+				maxparticlecolor="1"
+				material="/shared/effects/materials/bad_heal_smoke_06.material"
+			>
+				<particle
+					minangle="0"
+					maxangle="360"
+					minanglespeed="-150"
+					maxanglespeed="150"
+					startsize="15"
+					endsize="22"
+					color=".7 .8 .9"		
+					startstickeness="1"
+					endstickiness="0"
+					startalpha="0"
+					midalpha="1"
+					endalpha="0"
+					minscale="1.5"
+					maxscale="2.3"
+					anchor="1"
+				/>
+			</simpleemitter>
+		</controller>
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<spawnmodifier instance="instance1" />
+		<waitfordeath instance="instance0" />
+		<waitfordeath instance="instance1" />
+	</thread>
+</effect>

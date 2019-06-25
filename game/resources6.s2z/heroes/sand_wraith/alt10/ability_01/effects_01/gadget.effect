@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="	" deferred="1">
+	<definitions>
+		<particlesystem name="system0" space="world" scale="0.75">
+			<terrainemitter
+				position="0 0 0"
+				spawnrate="11111"
+				count="2"
+				gravity="0"			
+				offsetsphere="80 80 0"
+				direction="1 0 0"
+				minangle="-180"
+				maxangle="180"
+				speed="0"
+				directionalspace="global"
+				inheritvelocity="0"
+				depthbias="-20"
+			>
+				<particle
+				>
+					<groundsprite
+						delay="0"
+						material="/shared/effects/materials/sand_ground2.material"	
+						minscale="2.2"
+						maxscale="2.65"
+						expirelife="600"
+						color=".1 .2 .3"
+						minyaw="-360"
+						maxyaw="360"
+						startalpha="0.4"							
+						endalpha="0"
+					/>
+				</particle>
+			</terrainemitter>	
+			<terrainemitter
+				position="0 0 0"
+				spawnrate="11111"
+				count="2"
+				gravity="0"			
+				offsetsphere="80 80 0"
+				direction="1 0 0"
+				minangle="-180"
+				maxangle="180"
+				speed="0"
+				directionalspace="global"
+				inheritvelocity="0"
+				depthbias="-20"
+			>
+				<particle
+				>
+					<groundsprite
+						delay="0"
+						material="/shared/effects/materials/water_puddle_02.material"	
+						minscale="2.2"
+						maxscale="2.65"
+						expirelife="600"
+						color=".2 .3 .4"
+						minyaw="-360"
+						maxyaw="360"
+						startalpha="0.4"							
+						endalpha="0"
+					/>
+				</particle>
+			</terrainemitter>
+			<terrainemitter
+				delay="0"
+				spawnrate="1"
+				particlelife="1500"
+				range="80"
+			>
+				<particle>
+					<simpleemitter
+						life="1000"
+						spawnrate="00"
+						count="3"
+						minparticlelife="400"
+						maxparticlelife="1200"			
+						gravity="25"
+						minspeed="50"
+						maxspeed="200"
+						drag=".01"
+						material="/shared/effects/materials/bubble_add.material"
+						offsetsphere="10"
+						minangle="0"
+						maxangle="35"
+						direction="0 0 1"
+					>
+						<particle 
+							minangle="0"
+							maxangle="360"
+							startcolor=".4 .7 .8"
+							midcolor=".4 .7 .8"
+							endcolor="0 0 0"
+							midcolorpos=".2"
+							minstartsize="2"
+							maxstartsize="5"
+							midsize="5"
+							endsize="2"
+							startalpha="0"
+							midalpha=".7"
+							endalpha="0"
+							midalphapos=".5"
+						/>
+					</simpleemitter>
+					<billboard 
+						minscale=".1"
+						maxscale=".2"
+						life="300"
+						startcolor="0 0 0"
+						midcolor=".4 .7 .8"
+						endcolor=" 0 0 0"
+						midcolorpos=".25"
+						material="/shared/effects/materials/bubble_add.material"
+						lockup="1"
+						lockright="1"
+						pitch="90"
+						depthbias="-25"
+					/>
+				</particle>
+			</terrainemitter>
+      </particlesystem>
+   </definitions>
+<thread>
+	<spawnparticlesystem instance="instance0" particlesystem="system0" />
+	<spawnmodifier instance="instance1" modifier="modifier0"/>  
+	<waitfordeath instance="instance0" />
+	<wait duration="20000"/>
+	<!-- <die /> -->
+</thread>
+</effect>
+<!-- [min|max][start|mid|end]property[speed][position] -->

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pet
+	name="Pet_Warchief_Ability2"
+	
+	icon="icon.tga"
+	portrait="icon.tga"
+	model="../model.mdf"
+	skin=""
+
+	passiveeffect="effects/spirit.effect"
+	spawneffect=""
+	respawneffect=""
+	
+	preglobalscale="1.4"
+	modelscale="1.0"
+	effectscale="1.0"
+	boundsheight="112"
+	boundsradius="24"
+	selectionradius="36"
+	targetoffset="0 0 54"
+
+	movespeed="650"
+	maxmovespeed="650"
+	turnrate="900"
+	tiltfactor="1"
+	
+	immunity=""
+	diewithowner="true"
+	iscontrollable="true"
+	unitwalking="true"
+	buildingwalking="false"
+	cliffwalking="false"
+	invulnerable="true"
+	treewalking="true"
+	canattack="false"
+
+	armor="0"
+	magicarmor="0"
+	
+	isselectable="true"
+
+	cancarryitems="false"
+	inventory0=""
+	inventory1="Ability_Warchief2pa"
+	inventory2="Ability_Warchief2pb"
+	inventory3=""
+	inventory4=""
+	inventory5=""
+	inventory6=""
+	inventory7=""
+	inventory8="Ability_Taunt"
+	
+	combattype="Hero"
+
+	sightrangeday="300"
+	sightrangenight="300"
+	clearvision="true"
+	
+	corpsetime="0"
+	corpsefadetime="1000"
+	corpsefadeeffect="/shared/effects/corpse_sink.effect"
+
+	portraitcampos="-7 5 23"
+	portraitangles="0 0 12"
+	
+	unittype="AntiTP"
+	nothreat="false"
+	
+	hidehealthbar="false"
+	relayexperience="true"
+	
+	lifetime="3000"
+	showlifetime="true"
+
+	inheritvisibilityfromowner="false"
+	noblockneutralspawn="true" 
+	
+>
+	<onspawn>
+		<playeffect effect="effects/spawn.effect" source="this_entity" occlude="true" />
+		<!-- Visual state timer -->
+		<applystate name="State_Warchief_Ability2_Spirit" target="this_entity" duration="3000" />
+	</onspawn>
+
+	<onframe>
+		<!-- this is deadlift gravestones don't spawn on this heropet -->
+		<expirestate target="this_entity" name="State_Deadlift_Ability4_Heroes" />
+		
+		<!-- delete us if our owner doesn't exist -->
+		<compare source="this_owner_entity" a="source_entity" b="0" op="eq" >
+			<delete />
+		</compare>
+	</onframe>
+	
+	
+	
+	<altavatar key="Hero_Warchief.Alt" modpriority="1"
+		model="../alt/model.mdf"
+		portraitcampos="-0 0 40"
+		passiveeffect="../alt/ability_02/effects/spirit.effect"
+	>
+		<onspawn>
+			<playeffect effect="../alt/ability_02/effects/spawn.effect" source="this_entity" occlude="true" />
+			<!-- Visual state timer -->
+			<applystate name="State_Warchief_Ability2_Spirit" target="this_entity" duration="3000" />
+		</onspawn>
+	</altavatar>
+	
+	<altavatar key="Hero_Warchief.Alt2" modpriority="1"
+		model="../alt2/model.mdf"
+		
+		preglobalscale="1.6"
+		modelscale="1.0"
+		
+		portraitcampos="37 0 30"
+		portraitangles="0 0 10"
+		
+		passiveeffect="../alt2/ability_02/effects/spirit.effect"
+	>
+		<onspawn>
+			<playeffect effect="../alt2/ability_02/effects/spawn.effect" source="this_entity" occlude="true" />
+			<!-- Visual state timer -->
+			<applystate name="State_Warchief_Ability2_Spirit" target="this_entity" duration="3000" />
+		</onspawn>
+	</altavatar>
+	
+</pet>

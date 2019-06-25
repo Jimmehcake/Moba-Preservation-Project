@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Cthulhuphant_Ability4_Slow"
+
+	icon="icon.tga"
+	effecttype="StatusDebuff"
+	passiveeffect=""
+	
+	movespeedslow="0.2,0.4,0.6,0.8"
+
+	negativeeffect="slowed"
+>
+
+</state>

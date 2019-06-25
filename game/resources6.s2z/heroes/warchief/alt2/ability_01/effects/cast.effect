@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect useentityeffectscale="1">
+
+	<definitions>
+
+		<particlesystem name="system0" space="world" scale="1">
+			
+			<sound
+				volume="1"
+				sample="/heroes/warchief/ability_01/sounds/core_cast.wav"
+				linearfalloff="true"
+				falloffstart="600" 
+				falloffend="1300" 
+			/>
+			
+			<sound
+			    delay="100"
+				volume="1"
+				sample="../../sounds/abvox_2.wav"
+				linearfalloff="true"
+				falloffstart="600" 
+				falloffend="1300" 
+			/>
+			
+			<simpleemitter
+				count="1"
+				particlelife="1000"
+			>
+				<particle
+					scale="1.5">
+					<groundsprite
+						life="200"
+						startcolor="0"
+						endcolor="0 .5 1"
+						size="100"
+						material="groundsprite.material"
+					/>
+					
+					<groundsprite
+						delay="200"
+						life="600"
+						startcolor="0 .5 1"
+						midcolor=".25 .5 1"
+						endcolor="0"
+						midcolorpos=".35"
+						size="100"
+						material="groundsprite.material"
+					/>
+				</particle>
+			</simpleemitter>
+			
+			<simpleemitter
+				count="100"
+				particlelife="800"
+				direction="0 0 1"
+				minangle="90"
+				maxangle="90"
+				speed="1"
+			>
+				<particle
+					turn="1"
+				>
+					<billboard
+						directionalspace="local"
+						position="0 130 0"
+						pitch="-30"
+						life="800"
+						startsize="0"
+						midsize="70"
+						endsize="20"
+						startheight="0"
+						midheight="100"
+						endheight="250"
+						startcolor="0"
+						midcolor=".25 .5 1"
+						endcolor="0"
+						midcolorpos=".66"
+						lockup="1"
+						lockright="1"
+						minscale=".5"
+						maxscale="1"
+						material="/shared/effects/materials/light_rays2.material"
+					/>
+				</particle>
+			</simpleemitter>
+			
+			<simpleemitter
+				count="20"
+				particlelife="500"
+				direction="0 0 1"
+				minangle="90"
+				maxangle="90"
+				speed="1"
+			>
+				<particle
+					turn="1"
+				>
+					<simpleemitter
+						material="/shared/effects/materials/energy_reveal.material"
+						spawnrate="30"
+						minparticlelife="300"
+						maxparticlelife="500"
+						position="0 130 0"
+						offsetsphere="25 25 15"
+						drag="0.04"
+						angle="90"
+						direction="0 0 1"
+						gravity="-15"
+						depthbias="-5"
+						
+					>
+						<particle
+							maxangle="359"
+							startscale="20"
+							midscale="40"
+							minendscale="40"
+							maxendscale="60"
+							startcolor="1"
+							endcolor=".5 .5 1"
+							midcolorpos=".5"
+							startalpha="0"
+							minmidalpha="1"
+							maxmidalpha="1"
+							endalpha=".15"
+							startframe="0"
+							endframe="1"
+						/>
+					</simpleemitter>
+				</particle>
+			</simpleemitter>
+		
+		
+		</particlesystem>
+	</definitions>
+
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<spawnmodifier instance="instance1" modifier="modifier0"/>  
+		<waitfordeath instance="instance0" />
+	</thread>
+
+</effect>
+

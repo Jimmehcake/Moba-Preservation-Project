@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model name="rig.max" file="high.model" type="K2" high="high.model" med="med.model" low="low.model" >
+
+	<anim name="idle" clip="default_1.clip" loop="true" blendtime ="250"/>
+	
+	<anim name="ability_2" clip="ability_2.clip" loop="true"/>
+	
+	<anim name="ability_4" clip="ability_4.clip" loop="true" fps="20"/>
+	
+	<anim name="death_1" clip="death_1.clip" loop="true" fps="30" loopbackframe="-1"/>
+	
+</model>

@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="trail" deferred="true">
+	<definitions>
+		<particlesystem name="system0" space="world" scale="1.1">
+			<sound
+			    pitchshift="true"
+				minpitch="0.9"
+				maxpitch="1.1"
+			    delay="150"
+				linearfalloff="true" 
+				falloffstart="650"
+				falloffend="1300"
+				minvolume=".3" 
+				maxvolume=".5" 
+				sample="/heroes/chi/sounds/foley/trail_%.wav"
+			/>
+			<model
+				model="/shared/effects/models/sphere/model.mdf"
+				material="/shared/effects/materials/shell.material"
+				color=".5 .3 .2"
+				scale=".55"
+				position="0 0 0"
+				yawspeed="3000"
+			/>
+			<billboard
+				material="/shared/effects/materials/whitedot_blend.material"
+				color="1 .4 0"
+				size="150"
+				alpha="1"
+				depthbias="-30"
+			/>
+			<billboard
+				material="/shared/effects/materials/flare_01.material"
+				color=".5 .4 .2"
+				size="250"
+				alpha="1"
+				depthbias="-30"
+			/>
+			<model
+				model="/shared/effects/models/sphere/model.mdf"
+				material="/shared/effects/materials/shell_flat.material"
+				color=".8"
+				scale=".55"
+				position="0 0 0"
+				yawspeed="3000"
+			/>
+		<!-- 	<simpleemitter
+				size="0"
+				spawnrate="100"
+				depthbias="-100"
+				minparticlelife="200"
+				maxparticlelife="550"
+				drag=".095"
+				direction="0 1 0"
+				startoffsetsphere="40 0 0"
+				endoffsetsphere="0 0 0"
+				minangle="90"
+				maxangle="90"
+				material="/shared/effects/materials/flare_01.material"	
+				minspeed="00"
+				maxspeed="2000"	
+			>
+				<particle
+					color="0.1 1 1"
+					startalpha="0"
+					midalpha="1"
+					endalpha="0"
+					startsize="50"
+					midsize="0"
+					endsize="0"
+					midsizepos="0.6"
+					anchor=".1"
+				>
+					<billboard
+						minlife="100"
+						maxlife="400"
+						maxangle="360"
+						startsize="70" endsize="0"
+						minscale=".7" maxscale="1.4"
+						color=".5 1 .8"
+						startalpha=".5" midalpha="0" endalpha="0"
+						material="/shared/effects/materials/star_03.material"
+					/>
+				</particle>	
+			</simpleemitter> -->
+			<trailemitter
+				spawnrate="44"
+				particlelife="350"
+				texpostime="300"
+				texposscale="0.0"
+				texstretchscale="1.0"
+				material="/shared/effects/materials/soul_trail.material"
+				subframepos="true"
+				position="0 0 0"
+			>
+				<particle
+					color=".3 .3 0"
+					midcolor=".3 .3 0"
+					endcolor="0"
+					startalpha=".4"
+					endalpha="0"
+					startsize="65"
+					midsize="35"
+					endsize="5"
+				/>
+			</trailemitter>
+			<trailemitter
+				spawnrate="44"
+				particlelife="250"
+				texpostime="300"
+				texposscale="0.0"
+				texstretchscale="1.0"
+				material="/shared/effects/materials/trail_02.material"
+				subframepos="true"
+				position="0 0 0"
+			>
+				<particle
+					startcolor="1 1 0"
+					midcolor="1 1 0"
+					endcolor="0"
+					startalpha=".4"
+					endalpha="0"
+					startsize="135"
+					midsize="55"
+					endsize="5"
+				/>
+			</trailemitter>
+			<model
+					expirelife="250"
+					model="/heroes/prophet/alt6/effects/bird/bird_fly/model.mdf"
+					anim="idle"
+					scale="1.35"
+					color="0"
+					alpha="0"
+					position="0 0 0"
+					lockup="1"
+					lockright="1"
+					yaw="20"
+					roll="45"
+					pitch="-15"
+				>
+				<!-- Demon Soul Trail -->
+					<model
+						position="0 0 0"
+						expirelife="500"
+						name="emitter0" 
+						anim="idle"
+						model="/shared/effects/models/circle_of_bones/model.mdf"
+						scale="1"
+						color="0 0 0"
+						alpha="0"
+						rollspeed="2000"
+					>
+						<template name="trails">
+							<trailemitter
+								name="trail01"
+								position="0 0 0"
+								bone="{bone01}"
+								spawnrate="100"
+								particlelife="200"
+								subframepose="1"
+								texpostime="250"
+								texposscale="0"
+								texstretchscale="1"
+								material="/shared/effects/materials/soul_trail.material"
+							>
+								<particle
+									startcolor=".8 .8 .4"
+									endcolor=".8 .4 0"
+									midcolorpos=".35"
+									startalpha="0"
+									midalpha="0"
+									endalpha="0"
+									startsize="10"
+									endsize="0"
+								/>
+							</trailemitter>
+						</template>
+						
+						<instance name="trails" bone01="_bone_fx_01"  bone02="_bone_fx_02"/>
+						<instance name="trails" bone01="_bone_fx_03"  bone02="_bone_fx_04"/>
+						<instance name="trails" bone01="_bone_fx_05"  bone02="_bone_fx_06"/>
+						<instance name="trails" bone01="_bone_fx_05"  bone02="_bone_fx_08"/>
+						<instance name="trails" bone01="_bone_fx_05"  bone02="_bone_fx_10"/>
+					</model>
+				
+
+					<simpleemitter
+						particlelife="400"
+						spawnrate="50"
+						minspeed="500"
+						maxspeed="1000"
+						acceleration="0.0"
+						position="0 0 0"
+						drag="0.1"
+						material="/shared/effects/materials/flare_07.material"
+						offsetsphere="0"
+						direction="0 -1 0"
+						minangle="0"
+						maxangle="120"
+					>
+						<particle
+							turn="true"
+							startcolor=".7 0 0"
+							midcolor=".7 0 0"
+							endcolor="0 0 0"
+							size="25"
+							startscale="1"
+							endscale="0"
+						>
+						</particle>
+					</simpleemitter>
+					<simpleemitter
+						particlelife="400"
+						spawnrate="20"
+						minspeed="500"
+						maxspeed="1000"
+						acceleration="0.0"
+						position="0 0 0"
+						drag="0.1"
+						material="/shared/effects/materials/blood_pool_white.material"
+						offsetsphere="0"
+						direction="0 -1 0"
+						minangle="0"
+						maxangle="120"
+					>
+						<particle
+							turn="true"
+							startcolor="1 1 .5"
+							midcolor="1 .7 0"
+							endcolor="0 0 0"
+							size="25"
+							startscale="1"
+							endscale="0"
+						>
+						</particle>
+					</simpleemitter>
+					
+				</model>
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+</effect>

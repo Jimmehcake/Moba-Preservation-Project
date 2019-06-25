@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="ability_04_impact">
+	<definitions>
+		<modifier
+			alpha="0"
+			life="30000"
+		/>
+		
+		<particlesystem name="system0" space="world" useentityeffectscale="true" scale="1">
+
+		
+		<sound  
+                delay="0"		
+				volume=".8"
+				sample="../../sounds/ab1_end_3.wav"
+				linearfalloff="true"
+				falloffstart="400" 
+				falloffend="1000" 
+			/>
+			
+			<sound   
+				delay="500"
+				volume=".5"
+				sample="/heroes/warchief/ability_01/sounds/light_death.wav"
+				linearfalloff="true"
+				falloffstart="400" 
+				falloffend="1000" 
+			/>
+			
+			<groundsprite
+				delay="0"
+				life="750"
+				startalpha="1"
+				endalpha="0"
+				position="10 0 0"
+				size="70"
+				color=".5"
+				material="/shared/effects/materials/dirtpile_cracks_groundsprite.material"
+			/>
+			
+			<billboard
+				delay="0"
+				position="0 0 40"
+				life="400"
+				startsize="0"
+				endsize="200"
+				startcolor=".2 .5 1"
+				endcolor="0"
+				material="/shared/effects/materials/whitedot.material"
+			/>
+			
+			<simpleemitter
+			delay="0"
+				count="5"
+				position="0 0 40"
+				minparticlelife="150"
+				maxparticlelife="300"
+				material="/shared/effects/materials/femme_lightning_07.material"
+			>
+				<particle
+					startsize="0"
+					endsize="150"
+					framespeed="5"
+					startcolor="0 .5 1"
+					endcolor="0" midcolorpos=".3"
+					maxangle="360"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+			delay="0"
+				count="100"
+				position="0 0 40"
+				minparticlelife="700"
+				maxparticlelife="1200"
+				maxspeed="500"
+				drag=".035"
+				gravity="50"
+				material="/shared/effects/materials/whitedot.material"
+			>
+				<particle
+					startcolor="0 .5 1"
+					midcolor="0 .2 1"
+					endcolor="0"
+					collide="1"
+					maxangle="360"
+					size="3"
+				/>
+			</simpleemitter>
+			
+				
+      </particlesystem>
+   </definitions>
+   <thread>
+      <spawnparticlesystem instance="instance0"  particlesystem="system0" />	
+	  <spawnmodifier instance="instance1" modifier="modifier0"/>  
+	  <waitfordeath instance="instance0" />
+	  <waitfordeath instance="instance1" />	  
+      <!-- <die /> -->
+   </thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->
+

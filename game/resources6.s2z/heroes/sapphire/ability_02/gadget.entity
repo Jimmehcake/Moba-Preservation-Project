@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gadget
+	name="Gadget_Sapphire_Ability2"
+		
+	icon=""
+	portrait=""
+	model="/shared/models/invis.mdf"
+	skin=""
+	
+	passiveeffect="effects/gadget_state.effect"
+	spawneffect=""
+	respawneffect=""
+	isselectable="true"
+	iscontrollable="false"
+	invulnerable="false"
+	selectsound=""
+	orderconfirmedsound=""
+	
+	preglobalscale="0.9"
+	modelscale="1.65"
+	effectscale="1.0"
+	boundsheight="60"
+	boundsradius="72"
+	selectionradius="0"
+	targetoffset="0 0 0"
+
+	cliffwalking="true"
+	buildingwalking="true"
+	treewalking="true"
+	canrotate="false"
+	ismobile="false"
+	isflying="false"
+	clearvision="false"
+	drawonmap="false"
+	
+	nothreat="true"
+
+	attacktype="none"
+	
+	maxhealth="3"
+	healthregenreduction="1"
+	deniable="true"
+	
+	goldbountymin="50"
+	goldbountymax="50"
+	
+	lifetime="10000"
+	showlifetime="true"
+	
+	corpsetime="0"
+	deathtime="0"
+	corpsefadetime="0"
+	
+	immunity="GadgetImmunity"
+	
+	blocking="true"
+>
+	<aura state="State_Sapphire_Ability2_Slow" radius="450" targetscheme="enemy_units" effecttype="Magic" ignoreinvulnerable="true" />
+	
+	<onspawn>
+		<!-- Move units out of the object and push them towards the direction of Mr. Freeze -->
+		<setpos0 position="this_owner_entity" />
+		<distance source="this_entity" target="this_owner_entity" />
+		<setvar0 a="result" />
+		<areaofeffect
+			center="this_entity"
+			radius="120"
+			targetselection="all"
+			targetscheme="all_units"
+			ignoreinvulnerable="true"
+		>
+			<distance source="target_entity" target="pos0" />
+			<setvar1 a="result" b="var0" op="sub" />
+			<setvar1 a="var1" b="125" op="add" />
+			
+			<setpos1 position="target_position" positionend="pos0" positionmodifier="pointonline" positionvalue="var1" />
+			<teleport source="target_entity" interpolate="true" target="pos1" noninterrupting="true" />
+		</areaofeffect>
+		
+		<killtrees radius="200" />
+		<setaccumulator value="3,4,5,6" />
+		
+		<!-- VFX -->
+		<playeffect effect="effects/spawn.effect" source="this_entity" target="" occlude="true" />
+		
+		<!-- SFX ; So the voice over only plays if an enemy hero is affected -->
+		<areaofeffect
+			center="this_entity"
+			radius="450"
+			targetselection="closest"
+			targetscheme="visible_enemy_heroes"
+			ignoreinvulnerable="true"
+		>
+			<hasavatarkey name="Hero_Sapphire.Alt">
+				<playeffect effect="/heroes/sapphire/alt/ability_02/effects/vo_affected.effect" source="source_entity" target="" occlude="true" />
+			</hasavatarkey>
+			<else>
+				<hasavatarkey name="Hero_Sapphire.Alt3">
+					<playeffect effect="/heroes/sapphire/alt3/ability_02/effects/vo_affected.effect" source="source_entity" target="" occlude="true" />
+				</hasavatarkey>
+				<else>
+					<hasavatarkey name="Hero_Sapphire.Alt4">
+						<playeffect effect="/heroes/sapphire/alt4/ability_02/effects/vo_affected.effect" source="source_entity" target="" occlude="true" />
+					</hasavatarkey>
+					<else>
+					<playeffect effect="effects/vo_affected.effect" source="source_entity" target="" occlude="true" />
+					</else>
+				</else>
+			</else>
+		</areaofeffect>
+	</onspawn>
+	
+	<onattackedpreimpact>
+		<setvalue name="combat_truestrike" a="1" />
+	</onattackedpreimpact>
+	
+	<ondamaged>
+		<cantarget targetscheme="enemy_objects_deadalive" ignoreinvulnerable="true">
+			<changedamage b="1" op="min" />
+			<playeffect effect="effects/enemy_imp.effect" source="this_entity" target="this_entity" occlude="true" />
+		</cantarget>
+		<else>
+			<setvar0 a="source_damage" b="1.10,1.15,1.20,1.25" op="mult" />
+			<areaofeffect
+				center="this_entity"
+				radius="450"
+				targetselection="all"
+				targetscheme="enemy_units"
+				effecttype="Magic"
+			>
+				<targettype type="hero" source="target_entity" target="target_entity">
+					<damage source="this_owner_entity" target="target_entity" effecttype="Magic" amount="1" b="var0" op="mult" />
+				</targettype>
+				<else>
+					<damage source="this_owner_entity" target="target_entity" effecttype="Magic" amount="1" b="var0" op="mult" />
+				</else>
+			</areaofeffect>
+			
+			<changedamage b="0" op="min" />
+			
+			<setaccumulator value="accumulator" valueb="1" valueop="sub" />
+			<compare a="accumulator" b="0" op="eq">
+				<kill target="this_entity" />
+			</compare>
+			<else>
+				<popup name="poison" source="this_entity" target="this_entity" a="accumulator" />
+			</else>
+			
+			<!-- VFX -->
+			<hasavatarkey name="Hero_Sapphire.Alt" >
+				<playeffect effect="../alt/ability_02/effects/impact.effect" source="this_entity" target="" occlude="true" />
+			</hasavatarkey>
+			<else>
+				<hasavatarkey name="Hero_Sapphire.Alt2" >
+					<playeffect effect="../alt2/ability_02/effects/impact.effect" source="this_entity" target="" occlude="true" />
+				</hasavatarkey>
+				<else>
+					<hasavatarkey name="Hero_Sapphire.Alt3" >
+						<playeffect effect="../alt3/ability_02/effects/impact.effect" source="this_entity" target="" occlude="true" />
+					</hasavatarkey>
+					<else>
+						<hasavatarkey name="Hero_Sapphire.Alt4" >
+							<playeffect effect="../alt4/ability_02/effects/impact.effect" source="this_entity" target="" occlude="true" />
+						</hasavatarkey>
+						<else>
+							<playeffect effect="effects/impact.effect" source="this_entity" target="" occlude="true" />
+						</else>
+					</else>	
+				</else>	
+			</else>
+		</else>
+	</ondamaged>
+	
+	<ondeath>
+		<playeffect effect="effects/death.effect" source="this_position" target="" occlude="true" />
+	</ondeath>
+
+	<onexpired>
+		<playeffect effect="effects/death.effect" source="this_position" target="" occlude="true" />
+	</onexpired>
+	
+	<altavatar key="Hero_Sapphire.Alt" modpriority="1"
+		passiveeffect="../alt/ability_02/effects/gadget_state.effect"
+	>
+		<ondeath>
+			<playeffect effect="../alt/ability_02/effects/death.effect" source="this_position" target="" occlude="true" />
+		</ondeath>
+		
+		<onexpired>
+			<playeffect effect="../alt/ability_02/effects/death.effect" source="this_position" target="" occlude="true" />
+		</onexpired>
+	</altavatar>
+	
+	<altavatar key="Hero_Sapphire.Alt2" modpriority="1"
+		passiveeffect="../alt2/ability_02/effects/gadget_state.effect"
+	>
+		<ondeath>
+			<playeffect effect="../alt2/ability_02/effects/death.effect" source="this_position" target="" occlude="true" />
+		</ondeath>
+		
+		<onexpired>
+			<playeffect effect="../alt2/ability_02/effects/death.effect" source="this_position" target="" occlude="true" />
+		</onexpired>
+	</altavatar>
+	
+	<altavatar key="Hero_Sapphire.Alt3" modpriority="1"
+		passiveeffect="../alt3/ability_02/effects/gadget_state.effect"
+	>
+		<ondeath>
+			<playeffect effect="../alt3/ability_02/effects/death.effect" source="this_position" target="" occlude="true" />
+		</ondeath>
+		
+		<onexpired>
+			<playeffect effect="../alt3/ability_02/effects/death.effect" source="this_position" target="" occlude="true" />
+		</onexpired>
+	</altavatar>
+	
+	<altavatar key="Hero_Sapphire.Alt4" modpriority="1"
+		passiveeffect="../alt4/ability_02/effects/gadget_state.effect"
+	>
+		<ondeath>
+			<playeffect effect="../alt4/ability_02/effects/death.effect" source="this_position" target="" occlude="true" />
+		</ondeath>
+		
+		<onexpired>
+			<playeffect effect="../alt4/ability_02/effects/death.effect" source="this_position" target="" occlude="true" />
+		</onexpired>
+	</altavatar>
+	
+</gadget>

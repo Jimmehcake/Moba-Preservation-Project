@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectile
+	name="Projectile_Artillery_Rulian"
+
+	speed="2000"
+	gravity="0"
+	modelscale=".25"
+	model="/shared/models/invis.mdf"
+
+	impacteffect="effects/rulian_impact.effect"
+	traileffect="effects/rulian_trail.effect"
+>
+
+</projectile>

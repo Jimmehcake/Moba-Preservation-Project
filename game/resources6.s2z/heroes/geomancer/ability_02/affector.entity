@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<affector
+	name="Affector_Geomancer_Ability2"
+	
+	lifetime="-1"
+	
+	maximpactspertarget="1"
+	
+	radius="150"
+	impacteffect="effects/impact.effect"
+	targetselection="all"
+	targetscheme="enemy_units"
+	effecttype="Magic"
+>
+	<onimpact>
+		<applystate name="State_Geomancer_Ability2" duration="2000,3000,4000,5000" />
+		<damage effecttype="Magic" amount="65,85,105,125" />
+	</onimpact>
+	
+	<altavatar key="Hero_Geomancer.Alt6" modpriority="90"
+		impacteffect="../alt6/ability_02/effects/impact.effect"
+	/>
+	
+</affector>

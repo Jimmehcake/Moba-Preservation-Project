@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<affector
+	name="Affector_Cthulhuphant_Ability1"
+
+	radius="125"
+	lifetime="1150"
+	arcstart="180"
+	arcmid="360"
+	arcend="360"
+	arcmidpos="0.15"
+	
+	destroytrees="true"
+	
+	maximpactspertarget="1"
+	targetselection="all"
+	targetscheme="all_other_nonboss_units"
+	effecttype="Magic"
+>
+
+	<onimpact>
+		<targettype type="enemy">
+			<applystate name="State_Stunned_Knockdown" duration="1500,1750,2000,2250" />
+			<playanim name="knock_1" target="target_entity" />
+			<playeffect effect="effects/impact.effect" target="target_entity" source="target_entity" />
+			<damage effecttype="Magic" amount="80,140,200,260" />
+			<targettype type="hero" />
+			<else>
+				<setpos0 position="target_entity" offsetspace="this_owner_entity" offset="0 900 0" />
+				<unbind target="target_entity" />
+				<spawnprojectile 
+					name="Projectile_Cthulhuphant_Ability1_Target" 
+					source="target_entity" target="pos0" bind="target_entity" 
+					bindstate="State_Cthulhuphant_Ability1_Target" 
+					noresponse="true" 
+					ignore="target_entity" 
+					pushentity="true"
+				/>
+					
+				<spawnprojectile 
+					name="Projectile_Cthulhuphant_Ability1_TargetCliff" 
+					source="target_entity" target="pos0"
+					noresponse="true" 
+					proxy="stack_entity"
+				/>
+			</else>
+		</targettype>
+		<else>
+			<targettype type="hero" />
+			<else>
+				<setpos0 position="target_entity" offsetspace="this_owner_entity" offset="0 900 0" />
+				<unbind target="target_entity" />
+				<spawnprojectile 
+					name="Projectile_Cthulhuphant_Ability1_Target" 
+					source="target_entity" target="pos0" bind="target_entity" 
+					bindstate="State_Cthulhuphant_Ability1_Target" 
+					noresponse="true" 
+					ignore="target_entity" 
+					pushentity="true"
+				/>
+				<spawnprojectile 
+					name="Projectile_Cthulhuphant_Ability1_TargetCliff" 
+					source="target_entity" target="pos0"
+					noresponse="true" 
+					proxy="stack_entity"
+				/>
+			</else>
+		</else>
+	</onimpact>
+</affector>

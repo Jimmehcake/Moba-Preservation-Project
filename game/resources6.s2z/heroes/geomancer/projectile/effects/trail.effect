@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+
+	<definitions>
+		
+		<particlesystem name="system0" space="world" scale="1">
+
+		<sound
+		        fadein="0"
+				fadeout="2500"
+				linearfalloff="true" 
+				falloffstart="0"
+				falloffend="1500"
+				volume=".90"
+				sample="../../sounds/who_%.wav"
+			/>
+			
+			<simpleemitter
+				spawnrate="100"
+				minparticlelife="100"
+				maxparticlelife="300"
+				inheritvelocity=".05"
+				offsetsphere="10"
+				expirelife="100"
+				startparticlealpha="1"
+				endparticlealpha="0"
+				material="/shared/effects/materials/flames_02.material"
+			>
+				<particle
+					turn="1"
+					endsize="30"
+					startheight="30"
+					endheight="200"
+					minstartsize="30"
+					maxstartsize="100"
+					angle="180"
+					startalpha="1"
+					midalpha="1"
+					midalphapos=".75"
+					endalpha="0"
+					startcolor=".5 .2 1"
+					endcolor=".05 0 .5"
+					minscale="1"
+					maxscale="2"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				spawnrate="100"
+				minparticlelife="100"
+				maxparticlelife="300"
+				inheritvelocity="-.07"
+				offsetsphere="10"
+				expirelife="100"
+				startparticlealpha="1"
+				endparticlealpha="0"
+				material="/shared/effects/materials/fire_purple.material"
+			>
+				<particle
+					startsize="30"
+					endsize="20"
+					maxangle="360"
+					startalpha="1"
+					midalpha="1"
+					midalphapos=".75"
+					endalpha="0"
+					color=".75 .25 .75"
+					minscale="1"
+					maxscale="3"
+				/>
+				<particle
+					startsize="30"
+					endsize="20"
+					maxangle="360"
+					startalpha="1"
+					midalpha="1"
+					midalphapos=".75"
+					endalpha="0"
+					color=".5 .25 .5"
+					minscale="1"
+					maxscale="3"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				spawnrate="100"
+				minparticlelife="100"
+				maxparticlelife="200"
+				inheritvelocity=".05"
+				offsetsphere="10"
+				expirelife="100"
+				startparticlealpha="1"
+				endparticlealpha="0"
+				material="/shared/effects/materials/purple_goop_blend_ground.material"
+			>
+				<particle
+					turn="1"
+					endsize="30"
+					startheight="10"
+					endheight="200"
+					minstartsize="30"
+					maxstartsize="50"
+					angle="0"
+					startalpha="1"
+					midalpha="1"
+					midalphapos=".75"
+					endalpha="0"
+					color="1"
+					minscale="1"
+					maxscale="2"
+				/>
+			</simpleemitter>
+
+			
+			<simpleemitter
+				spawnrate="300"
+				minparticlelife="300"
+				maxparticlelife="500"
+				inheritvelocity=".2"
+				maxspeed="800"
+				offsetsphere="20"
+				expirelife="100"
+				startparticlealpha="1"
+				endparticlealpha="0"
+				material="/shared/effects/materials/blood_drop_white.material"
+			>
+				<particle
+					startsize="10"
+					endsize="0"
+					turn="1"
+					angle="180"
+					startalpha="1"
+					midalpha="1"
+					midalphapos=".75"
+					endalpha="0"
+					color=".9 .3 .9"
+					minscale="1"
+					maxscale="3"
+				/>
+			</simpleemitter>
+			
+			
+
+		</particlesystem>
+
+	</definitions>
+
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<spawnmodifier instance="instance1" modifier="modifier0"/>
+		<waitfordeath instance="instance0" />
+		<waitfordeath instance="instance1" />
+	</thread>
+
+</effect>

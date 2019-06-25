@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="false">
+	<definitions>
+		<particlesystem name="system0" space="world" scale="1">
+			
+			<trackeremitter
+				timenudge="500"
+				position="0 10 0"
+				offsetradial="65 0 0"
+				targetbone="_bone_head"
+				tracktype="angular"
+				trackspeed="4"
+				spawnrate="150"
+				direction="0 0 1"
+				minangle="0"
+				maxangle="60"
+				minparticlelife="300"
+				maxparticlelife="400"
+				distancelife="true"
+				minspeed="250"
+				maxspeed="300"
+				drag="0.01"
+				gravity="-10"
+				inheritvelocity="1"
+				limitinheritvelocity="500"
+				material="/shared/effects/materials/smoke_01.material"
+				particlecolor="1"
+			>
+				<template name="sand_particle">
+					<particle
+						maxangle="360"
+						startalpha="0"
+						midalpha=".6"
+						endalpha="0"
+						midalphapos=".2"
+						startcolor=".1"
+						endcolor="{color}"
+						minsize="20"
+						maxsize="100"
+						startscale=".5"
+						midscale="1"
+						endscale="1.5"
+						heightdistort=".1"
+					/>
+				</template>
+				<instance name="sand_particle" color="1 .9 .4" />
+				<instance name="sand_particle" color=".9 .7 .3" />
+				<instance name="sand_particle" color=".8 .5 .25" />
+			</trackeremitter>
+			
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+</effect>

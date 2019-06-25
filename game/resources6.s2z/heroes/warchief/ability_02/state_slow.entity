@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Warchief_Ability2_Slow"
+	
+	icon="icon.tga"
+	passiveeffect="effects/state.effect"
+
+	movespeedslow="0.35"
+
+	effecttype="StatusDebuff"
+
+	negativeeffect="slowed"
+>
+	<altavatar key="Hero_Warchief.Alt" modpriority="1"
+		passiveeffect="../alt/ability_02/effects/state.effect"
+	/>
+	
+	<altavatar key="Hero_Warchief.Alt2" modpriority="1"
+		passiveeffect="../alt2/ability_02/effects/state.effect"
+	/>
+	
+</state>

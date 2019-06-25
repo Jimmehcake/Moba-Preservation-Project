@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true" name="">
+	<definitions>
+	
+		<particlesystem name="system0" space="world">
+		
+						
+		<sound
+		    mindelay="0"
+			maxdelay="200"
+		    pitchshift="true"
+			minpitch="0.8"
+			maxpitch="1.1"
+		    randomloop="true"
+			soundloop="true"
+			fadein="250"
+			fadeout="500"
+			linearfalloff="true"
+			falloffstart="0"
+			falloffend="800"
+			minvolume=".3"
+			maxvolume=".5"
+			sample="/heroes/mimix/sounds/move.wav"
+		/>
+	
+			
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0"/>
+		<waitfordeath instance="instance0"/>
+	</thread>
+</effect>
+
+
+
+
+
+
+

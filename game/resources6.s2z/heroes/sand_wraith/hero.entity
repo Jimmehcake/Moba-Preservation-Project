@@ -1,0 +1,901 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hero
+	name="Hero_SandWraith"
+
+	team="Hellbourne"
+	icon="hd_sandwraith2/icon.tga"
+	portrait="hd_sandwraith2/icon.tga"
+	model="hd_sandwraith2/model.mdf"
+	skin=""
+	
+	portraitcampos="-2 -15 28"
+	
+	passiveeffect="hd_sandwraith2/effects/body.effect"
+	spawneffect=""
+	respawneffect="/shared/effects/respawn.effect"
+	selectedsound="sounds/voice/select_%.wav"
+	selectedflavorsound="sounds/voice/select_flavour_%.wav"
+	confirmmovesound="sounds/voice/move_%.wav"
+	confirmattacksound="sounds/voice/attack_%.wav"
+	nomanasound="sounds/voice/no_mana.wav"
+	cooldownsound="sounds/voice/cooldown.wav"
+	announcersound="sounds/voice/hero_select.wav"
+	tauntedsound="sounds/voice/taunt_prior.wav"
+	tauntkillsound="sounds/voice/taunt_after.wav"
+	
+	preglobalscale="1"
+	modelscale="1.7"
+	effectscale="0.9"
+	boundsheight="112"
+	boundsradius="24"
+	selectionradius="44"
+	targetoffset="0 0 64"
+	
+	infoheight="200"
+	category="physical tank"
+	difficulty="3"
+
+	solorating="0"
+	junglerating="0"
+	carryrating="5"
+	supportrating="0"
+	initiatorrating="1"
+	gankerrating="1"
+	pusherrating="0"
+	rangedrating="0"
+	meleerating="5"
+
+	movespeed="305"
+	turnrate="360"
+	turnsmoothing="0.08"
+
+	maxhealth="150"
+	healthregen="1.00"
+	maxmana="0"
+	manaregen="0.01"
+
+
+	armor="-1.22"
+	magicarmor="5.0"
+
+	inventory0="Ability_SandWraith1"
+	inventory1="Ability_SandWraith2"
+	inventory2="Ability_SandWraith3"
+	inventory3="Ability_SandWraith4"
+	inventory4="Ability_AttributeBoost"
+	inventory5=""
+	inventory6=""
+	inventory8="Ability_Taunt"
+	inventory9=""
+	inventory10=""
+	inventory11="Ability_Dance"
+	inventory12="Ability_AutomatedCourier"
+
+	attackduration="1000"
+	attackactiontime="300"
+	attackcooldown="1700"
+	attackdamagemin="23"
+	attackdamagemax="27"
+	attacknumanims="2"
+	attackoffset="0 0 0"
+	attackprojectile=""
+	attackrange="150"
+	attackstarteffect=""
+	attackactioneffect=""
+	attackimpacteffect="effects/impact.effect"
+	attacktype="melee"
+	combattype="Hero"
+
+	aggrorange="600"
+	sightrangeday="1800"
+	sightrangenight="800"
+	wanderrange="250"
+
+	primaryattribute="Agility"
+	strength="17"
+	strengthperlevel="2.5"
+	agility="20"
+	agilityperlevel="2.0"
+	intelligence="16"
+	intelligenceperlevel="1.9"
+	
+	corpsetime="2000"
+	corpsefadetime="2000"
+	corpsefadeeffect="/shared/effects/corpse_sink.effect"
+	
+	previewmodel="hd_sandwraith2/preview.mdf"
+	previewpos="-10 0 -60"
+	previewangles="0 0 0"
+	previewscale="1.5"
+	
+	storemodel="hd_sandwraith2/preview.mdf"
+	storepos="0 0 -25"
+	storeangles="0 0 0"
+	storescale="1.45"
+>
+	<recommendeditem name="Item_ManaPotion" />
+	<recommendeditem name="Item_MinorTotem" />
+	<recommendeditem name="Item_RunesOfTheBlight" />
+	<recommendeditem name="Item_HealthPotion" />
+	<recommendeditem name="Item_HomecomingStone" />
+	
+	<recommendeditem name="Item_Soulscream" />
+	<recommendeditem name="Item_Strength5" />
+	<recommendeditem name="Item_Steamboots" />
+	<recommendeditem name="Item_ManaBurn1" />
+	<recommendeditem name="Item_Damage10" />
+	<recommendeditem name="Item_Pierce" />
+	<recommendeditem name="Item_Evasion" />
+	<recommendeditem name="Item_BehemothsHeart" />
+	<recommendeditem name="Item_ManaBurn2" />
+	
+	
+	<modifier key="iamsheeped" modpriority="101"
+		passiveeffect=""
+	/>
+	
+	<!-- Staff of the master upgrade effect-->
+	<modifier key="ult_boost" modpriority="100"
+	>
+		<aura state="State_SandWraith_Ult_Boost" radius="0" targetscheme="self"/>
+	</modifier>
+	
+	<!-- <modifier key="gated" modpriority="200"
+		movespeed="285"
+		magicarmor="5"
+		armor="0.15"
+
+		attackdamagemin="26"
+		attackdamagemax="30"
+		
+		primaryattribute="Agility"
+		strength="21"
+		strengthperlevel="2.0"
+		agility="29"
+		agilityperlevel="3.0"
+		intelligence="21"
+		intelligenceperlevel="2.0"
+	>
+	</modifier> -->
+	
+	<onkill>
+		<hasavatarkey name="Hero_SandWraith.Alt10" > 
+			<targettype type="hero">
+				<random min="0" max="2" />
+				<setvar0 a="result"/>
+				<compare a="var0" b="0" op="eq">
+					<setactivemodifierkey entity="this_entity" name="rainstorm" />
+				</compare>
+				<compare a="var0" b="1" op="eq">
+					<setactivemodifierkey entity="this_entity" name="lightning" />
+				</compare>
+				<compare a="var0" b="2" op="eq">
+					<setactivemodifierkey entity="this_entity" name="tornado" />
+				</compare>
+			</targettype>
+		</hasavatarkey>
+	</onkill>
+	
+	<altavatar key="Hero_SandWraith.Classic" modpriority="1"
+		altavatar="true"
+		icon2="icon.tga"
+		portrait="icon.tga"
+		model="model.mdf"
+		skin=""
+		portraitcampos="-10 35 25"
+		
+		passiveeffect="effects/body.effect"
+		spawneffect=""
+		respawneffect="/shared/effects/respawn.effect"
+		selectedsound="sounds/voice/select_%.wav"
+		selectedflavorsound="sounds/voice/select_flavour_%.wav"
+		confirmmovesound="sounds/voice/move_%.wav"
+		confirmattacksound="sounds/voice/attack_%.wav"
+		nomanasound="sounds/voice/no_mana.wav"
+		cooldownsound="sounds/voice/cooldown.wav"
+		announcersound="sounds/voice/hero_select.wav"
+		tauntedsound="sounds/voice/taunt_prior.wav"
+		tauntkillsound="sounds/voice/taunt_after.wav"
+		
+		preglobalscale="1.2"
+		modelscale="1.0"
+		effectscale="0.9"
+		boundsheight="112"
+		boundsradius="24"
+		selectionradius="44"
+		targetoffset="0 0 64"
+		
+		infoheight="180"
+	
+		previewmodel="preview.mdf"
+		previewpos="0 0 -80"
+		previewangles="0 0 0"
+		previewscale="1.25"
+		
+		storemodel="preview.mdf"
+		storepos="0 0 -45"
+		storeangles="0 0 0"
+		storescale="1.25"
+	/>
+	
+	
+	<altavatar key="Hero_SandWraith.Alt" modpriority="1"
+		altavatar="true"
+		
+		preglobalscale="1.3"
+		
+		icon2="alt/icon.tga"
+		portrait="alt/icon.tga"
+		model="alt/model.mdf"
+		modelscale="1"
+		infoheight="180"
+		
+		portraitcampos="-5 25 30"
+		
+		passiveeffect="alt/effects/body.effect"
+		
+		previewmodel="alt/preview.mdf"
+		previewpos="-10 0 -60"
+		previewangles="0 0 0"
+		previewscale="1.15"
+
+		selectedsound="alt/sounds/voice/select_%.wav"
+		selectedflavorsound="alt/sounds/voice/select_flavour_%.wav"
+		confirmmovesound="alt/sounds/voice/move_%.wav"
+		confirmattacksound="alt/sounds/voice/attack_%.wav"
+		nomanasound="alt/sounds/voice/no_mana.wav"
+		cooldownsound="alt/sounds/voice/cooldown.wav"
+		tauntedsound="alt/sounds/voice/taunt_prior.wav"
+		tauntkillsound="alt/sounds/voice/taunt_after.wav"
+
+		storemodel="alt/preview.mdf"
+		storepos="0 0 -20"
+		storeangles="0 0 0"
+		storescale="1.0"
+	>
+		<onspawn propagatetoillusions="false" >
+			<ownsproduct target="this_entity" product="aa.Hero_Dreadknight.Alt2 aa.Hero_WolfMan.Alt aa.Hero_Pestilence.Alt2 aa.Hero_Maliken.Alt">
+				<activatemodifierkey name="Horseman_Set" />
+			</ownsproduct>
+		</onspawn>
+		
+		<onrespawn propagatetoillusions="false" >
+			<ownsproduct target="this_entity" product="aa.Hero_Dreadknight.Alt2 aa.Hero_WolfMan.Alt aa.Hero_Pestilence.Alt2 aa.Hero_Maliken.Alt">
+				<activatemodifierkey name="Horseman_Set" />
+			</ownsproduct>
+		</onrespawn>
+		
+		<modifier key="Horseman_Set" modpriority="101"
+			walkanim="walk_2"
+		/>
+	</altavatar>
+	
+	
+	<altavatar key="Hero_SandWraith.Alt2" modpriority="1"
+		altavatar="true"
+		
+		preglobalscale="1.6"
+		
+		icon2="alt2/icon.tga"
+		portrait="alt2/icon.tga"
+		model="alt2/model.mdf"
+		modelscale="1"
+		infoheight="180"
+		
+		portraitcampos="-15 35 25"
+		
+		passiveeffect="alt2/effects/body.effect"
+		
+		previewmodel="alt2/preview.mdf"
+		previewpos="-10 0 -60"
+		previewangles="0 0 0"
+		previewscale="1.15"
+
+		selectedsound="alt2/sounds/voice/select_%.wav"
+		selectedflavorsound="alt2/sounds/voice/select_flavour_%.wav"
+		confirmmovesound="alt2/sounds/voice/move_%.wav"
+		confirmattacksound="alt2/sounds/voice/attack_%.wav"
+		nomanasound="alt2/sounds/voice/no_mana.wav"
+		cooldownsound="alt2/sounds/voice/cooldown.wav"
+		tauntedsound="alt2/sounds/voice/taunt_prior.wav"
+		tauntkillsound="alt2/sounds/voice/taunt_after.wav"
+
+		storemodel="alt2/preview.mdf"
+		storepos="0 0 -20"
+		storeangles="0 0 0"
+		storescale="1.5"
+	/>
+	
+	<altavatar key="Hero_SandWraith.Alt3" modpriority="1"
+		altavatar="true"
+		
+		preglobalscale="1.6"
+		
+		icon2="alt3/icon.tga"
+		portrait="alt3/icon.tga"
+		model="alt3/model.mdf"
+		modelscale="1"
+		infoheight="180"
+		
+		portraitcampos="-15 35 25"
+		
+		passiveeffect="alt3/effects/body.effect"
+		
+		previewmodel="alt3/preview.mdf"
+		previewpos="-10 0 -60"
+		previewangles="0 0 0"
+		previewscale="1.15"
+
+		selectedsound="alt3/sounds/voice/select_%.wav"
+		selectedflavorsound="alt3/sounds/voice/select_flavour_%.wav"
+		confirmmovesound="alt3/sounds/voice/move_%.wav"
+		confirmattacksound="alt3/sounds/voice/attack_%.wav"
+		nomanasound="alt3/sounds/voice/no_mana.wav"
+		cooldownsound="alt3/sounds/voice/cooldown.wav"
+		tauntedsound="alt3/sounds/voice/taunt_prior.wav"
+		tauntkillsound="alt3/sounds/voice/taunt_after.wav"	
+
+		storemodel="alt3/preview.mdf"
+		storepos="0 0 -20"
+		storeangles="0 0 0"
+		storescale="1.5"
+	/>
+	
+	<altavatar key="Hero_SandWraith.Alt4" modpriority="1"
+		altavatar="true"
+		
+		preglobalscale="1.6"
+		infoheight="200"
+		
+		icon2="alt4/icon.tga"
+		portrait="alt4/icon.tga"
+		model="alt4/model.mdf"
+		modelscale="1"
+		
+		portraitcampos="-10 15 25"
+		
+		passiveeffect="alt4/effects/body.effect"
+		
+		previewmodel="alt4/preview.mdf"
+		previewpos="-10 0 -60"
+		previewangles="0 0 0"
+		previewscale="1.15"
+
+		selectedsound="alt4/sounds/voice/select_%.wav"
+		selectedflavorsound="alt4/sounds/voice/select_flavour_%.wav"
+		confirmmovesound="alt4/sounds/voice/move_%.wav"
+		confirmattacksound="alt4/sounds/voice/attack_%.wav"
+		nomanasound="alt4/sounds/voice/no_mana.wav"
+		cooldownsound="alt4/sounds/voice/cooldown.wav"
+		tauntedsound="alt4/sounds/voice/taunt_prior.wav"
+		tauntkillsound="alt4/sounds/voice/taunt_after.wav"
+
+		storemodel="alt4/preview.mdf"
+		storepos="0 0 -35"
+		storeangles="0 0 0"
+		storescale="1.47"
+		>
+			
+			<onspawn propagatetoillusions="false" >
+				<ownsproduct target="this_entity" product="aa.Hero_Klanx.Alt3 aa.Hero_SandWraith.Alt4 aa.Hero_Frosty.Alt4">
+					<activatemodifierkey name="Scorched_Newerth" />
+					<playeffect effect="alt4/effects/scorched.effect"/>
+				</ownsproduct>
+			</onspawn>
+			
+			<onrespawn propagatetoillusions="false" >
+				<ownsproduct target="this_entity" product="aa.Hero_Klanx.Alt3 aa.Hero_SandWraith.Alt4 aa.Hero_Frosty.Alt4">
+					<activatemodifierkey name="Scorched_Newerth" />
+					<playeffect effect="alt4/effects/scorched.effect"/>
+				</ownsproduct>
+			</onrespawn>
+			
+			<ondeath>
+				<deactivatemodifierkey name="Scorched_Newerth" />
+			</ondeath>
+			
+			<modifier key="Scorched_Newerth" modpriority="1"
+				tooleffectpath38="alt4/effects/scorched.effect"
+			/>
+		
+	</altavatar>
+	
+	<altavatar key="Hero_SandWraith.Alt5" modpriority="1"
+		altavatar="true"
+		
+		portraitcampos="-18 20 50"
+		
+		modelscale="1.4"
+		preglobalscale="1"
+		infoheight="200"
+		
+		icon2="alt5/icon.tga"
+		portrait="alt5/icon.tga"
+		model="alt5/model.mdf"
+		
+		passiveeffect="alt5/effects/drip.effect"
+		
+		previewmodel="alt5/preview.mdf"
+		previewpos="-10 0 -60"
+		previewangles="0 0 0"
+		previewscale="1.15"
+
+		selectedsound="alt5/sounds/voice/select_%.wav"
+		selectedflavorsound="alt5/sounds/voice/select_flavour_%.wav"
+		confirmmovesound="alt5/sounds/voice/move_%.wav"
+		confirmattacksound="alt5/sounds/voice/attack_%.wav"
+		nomanasound="alt5/sounds/voice/no_mana.wav"
+		cooldownsound="alt5/sounds/voice/cooldown.wav"
+		tauntedsound="alt5/sounds/voice/taunt_prior.wav"
+		tauntkillsound="alt5/sounds/voice/taunt_after.wav"
+
+		storemodel="alt5/preview.mdf"
+		storepos="0 0 -35"
+		storeangles="0 0 0"
+		storescale="1.33"
+		
+		attackimpacteffect="alt5/effects/impact.effect"
+		
+	>
+	</altavatar>
+	
+	<altavatar key="Hero_SandWraith.Alt6" modpriority="1"
+		altavatar="true"
+		
+		portraitcampos="-10 5 28"
+		
+		modelscale="1.7"
+		preglobalscale="1"
+		infoheight="200"
+		
+		icon2="alt6/icon.tga"
+		portrait="alt6/icon.tga"
+		model="alt6/model.mdf"
+		
+		passiveeffect="alt6/effects/body.effect"
+		
+		previewmodel="alt6/preview.mdf"
+		previewpos="-10 0 -60"
+		previewangles="0 0 0"
+		previewscale="1.15"
+
+		selectedsound="alt6/sounds/voice/select_%.wav"
+		selectedflavorsound="alt6/sounds/voice/select_flavour_%.wav"
+		confirmmovesound="alt6/sounds/voice/move_%.wav"
+		confirmattacksound="alt6/sounds/voice/attack_%.wav"
+		nomanasound="alt6/sounds/voice/no_mana.wav"
+		cooldownsound="alt6/sounds/voice/cooldown.wav"
+		tauntedsound="alt6/sounds/voice/taunt_prior.wav"
+		tauntkillsound="alt6/sounds/voice/taunt_after.wav"
+
+		storemodel="alt6/preview.mdf"
+		storepos="0 0 -35"
+		storeangles="0 0 0"
+		storescale="1.33"
+		
+		attackimpacteffect="effects/impact.effect"
+		
+	>
+	</altavatar>
+	
+	<altavatar key="Hero_SandWraith.Alt7" modpriority="1"
+		altavatar="true"
+		
+		portraitcampos="-18 20 50"
+		
+		modelscale="1.4"
+		preglobalscale="1"
+		infoheight="200"
+		
+		icon2="alt7/icon.tga"
+		portrait="alt7/icon.tga"
+		model="alt7/model.mdf"
+		
+		passiveeffect=""
+		
+		previewmodel="alt7/preview.mdf"
+		previewpos="-10 0 -60"
+		previewangles="0 0 0"
+		previewscale="1.15"
+
+		selectedsound="alt7/sounds/voice/select_%.wav"
+		selectedflavorsound="alt7/sounds/voice/select_flavour_%.wav"
+		confirmmovesound="alt7/sounds/voice/move_%.wav"
+		confirmattacksound="alt7/sounds/voice/attack_%.wav"
+		nomanasound="alt7/sounds/voice/no_mana.wav"
+		cooldownsound="alt7/sounds/voice/cooldown.wav"
+		tauntedsound="alt7/sounds/voice/taunt_prior.wav"
+		tauntkillsound="alt7/sounds/voice/taunt_after.wav"
+
+		storemodel="alt7/preview.mdf"
+		storepos="0 0 -35"
+		storeangles="0 0 0"
+		storescale="1.33"
+		
+		attackimpacteffect="alt7/effects/impact.effect"
+		
+	>
+	</altavatar>
+	
+	<altavatar key="Hero_SandWraith.pog_skin" modpriority="1"
+		
+		icon2="icon.tga"
+		portrait="icon.tga"
+		model="pog_skin/model.mdf"
+		modelscale="1.2"
+		portraitcampos="-10 35 25"
+
+		infoheight="180"
+		previewmodel="pog_skin/preview.mdf"
+		previewpos="0 0 -50"
+		previewangles="0 0 0"
+		previewscale="1.15"
+
+		storemodel="pog_skin/preview.mdf"
+		storepos="0 0 -20"
+		storeangles="0 0 0"
+		storescale="1.1"
+	/>
+	
+	<altavatar key="Hero_SandWraith.Alt8"
+		model="alt8/model.mdf"
+		modelscale="1.4"
+		portraitcampos="-10 35 35"
+		infoheight="180"
+	/>
+		
+	<altavatar key="Hero_SandWraith.Alt9" modpriority="1"
+		altavatar="true"
+		
+		portraitcampos="25 15 35"
+		
+		modelscale="1.4"
+		preglobalscale="1"
+		infoheight="200"
+		
+		icon2="alt9/icon.tga"
+		portrait="alt9/icon.tga"
+		model="alt9/model.mdf"
+		
+		passiveeffect="alt9/effects/body.effect"
+
+		previewmodel="alt9/preview.mdf"
+		previewpos="-10 0 -60"
+		previewangles="0 0 0"
+		previewscale="1.15"
+
+		selectedsound="alt9/sounds/voice/select_%.wav"
+		selectedflavorsound="alt9/sounds/voice/select_flavour_%.wav"
+		confirmmovesound="alt9/sounds/voice/move_%.wav"
+		confirmattacksound="alt9/sounds/voice/attack_%.wav"
+		nomanasound="alt9/sounds/voice/no_mana.wav"
+		cooldownsound="alt9/sounds/voice/cooldown.wav"
+		tauntedsound="alt9/sounds/voice/taunt_prior.wav"
+		tauntkillsound="alt9/sounds/voice/taunt_after.wav"
+
+		storemodel="alt9/preview.mdf"
+		storepos="0 0 -35"
+		storeangles="0 0 0"
+		storescale="1.43"
+		
+		attackimpacteffect="alt9/effects/impact.effect"
+		
+	>
+		<onspawn propagatetoillusions="false">
+			<ownsproduct target="this_entity" product="aa.Hero_Salomon.Alt5 aa.Hero_SandWraith.Alt9 aa.Hero_Rampage.Alt13 aa.Hero_EmeraldWarden.Alt9 aa.Hero_Dampeer.Alt7 aa.Hero_Hunter.Alt9 aa.Hero_Pestilence.Alt8 aa.Hero_Armadon.Alt8">
+				<activatemodifierkey name="Heavy_Armor_Set" />
+			</ownsproduct>
+		</onspawn>
+
+		<onrespawn propagatetoillusions="false">
+			<ownsproduct target="this_entity" product="aa.Hero_Salomon.Alt5 aa.Hero_SandWraith.Alt9 aa.Hero_Rampage.Alt13 aa.Hero_EmeraldWarden.Alt9 aa.Hero_Dampeer.Alt7 aa.Hero_Hunter.Alt9 aa.Hero_Pestilence.Alt8 aa.Hero_Armadon.Alt8">
+				<activatemodifierkey name="Heavy_Armor_Set" />
+			</ownsproduct>
+		</onrespawn>
+
+		<onkilled>
+			<ownsproduct target="this_entity" product="aa.Hero_Salomon.Alt5 aa.Hero_SandWraith.Alt9 aa.Hero_Rampage.Alt13 aa.Hero_EmeraldWarden.Alt9 aa.Hero_Dampeer.Alt7 aa.Hero_Hunter.Alt9 aa.Hero_Pestilence.Alt8 aa.Hero_Armadon.Alt8">
+				<deactivatemodifierkey name="Heavy_Armor_Set" />
+			</ownsproduct>
+		</onkilled>
+
+		<modifier key="iamsheeped" modpriority="100"
+			passiveeffect=""
+		>
+			<deactivatemodifierkey name="Heavy_Armor_Set" />
+		</modifier>
+
+		<modifier key="Heavy_Armor_Set" modpriority="1000"
+			tooleffectpath37="alt9/heavyarmor_set/heavyarmor_set.effect"
+		/>
+	</altavatar>
+	
+	<altavatar key="Hero_SandWraith.Alt10" modpriority="1"		
+		preglobalscale="1"
+		model="alt10/3/model.mdf"
+		altavatar="true"
+		modelscale="1.4"
+		
+		portraitcampos="7 0 11"
+		portraitangles="0 0 20"
+		overrideportraiteffects="true"
+		
+		infoheight="250"
+		
+		icon2="alt10/icon.tga"
+		portrait="alt10/icon.tga"
+		
+		passiveeffect="alt10/effects/body_03.effect"
+
+		previewmodel="alt10/3/preview.mdf"
+		previewpassiveeffect="alt10/effects/body_03.effect"
+		previewpos="-10 0 -60"
+		previewangles="0 0 0"
+		previewscale="1.15"
+
+		storemodel="alt10/3/preview.mdf"
+		storepassiveeffect="alt10/effects/body_03.effect"
+		storepos="0 0 -45"
+		storeangles="0 0 0"
+		storescale="1.43"
+		
+		selectedsound="alt10/sounds/voice/select_%.wav"
+		selectedflavorsound="alt10/sounds/voice/select_flavour_%.wav"
+		confirmmovesound="alt10/sounds/voice/move_%.wav"
+		confirmattacksound="alt10/sounds/voice/attack_%.wav"
+		nomanasound="alt10/sounds/voice/no_mana.wav"
+		cooldownsound="alt10/sounds/voice/cooldown.wav"
+		tauntedsound="alt10/sounds/voice/taunt_prior.wav"
+		tauntkillsound="alt10/sounds/voice/taunt_after.wav"
+		
+		attackimpacteffect="alt10/effects/impact_03.effect"
+	>
+			
+		<onkill propagatetoillusions="true">
+			<targettype type="hero">
+				<targettype type="illusion" />
+				<else>               
+					<targettype type="mimic" />
+					<else> 
+						<targettype type="self" />
+						<else>
+							<targettype type="heropet" />
+							<else>
+								<targettype type="illusion" target="this_entity">
+									<condition test="hasstate State_SandWraith_Alt10_CDcheck" target="this_owner_entity">
+									</condition>
+									<else>
+										<areaofeffect
+											global="true"
+											targetscheme="my_heroes_deadalive"
+											targetselection="all"
+											ignoreinvulnerable="true"
+										>
+											<hasavatarkey name="Hero_SandWraith.Alt10" entity="target_entity">
+												<hasmodifier name="rainstorm" entity="target_entity">
+													<setactivemodifierkey name="lightning" entity="target_entity"/>
+												</hasmodifier>
+												<else>
+													<hasmodifier name="lightning" entity="target_entity">
+														<setactivemodifierkey name="tornado" entity="target_entity"/>
+													</hasmodifier>
+													<else>
+														<setactivemodifierkey name="rainstorm" entity="target_entity"/>
+													</else>
+												</else>
+											</hasavatarkey>
+										</areaofeffect>
+										<applystate name="State_SandWraith_Alt10_CDcheck" duration="60000" target="this_owner_entity"/>
+									</else>
+								</targettype>
+								<else>
+									<condition test="hasstate State_SandWraith_Alt10_CDcheck" target="this_entity">
+									</condition>
+									<else>
+										<areaofeffect
+											global="true"
+											targetscheme="my_heroes_deadalive"
+											targetselection="all"
+											ignoreinvulnerable="true"
+										>
+											<hasavatarkey name="Hero_SandWraith.Alt10" entity="target_entity">
+												<hasmodifier name="rainstorm" entity="target_entity">
+													<setactivemodifierkey name="lightning" entity="target_entity"/>
+												</hasmodifier>
+												<else>
+													<hasmodifier name="lightning" entity="target_entity">
+														<setactivemodifierkey name="tornado" entity="target_entity"/>
+													</hasmodifier>
+													<else>
+														<setactivemodifierkey name="rainstorm" entity="target_entity"/>
+													</else>
+												</else>
+											</hasavatarkey>
+										</areaofeffect>
+										<applystate name="State_SandWraith_Alt10_CDcheck" duration="60000" target="this_entity"/>
+									</else>
+								</else>
+							</else>
+						</else>
+					</else>
+				</else>
+			</targettype>
+		</onkill>
+			
+		<modifier key="rainstorm" modpriority="1"
+			model="alt10/1/model.mdf"
+			preglobalscale="1"
+			
+			portraitcampos="7 0 11"
+			portraitangles="0 0 20"
+			overrideportraiteffects="true"
+
+			passiveeffect="alt10/effects/body_01.effect"
+
+			previewmodel="alt10/preview.mdf"
+			previewpos="-10 0 -60"
+			previewangles="0 0 0"
+			previewscale="1.15"
+
+			storemodel="alt10/preview.mdf"
+			storepos="0 0 -35"
+			storeangles="0 0 0"
+			storescale="1.43"
+			
+			attackimpacteffect="alt10/effects/impact_01.effect"
+		>
+		</modifier>
+		
+		<modifier key="lightning" modpriority="1"
+			model="alt10/2/model.mdf"
+			preglobalscale="1"
+			
+			portraitcampos="7 0 11"
+			portraitangles="0 0 20"
+			overrideportraiteffects="true"
+
+			passiveeffect="alt10/effects/body_02.effect"
+
+			previewmodel="alt10/preview.mdf"
+			previewpos="-10 0 -60"
+			previewangles="0 0 0"
+			previewscale="1.15"
+
+			storemodel="alt10/preview.mdf"
+			storepos="0 0 -35"
+			storeangles="0 0 0"
+			storescale="1.43"
+			
+			attackimpacteffect="alt10/effects/impact_02.effect"
+		>
+		</modifier>
+	</altavatar>
+	
+	<altavatar key="Hero_SandWraith.Alt11" modpriority="1"
+		altavatar="true"
+		portraitcampos="-15 15 45"
+		modelscale="1.4"
+		preglobalscale="1.15"
+		infoheight="200"
+		
+		icon2="alt11/icon.tga"
+		portrait="alt11/icon.tga"
+		model="alt11/model.mdf"
+		
+		passiveeffect="alt11/effects/body.effect"
+
+		previewmodel="alt11/preview.mdf"
+		previewpos="-10 0 -60"
+		previewangles="0 0 0"
+		previewscale="1.15"
+
+
+		storemodel="alt11/preview.mdf"
+		storepos="0 0 -35"
+		storeangles="0 0 0"
+		storescale="1.43"
+		
+		selectedsound="alt11/sounds/voice/select_%.wav"
+		selectedflavorsound="alt11/sounds/voice/select_flavour_%.wav"
+		confirmmovesound="alt11/sounds/voice/move_%.wav"
+		confirmattacksound="alt11/sounds/voice/attack_%.wav"
+		nomanasound="alt11/sounds/voice/no_mana.wav"
+		cooldownsound="alt11/sounds/voice/cooldown.wav"
+		tauntedsound="alt11/sounds/voice/taunt_prior.wav"
+		tauntkillsound="alt11/sounds/voice/taunt_after.wav"
+		
+		attackimpacteffect="alt11/effects/impact.effect"
+		
+	>
+		<onkill propagatetoillusions="true" >
+			<setaccumulator value="0" />
+			<ownsproduct target="this_entity" product="aa.Hero_Ellonia.Alt8">
+				<setaccumulator value="accumulator" valueb="1" valueop="add" />
+			</ownsproduct>
+			<ownsproduct target="this_entity" product="aa.Hero_SandWraith.Alt11">
+				<setaccumulator value="accumulator" valueb="1" valueop="add" />
+			</ownsproduct>
+			<ownsproduct target="this_entity" product="aa.Hero_Pyromancer.Alt10">
+				<setaccumulator value="accumulator" valueb="1" valueop="add" />
+			</ownsproduct>
+			<ownsproduct target="this_entity" product="aa.Hero_Kane.Alt12">
+				<setaccumulator value="accumulator" valueb="1" valueop="add" />
+			</ownsproduct>
+			<ownsproduct target="this_entity" product="aa.Hero_Solstice.Alt11">
+				<setaccumulator value="accumulator" valueb="1" valueop="add" />
+			</ownsproduct>		
+			
+			
+			<compare a="accumulator" b="3" op="ge">	
+				<cantarget targetscheme="enemy_heroes">
+					<applystate name="State_Set_Poker_VFX" source="this_entity" target="this_entity" duration="2500" />
+				</cantarget>	
+			</compare>
+		</onkill>
+		
+		<onassist>
+			<setaccumulator value="0" />
+			<ownsproduct target="this_entity" product="aa.Hero_Ellonia.Alt8">
+				<setaccumulator value="accumulator" valueb="1" valueop="add" />
+			</ownsproduct>
+			<ownsproduct target="this_entity" product="aa.Hero_SandWraith.Alt11">
+				<setaccumulator value="accumulator" valueb="1" valueop="add" />
+			</ownsproduct>
+			<ownsproduct target="this_entity" product="aa.Hero_Pyromancer.Alt10">
+				<setaccumulator value="accumulator" valueb="1" valueop="add" />
+			</ownsproduct>
+			<ownsproduct target="this_entity" product="aa.Hero_Kane.Alt12">
+				<setaccumulator value="accumulator" valueb="1" valueop="add" />
+			</ownsproduct>
+			<ownsproduct target="this_entity" product="aa.Hero_Solstice.Alt11">
+				<setaccumulator value="accumulator" valueb="1" valueop="add" />
+			</ownsproduct>		
+			
+			
+			<compare a="accumulator" b="3" op="ge">	
+					<applystate name="State_Set_Poker_VFX" source="this_entity" target="this_entity" duration="2500" />
+			</compare>
+		</onassist>
+		
+		<onchannelingstart>
+			<setaccumulator value="0" />
+			<ownsproduct target="this_entity" product="aa.Hero_Ellonia.Alt8">
+				<setaccumulator value="accumulator" valueb="1" valueop="add" />
+			</ownsproduct>
+			<ownsproduct target="this_entity" product="aa.Hero_SandWraith.Alt11">
+				<setaccumulator value="accumulator" valueb="1" valueop="add" />
+			</ownsproduct>
+			<ownsproduct target="this_entity" product="aa.Hero_Pyromancer.Alt10">
+				<setaccumulator value="accumulator" valueb="1" valueop="add" />
+			</ownsproduct>
+			<ownsproduct target="this_entity" product="aa.Hero_Kane.Alt12">
+				<setaccumulator value="accumulator" valueb="1" valueop="add" />
+			</ownsproduct>
+			<ownsproduct target="this_entity" product="aa.Hero_Solstice.Alt11">
+				<setaccumulator value="accumulator" valueb="1" valueop="add" />
+			</ownsproduct>
+		
+			<compare a="accumulator" b="3" op="ge">	
+				<entitytype type="Ability_Taunt" target="inflictor_entity">
+					<condition test="hasstate State_Set_Poker_VFX" target="this_entity">
+					</condition>
+					<else>
+						<applystate name="State_Set_Poker_VFX" source="this_entity" target="this_entity" duration="2500" />
+					</else>
+				</entitytype>
+			</compare>
+		</onchannelingstart>
+	
+		<onspawn>
+ 			<ownsproduct target="this_entity" product="aa.Hero_Ellonia.Alt8 aa.Hero_SandWraith.Alt11 aa.Hero_Pyromancer.Alt10 aa.Hero_Kane.Alt12 aa.Hero_Solstice.Alt11" >	
+				<spawnunit name="Pet_Poker_Diamond" target="this_entity" facing="source_entity" pushentity="true" source="target_entity" />	
+  			</ownsproduct>
+        </onspawn>
+ 
+		<onrespawn>
+  			<ownsproduct target="this_entity" product="aa.Hero_Ellonia.Alt8 aa.Hero_SandWraith.Alt11 aa.Hero_Pyromancer.Alt10 aa.Hero_Kane.Alt12 aa.Hero_Solstice.Alt11" >	
+				<spawnunit name="Pet_Poker_Diamond" target="this_entity" facing="source_entity" pushentity="true" source="target_entity" />	
+  			</ownsproduct>
+        </onrespawn>
+	</altavatar>
+</hero>

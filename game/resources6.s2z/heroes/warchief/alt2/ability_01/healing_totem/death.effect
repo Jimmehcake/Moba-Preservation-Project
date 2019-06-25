@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="ability_04_impact">
+	<definitions>
+
+		<modifier
+			alpha="0"
+			life="30000"
+		/>
+		
+		<particlesystem name="system0" space="world" useentityeffectscale="true" scale="1">
+			
+			<sound   
+				volume=".8"
+				sample="/heroes/warchief/ability_01/sounds/end.wav"
+				linearfalloff="true"
+				falloffstart="400" 
+				falloffend="1000" 
+			/>
+			
+			<sound   
+				volume=".5"
+				sample="/heroes/warchief/ability_01/sounds/heal_death.wav"
+				linearfalloff="true"
+				falloffstart="400" 
+				falloffend="1000" 
+			/>
+			<billboard
+				position="0 0 50"
+				startsize="0"
+				endsize="300"
+				startcolor=".5 1 .2"
+				endcolor="0 0 0"
+				life="200"
+				material="/shared/effects/materials/corona_01.material"
+			/>
+			
+			<simpleemitter
+				life="250"
+				position="0 0 70"
+				spawnrate="35"		
+				particlelife="600"			
+				speed="180"
+				drag="0.02"
+				material="/shared/effects/materials/smokering.material"
+				offsetsphere="15"
+			>
+				<particle 
+					minangle="0"
+					maxangle="360"
+					minanglespeed="-40"
+					maxanglespeed="-40"
+					startcolor=".05 .3 .05"
+					endcolor="0"		
+					startsize="50"
+					endsize="200"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				position="0 0 70"
+				mincount="15"
+				maxcount="30"
+				spawnrate="2000"
+				minparticlelife="500"
+				maxparticlelife="850"
+				minspeed="500"
+				maxspeed="650"
+				drag="0.1"
+				gravity="8"
+				direction="0 0 1"
+				material="/shared/effects/materials/energy_reveal.material"
+			>
+				<particle
+					maxangle="359"
+					startscale="10"
+					midscale="30"
+					minendscale="30"
+					maxendscale="50"
+					startcolor="1 1 .15"
+					endcolor=".15 1 .15"
+					midcolorpos=".5"
+					startframe=".1"
+					endframe=".8"
+				/>
+			</simpleemitter>
+			
+      </particlesystem>
+   </definitions>
+   <thread>
+      <spawnparticlesystem instance="instance0"  particlesystem="system0" />	
+	  <spawnmodifier instance="instance1" modifier="modifier0"/>  
+	  <waitfordeath instance="instance0" />
+	  <waitfordeath instance="instance1" />	  
+      <!-- <die /> -->
+   </thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->
+

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<affector
+	name="Affector_Calamity_Ability1_Period"
+
+	lifetime="3000"
+	
+	impactdelay="750"
+	impactinterval="750"
+	maxintervals="4"
+
+	effect=""
+>
+	<onspawn>
+		<!-- gadget to scale effects -->
+		<spawnunit name="Gadget_Calamity_Ability1_Pulse_Art" fixedposition="true" target="target_position" />
+		<spawnaffector name="Affector_Calamity_Ability1_First_Pulse" fixedposition="true" source="target_position" target="target_position" pushentity="true" />
+		<setparam a="0" />
+		
+		<hasavatarkey name="Hero_Calamity.Alt">
+			<playeffect effect="../alt/ability_01/effects/bounce.effect" source="this_position" target="" occlude="true" />
+		</hasavatarkey>
+		<else>
+			<hasavatarkey name="Hero_Calamity.Alt2">
+				<playeffect effect="../alt2/ability_01/effects/bounce.effect" source="this_position" target="" occlude="true" />
+			</hasavatarkey>
+			<else>
+				<hasavatarkey name="Hero_Calamity.Alt3">
+					<playeffect effect="../alt3/ability_01/effects/bounce.effect" source="this_position" target="" occlude="true" />
+				</hasavatarkey>
+				<else>
+					<hasavatarkey name="Hero_Calamity.Alt4">
+						<playeffect effect="../alt4/ability_01/effects/bounce.effect" source="this_position" target="" occlude="true" />
+					</hasavatarkey>
+					<else>
+						<hasavatarkey name="Hero_Calamity.Alt5">
+							<playeffect effect="../alt5/ability_01/effects/bounce.effect" source="this_position" target="" occlude="true" />
+						</hasavatarkey>
+						<else>
+							<hasavatarkey name="Hero_Calamity.Alt6">
+								<playeffect effect="../alt6/ability_01/effects/bounce.effect" source="this_position" target="" occlude="true" />
+							</hasavatarkey>
+							<else>
+								<hasavatarkey name="Hero_Calamity.Alt8">
+									<playeffect effect="../alt8/ability_01/effects/bounce.effect" source="this_position" target="" occlude="true" />
+								</hasavatarkey>
+								<else>
+								<hasavatarkey name="Hero_Calamity.Alt9">
+									<playeffect effect="../alt9/ability_01/effects/bounce.effect" source="this_position" target="" occlude="true" />
+								</hasavatarkey>
+								<else>
+									<playeffect effect="effects/bounce.effect" source="this_position" target="" occlude="true" />
+								</else>
+							</else>
+						</else>
+					</else>
+				</else>
+			</else>
+		</else>
+		</else>
+	</onspawn>
+
+	<oninterval>
+		<!-- gadget to scale effects -->
+		<spawnunit name="Gadget_Calamity_Ability1_Pulse_Art" fixedposition="true" target="target_position" />
+		
+		<spawnaffector name="Affector_Calamity_Ability1_Pulse" fixedposition="true" source="target_position" target="target_position" pushentity="true" />
+		
+		<setparam a="param" b="1" op="add" />
+		<condition test="param lt 4">
+			<hasavatarkey name="Hero_Calamity.Alt">
+				<playeffect effect="../alt/ability_01/effects/bounce.effect" source="this_position" target="" occlude="true" />
+			</hasavatarkey>
+			<else>
+				<hasavatarkey name="Hero_Calamity.Alt2">
+					<playeffect effect="../alt2/ability_01/effects/bounce.effect" source="this_position" target="" occlude="true" />
+				</hasavatarkey>
+				<else>
+					<hasavatarkey name="Hero_Calamity.Alt3">
+						<playeffect effect="../alt3/ability_01/effects/bounce.effect" source="this_position" target="" occlude="true" />
+					</hasavatarkey>
+					<else>
+						<hasavatarkey name="Hero_Calamity.Alt4">
+							<playeffect effect="../alt4/ability_01/effects/bounce.effect" source="this_position" target="" occlude="true" />
+						</hasavatarkey>
+						<else>
+							<hasavatarkey name="Hero_Calamity.Alt5">
+								<playeffect effect="../alt5/ability_01/effects/bounce.effect" source="this_position" target="" occlude="true" />
+							</hasavatarkey>
+							<else>
+								<hasavatarkey name="Hero_Calamity.Alt6">
+									<playeffect effect="../alt6/ability_01/effects/bounce.effect" source="this_position" target="" occlude="true" />
+								</hasavatarkey>
+								<else>
+									<hasavatarkey name="Hero_Calamity.Alt8">
+										<playeffect effect="../alt8/ability_01/effects/bounce.effect" source="this_position" target="" occlude="true" />
+									</hasavatarkey>
+									<else>
+									<hasavatarkey name="Hero_Calamity.Alt9">
+										<playeffect effect="../alt9/ability_01/effects/bounce.effect" source="this_position" target="" occlude="true" />
+									</hasavatarkey>
+									<else>
+										<playeffect effect="effects/bounce.effect" source="this_position" target="" occlude="true" />
+									</else>
+								</else>
+							</else>
+						</else>
+					</else>
+				</else>
+			</else>
+			</else>
+		</condition>
+	</oninterval>
+	
+</affector>

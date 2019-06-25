@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<affector
+	name="Affector_Cthulhuphant_Ability2"
+
+	radiusstart="200"
+	radiusend="400"
+	arc="120"
+
+	lifetime="500"
+	maximpactspertarget="1"
+	targetselection="all"
+	targetscheme="enemy_units"
+	effecttype="Magic"
+	
+	impacteffect=""
+	effect="effects/affector.effect"
+>
+	<onimpact>
+		<cantarget targetscheme="enemy_heroes">
+			<damage effecttype="Magic" amount="25,30,35,40" />
+		</cantarget>
+		
+		<cantarget targetscheme="Cthulhuphant_Hookem">
+			<damage effecttype="Magic" amount="25,30,35,40" />
+		</cantarget>
+
+	</onimpact>
+	
+</affector>

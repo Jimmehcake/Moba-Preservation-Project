@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="ability_02">
+	<definitions>
+		<particlesystem name="system0" space="world" scale="1">
+			<light
+				delay="250" life="500"	
+				startcolor="3 .2 1.5" midcolor="2 .2 1.5" endcolor="0 0 0" midcolorpos=".4"
+				falloffstart="170" falloffend="270"
+				position="0 0 50"	
+			/>	
+				
+			<!-- claw  -->
+			<model
+				life="1750"
+				name="roots"
+				model="claw.mdf"
+				anim="ability_04"
+				minyaw="-360" maxyaw="360"
+				startalpha="1" endalpha="0"
+				scale="2.2"
+			>
+				<template name="groundHole">
+					<groundsprite
+						bone="{bone}"
+						life="150"
+						color="1 1 1"
+						positoin="0 0 0"
+						startsize="2" endsize="{holeSize}" midsizepos=".75"
+						startalpha="0" endalpha="1" midalphapos=".75"
+						material="/shared/effects/materials/ground_smash_overlay_darker.material"
+					/>
+					<groundsprite
+						bone="{bone}"
+						delay="150" life="750"
+						color="1 1 1"
+						positoin="0 0 0"
+						startsize="{holeSize}" midsize="{holeSize}" endsize="{holeEndSize}" midsizepos=".8"
+						startalpha="1" midalpha="1" endalpha="0" midalphapos=".65"
+						material="/shared/effects/materials/ground_smash_overlay_darker.material"
+					/>
+				</template>
+				<instance name="groundHole" bone="Box041" holeSize="18" holeEndSize="20"/>
+				<instance name="groundHole" bone="Box042" holeSize="12" holeEndSize="14"/>
+				<instance name="groundHole" bone="Box043" holeSize="10" holeEndSize="12"/>
+				<instance name="groundHole" bone="Box040" holeSize="8" holeEndSize="12"/>
+				<instance name="groundHole" bone="Box044" holeSize="15" holeEndSize="17"/>
+				<instance name="groundHole" bone="Box039" holeSize="12" holeEndSize="16"/>
+				<instance name="groundHole" bone="Box045" holeSize="9" holeEndSize="11"/>
+				<instance name="groundHole" bone="Box046" holeSize="13" holeEndSize="15"/>
+				<instance name="groundHole" bone="Box047" holeSize="14" holeEndSize="16"/>
+				<instance name="groundHole" bone="Box048" holeSize="17" holeEndSize="19"/>
+				
+				<template name="bloodTail">
+					<trailemitter
+						delay="160" life="200"
+						particlelife="1200"
+						bone="{bone}"
+						spawnrate="600" count="140"
+						angle="0"						
+						speed="15" gravity="0" drag="1"
+						material="/shared/effects/materials/smokey_skull.material"
+						direction="0 0 -1"
+						offsetsphere="10"
+					>
+						<particle
+							startcolor=".6 .07 .7" endcolor=".49 .05 .36" 
+							startsize="2" endsize="0" scale="1.2"
+							startalpha=".6" midalpha=".4" endalpha="0"
+						/>
+					</trailemitter>
+					<!-- <trailemitter
+						delay="180" life="200"
+						particlelife="1200"
+						spawnrate="300" count="80" 
+						bone="{bone}"
+						angle="0"						
+						speed="15" gravity="0" drag="1"
+						material="/shared/effects/materials/dust_smoke_02.material"
+						offsetsphere="10"
+						direction="0 0 -1"
+					>
+						<particle
+							startcolor=".75 .07 .55" endcolor=".49 .05 .36" 
+							startsize="1" endsize=".5" scale=".6"
+							startalpha=".9" midalpha=".6" endalpha="0"
+						/>
+					</trailemitter> -->
+				</template>
+				<instance name="bloodTail" bone="Box036"/>
+				<instance name="bloodTail" bone="Box037"/>
+				<instance name="bloodTail" bone="Box038"/>
+				<instance name="bloodTail" bone="Box035"/>
+				<instance name="bloodTail" bone="Box034"/>
+				<instance name="bloodTail" bone="Box029"/>
+				<instance name="bloodTail" bone="Box033"/>
+				<instance name="bloodTail" bone="Box031"/>
+				<instance name="bloodTail" bone="Box032"/>
+				<instance name="bloodTail" bone="Box030"/>
+			</model>
+			<!-- diff smoke -->
+			<orbiteremitter
+				delay="400" life="800"
+				position="0 0 30"
+				count="300"
+				particlelife="1450"
+				origin="0 0 0" 
+				orbit="0 0 350"
+				direction="0 0 1" 
+				offset="20 20 80"
+				offsetsphere="20"
+				cylindrical="true" 
+				material="/shared/effects/materials/smoke_17.material"
+				speed="3" drag=".01"
+				directionalspace="global"
+			>
+				<particle 
+					minangle="0" maxangle="0"
+					minanglespeed="-180" maxanglespeed="180"
+					color="-1"
+					startframe="0" endframe="1"
+					startsize="30" midsize="50" endsize="20" midsizepos=".25"
+					scale="3"
+					startalpha="0" midalpha=".2" endalpha="0" midalphapos=".25"
+				/>
+			</orbiteremitter>
+			<!-- ground black area -->
+			<groundsprite
+				delay="400" life="800"
+				material="/shared/effects/materials/tremble_groundsprite.material"
+				startsize="220" midsize="300" endsize="390" midsizepos=".4"
+				startalpha="0" midalpha=".5" endalpha="0" midalphapos=".2"
+				startcolor=".1"  midcolor=".02 .02 .02" endcolor=".02 .02 .02" midcolorpos=".2"
+			/>
+		
+			<billboard
+				position="0 0 15"
+				delay="400" life="600"
+				material="/shared/effects/materials/refract_ring.material"
+				startsize="0" endsize="750" midsizepos=".2"
+				param="0.04"
+				startalpha="1" endalpha="0"
+				lockup="true" lockright="true"
+				pitch="-90"
+			/>
+			<billboard
+				position="0 0 15"
+				delay="400" life="400"
+				material="/shared/effects/materials/corona_01_blend.material"
+				startsize="0" endsize="600" midsizepos=".2"
+				color=".1 .1 .1"
+				startalpha=".1" midalpha=".7" endalpha="0"
+				lockup="true" lockright="true"
+				pitch="-90"
+			/>
+			
+			<billboard
+				life="500"
+				color="1.0 1.0 1.0"
+				midalphapos="0.25"
+				param="0.1555"	
+				startsize="250"
+				endsize="30" scale="3"
+				startalpha="0"
+				midalpha=".9"
+				endalpha="0"		
+				depthbias="-49"
+				position="0 0 20"
+				material="/shared/effects/materials/refract_ring.material"
+				lockup="0"
+				pitch="0"
+			/>	
+			<billboard
+				delay="500"
+				life="500"
+				color="1.0 1.0 1.0"
+				midalphapos="0.25"
+				param="0.0555"	
+				startsize="30"
+				endsize="250" scale="3"
+				startalpha="0"
+				midalpha=".9"
+				endalpha="0"	
+				depthbias="-49"
+				position="0 0 20"
+				material="/shared/effects/materials/refract_ring.material"
+				lockup="0"
+				pitch="0"
+			/>
+			<simpleemitter
+				delay="400" life="300"
+				spawnrate="1000" count="50"				
+				minparticlelife="800"
+				maxparticlelife="1400"
+				position="0 0 50"
+				material="/shared/effects/materials/abstract_reveal_02.material"				
+				direction="0 0 0"
+				speed="2500" gravity="55" drag="0.02"
+				minangle="0" maxangle="360" 				
+			>
+				<particle
+					startalpha="1" midalpha="1" endalpha="0" midalphapos=".8"
+					minsize="2" maxsize="10" scale="5"
+					startframe="0" midframe=".5" endframe="1" midframepos=".25"
+					startcolor=".54 .12 .4" midcolor=".33 .07 .24" endcolor=".46 .08 .31"
+				/>
+			</simpleemitter>
+
+	</particlesystem>
+</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+</effect>
+

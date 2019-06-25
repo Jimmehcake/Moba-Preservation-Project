@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="chain_lightning">
+	<definitions>
+		<particlesystem name="system0" space="world" scale=".5">
+			
+			<beam
+				life="700"
+
+				owner_a="source"
+				owner_b="target"
+
+				bone_a=""
+				bone_b="_bone_centerofchest"
+				
+				position_a="0 0 50"
+
+				size="200"
+				startcolor=".1 .5 1"
+				midcolor=".25 .5 .5"
+				endcolor=".1 .5 1"
+				alpha="1.0"
+				material="/shared/effects/materials/femme_lightning_06.material"
+
+				framespeed="2"
+			/>
+			
+			<twopointemitter
+				life="700"
+				startspawnrate="200"
+				endspawnrate="0"
+				owner_a="source"
+				owner_b="target"
+				bone_a=""
+				bone_b="_bone_centerofchest"
+				position_a="0 0 50"
+				offsetsphere="80"
+				minparticlelife="200"
+				maxparticlelife="800"
+				material="/shared/effects/materials/energy_reveal_white.material"
+			>
+				<particle
+					startframe="0"
+					endframe="1"
+					startcolor=".2 .5 1"
+					endcolor="0"
+					maxangle="360"
+					size="30"
+					minscale=".5"
+					maxscale="1"
+				/>
+			</twopointemitter>
+			
+			<twopointemitter
+				life="700"
+				count="500"
+				owner_a="source"
+				owner_b="target"
+				bone_a=""
+				bone_b="_bone_centerofchest"
+				position_a="0 0 50"
+				offsetsphere="10"
+				direction="0 0 1"
+				angle="60"
+				minspeed="50"
+				maxspeed="300"
+				gravity="30"
+				collide="1"
+				minparticlelife="500"
+				maxparticlelife="1000"
+				material="/shared/effects/materials/spark.material"
+			>
+				<particle
+					startcolor="1"
+					midcolor="1"
+					endcolor="0"
+					maxangle="360"
+					size="5"
+					minscale=".5"
+					maxscale="1"
+				/>
+			</twopointemitter>
+				
+
+		
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0"/>
+		<waitfordeath instance="instance0"/>
+	</thread>
+</effect>

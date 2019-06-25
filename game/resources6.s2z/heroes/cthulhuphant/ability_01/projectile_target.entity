@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectile
+	name="Projectile_Cthulhuphant_Ability1_Target"
+
+	speed="1500"
+	gravity="2000"
+
+	modelscale="1.0"
+	model=""
+	
+	flying="true"
+	flyheight="0"
+	
+	touchradius="60"
+	touchradiusdiradjust="true"
+	touchtargetscheme="enemy_heroes"
+	toucheffecttype="Magic"
+	maxtouches="1"
+>	
+
+	<ontouch>
+		<applystate name="State_Stunned" duration="1500,1750,2000,2250" />
+		<damage effecttype="Magic" amount="15,20,25,30" />
+		<delete target="this_entity" source="" />
+	</ontouch>
+
+</projectile>

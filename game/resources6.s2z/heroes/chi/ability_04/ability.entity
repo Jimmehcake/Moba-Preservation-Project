@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ability
+	name="Ability_Chi4"
+	
+	icon="icon.tga"
+	
+	anim="ability_4"
+	casttime="100"
+	castactiontime="100"
+	casteffect=""
+	maxlevel="3"
+	requiredlevel="6,11,16"
+
+	actiontype="target_position"
+	casteffecttype="Magic"
+	targetscheme="enemy_units"
+	
+	manacost="150,200,250"
+	cooldowntime="80000"
+	
+	range="1200"
+	targetradius="125"
+	
+	showlinecast="true"
+	linecastrange="1325"
+	linecastwidth="125"
+	
+	showrangeandradiusintooltip="true"
+	novoiceresponse="true"
+>
+	
+	<onimpact>
+		<spawnunit name="Gadget_Chi_Ability4_Marker" target="source_position" facing="target_position" pushentity="true" />
+		<applystate name="State_Chi_Ability4_Delay" target="stack_entity" duration="600" />		
+		
+		<!-- VFX -->
+		<getrange />
+		<setvar0 a="result" b="0" op="add" />
+		<spawnlinearaffector name="Affector_Chi_Ability4_Indicator" target="source_position" direction="target_position" minlength="var0" maxlength="var0" />
+		
+		<!-- SFX -->
+		<hasavatarkey name="Hero_Chi.Alt">
+			<playeffect effect="../alt/ability_04/effects/cast.effect" source="this_owner_entity" target="" occlude="true" />
+		</hasavatarkey>
+		<else>
+			<hasavatarkey name="Hero_Chi.Alt2">
+				<playeffect effect="../alt2/ability_04/effects/cast.effect" source="this_owner_entity" target="" occlude="true" />
+			</hasavatarkey>
+			<else>
+				<playeffect effect="effects/cast.effect" source="this_owner_entity" target="" occlude="true" />
+			</else>
+		</else>
+	</onimpact>
+	
+	<onstart>
+	    <!-- Leave room for the sound to finish before allowing vo to play -->
+		<pausevoiceovers duration="3000" />
+	</onstart>
+
+</ability>

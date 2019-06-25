@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="false" useentityeffectsscale="true">
+
+	<definitions>
+
+		
+		<particlesystem name="system0" space="entity" scale="1">
+			
+			
+		<sound  
+		        life="12000"
+				soundloop="true"
+				fadein="1500"
+				fadeout="500"
+				volume=".5"
+				sample="/heroes/warchief/ability_04/sounds/loop.wav"
+				linearfalloff="true"
+				falloffstart="800" 
+				falloffend="1300" 
+			/>		
+		
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<spawnparticlesystem instance="instance2" particlesystem="system1" />
+		<spawnmodifier instance="instance1" modifier="modifier0"/>  
+		<waitfordeath instance="instance0" />
+		<waitfordeath instance="instance1" /> 
+		<waitfordeath instance="instance2" /> 
+		<!-- <die /> -->
+	</thread>
+	
+</effect>

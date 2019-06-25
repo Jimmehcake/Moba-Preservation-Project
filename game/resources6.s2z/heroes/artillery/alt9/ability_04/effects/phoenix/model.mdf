@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model name="rig.max" file="high.model" type="K2" high="high.model">
+
+	<anim name="walk_1" clip="/heroes/artillery/alt9/clips/ability4_phoenix.clip" fps="45"  loop="true">
+	</anim>
+
+</model>

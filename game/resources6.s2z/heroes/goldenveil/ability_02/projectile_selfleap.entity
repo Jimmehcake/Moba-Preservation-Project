@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectile
+	name="Projectile_Goldenveil_Ability2_SelfLeap"
+
+	lifetime="600"
+	useexactlifetime="true"
+	gravity="3500"
+>
+</projectile>

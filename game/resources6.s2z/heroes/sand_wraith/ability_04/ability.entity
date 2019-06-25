@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ability
+	name="Ability_SandWraith4"
+
+	icon="icon.tga"
+	
+	maxlevel="3"
+	requiredlevel="6,11,16"
+	
+	anim="ability_4"
+	actiontype="global"
+	targetscheme="nonillusion_enemy_heroes"
+	ignoreinvulnerable="true"
+	
+	casteffecttype="GlobalAbility"
+
+	casttime="100"
+	castactiontime="100"
+	casteffect=""
+	cooldowntime="125000,115000,105000"
+	manacost="150"
+>
+	<onaction>
+		<!-- Art -->
+		<hasavatarkey name="Hero_SandWraith.Alt3" entity="source_entity">
+			<playeffect effect="../alt3/ability_04/effects/spawn.effect" />
+		</hasavatarkey>
+		<else>
+			<hasavatarkey name="Hero_SandWraith.Alt4" entity="source_entity">
+				<playeffect effect="../alt4/ability_04/effects/spawn.effect" />
+			</hasavatarkey>
+			<else>
+				<hasavatarkey name="Hero_SandWraith.Alt5" entity="source_entity">
+					<playeffect effect="../alt5/ability_04/effects/spawn.effect" />
+					<play2dsound sample="/heroes/sand_wraith/alt5/sounds/ab4_vox.ogg" channel="10" volume="1.0" dampen="0.6" sourceonly="true" targetonly="false" />
+				</hasavatarkey>
+				<else>
+					<hasavatarkey name="Hero_SandWraith.Alt9" entity="source_entity">
+						<playeffect effect="../alt9/ability_04/effects/spawn.effect" />
+						<play2dsound sample="/heroes/sand_wraith/alt9/sounds/ab4_vox.ogg" channel="10" volume="1.0" dampen="0.6" sourceonly="true" targetonly="false" />
+					</hasavatarkey>
+					<else>
+						<hasavatarkey name="Hero_SandWraith.Alt10" entity="source_entity">
+							<play2dsound sample="/heroes/sand_wraith/alt10/sounds/ab4_vox.ogg" channel="10" volume="1.0" dampen="0.6" sourceonly="true" targetonly="false" />
+							<hasmodifier name="rainstorm">
+								<playeffect effect="../alt10/ability_04/effects_01/spawn.effect" />
+							</hasmodifier>
+							<else>
+								<hasmodifier name="lightning">
+									<playeffect effect="../alt10/ability_04/effects_02/spawn.effect" />
+								</hasmodifier>
+								<else>
+									<playeffect effect="../alt10/ability_04/effects_03/spawn.effect" />
+								</else>
+							</else>
+						</hasavatarkey>
+						<else>
+							<hasavatarkey name="Hero_SandWraith.Alt11" entity="source_entity">
+								<playeffect effect="../alt11/ability_04/effects/spawn.effect" />
+							</hasavatarkey>
+							<else>
+								<playeffect effect="effects/spawn.effect" />
+							</else>	
+						</else>
+					</else>
+				</else>
+			</else>
+		</else>
+	</onaction>
+	
+	<onimpact>
+		<spawnillusion
+			owner="source_entity"
+			source="source_entity"
+			target="target_entity"
+			count="1"
+			lifetime="4000,5000,6000"
+			receivedamagemultiplier="2.5"
+			inflictdamagemultiplier="0.4"
+			spawneffect=""
+			deatheffect=""
+			playdeathanim="true"
+			pushentity="true"
+			uncontrollable="true"
+		/>
+		<setproxy entity="stack_entity" target="target_entity" />
+		<order command="follow" source="stack_entity" target="target_entity" />
+		<applystate name="State_SandWraith_Ability4" target="source_entity" duration="100" />
+		<applystate name="State_SandWraith_Ability4_Illusion" target="stack_entity" proxy="target_entity" duration="-1" />
+		<applystate name="State_SandWraith_Ability4_Illusion_Pause" target="stack_entity" duration="1000" proxy="target_entity" />
+		<applystate name="State_SandWraith_Ability4_Sight" target="target_entity" proxy="stack_entity" duration="4000,5000,6000" />
+	</onimpact>
+	
+	<oncomplete>
+		<starttimer duration="4000,5000,6000" />
+		<applystate name="State_SandWraith_Ability4_AbilitySwitch" target="source_entity" duration="4000,5000,6000" />
+	</oncomplete>
+	
+	<modifier key="ult_boost" modpriority="90"
+	>
+		<onimpact>
+			<spawnillusion
+				owner="source_entity"
+				source="source_entity"
+				target="target_entity"
+				count="1"
+				lifetime="4000,5000,6000"
+				receivedamagemultiplier="2.5"
+				inflictdamagemultiplier="0.4"
+				spawneffect=""
+				deatheffect=""
+				playdeathanim="true"
+				pushentity="true"
+				uncontrollable="true"
+			/>
+			<setproxy entity="stack_entity" target="target_entity" />
+			<order command="follow" source="stack_entity" target="target_entity" />
+			<applystate name="State_SandWraith_Ability4" target="source_entity" duration="100" />
+			<applystate name="State_SandWraith_Ability4_Illusion" target="stack_entity" proxy="target_entity" duration="-1" />
+			<applystate name="State_SandWraith_Ability4_Illusion_Pause" target="stack_entity" duration="1000" proxy="target_entity" />
+			<applystate name="State_SandWraith_Ability4_Sight" target="target_entity" proxy="stack_entity" duration="4000,5000,6000" />
+		</onimpact>
+	</modifier>
+	
+
+	<modifier key="SandWraith4_Active" modpriority="100"
+		anim=""
+		ignorecooldown="true"
+		icon="icon_b.tga"
+		actiontype="target_position"
+		targetscheme="my_illusions"
+		allowoutofrangecast="true"
+		range="99999"
+		manacost="0"
+		casttime="0"
+		castactiontime="0"
+		cooldowntime="0"
+		dontshowhovercast="true"
+		activatescheme="movement"
+	>
+		<onimpact>
+			<pushentity searchfortarget="true" searchorigin="target_position" radius="99999" targetscheme="my_illusions" ignoreinvulnerable="true"/>
+			<compare a="stack_entity" b="0" op="ne">
+				<delete target="stack_entity" />
+				<disjoint target="source_entity" />
+				<teleport source="source_entity" target="stack_position" interpolate="false" />
+				<pushentityproxy entity="stack_entity" />
+				<order command="attack" source="source_entity" target="stack_entity" />
+				<resettimer />
+				
+				<hasmodifier name="ult_boost">
+					<spawnaffector name="Affector_SandWraith_Ability4" target="source_position" />
+					
+					<!-- Art -->
+					<hasavatarkey name="Hero_SandWraith.Alt3">
+						<playeffect effect="../alt3/ability_04/effects/fear.effect" source="source_position" target="source_position" />
+					</hasavatarkey>
+					<else>
+						<hasavatarkey name="Hero_SandWraith.Alt4">
+							<playeffect effect="../alt4/ability_04/effects/fear.effect"
+							source="source_position" target="source_position" />
+						</hasavatarkey>
+						<else>
+							<hasavatarkey name="Hero_SandWraith.Alt5">
+								<playeffect effect="../alt5/ability_04/effects/fear.effect" source="source_position" target="source_position" />
+								<play2dsound sample="/heroes/sand_wraith/alt5/sounds/ab4_vox.ogg" channel="10" volume="1.0" dampen="0.6" sourceonly="false" targetonly="true" />
+							</hasavatarkey>
+							<else>
+								<hasavatarkey name="Hero_SandWraith.Alt9">
+									<playeffect effect="../alt9/ability_04/effects/fear.effect" source="source_position" target="source_position" />
+									<play2dsound sample="/heroes/sand_wraith/alt9/sounds/ab4_vox.ogg" channel="10" volume="1.0" dampen="0.6" sourceonly="false" targetonly="true" />
+								</hasavatarkey>
+								<else>
+									<hasavatarkey name="Hero_SandWraith.Alt10">
+										<play2dsound sample="/heroes/sand_wraith/alt10/sounds/ab4_vox.ogg" channel="10" volume="1.0" dampen="0.6" sourceonly="false" targetonly="true" />
+										<hasmodifier name="rainstorm">
+											<playeffect effect="../alt10/ability_04/effects_01/fear.effect" source="source_position" target="source_position" />
+										</hasmodifier>
+										<else>
+											<hasmodifier name="lightning">
+												<playeffect effect="../alt10/ability_04/effects_02/fear.effect" source="source_position" target="source_position" />
+											</hasmodifier>
+											<else>
+												<playeffect effect="../alt10/ability_04/effects_03/fear.effect" source="source_position" target="source_position" />
+											</else>
+										</else>
+									</hasavatarkey>
+									<else>
+										<hasavatarkey name="Hero_SandWraith.Alt11">
+											<playeffect effect="../alt11/ability_04/effects/fear.effect" source="source_position" target="source_position" />
+										</hasavatarkey>
+										<else>
+											<playeffect effect="effects/fear.effect" source="source_position" target="source_position" />
+										</else>
+									</else>
+								</else>
+							</else>
+						</else>
+					</else>
+				</hasmodifier>
+			</compare>
+		</onimpact>
+		
+		<oncomplete>
+			<expirestate name="State_SandWraith_Ability4_AbilitySwitch" target="source_entity" />
+		</oncomplete>
+	</modifier>
+	
+	<altavatar key="Hero_SandWraith.Alt4"	
+		icon="../alt4/ability_04/icon.tga"
+	
+	>
+		<modifier key="SandWraith4_Active" modpriority="100"
+			anim=""
+			ignorecooldown="true"
+			icon="../alt4/ability_04/icon_b.tga"
+			actiontype="target_position"
+			targetscheme="my_illusions"
+			allowoutofrangecast="true"
+			range="99999"
+			manacost="0"
+			casttime="0"
+			castactiontime="0"
+			cooldowntime="0"
+			dontshowhovercast="true"
+		>
+			<onimpact>
+				<pushentity searchfortarget="true" searchorigin="target_position" radius="99999" targetscheme="my_illusions" ignoreinvulnerable="true"/>
+				<compare a="stack_entity" b="0" op="ne">
+					<delete target="stack_entity" />
+					<disjoint target="source_entity" />
+					<teleport source="source_entity" target="stack_position" interpolate="false" />
+					<pushentityproxy entity="stack_entity" />
+					<order command="attack" source="source_entity" target="stack_entity" />
+					<resettimer />
+					
+					<hasmodifier name="ult_boost">
+						<spawnaffector name="Affector_SandWraith_Ability4" target="source_position" />
+						
+						<!-- Art -->
+						<hasavatarkey name="Hero_SandWraith.Alt3">
+							<playeffect effect="../alt3/ability_04/effects/fear.effect" source="source_position" target="source_position" />
+						</hasavatarkey>
+						<else>
+							<hasavatarkey name="Hero_SandWraith.Alt4">
+								<playeffect effect="../alt4/ability_04/effects/fear.effect"
+								source="source_position" target="source_position" />
+							</hasavatarkey>
+							<else>
+								<hasavatarkey name="Hero_SandWraith.Alt9">
+									<playeffect effect="../alt9/ability_04/effects/fear.effect"
+									source="source_position" target="source_position" />
+								</hasavatarkey>
+								<else>
+									<hasavatarkey name="Hero_SandWraith.Alt10">
+										<hasmodifier name="rainstorm">
+											<playeffect effect="../alt10/ability_04/effects_01/fear.effect"
+											source="source_position" target="source_position" />
+										</hasmodifier>
+										<else>
+											<hasmodifier name="lightning">
+												<playeffect effect="../alt10/ability_04/effects_02/fear.effect"
+												source="source_position" target="source_position" />
+											</hasmodifier>
+											<else>
+												<playeffect effect="../alt10/ability_04/effects_03/fear.effect"
+												source="source_position" target="source_position" />
+											</else>
+										</else>
+									</hasavatarkey>
+									<else>
+										<hasavatarkey name="Hero_SandWraith.Alt11">
+											<playeffect effect="../alt11/ability_04/effects/fear.effect"
+											source="source_position" target="source_position" />
+										</hasavatarkey>
+										<else>
+											<playeffect effect="effects/fear.effect" source="source_position" target="source_position" />
+										</else>
+									</else>
+								</else>
+							</else>
+						</else>
+					</hasmodifier>
+				</compare>
+			</onimpact>
+			
+			<oncomplete>
+				<expirestate name="State_SandWraith_Ability4_AbilitySwitch" target="source_entity" />
+			</oncomplete>
+		</modifier>
+	</altavatar>
+	
+	<altavatar key="Hero_SandWraith.Alt9"	
+		icon="../alt9/ability_04/icon.tga"
+	
+	>
+		<modifier key="SandWraith4_Active" modpriority="100"
+			anim=""
+			ignorecooldown="true"
+			icon="../alt9/ability_04/icon_b.tga"
+			actiontype="target_position"
+			targetscheme="my_illusions"
+			allowoutofrangecast="true"
+			range="99999"
+			manacost="0"
+			casttime="0"
+			castactiontime="0"
+			cooldowntime="0"
+			dontshowhovercast="true"
+			activatescheme="movement"
+		>
+			<onimpact>
+				<pushentity searchfortarget="true" searchorigin="target_position" radius="99999" targetscheme="my_illusions" ignoreinvulnerable="true"/>
+				<compare a="stack_entity" b="0" op="ne">
+					<delete target="stack_entity" />
+					<disjoint target="source_entity" />
+					<teleport source="source_entity" target="stack_position" interpolate="false" />
+					<pushentityproxy entity="stack_entity" />
+					<order command="attack" source="source_entity" target="stack_entity" />
+					<resettimer />
+					
+					<hasmodifier name="ult_boost">
+						<spawnaffector name="Affector_SandWraith_Ability4" target="source_position" />
+						
+						<!-- Art -->
+						<hasavatarkey name="Hero_SandWraith.Alt3">
+							<playeffect effect="../alt3/ability_04/effects/fear.effect" source="source_position" target="source_position" />
+						</hasavatarkey>
+						<else>
+							<hasavatarkey name="Hero_SandWraith.Alt4">
+								<playeffect effect="../alt4/ability_04/effects/fear.effect"
+								source="source_position" target="source_position" />
+							</hasavatarkey>
+							<else>
+								<hasavatarkey name="Hero_SandWraith.Alt9">
+									<playeffect effect="../alt9/ability_04/effects/fear.effect"
+									source="source_position" target="source_position" />
+								</hasavatarkey>
+								<else>
+									<hasavatarkey name="Hero_SandWraith.Alt10">
+										<hasmodifier name="rainstorm">
+											<playeffect effect="../alt10/ability_04/effects_01/fear.effect"
+											source="source_position" target="source_position" />
+										</hasmodifier>
+										<else>
+											<hasmodifier name="lightning">
+												<playeffect effect="../alt10/ability_04/effects_02/fear.effect"
+												source="source_position" target="source_position" />
+											</hasmodifier>
+											<else>
+												<playeffect effect="../alt10/ability_04/effects_03/fear.effect"
+												source="source_position" target="source_position" />
+											</else>
+										</else>
+									</hasavatarkey>
+									<else>
+										<hasavatarkey name="Hero_SandWraith.Alt11">
+											<playeffect effect="../alt11/ability_04/effects/fear.effect"
+											source="source_position" target="source_position" />
+										</hasavatarkey>
+										<else>
+											<playeffect effect="effects/fear.effect" source="source_position" target="source_position" />
+										</else>
+									</else>	
+								</else>
+							</else>
+						</else>
+					</hasmodifier>
+				</compare>
+			</onimpact>
+			
+			<oncomplete>
+				<expirestate name="State_SandWraith_Ability4_AbilitySwitch" target="source_entity" />
+			</oncomplete>
+		</modifier>
+	</altavatar>	
+	
+</ability>

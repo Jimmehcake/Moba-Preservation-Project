@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Geomancer_Ability1_Self"
+	
+	icon="icon.tga"
+	
+	ishidden="true"
+	
+	passiveeffect=""
+	disarmed="true"
+	
+	unitwalking="true"
+	cliffwalking="true"
+	buildingwalking="true"
+	treewalking="true"
+	invulnerable="true"
+	modifierkey="Geomancerburrow"
+>
+	<onexpired>
+		<playanim name="ability_1_burst" target="source_entity" />
+		<playeffect effect="effects/appear.effect" source="source_position" occlude="true" />
+		<spawnaffector name="Affector_Geomancer_Ability1" target="source_entity" />
+	</onexpired>
+	
+	<modifier key="ult_boost" modpriority="100" 
+		passiveeffect="../hd_geomancer/effects/boost.effect"
+	/>
+	
+	<altavatar key="Hero_Geomancer.Alt"
+	>
+		<modifier key="ult_boost" modpriority="100" 
+			passiveeffect="../alt/effects/boost.effect"
+		/>
+	</altavatar>
+	
+	<altavatar key="Hero_Geomancer.Alt2"
+	>
+		<modifier key="ult_boost" modpriority="100" 
+			passiveeffect="../alt2/effects/boost.effect"
+		/>
+	</altavatar>
+	
+	<altavatar key="Hero_Geomancer.Alt3"
+	>
+		<modifier key="ult_boost" modpriority="100" 
+			passiveeffect="../alt3/effects/boost.effect"
+		/>
+	</altavatar>
+	
+	<altavatar key="Hero_Geomancer.Alt4"
+	>
+		<onexpired>
+			<playanim name="ability_1_burst" target="source_entity" />
+			<playeffect effect="../alt4/ability_01/effects/appear.effect" source="source_position" occlude="true" />
+			<spawnaffector name="Affector_Geomancer_Ability1" target="source_entity" />
+		</onexpired>
+		
+		<modifier key="ult_boost" modpriority="100" 
+			passiveeffect="../alt4/effects/boost.effect"
+		/>
+	</altavatar>
+	
+	<altavatar key="Hero_Geomancer.Alt5"
+	>
+		<onexpired>
+			<playanim name="ability_1_burst" target="source_entity" />
+			<playeffect effect="../alt4/ability_01/effects/appear.effect" source="source_position" occlude="true" />
+			<spawnaffector name="Affector_Geomancer_Ability1" target="source_entity" />
+		</onexpired>
+		<modifier key="ult_boost" modpriority="100" 
+			passiveeffect="../alt5/effects/boost.effect"
+		/>
+	</altavatar>
+	
+	<altavatar key="Hero_Geomancer.Alt6"
+	>
+		<onexpired>
+			<playanim name="ability_1_burst" target="source_entity" />
+			<playeffect effect="../alt6/ability_01/effects/appear.effect" source="source_position" occlude="true" />
+			<spawnaffector name="Affector_Geomancer_Ability1" target="source_entity" />
+		</onexpired>
+		<modifier key="ult_boost" modpriority="100" 
+			passiveeffect="../alt6/effects/boost.effect"
+		/>
+	</altavatar>
+	
+</state>

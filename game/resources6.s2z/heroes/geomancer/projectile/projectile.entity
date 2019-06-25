@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectile
+	name="Projectile_Geomancer_Attack"
+
+	speed="1200"
+	gravity="1000"
+
+	modelscale="0.7"
+	model="/shared/models/invis.mdf"
+	traileffect="effects/trail.effect"
+	
+	impacteffect="effects/impact.effect"
+>
+	
+	<altavatar key="Hero_Geomancer.Alt4" modpriority="90"
+		traileffect="../alt4/projectile/effects/trail.effect"
+		impacteffect="../alt4/projectile/effects/impact.effect"
+	/>
+	
+	<altavatar key="Hero_Geomancer.Alt5" modpriority="90"
+		traileffect="../alt4/projectile/effects/trail.effect"
+		impacteffect="../alt4/projectile/effects/impact.effect"
+	/>
+	
+	<altavatar key="Hero_Geomancer.Alt6" modpriority="90"
+		traileffect="../alt6/projectile/effects/trail.effect"
+		impacteffect="../alt6/projectile/effects/impact.effect"
+	/>
+	
+</projectile>

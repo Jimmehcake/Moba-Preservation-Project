@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Geomancer_Ability3_Sight"
+	
+	ishidden="true"
+	
+	serverentity="true"
+	revealed="true"
+>
+	<!-- This state reveals geomancer -->
+</state>

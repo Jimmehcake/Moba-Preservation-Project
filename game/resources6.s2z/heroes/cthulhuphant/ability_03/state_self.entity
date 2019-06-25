@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Cthulhuphant_Ability3_Self"
+
+	icon="icon.tga"
+	ishidden="false"
+	passiveeffect="effects/state_self.effect"
+
+	effecttype=""
+	allowtransfer="false"
+
+>
+
+	<onframe />
+
+</state>

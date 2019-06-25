@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+	<definitions>
+		<particlesystem name="system0" space="world" scale="1">
+			
+			<model
+				parentskeleton="1"
+				model="blades/model.mdf"
+				material="shell_ice.material"
+				color="1 1 1.25"
+				parentteamcolor="true"
+				alpha=".75"
+			/>
+			
+			<model
+				parentskeleton="1"
+				model="shoulders/model.mdf"
+				color="1"
+				parentteamcolor="true"
+				alpha=".5"
+			/>
+			
+			<template name="drops">
+				<twopointemitter
+					bone_a="{bone_a}"
+					bone_b="{bone_b}"
+					spawnrate="15"
+					particlelife="1000"
+					angle="0.0"
+					offsetsphere="5 5 5"
+					drag=".2"
+					speed="25"
+					direction="0 0 1"
+					material="/shared/effects/materials/smoke_17.material"
+				>
+					<particle
+						color=".5 .5 .75"
+						startalpha="0"
+						midalpha=".75"
+						endalpha="0"
+						maxangle="360"
+						minanglespeed="-45"
+						maxanglespeed="45"
+						minendsize="25"
+						startsize="5"
+						maxendsize="40"
+						flare="true"
+						anchor="1"
+					/>
+					<particle
+						color=".3 .3 .6"
+						startalpha="0"
+						midalpha=".75"
+						endalpha="0"
+						maxangle="360"
+						minanglespeed="-45"
+						maxanglespeed="45"
+						minendsize="25"
+						startsize="5"
+						maxendsize="35"
+						flare="true"
+						anchor="1"
+					/>
+				</twopointemitter>
+				
+				<twopointemitter
+					bone_a="{bone_a}"
+					bone_b="{bone_b}"
+					spawnrate="5"
+					particlelife="1000"
+					angle="0.0"
+					drag=".2"
+					speed="25"
+					direction="0 0 1"
+					material="/shared/effects/materials/neb_blend.material"
+				>
+					<particle
+						color=".5 .5 .75"
+						startalpha="0"
+						midalpha=".75"
+						endalpha="0"
+						maxangle="360"
+						minanglespeed="-45"
+						maxanglespeed="45"
+						minendsize="25"
+						startsize="0"
+						maxendsize="40"
+						flare="true"
+						anchor="1"
+					/>
+				</twopointemitter>
+				
+				<twopointemitter
+					bone_a="{bone_a}"
+					bone_b="{bone_b}"
+					spawnrate="20"
+					particlelife="1000"
+					angle="0.0"
+					offsetsphere="5 5 5"
+					speed="100"
+					direction="0 0 -1"
+					material="/shared/effects/materials/blood_drop_white.material"
+				>
+					<particle
+						color=".5 .5 .75"
+						alpha="1"
+						angle="0"
+						scale="2"
+						flare="true"
+					/>					
+				</twopointemitter>
+				
+				<twopointemitter
+					bone_a="{bone_a}"
+					bone_b="{bone_b}"
+					spawnrate="3"
+					particlelife="1000"
+					angle="0.0"
+					offsetsphere="5 5 5"
+					speed="100"
+					direction="0 0 -1"
+					material="/shared/effects/materials/refract_outsplash.material"
+				>
+					<particle
+						color="1"
+						alpha="1"
+						angle="0"
+						scale="10"
+						param=".2"
+						flare="true"
+					/>					
+				</twopointemitter>
+				
+			</template>
+			
+			<instance name="drops" bone_a="_bone_weaponattach" bone_b="_bone_weapon2"/>
+			<instance name="drops" bone_a="_bone_weapon1" bone_b="_bone_weapon3"/>
+			
+			<simpleemitter
+				bone="Bip01 Head"
+				material="/shared/effects/materials/smoke_17.material"
+				particlelife="2000"
+				spawnrate="1"
+			>
+				<particle
+					startalpha="1"
+					midalpha="1"
+					endalpha="0"
+					color=".5 .5 1"
+					startsize="10"
+					endsize="100"
+					anchor="1"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				bone="Bip01 Head"
+				material="/shared/effects/materials/neb_blend.material"
+				particlelife="2000"
+				spawnrate=".75"
+				position="0 7.5 0"
+			>
+				<particle
+					startalpha="0"
+					midalpha="1"
+					endalpha="0"
+					color=".5 .5 1"
+					startsize="10"
+					endsize="25"
+					anchor="1"
+					minangle="-360"
+					maxangle="360"
+					minanglespeed="-45"
+					maxanglespeed="45"
+				/>
+			</simpleemitter>
+			
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+		<!-- <die /> -->
+	</thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][pos] -->
+

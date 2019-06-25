@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Chi_Sound_Initiator"
+
+	icon=""
+	passiveeffect=""
+	propagatetoillusions="false"
+	effecttype=""
+	ishidden="true"
+>
+ <onexpired>
+			<areaofeffect
+				global="true"
+				targetscheme="all_heroes"
+				targetselection="all"
+				ignoreinvulnerable="true"
+			>
+															<!--Allies--> 
+						<compare a="source_team" b="target_team" op="eq">
+							<hasmodifier entity="target_entity" name="Warchief_Sound" propagatetoillusions="false">
+								<applystate name="State_Chi_Ally_Spot" target="source_entity" duration="150000"/>
+								<applystate name="State_Warchief_Ally_Spot" target="target_entity" duration="150000"/>
+							</hasmodifier>
+		        <!--1--> 	<else>
+									<applystate name="State_Chi_Ally_Spot" target="source_entity" duration="150000"/>
+				<!--2-->		<else>
+				<!--2-->		</else>
+				<!--1-->	</else>
+						</compare>				
+                 <else/>	
+															<!--Enemies-->	
+			</areaofeffect>
+   </onexpired>
+
+</state>

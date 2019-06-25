@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectile
+	name="Projectile_Warchief_Ability1_Searing"
+
+	speed="2000"
+	gravity="4000"
+	modelscale="0.3"
+	model="/shared/models/invis.mdf"
+
+	effectscale="1"
+	impacteffect="searing_totem/impact.effect"
+	traileffect="searing_totem/trail.effect"
+>
+
+	<onimpact>
+		<damage effecttype="Magic" amount="40,60,80,100" source="source_owner_entity" />
+	</onimpact>
+	
+	<altavatar key="Hero_Warchief.Alt" modpriority="1"
+		impacteffect="../alt/ability_01/searing_totem/impact.effect"
+		traileffect="../alt/ability_01/searing_totem/trail.effect"
+	/>
+	
+	<altavatar key="Hero_Warchief.Alt2" modpriority="1"
+		impacteffect="../alt2/ability_01/searing_totem/impact.effect"
+		traileffect="../alt2/ability_01/searing_totem/trail.effect"
+	/>
+	
+</projectile>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+	<definitions>
+		<particlesystem name="system0" space="world" scale="1">
+			<controller position="25 40 30" pitch="90">
+				<simpleemitter
+					count="20"
+					minparticlelife="300"
+					maxparticlelife="500"
+					drag="0.1"
+					direction="0 0 1"
+					minspeed="150"
+					maxspeed="500"
+					offsetsphere="10"
+					material="/shared/effects/materials/flare_03.material"
+				>
+					<particle
+						maxangle="360"
+						minanglespeed="-100"
+						maxanglespeed="100"
+						startsize="80"
+						endsize="40"
+						startframe=".4"
+						endframe="1"
+						startcolor=".3 1 .3"
+						midcolor="0 1 .3"
+						endcolor="0 0 0"
+						midcolorpos=".75"
+						minscale=".15"
+						maxscale=".3"
+					/>
+				</simpleemitter>
+			</controller>
+			
+			<simpleemitter
+				bone="_bone_fx_01"
+				count="1"
+				spawnrate="1000"
+				particlelife="100"
+				material="/shared/effects/materials/starlight.material"
+				particledirectionalspace="local"
+				offsetdirection="0 0 0"
+				offsetradial="0"
+				depthbias="-10"
+				position="0 20 0"
+			>
+				<particle
+					startcolor=".3 1 .8"
+					midcolor=".3 1 .5"
+					endcolor="0 0 0"
+					startsize="30"
+					endsize="60"
+					param="0.5"
+					startalpha=".3"
+					midalpha=".15"
+					endalpha="0"
+					midalphapos=".75"
+					lockup="true"
+					lockright="1"
+					pitch="0"
+					flare="0"
+					yaw="00"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				bone="_bone_fx_01"
+				count="1"
+				spawnrate="1000"
+				particlelife="250"
+				material="/shared/effects/materials/refract_ring.material"
+				particledirectionalspace="local"
+				offsetdirection="0 0 0"
+				offsetradial="0"
+				position="0 20 0"
+			>
+				<particle
+					startsize="0"
+					endsize="160"
+					param="0.35"
+					startalpha="1"
+					midalpha="1"
+					endalpha="0"
+					lockup="true"
+					lockright="1"
+					pitch="0"
+					flare="0"
+					yaw="0"
+				/>
+			</simpleemitter>
+		</particlesystem>
+	</definitions>
+	
+<thread>
+	<spawnparticlesystem instance="instance1" particlesystem="system0" />
+	<spawnmodifier instance="instance0"/>
+	<waitfordeath  instance="instance0"/>
+	<waitfordeath  instance="instance1"/>
+</thread>
+</effect>

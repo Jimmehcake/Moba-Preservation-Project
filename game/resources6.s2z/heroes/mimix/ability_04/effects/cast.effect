@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+
+	<definitions>
+
+		<particlesystem name="system0" space="world" scale="0.6">
+			<sound
+			    voiceresponseoff="true"
+			    dampen="0.7"
+			    life="6000"
+				linearfalloff="true" 
+				falloffstart="400"
+				falloffend="1300"
+				volume=".7" 
+				sample="/heroes/mimix/ability_04/sounds/cast.wav"
+			/>
+			
+			<light
+				life="1500"			
+				startcolor="1 .5 4"	
+				
+				endcolor="0 0 0"
+				midcolorpos=".4"
+				falloffstart="100"
+				falloffend="400"
+				position="0 0 150"	
+			/>
+
+			<billboard
+				life="500"
+				startalpha="1"
+				midalpha="1"
+				endalpha="0"
+				midalphapos=".75"
+				startparam=".25"
+				endparam="0"
+				startsize="0"
+				endsize="600"
+				depthbias="-100"
+				position="0 0 20"
+				material="/shared/effects/materials/refract_ring.material"
+				lockup="true"
+				pitch="90"
+			/>
+
+			<billboard
+				material="/shared/effects/materials/fresnel_blend.material"			
+				color=".4 .2 0"		
+				startalpha="1"
+				endalpha="0"				
+				life="300"
+				position="0 0 10"
+				startsize="200"
+				endsize="600"
+				depthbias="-150"			
+			/>
+
+			<billboard
+				material="/shared/effects/materials/bulb_add.material"				
+				startcolor=".2 .0 .5"				
+				endcolor="0 0 0"
+				life="300"	
+				position="0 0 10"
+				startsize="200"
+				endsize="600"
+				depthbias="-150"			
+			/>
+			
+			<simpleemitter				
+				count="1"
+				particlelife="200"
+				speed="0.0" gravity="-6"
+				acceleration="0.0"
+				timenudge="0"
+				position="0 0 40"				
+				material="/shared/effects/materials/blink.material"
+			>
+				<particle
+					anglespeed="20"
+					startcolor="0 0 0" midcolor=".3 .6 1" endcolor="0.0 0.0 0.0" midcolorpos=".1"
+					startsize="280" midsize="220" endsize="0"
+				/>
+			</simpleemitter>
+			
+			<billboard
+				delay="350" life="350"
+				color="1.0 1.0 1.0"
+				startalpha="1.0" midalpha="1.0" endalpha="0.0" midalphapos="0.75"
+				startparam=".1" endparam="0.0"
+				startsize="128" endsize="268"
+				depthbias="-100"
+				position="0 0 20"
+				material="/shared/effects/materials/refract_ring_depth.material"
+				lockup="true"
+				pitch="90"
+			/>
+			
+			<simpleemitter
+				position="0 0 20"
+				life="150"
+				spawnrate="300"
+				depthbias="-20"
+				minparticlelife="200"
+				maxparticlelife="500"
+				offsetsphere="80"	
+          		material="/shared/effects/materials/spark_10.material"
+			>
+				<particle
+					minangle="0" maxangle="360"
+					minpitchspeed="-180" maxpitchspeed="180" 
+					startalpha="1" endalpha="0"
+					startcolor="0 .3 .5" midcolor="0 .3 .5" endcolor="1" midcolorpos=".3"
+					minstartsize="3" maxstartsize="8" endsize="0" scale="10"
+					anchor="1"
+				>
+					<billboard
+						life="150" loop="true"
+						minstartsize="6" maxstartsize="7" midsize="0" minendsize="4" maxendsize="6"
+						color=".3 .1 .8"						
+						material="/shared/effects/materials/whitedot.material"
+					/>
+				</particle>
+			</simpleemitter>
+			
+			<simpleemitter
+				position="0 0 20"
+				life="150"
+				spawnrate="100"
+				depthbias="-20"
+				minparticlelife="200"
+				maxparticlelife="500"
+				offsetsphere="20"	
+          		material="/shared/effects/materials/crack_8.material"
+			>
+				<particle
+						maxangle="360"
+						startcolor="2"
+						endcolor="0"
+						startscale="0"
+						endscale="38"
+						anchor="1"
+					>
+						
+					</particle>
+				</simpleemitter>
+
+		</particlesystem>
+
+	</definitions>
+
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<camerashake2 scale="10.0" radius="700" duration="1000" frequency="22" />
+		<waitfordeath instance="instance0" />
+	</thread>
+
+</effect>

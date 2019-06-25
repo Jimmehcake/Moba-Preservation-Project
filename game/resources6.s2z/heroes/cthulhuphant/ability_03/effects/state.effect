@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true" useentityeffectscale="1">
+
+	<definitions>
+	
+
+		<particlesystem name="system0" space="global">
+
+
+			<simpleemitter
+				bone="_bone_centerofchest"	
+				spawnrate="80"
+				particlelife="1000"
+				gravity="-3"
+				acceleration="0.20"		
+				expirelife="300"
+				material="/shared/effects/materials/mysticenergy.material"
+				offsetsphere="0 0 300"
+				yawspeed="360"
+			>
+				<particle 
+					minangle="0"
+					maxangle="360"
+					minanglespeed="20"
+					maxanglespeed="150"
+
+					color=".6 .5 0"
+
+					startsize="20"
+					midsize="40"
+					endsize="20"
+					midsizepos=".3"	
+
+					startalpha="0"
+					midalpha=".45"
+					endalpha="0"
+					midalphapos=".01"
+
+					startstickiness=".95"
+					endstickiness=".5"
+				/>
+
+			</simpleemitter>
+
+			<template name="trail">
+
+				<twopointtrailemitter
+					bone_a="{bone_a}"
+					bone_b="{bone_b}"
+					spawnrate="44"
+					particlelife="600"
+					texpostime="600"
+					texposscale="0.0"
+					texstretchscale="1.0"
+					material="/shared/effects/materials/swoosh_add.material"
+					subframepos="true"
+					startparticlecolor="1 1 1"
+					endparticlecolor="1 1 1"
+				>
+					<particle
+						startcolor=".7 .5 0"
+						endcolor="0 0 0" 
+						alpha=".1"
+					/>
+				</twopointtrailemitter>
+	
+			</template>
+			
+			<instance name="trail" bone_a="Bip01 L Clavicle" bone_b="Bip01 L Hand"/>
+			<instance name="trail" bone_a="Bip01 R Clavicle" bone_b="Bip01 R Hand"/>
+			<instance name="trail" bone_a="Bip01 R Foot" bone_b="Bip01 R Thigh"/>
+			<instance name="trail" bone_a="Bip01 L Foot" bone_b="Bip01 L Thigh"/>
+			<instance name="trail" bone_a="Bip01 Pelvis" bone_b="Bip01 Head"/>
+			
+
+		</particlesystem>
+
+	</definitions>
+
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<spawnmodifier instance="instance1" modifier="modifier0"/>
+      		<waitfordeath instance="instance0" />
+		<waitfordeath instance="instance1" />
+	</thread>
+
+</effect>

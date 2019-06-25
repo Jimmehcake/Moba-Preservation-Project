@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<linearaffector
+	name="Affector_Chi_Ability4"
+
+	radius="125"
+	minlength="1075"
+	maxlength="1075"
+	
+	targetselection="all"
+	targetscheme="enemy_units"
+	effecttype="SuperiorMagic"
+	
+	effect=""
+	impacteffect=""
+>
+	<onimpact>
+		<!-- Base Damage -->
+		<setvar0 a="25" />
+
+		<!-- Bonus damage based on target's Attack Damage -->
+		<setvar1 a="0.6,0.7,0.8" b="target_attackdamage" op="mult" />
+		<setvar1 a="var1" b="0" op="max" />
+		<popup name="bonus_damage" a="var1" source="target_entity" target="target_entity" />
+		<setvar0 a="var0" b="var1" op="add" />
+		<damage effecttype="SuperiorMagic" amount="1" b="var0" op="mult" />
+	</onimpact>
+</linearaffector>

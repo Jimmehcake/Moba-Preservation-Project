@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+
+	<definitions>
+
+		<particlesystem name="system0" space="world" scale=".5">
+			<sound
+			    forcestereo="true"
+			    channelid="chiind"
+			    life="2000"
+				volume="1"
+				sample="/heroes/chi/ability_04/sounds/charge.wav"
+				linearfalloff="true"
+				falloffstart="1300"
+				falloffend="2200" 
+			/>
+			
+			<groundsprite
+				life="2000"
+				startcolor="0"
+				midcolor=".4 .7 1"
+				endcolor="1 .7 0"
+				midcolorpos=".25"
+				size="130"
+				scale="1.5"
+				material="/shared/effects/materials/taiji_reverse.material"
+				startframe="0"
+				endframe="1"
+				midframepos=".25"
+				maxyaw="360"
+				minyawspeed="-150"
+				maxyawspeed="150"
+			/>
+			
+			<groundsprite
+				delay="200"
+				life="1700"
+				material="/shared/effects/materials/rune_chi.material"
+				startcolor=".65 .65 .9"   midcolor="1 .7 0"  endcolor=".1 .2 .4" 
+				midcolorpos=".65"
+				startalpha="0" midalpha=".85" endalpha="0"
+ 				midalphapos=".5"
+				width="120"
+				height="60"
+				minscale=".75" maxscale="2.5"
+				directionalspace="local"
+				particledirectionspace="local"
+				yaw="90"
+				maxangle="0"
+			/>
+
+			<simpleemitter
+				startparticlecolor="1" endparticlecolor="0" midparticlecolorpos=".9"
+				offsetsphere="150 150 0"
+				spawnrate="12"
+				particlelife="650"
+				position="0 0 10"
+				direction="0 0 1"
+				material="/shared/effects/materials/light_rays.material"
+				minlife="500" maxlife="1000"
+			>
+				<particle
+					startcolor="0 .4 .5"
+					midcolor="1 .75 0"
+					endcolor="0 0 0"
+					midcolorpos=".35"
+					minwidth="10"
+					maxwidth="30"
+					endwidth="60"
+					scale="3"
+					minstartheight="0"
+					maxstartheight="100"
+					endheight="800"
+					lockup="1"
+					lockright="false"
+				/>
+			</simpleemitter>
+
+		</particlesystem>
+
+	</definitions>
+
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+
+</effect>

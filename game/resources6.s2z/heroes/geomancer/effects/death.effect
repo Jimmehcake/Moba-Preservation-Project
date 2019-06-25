@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="body">
+	<definitions>
+
+		<particlesystem name="system0" space="world" scale=".75">
+			
+			<groundsprite
+				life="1500"
+				bone="_bone_origin"
+				size="130"
+				color=".35 .3 .3"
+				material="/shared/effects/materials/sand_groun.material"
+			/>
+			
+			<groundsprite
+				life="1500"
+				bone="_bone_origin"
+				size="90"
+				color=".2 .16 .1"
+				alpha=".5"
+				material="/shared/effects/materials/corona_08_blend.material"
+			/>
+			
+			<groundsprite
+				life="1500"
+				bone="_bone_origin"
+				size="70"
+				alpha=".75"
+				material="/shared/effects/materials/ground_smash_overlay_darker.material"
+			/>
+			
+			<terrainemitter
+				life="1500"
+				spawnrate="20"
+				offsetsphere="60 60 0"
+				minparticlelife="500"
+				maxparticlelife="800"
+				angle="0"
+				direction="0 0 1"
+				speed="300"
+				drag=".1"
+				material="/shared/effects/materials/pyroclast_05.material"
+			>
+				<particle
+					maxangle="360"
+					minanglespeed="-100"
+					maxanglespeed="100"
+					size="70"
+					color=".3 .155 .1"
+					startalpha=".5"
+					midalpha="1"
+					endalpha="0"
+				/>
+				
+				<particle
+					maxangle="360"
+					minanglespeed="-100"
+					maxanglespeed="100"
+					size="70"
+					color=".15 .1 .05"
+					startalpha=".5"
+					midalpha="1"
+					endalpha="0"
+				/>
+			</terrainemitter>
+			
+			<terrainemitter
+				delay="300"
+				life="1500"
+				position="0 0 0"
+				spawnrate="30"
+				offsetsphere="90 90 0"
+				minparticlelife="500"
+				maxparticlelife="800"
+				angle="0"
+				direction="0 0 1"
+				speed="300"
+				drag=".1"
+				particlescale="2"
+				material="/shared/effects/materials/pyroclast_05.material"
+			>
+				<particle
+					maxangle="360"
+					minanglespeed="-100"
+					maxanglespeed="100"
+					size="70"
+					startcolor=".6 .5 .3"
+					endcolor=".5 .3 .1"
+					startalpha=".5"
+					midalpha="1"
+					endalpha="0"
+				/>
+				
+				<particle
+					maxangle="360"
+					minanglespeed="-100"
+					maxanglespeed="100"
+					size="70"
+					startcolor=".6 .5 .3"
+					endcolor=".5 .3 .1"
+					startalpha=".5"
+					midalpha="1"
+					endalpha="0"
+				/>
+			</terrainemitter>
+			
+			<simpleemitter
+				delay="1700"
+				count="5"
+				particlelife="1300"				
+				spawnrate="650"
+				minspeed="100"
+				maxspeed="750"
+				gravity="40"
+				direction="0 0 1"
+				minangle="0"
+				maxangle="1"
+				drag="0.01"
+				material="/shared/effects/materials/pyroclast_03.material"
+				offsetsphere="0 0 10"
+				position="0 0 40"
+			>
+				<particle 
+					depthbias="-100"
+					startcolor=".6 .5 .3"
+					endcolor=".5 .3 .1"					
+					height="200"
+					startwidth="50"
+					endwidth="100"
+					startscale="1"
+					endscale="2"
+					startalpha="1"
+					endalpha="0"
+					lockup="1"
+					lockright="1"
+				/>
+				<particle 
+					depthbias="-100"
+					startcolor=".6 .5 .3"
+					endcolor=".5 .3 .1"					
+					height="200"
+					startwidth="50"
+					endwidth="100"
+					startscale="1"
+					endscale="2"
+					startalpha="1"
+					endalpha="0"
+					lockup="1"
+					pitch="180"
+					lockright="1"
+				/>
+			</simpleemitter>
+			
+			
+			
+				
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+		<!-- <die /> -->
+	</thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->
+

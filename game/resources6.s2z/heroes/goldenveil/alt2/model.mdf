@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model name="rig.max" file="high.model" type="K2" high="high.model" med="med.model" low="low.model">
+
+
+	<anim name="idle" clip="clips/default_1.clip" fps="30" loop="true">
+
+	</anim>
+
+	<anim name="portrait" clip="clips/default_1.clip" loop="true"/>
+
+	<anim name="item_1" clip="clips/item_1.clip" fps="30"/>
+
+	<anim name="ability_1" clip="clips/ability_1.clip" fps="30" blendtime="0">
+
+	</anim>
+
+	<anim name="ability_2" clip="clips/ability_2.clip" fps="30" loop="false" blendtime="0">
+
+	</anim>
+
+	<anim name="ability_2_idle" clip="clips/ability_2_idle.clip" fps="30" loop="true">
+
+	</anim>
+
+	<anim name="ability_2_knock" clip="clips/ability_2_knock.clip" fps="30" loop="false">
+
+	</anim>
+
+    <anim name="ability_3" clip="clips/ability_3.clip" fps="20" loop="false" >
+	</anim>
+
+	<anim name="ability_4" clip="clips/ability_4.clip" fps="30" loop="false">
+
+	</anim>
+
+	<anim name="attack_1" clip="clips/attack_1.clip" fps="30" loop="true" loopbackframe="85" numframes="116">
+		<frameevent frame="10" cmd="PlaySoundLinear /heroes/goldenveil/sounds/foley/who_%.wav 650 1300 1"/>
+	</anim>
+
+	<anim name="attack_2" clip="clips/attack_2.clip" fps="30" loop="true" loopbackframe="85" numframes="116">
+		<frameevent frame="10" cmd="PlaySoundLinear /heroes/goldenveil/sounds/foley/who_%.wav 650 1300 1"/>
+		<frameevent frame="8" cmd="PlaySoundLinear sounds/attack_grunt_%.wav 500 2000 .75"/>
+	</anim>
+
+	<anim name="walk_1" clip="clips/walk_1.clip" fps="37" loop="true" loopbackframe="1">
+		<frameevent frame="1" cmd="StartEffect /shared/effects/waterhack#GetTerrainType()#.effect"/>
+		<frameevent frame="16" cmd="StartEffect /shared/effects/waterhack#GetTerrainType()#.effect"/>
+
+
+		<frameevent frame="1" cmd="StartEffect /shared/effects/footstep_r_#GetTerrainType()#.effect"/>
+		<frameevent frame="16" cmd="StartEffect /shared/effects/footstep_l_#GetTerrainType()#.effect"/>
+	</anim>
+
+	<anim name="bored_1" clip="clips/bored_1.clip" fps="30" loop="false">
+
+	</anim>
+
+	<anim name="taunt_1" clip="clips/taunt_1.clip" fps="40" loop="false"/>
+
+
+	<anim name="death_1" clip="clips/death_1.clip" fps="45" loop="true" loopbackframe="-1">
+		<frameevent frame="1" cmd="PlaySoundLinear sounds/death_grunt.wav 0 1300 1"/>
+	</anim>
+
+	<anim name="knock_1" clip="clips/knock_1.clip" loop="true" loopbackframe="-1"/>
+
+
+</model>

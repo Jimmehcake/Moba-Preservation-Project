@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Mimix_Ability1_Slow"
+
+	icon="icon.tga"
+	passiveeffect="effects/state.effect"
+	
+	movespeedslowpercharge="0.08"
+
+	effecttype="StatusDebuff"
+	allowtransfer="true"
+
+	negativeeffect="slowed"
+	
+	maxcharges="10"
+
+>
+
+	<onframe />
+	
+	<oninflict>
+		<addcharges count="1" />
+	</oninflict>
+	
+	<onrefresh>
+		<addcharges count="1" />
+	</onrefresh>
+	
+	<altavatar key="Hero_Mimix.Alt" modpriority="1"
+		passiveeffect="/heroes/mimix/alt/ability_01/effects/state.effect"
+	/>
+	
+	<altavatar key="Hero_Mimix.Alt2" modpriority="1"
+		passiveeffect="../alt2/ability_01/effects/state.effect"
+	/>
+	
+</state>

@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true" useentityeffectscale="false">
+
+	<definitions>
+
+		<particlesystem name="system0" space="world" scale="1">
+
+
+			<sound
+				linearfalloff="true" 
+				falloffstart="0"
+				falloffend="2200"
+				volume=".5"
+				sample="/items/recipes/sand_scepter/sounds/imp.wav"
+			/>
+
+
+
+			
+			
+			<simpleemitter
+					
+				count="5"
+				particlelife="1300"				
+				spawnrate="650"
+				minspeed="100"
+				maxspeed="750"
+				gravity="40"
+				direction="0 0 1"
+				minangle="0"
+				maxangle="1"
+				drag="0.01"
+				material="/shared/effects/materials/bad_healing_smoke_06.material"
+				offsetsphere="0 0 10"
+				position="0 0 40"
+			>
+				<particle 
+					depthbias="-100"
+					startcolor="1"
+					endcolor="1"					
+					height="200"
+					startwidth="30"
+					endwidth="100"
+					startscale="1"
+					endscale="2"
+					startalpha="1"
+					endalpha="0"
+					lockup="1"
+					lockright="1"
+				/>
+				<particle 
+					depthbias="-100"
+					startcolor="1"
+					endcolor="1"					
+					height="200"
+					startwidth="30"
+					endwidth="100"
+					startscale="1"
+					endscale="2"
+					startalpha="1"
+					endalpha="0"
+					lockup="1"
+					pitch="180"
+					lockright="1"
+				/>
+			</simpleemitter>			
+
+	
+
+			<simpleemitter					
+				count="10"
+				particlelife="2300"				
+				spawnrate="650"
+				minspeed="70"
+				maxspeed="440"
+				gravity="20"
+				direction="0 0 1"
+				minangle="0"
+				maxangle="66"
+				drag="0.01"
+				collide="0"
+				offsetsphere="25 25 10"
+				position="0 0 0"
+				particlespace="world"
+				bone="_bone_centerofchest"
+			>
+				<particle 
+					
+				>
+					<trailemitter	
+						life="1600"
+						startparticlealpha="1"
+						endparticlealpha="0"
+						particlelife="775"				
+						spawnrate="50"
+						inheritvelocity="-.01"
+						drag="0.01"
+						texpostime="700"
+						texposscale="0"
+						texstretchscale=".8"
+						material="/shared/effects/materials/water_splash_02.material"
+						
+						
+					>
+						<particle 
+							depthbias="-100"
+							startcolor="1"
+							endcolor=".5 .5 1"					
+							startscale="5"
+							endscale="15"			
+							turn="1"
+							startalpha="1"
+							endalpha="0"
+							angle="90"
+						/>
+					</trailemitter>					
+				
+				</particle>
+			</simpleemitter>	
+			
+		<billboard	
+			bone="_bone_centerofchest"			
+			life="400"
+			material="/shared/effects/materials/whitedot.material"
+			position="0 0 0"
+			startcolor="0 .5 1"					
+			endcolor="0 0 0"
+		
+			size="230"
+			depthbias="-30"
+		/>			
+			
+			<billboard
+				position="0 0 100"
+				lockup="1"
+				pitch="90"
+				startsize="0"
+				endsize="250"
+				life="300"
+				startcolor="0 .5 1"
+				endcolor="1"	
+				startalpha=".33"
+				midalpha=".33"
+				midalphapos=".75"
+				endalpha="0"
+				material="/shared/effects/materials/outsplash_blend.material"
+			/>
+			
+			<billboard
+				delay="50"
+				position="0 0 100"
+				lockup="1"
+				pitch="90"
+				startsize="0"
+				endsize="250"
+				life="300"
+				startcolor="0 .5 1"
+				endcolor="1"	
+				startalpha=".33"
+				midalpha=".33"
+				midalphapos=".75"
+				endalpha="0"
+				material="/shared/effects/materials/outsplash_blend.material"
+			/>
+			
+			<billboard
+				position="0 0 100"
+				startsize="0"
+				endsize="450"
+				life="300"
+				startcolor=".25 .5 1"
+				endcolor="0"
+				material="/shared/effects/materials/whitedot.material"
+			/>
+			
+			<billboard
+				position="0 0 100"
+				startsize="0"
+				endsize="350"
+				life="250"
+				startalpha="1"
+				endalpha="0"
+				param=".05"
+				material="/shared/effects/materials/refract_swell.material"
+			/>
+			
+		</particlesystem>
+
+	</definitions>
+
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+
+</effect>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Drunkenmaster_Ability3"
+	
+	icon="icon.tga"
+	passiveeffect="effects/state_shield.effect"
+	
+	stunneddurationmultiplier="-0.2,-0.3,-0.4,-0.5"
+	debuffdurationmultiplier="-0.2,-0.3,-0.4,-0.5"
+	healthregen="10,15,20,25"
+	
+	effecttype="StatusBuff"
+	allowtransfer="true"
+>
+	<modifier key="DrunkenMaster_MS" modpriority="20,30,40,50" exclusive="true"
+		movespeed="20,30,40,50"
+	>	
+	</modifier>
+	
+	<altavatar key="Hero_DrunkenMaster.Alt10"
+	    icon="/heroes/drunkenmaster/alt10/ability_03/icon.tga"
+		passiveeffect="../alt10/ability_03/effects/state_shield.effect"
+	/>
+</state>

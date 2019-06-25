@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true" name="">
+	<definitions>
+	
+		<particlesystem name="system0" space="world">
+		
+			
+			<sound
+			    norestart="true"
+				channelid="cat"
+				linearfalloff="true" 
+				falloffstart="0"
+				falloffend="800"
+				minvolume=".3" 
+				maxvolume=".5" 
+				sample="panda_att_%.wav"
+			/>
+			
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0"/>
+		<waitfordeath instance="instance0"/>
+	</thread>
+</effect>
+
+
+
+
+
+
+

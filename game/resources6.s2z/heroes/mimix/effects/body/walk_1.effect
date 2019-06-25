@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="1">
+	<definitions>
+		<particlesystem name="system0" space="world" scale="1">
+
+			<simpleemitter
+				spawnrate="7"
+				position="0 8 0"
+				minangle="0"
+				maxangle="0"
+				direction="0 1 0"
+				particlelife="1500"				
+			>
+				<particle anchor="0" turn="true">
+					<model
+						life="500"
+						model="../../model_0.mdf"
+						anim="walk_1"
+						startcolor="1"
+						midcolor=".1 .6 .8"
+						endcolor=".2 0 .8"
+						startalpha="0"
+						midalpha=".55"
+						endalpha="0"
+						midalphapos=".3"
+						material="/shared/effects/materials/shell_rim_white.material"
+					/>
+					<model
+						life="533"
+						model="../../model_0.mdf"
+						anim="walk_1"
+						startcolor="0"
+						midcolor="0.55 0.1 .9"
+						endcolor="0"
+						midcolorpos=".27"
+						material="/shared/effects/materials/shell2.material"
+						startparam0="0"
+						endparam0="1"
+					/>
+				</particle>
+			</simpleemitter>
+			
+			
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0"/>
+		<waitfordeath instance="instance0"/>
+	</thread>
+</effect>

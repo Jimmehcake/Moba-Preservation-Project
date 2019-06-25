@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Warchief_Ability1_Counter"
+
+	ishidden="true"
+	
+	maxcharges="10"
+>
+	<!-- Counts the number of attacks left on totems -->
+</state>

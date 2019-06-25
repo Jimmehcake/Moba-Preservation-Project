@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect>
+	<definitions>
+		<particlesystem name="system0" space="entity" scale="0.14">
+			<sound
+		        randomloop="true"
+				soundloop="true"
+				fadein="200"
+				fadeout="50"
+				volume=".5"
+				sample="../sounds/loop.wav"
+				linearfalloff="true"
+				falloffstart="800" 
+				falloffend="1300" 
+			/>
+			
+			<sound
+		        randomloop="true"
+				soundloop="true"
+				fadein="200"
+				fadeout="50"
+				volume=".5"
+				sample="../sounds/loop2.wav"
+				linearfalloff="true"
+				falloffstart="800" 
+				falloffend="1300" 
+			/>
+			
+			
+
+			
+			<!-- <groundsprite
+				material="/shared/effects/materials/corona_07_ground.material"
+				size="550"
+				color=".06 .12 .12"
+			/> -->
+		
+			<groundsprite
+				life="500"
+				material="/shared/effects/materials/outsplash_ground.material"
+				size="500"
+				color=".6"
+				startalpha="0.1"
+				midalpha="0.2"
+				endalpha="0"
+			/>
+			
+			<simpleemitter
+				spawnrate="1"
+				particlelife="3250"
+			>
+				<particle
+					anchor="1"
+				>
+					<groundsprite
+						life="3250"
+						material="/shared/effects/materials/outsplash_ground.material"
+						startsize="300"
+						endsize="640"
+						color="0.6"	
+						startalpha=".14"
+						midalphapos="0.170"
+						midalpha="0.25"
+						endalpha="0"
+						minyaw="0"
+						maxyaw="360"
+					/>
+				</particle>
+			</simpleemitter>
+			
+			<simpleemitter
+				count="1"
+				particlelife="1000"
+				material="/shared/effects/materials/twirl_13.material"
+			>
+				<particle
+					maxangle="360"
+					minanglespeed="1000"
+					maxanglespeed="1250"
+					startcolor="0"
+					midcolor=".7"
+					endcolor="0"
+					startsize="600"
+					endsize="900"
+					anchor="1"
+					pitch="90"
+					lockup="1"
+					lockright="1"
+				>
+				</particle>
+			</simpleemitter>
+			
+			<simpleemitter
+				spawnrate="2"
+				particlelife="1000"
+				material="/shared/effects/materials/twirl_13.material"
+			>
+				<particle
+					maxangle="360"
+					minanglespeed="400"
+					maxanglespeed="550"
+					startcolor="0"
+					midcolor=".35"
+					endcolor="0"
+					startsize="600"
+					endsize="900"
+					anchor="1"
+					pitch="90"
+					lockup="1"
+					lockright="1"
+				>
+				</particle>
+			</simpleemitter>
+		
+			<simpleemitter
+				
+				particlelife="2500"				
+				spawnrate="5"
+				speed="20"
+				gravity="0"			
+				offsetsphere="0 0 0"	
+			>
+				<particle anchor="1"> 
+					<controller
+						minscale="1" maxscale="1.5" 
+					>
+						<controller
+							position="0 0 0"
+							life="1000"
+							maxyaw="360"
+							maxpitch="360"
+							maxroll="10"
+							minyawspeed="-1500"
+							maxyawspeed="-2000"
+							minrollspeed="-0"
+							maxrollspeed="0"
+							minpitchspeed="-0"
+							maxpitchspeed="0"
+							startscale="15"
+							endscale="80"
+							
+						>
+							<controller 
+								name="trail"
+								position="6 0 0"
+								scale=".4"
+							>
+								<trailemitter
+									minlife="500"
+									maxlife="700"
+									spawnrate="200"
+									particlelife="500"
+									texpostime="800"
+									texposscale="0.0"
+									texstretchscale="1"
+									startparticlealpha=".8"
+									midparticlealpha=".8"
+									endparticlealpha="0"
+									midparticlecolorpos=".6"
+									material="/shared/effects/materials/good_tower_01_reveal.material"
+								>
+									<particle
+										startcolor="1"
+										midcolor="1"
+										endcolor="1"
+										midcolorpos=".25"
+										startsize="30"
+									
+										endsize="50"
+										startframe="0"
+										endframe="1"
+										midsizepos="0.2"
+										startalpha="0"
+										midalpha="1"
+										endalpha="1"
+								 />
+								</trailemitter>
+								<trailemitter
+									minlife="500"
+									maxlife="800"
+									spawnrate="200"
+									particlelife="500"
+									texpostime="800"
+									texposscale="0.0"
+									texstretchscale="1"
+									startparticlecolor=".4"
+									midparticlecolor=".4"
+									endparticlecolor="0"
+									midparticlecolorpos=".7"
+									material="/shared/effects/materials/star_14.material"
+								>
+									<particle
+										startcolor="1"
+										midcolor="1 .7 .3"
+										endcolor="0"
+										midcolorpos=".25"
+										startsize="60"
+										midsize="40"
+										endsize="30"
+										midsizepos="0.2"
+										startalpha="0"
+										midalpha="1"
+										endalpha="1"
+								 />
+								</trailemitter>
+							</controller>
+							<!-- <controller 
+								name="trail"
+								position="12 0 0"
+								scale=".4"
+							>
+								<trailemitter
+									minlife="500"
+									maxlife="700"
+									spawnrate="200"
+									particlelife="600"
+									texpostime="800"
+									texposscale="0.0"
+									texstretchscale="1"
+									startparticlecolor=".52"
+									midparticlecolor=".52"
+									endparticlecolor="0"
+									midparticlecolorpos=".6"
+									material="/shared/effects/materials/swoosh2.material"
+								>
+									<particle
+										startcolor=".1 .4 .4"
+										midcolor=".3  .4 .5"
+										endcolor=".1 .4 .4"
+										midcolorpos=".25"
+										startsize="20"
+									
+										endsize="30"
+										startframe="0"
+										endframe="1"
+										midsizepos="0.2"
+										startalpha="0"
+										midalpha="1"
+										endalpha="1"
+								 />
+								</trailemitter>
+							</controller> -->
+						</controller>
+					</controller>
+										
+				</particle>
+			</simpleemitter>
+			
+			
+			<simpleemitter
+				spawnrate="10"
+				maxangle="90"
+				minparticlelife="300"
+				maxparticlelife="400"
+				material="/shared/effects/materials/cut_02.material"
+				>
+				<particle 
+					startsize="700"
+					endsize="1100"
+					pitch="90"
+					maxangle="360"
+					minanglespeed="860"
+					maxanglespeed="1000"
+					color=".8 .4 0"
+					lockup="1"
+					depthbias="30"
+					startalpha="0"
+					midalpha=".2"
+					endalpha="0"
+					minscale=".7"
+					maxscale="1"
+					anchor="1"
+				/>
+			</simpleemitter>
+			
+			<model
+				yawspeed="-1000"
+				position="0 0 0"
+				name="emitter0" 
+				anim="idle"
+				model="/shared/effects/models/circle_of_bones/model.mdf"
+				scale="13"
+			>
+				<template name="beams">
+					<beam
+						
+						bone_a="{a}"
+						bone_b="{b}"
+						size="15"
+						color=".2"						
+						material="/shared/effects/materials/beam_04.material"
+					/>
+					<beam
+						
+						bone_a="{a}"
+						bone_b="{b}"
+						size="5"
+						color=".5"
+						midcolorpos=".6"
+						material="/shared/effects/materials/femme_lightning_10.material"
+						minframespeed="3"
+						maxframespeed="5"
+					/>
+					
+					<trailemitter
+						
+						bone="{a}"
+						spawnrate="60"
+						startminparticlelife="50"
+						startmaxparticlelife="80"
+						offsetsphere="1.5"
+						endminparticlelife="1"
+						endmaxparticlelife="1" 
+						texpostime="300"
+						texposscale="0"
+						texstretchscale="1"
+						position="0 0 0"
+						speed="50"
+						material="/shared/effects/materials/arrow_trail.material"
+						gravity="0"
+					>
+						<particle
+							startcolor=".5"
+							midcolor="0 .12 .22"
+							endcolor=".1 .4 .5"
+							startsize="2"
+							midsize="10"
+							endsize="0"
+							midcolorpos=".1"
+							midsizepos=".1"
+						/>
+					</trailemitter>
+					<trailemitter
+						
+						bone="{a}"
+						spawnrate="60"
+						startminparticlelife="50"
+						startmaxparticlelife="80"
+						offsetsphere="1"
+						endminparticlelife="1"
+						endmaxparticlelife="1" 
+						texpostime="300"
+						texposscale="0"
+						texstretchscale="1"
+						position="0 0 0"
+						speed="50"
+						material="/shared/effects/materials/arrow_trail.material"
+						gravity="0"
+					>
+						<particle
+							startcolor=".5"
+							midcolor=".1 .4 .45"
+							endcolor=".1 .4 .45"
+							startsize="6"
+							midsize="3"
+							endsize="0"
+							midcolorpos=".1"
+							midsizepos=".1"
+						/>
+					</trailemitter>
+				</template>	
+				
+				<instance name="beams" a="_bone_fx_01" b="_bone_fx_02" />
+				<instance name="beams" a="_bone_fx_02" b="_bone_fx_03" />
+				<instance name="beams" a="_bone_fx_03" b="_bone_fx_04" />
+				<instance name="beams" a="_bone_fx_04" b="_bone_fx_05" />
+				<instance name="beams" a="_bone_fx_05" b="_bone_fx_06" />
+				<instance name="beams" a="_bone_fx_06" b="_bone_fx_07" />
+				<instance name="beams" a="_bone_fx_07" b="_bone_fx_08" />
+				<instance name="beams" a="_bone_fx_08" b="_bone_fx_09" />
+				<instance name="beams" a="_bone_fx_09" b="_bone_fx_10" />
+				<instance name="beams" a="_bone_fx_10" b="_bone_fx_11" />
+				<instance name="beams" a="_bone_fx_11" b="_bone_fx_12" />
+				<instance name="beams" a="_bone_fx_12" b="_bone_fx_01" />
+				<!-- <instance name="beams" a="_bone_fx_01" b="_bone_fx_07" />
+				<instance name="beams" a="_bone_fx_02" b="_bone_fx_08" />
+				<instance name="beams" a="_bone_fx_03" b="_bone_fx_09" />
+				<instance name="beams" a="_bone_fx_04" b="_bone_fx_10" />
+				<instance name="beams" a="_bone_fx_05" b="_bone_fx_11" />
+				<instance name="beams" a="_bone_fx_06" b="_bone_fx_12" /> -->
+			</model>
+			
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+</effect>

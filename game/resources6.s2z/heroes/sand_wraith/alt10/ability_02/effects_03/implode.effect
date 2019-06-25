@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+
+	<definitions>
+	
+		<modifier
+			alpha="0"
+			life="200"
+			scale="0"
+		/>
+
+		<particlesystem name="system0" space="world" scale="1">
+		<controller >
+			<billboard
+				position="0 0 10"
+				lockup="1"
+				pitch="90"
+				startsize="0"
+				endsize="450"
+				life="300"
+				startcolor=".3 .3 .1"
+				endcolor=".5 .5 .3"	
+				startalpha="1"
+				midalpha="1"
+				endalpha="0"
+				material="/shared/effects/materials/pyroclast_ring.material"
+			/>
+			
+			
+			<simpleemitter
+				count="30"
+				particlelife="600"
+				position="0 0 5"
+				direction="0 0 1"
+				minangle="90"
+				maxangle="90"
+				minspeed="150"
+				maxspeed="300"
+				minparticlecolor=".5"
+				maxparticlecolor="1"
+				material="/shared/effects/materials/pyroclast_03.material"
+			>
+				<particle
+					startcolor="1 .9 .7"
+					endcolor=".8 .7 .5"	
+					size="50"
+					maxangle="360"
+					minscale="1"
+					maxscale="1.5"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				count="100"
+				particlelife="600"
+				position="0 0 5"
+				direction="0 0 1"
+				minangle="90"
+				maxangle="90"
+				minspeed="150"
+				maxspeed="300"
+				minparticlecolor=".5"
+				maxparticlecolor="1"
+				material="/shared/effects/materials/sand_blend.material"
+			>
+				<particle
+					startcolor="1 .9 .5"
+					endcolor=".8 .7 .5"	
+					size="25"
+					maxangle="360"
+					minscale="1"
+					maxscale="1.5"
+				/>
+			</simpleemitter>
+			
+		
+		</controller>
+				
+
+		</particlesystem>
+
+	</definitions>
+
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<spawnmodifier instance="instance1" />
+		<waitfordeath instance="instance0" />
+		<waitfordeath instance="instance1" />
+	</thread>
+
+</effect>

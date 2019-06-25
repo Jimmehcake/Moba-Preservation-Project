@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Geomancer_Ability3"
+	
+	icon="icon.tga"
+
+	stealthtype="hero"
+	fadetime="0"
+	
+	passiveeffect=""
+
+	movespeed="25"
+	
+	effecttype=""
+	modifierkey="geomancer_ability3_Burrowed"
+>
+	<onframe>
+		<!-- Check for nearby enemies for invisibility -->
+		<areaofeffect
+			center="this_owner_entity"
+			radius="400"
+			targetscheme="enemy_objects"
+			targetselection="all"
+			ignoreinvulnerable="true"
+			maxtotalimpacts="1"
+		>
+		</areaofeffect>
+		<compare a="result" b="1" op="ge">
+			<activatemodifierkey name="geomancer_ability3_nostealth" entity="this_entity" />
+		</compare>
+		<else>
+			<deactivatemodifierkey name="geomancer_ability3_nostealth" entity="this_entity" />
+		</else>
+	</onframe>
+	
+	<onexpired>
+		<!-- Cooldown on E -->
+		<resetcooldown entity="this_proxy_entity" />
+		<evaluate a="30000" b="lifetime" op="sub" />
+		<evaluate a="75000" b="result" op="sub" />
+		<startcooldown duration="result" entity="this_proxy_entity" />
+		
+		<deactivatemodifierkey name="geomancer_ability3_disabled" entity="this_proxy_entity" />
+		<applystate name="State_Geomancer_Ability3_DummyTeleport" target="source_entity" />
+		<playeffect effect="effects/merge_audio.effect" target="source_entity" />		
+	</onexpired>
+	
+	<modifier key="geomancer_ability3_nostealth" modpriority="100"
+		stealthtype=""
+	>
+		<onimpact />
+	</modifier>
+	
+	
+</state>

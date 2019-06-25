@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="1">
+	<definitions>
+		<particlesystem name="system0" space="world" scale="0.75">
+			<terrainemitter
+				position="0 0 0"
+				spawnrate="11111"
+				count="2"
+				gravity="0"			
+				offsetsphere="80 80 0"
+				direction="1 0 0"
+				minangle="-180"
+				maxangle="180"
+				speed="0"
+				directionalspace="global"
+				inheritvelocity="0"
+				depthbias="-20"
+			>
+				<particle
+					maxyaw="360"
+					minscale="4.5"
+					maxscale="5.25"
+				>
+					<billboard
+						lockup="true"
+						lockright="true"
+						pitch="-90"
+						life="260"
+						material="/shared/effects/materials/water_overlay.material"	
+						color=".5"
+						startalpha="0"
+						midalpha=".15"
+						endalpha="0"
+						midalphapos=".925"
+					/>
+					<billboard
+						lockup="true"
+						lockright="true"
+						pitch="-90"
+						delay="250"
+						material="/shared/effects/materials/water_overlay.material"	
+						expirelife="600"
+						color=".5"
+						startalpha=".15"
+						endalpha="0"
+					/>
+					<billboard
+						maxroll="360"
+						minlife="1200"
+						maxlife="2000"
+						loop="true"
+						lockup="true"
+						lockright="true"
+						pitch="-90"
+						material="/shared/effects/materials/whitewater_02.material"	
+						expirelife="600"
+						startcolor="0"
+						midcolor=".05 .125 .15"
+						endcolor="0"
+						minstartscale=".65"
+						maxstartscale="1"
+						minendscale="1"
+						maxendscale="1.2"
+						depthbias="-2"
+					/>
+				</particle>
+			</terrainemitter>
+		</particlesystem>
+	</definitions>
+<thread>
+	<spawnparticlesystem instance="instance0" particlesystem="system0" />
+	<waitfordeath instance="instance0" />
+</thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->

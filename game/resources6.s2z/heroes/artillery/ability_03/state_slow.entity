@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Artillery_Ability3_Slow"
+	
+	icon="icon.tga"
+	passiveeffect="effects/state.effect"
+
+	effecttype="StatusDebuff"
+	allowtransfer="true"
+	
+	movespeedslow="0.15"
+>
+
+	<altavatar key="Hero_Artillery.Alt4"
+		passiveeffect="../alt4/ability_03/effects/state.effect"
+		icon="../alt4/ability_03/icon.tga"
+	/>
+	
+	<altavatar key="Hero_Artillery.Alt9"
+		icon="../alt9/ability_03/icon.tga"
+	/>
+	
+	<altavatar key="Hero_Artillery.Alt10"
+		icon="../alt9/ability_03/icon.tga"
+	/>
+	
+	<altavatar key="Hero_Artillery.Alt11"
+		icon="../alt11/ability_03/icon.tga"
+		passiveeffect="/heroes/artillery/alt11/ability_03/effects/state.effect"
+	/>
+</state>

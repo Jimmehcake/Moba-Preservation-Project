@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="" deferred="true" useentityeffectscale="true">
+	<definitions>
+		
+		<particlesystem name="system0" space="world" scale="1">
+	
+			
+			<simpleemitter
+				spawnrate="10"
+				position="0 0 20"
+				offsetsphere="10 10 0"
+				bone="_bone_origin"
+				particlelife="600"
+			>
+				<particle
+				
+				>
+					<billboard
+						life="600"
+						position="0 0 0"
+						material="/shared/effects/materials/blob.material"
+						startalpha="0"
+						midalpha="1"
+						endalpha="0"
+						midalphapos=".3"
+						
+						color="2"
+						
+						minscale=".5"
+						maxscale=".8"
+						
+						startsize="10"
+						midsize="100"
+						endsize="120"
+						midsizepos=".3"
+						
+						depthbias="-30"
+						lockup="true"
+						lockright="true"
+						pitch="90"
+					/>
+					
+					<billboard
+						life="600"
+						position="0 0 0"
+						material="/shared/effects/materials/whitedot.material"
+						startalpha="1"
+						midalpha=".3"
+						endalpha="0"
+						midalphapos=".3"
+						
+						startcolor=".2"
+						midcolor="0 .5 1"
+						endcolor="0"
+						midcolorpos=".3"
+						
+						minscale=".8"
+						maxscale="1.4"
+						
+						startsize="10"
+						midsize="100"
+						endsize="120"
+						midsizepos=".3"
+						
+						depthbias="-30"
+						lockup="true"
+						lockright="true"
+						pitch="90"
+					/>
+					
+					<billboard
+						life="600"
+						position="0 0 0"
+						material="/shared/effects/materials/lightning_01.material"
+						startalpha="0"
+						midalpha="0"
+						endalpha="0"
+						midalphapos=".3"
+						
+						startcolor="0"
+						midcolor=".1 .3 .4"
+						endcolor="0"
+						midcolorpos=".3"
+						
+						minscale=".8"
+						maxscale="1.4"
+						
+						startsize="10"
+						midsize="100"
+						endsize="120"
+						midsizepos=".3"
+						
+						depthbias="-30"
+						lockup="true"
+						lockright="true"
+						pitch="90"
+						
+						minroll="-180"
+						maxroll="180"
+					/>
+					
+					<billboard
+						life="600"
+						position="0 0 0"
+						material="/shared/effects/materials/refract_ring2_depth.material"
+						startalpha=".2"
+						midalpha=".3"
+						endalpha="0"
+						midalphapos=".8"
+						
+						color="2"
+						
+						minscale="1"
+						maxscale="1.3"
+						
+						startsize="10"
+						midsize="100"
+						endsize="120"
+						midsizepos=".3"
+						
+						param=".1"
+						depthbias="0"
+						lockup="true"
+						lockright="true"
+						pitch="90"
+					/>
+				</particle>
+			</simpleemitter>
+
+			<billboard
+				life="1000"
+				position="0 0 0"
+				material="/shared/effects/materials/whitedot.material"
+				startalpha="1"
+				midalpha=".3"
+				endalpha="0"
+				midalphapos=".8"
+				
+				startcolor="0 .1 .3"
+				midcolor="0 .3 .5"
+				endcolor="0 .1 .3"
+				midcolorpos=".5"
+				
+				loop="true"
+				
+				size="180"
+				
+				depthbias="-30"
+				lockup="true"
+				lockright="true"
+				pitch="90"
+			/>
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+		<!-- <die /> -->
+	</thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->
+

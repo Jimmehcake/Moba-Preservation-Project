@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+	<definitions>
+		<particlesystem name="system0" space="world" scale=".7">
+			<billboard
+				bone="_bone_centerofchest"
+				material="/shared/effects/materials/refract_ring.material"
+				life="300"
+				startsize="0"
+				midsize="50"
+				endsize="100"
+				lockup="true"
+				lockright="true"
+				pitch="90"
+				startparam="0"
+				midparam="0.02"
+				endparam="0"
+			/>
+			
+			<simpleemitter
+				count="6"
+				minparticlelife="500"
+				maxparticlelife="800"
+				material="/shared/effects/materials/circuits_reveal.material"
+				position="0 0 0"
+				offsetsphere="50 50 0"
+			>
+				<particle
+					size="100"
+					startcolor="1 1 .5"
+					midcolor="1 .7 0"
+					endcolor="0"
+					startframe="1"
+					minendframe=".1"
+					maxendframe=".5"
+					lockup="1"
+					pitch="90"
+					maxangle="360"
+					minscale=".8"
+					maxscale="1"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				count="30"
+				minparticlelife="200"
+				maxparticlelife="400"
+				drag="0.05"
+				direction="0 0 1"
+				minspeed="500"
+				maxspeed="800"
+				offsetsphere="30 30 50"
+				position="0 0 30"
+				gravity="35"
+				material="/shared/effects/materials/spark_12.material"
+			>
+				<particle
+					maxangle="360"
+					minanglespeed="-100"
+					maxanglespeed="100"
+					startsize="50"
+					endsize="20"
+					startframe=".4"
+					endframe="1"
+					startcolor="1 .8 .5"
+					midcolor="1 .5 0"
+					endcolor="0 0 0"
+					midcolorpos=".75"
+					minscale=".3"
+					maxscale=".7"
+				/>
+			</simpleemitter>
+
+		</particlesystem>
+		
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Calamity_Ability2_Self"
+	
+	icon="icon.tga"
+	ishidden="true"
+
+	modifierkey="Calamity_orbsinuse"
+>
+	<oninflict>
+		<foreachproxy entity="this_proxy_entity">
+			<setprojectileorbitacceleration entity="target_entity" value="1200" />
+		</foreachproxy>
+	</oninflict>
+	
+	<!-- 1 charge is OUT, 2 charges is IN -->
+	<onframe>
+		<setvar0 a="source_accumulator" source="this_proxy_entity" />
+		<setaccumulator entity="this_entity" value="var0" />
+
+		<compare a="charges" b="1" op="eq">
+			<setaccumulator value="accumulator" valueb="7.5" valueop="add" />
+			<compare a="accumulator" b="550" op="gt">
+				<setaccumulator entity="this_entity" value="550" />
+			</compare>
+			<foreachproxy entity="this_proxy_entity">
+				<setprojectileorbitradius entity="target_entity" value="accumulator" />
+			</foreachproxy>
+			<setaccumulator entity="this_proxy_entity" value="accumulator" />
+		</compare>
+
+		<compare a="charges" b="2" op="eq">
+			<setaccumulator value="accumulator" valueb="7.5" valueop="sub" />
+			<compare a="accumulator" b="250" op="lt">
+				<setaccumulator entity="this_entity" value="250" />
+			</compare>
+			<foreachproxy entity="this_proxy_entity">
+				<setprojectileorbitradius entity="target_entity" value="accumulator" />
+			</foreachproxy>
+			<setaccumulator entity="this_proxy_entity" value="accumulator" />
+		</compare>
+	</onframe>
+	
+	<onexpired>
+		<foreachproxy entity="this_proxy_entity">
+			<setprojectileorbitacceleration entity="target_entity" value="-800" />
+		</foreachproxy>
+	</onexpired>
+</state>

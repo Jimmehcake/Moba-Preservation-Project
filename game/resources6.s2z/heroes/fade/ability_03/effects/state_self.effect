@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="1" useentityeffectscale="1">
+
+	<definitions>
+
+	
+		<modifier
+			name="modifier0"
+			startcolor=".5"
+			endcolor="1 1 1"
+			midcolorpos=".5"
+			expirelife="2000"
+			startalpha="1"
+			endalpha="0"
+		/>
+
+		<particlesystem name="system0" space="world" scale=".5">
+
+			<template name="sparks" >
+				<twopointemitter
+					bone_a="{boneA}"
+					bone_b="{boneB}"
+					spawnrate="200"
+					particlelife="300"
+					offsetsphere="2"
+					material="/shared/effects/materials/femme_lightning_01.material"
+				>
+					<particle
+						startcolor="0.0 0.0 0.0"
+						midcolor=".25 .125 .5"
+						endcolor="0 "
+						midcolorpos="0.5"
+						startalpha="1.0"
+						endalpha="1.0"
+						maxangle="360"
+						minanglespeed="-45"
+						maxanglespeed="45"
+						minendsize="20"
+						startsize="20"
+						maxendsize="60"
+						flare="true"
+						anchor="1"
+					/>
+					
+					<particle
+						startcolor="0 0 0"
+						midcolor=".325 .2 .5"
+						endcolor="0 "
+						midcolorpos="0.5"
+						startalpha="1.0"
+						endalpha="1.0"
+						maxangle="360"
+						minanglespeed="-45"
+						maxanglespeed="45"
+						minendsize="20"
+						startsize="20"
+						maxendsize="60"
+						flare="true"
+						anchor="1"
+					/>
+				</twopointemitter>
+			</template>
+
+			<instance name="sparks" boneA="_bone_weapon3" boneB="_bone_fx_01"/>
+			<instance name="sparks" boneA="_bone_weapon2" boneB="_bone_weapon3"/>
+			<instance name="sparks" boneA="_bone_weapon1" boneB="_bone_weapon2"/>
+
+		
+			<template name="spark" >
+
+				<twopointemitter
+					timenudge="2000"
+					bone_a="{a}"
+					bone_b="{b}"
+					spawnrate="25"
+					particlelife="520"
+					expirelife="100"
+					material="/shared/effects/materials/smash_add.material"
+					depthbias="{depth}"
+					stickiness="1"					
+				>
+					<particle
+						minangle="0"
+						maxangle="110"
+						minanglespeed="-146"
+						maxanglespeed="146"
+						startcolor="0 0 0"	
+						midcolor=".4 .25 .65"	
+						endcolor="0 0 0"						
+						minsize="{minsize}"
+						maxsize="{maxsize}"
+						stickiness="1"
+						scale="1"
+					/>
+					
+					<particle
+						minangle="0"
+						maxangle="110"
+						minanglespeed="-146"
+						maxanglespeed="146"
+						startcolor="0 0 0"	
+						midcolor=".3 .2 .35"	
+						endcolor="0 0 0"						
+						minsize="{minsize}"
+						maxsize="{maxsize}"
+						stickiness="1"
+						scale="1"
+					/>
+				</twopointemitter>
+			</template>	
+<!--
+			<instance name="spark"  size="75" a="Bip01 L Hand" b="Bip01 L Forearm"/>
+			<instance name="spark"  size="75" a="Bip01 R Hand" b="Bip01 R Forearm"/>
+			
+			<instance name="spark" size="75"  a="Bip01 L Thigh" b="Bip01 L Calf"/>
+			<instance name="spark"  size="75"  a="Bip01 R Thigh" b="Bip01 R Calf"/>
+			
+			<instance name="spark"  size="75" a="Bip01 L Foot" b="Bip01 L Calf"/>
+			<instance name="spark"  size="75" a="Bip01 R Foot" b="Bip01 R Calf"/>	
+			
+			<instance name="spark" size="75"  a="Bip01 Neck" b="_bone_head"/>					
+			
+			<instance name="spark" size="50"  a="_bone_lefthand" b="_bone_weapon3"/>
+			<instance name="spark"  size="50" a="_bone_lefthand" b="_bone_weapon3"/>
+			<instance name="spark" size="55"  a="_bone_lefthand" b="_bone_weapon3"/>
+			<instance name="spark"  size="50"  a="_bone_lefthand" b="_bone_weapon3"/>
+
+			<instance name="spark" minsize="30"  maxsize="36" depth="5" a="_bone_weapon1" b="_bone_weapon2"/>
+			<instance name="spark" minsize="30"  maxsize="36" depth="8" a="_bone_weapon2" b="_bone_weapon3"/>
+			<instance name="spark" minsize="34"  maxsize="38" depth="5" a="_bone_weapon2" b="_bone_weapon3"/>
+
+			<instance name="spark" minsize="34"  maxsize="38" depth="5" a="_bone_fx_07" b="_bone_weapon3"/>
+			<instance name="spark" minsize="30"  maxsize="33" depth="8h" a="_bone_fx_07" b="_bone_fx_01"/>
+			<instance name="spark" minsize="26"  maxsize="32" depth="5" a="_bone_fx_07" b="_bone_fx_01"/>
+-->
+			
+<!--
+			<billboard
+				delay="550"
+				bone="_bone_fx_07"
+				life="200"
+				startcolor="1 .5 1"
+				midcolorpos=".75"
+				endcolor="0"
+				startsize="50"
+				endsize="300"
+				rollspeed="-1250"
+				depthbias="-50"
+				material="/shared/effects/materials/blink.material"
+			/>
+-->
+			<template name="sparks" >
+				<twopointemitter
+					bone_a="{boneA}"
+					bone_b="{boneB}"
+					spawnrate="25"
+					particlelife="300"
+					offsetsphere="2"
+					material="/shared/effects/materials/femme_lightning_01.material"
+				>
+					<particle
+						startcolor="0.0 0.0 0.0"
+						midcolor=".25 .25 1"
+						endcolor="0 "
+						midcolorpos="0.5"
+						startalpha="1.0"
+						endalpha="1.0"
+						maxangle="360"
+						minanglespeed="-45"
+						maxanglespeed="45"
+						minendsize="30"
+						startsize="30"
+						maxendsize="70"
+						flare="true"
+						anchor="1"
+					/>
+					
+					<particle
+						startcolor="0 0 0"
+						midcolor=".6 .6 1"
+						endcolor="0 "
+						midcolorpos="0.5"
+						startalpha="1.0"
+						endalpha="1.0"
+						maxangle="360"
+						minanglespeed="-45"
+						maxanglespeed="45"
+						minendsize="30"
+						startsize="30"
+						maxendsize="65"
+						flare="true"
+						anchor="1"
+					/>
+				</twopointemitter>
+			</template>
+			
+			<instance name="sparks"  size="75" boneA="Bip01 L Hand" boneB="Bip01 L Forearm"/>
+			<instance name="sparks"  size="75" boneA="Bip01 R Hand" boneB="Bip01 R Forearm"/>
+			<instance name="sparks" size="75"  boneA="Bip01 L Thigh" boneB="Bip01 L Calf"/>
+			<instance name="sparks"  size="75"  boneA="Bip01 R Thigh" boneB="Bip01 R Calf"/>
+			<instance name="sparks"  size="75" boneA="Bip01 L Foot" boneB="Bip01 L Calf"/>
+			<instance name="sparks"  size="75" boneA="Bip01 R Foot" boneB="Bip01 R Calf"/>
+			<instance name="sparks" size="75"  boneA="Bip01 Neck" boneB="_bone_head"/>
+
+		
+			<template name="spark" >
+
+				<twopointemitter
+					timenudge="2000"
+					bone_a="{a}"
+					bone_b="{b}"
+					spawnrate="25"
+					particlelife="520"
+					expirelife="100"
+					material="/shared/effects/materials/smash_add.material"
+					depthbias="50"
+					stickiness="1"
+				>
+					<particle
+						minangle="0"
+						maxangle="110"
+						minanglespeed="-146"
+						maxanglespeed="146"
+						startcolor="0 0 0"
+						midcolor=".1 .35 .65"
+						endcolor="0 0 0"
+						minsize="{minsize}"
+						maxsize="{maxsize}"
+						stickiness="1"
+						scale="1"
+					/>
+					
+					<particle
+						minangle="0"
+						maxangle="110"
+						minanglespeed="-146"
+						maxanglespeed="146"
+						startcolor="0 0 0"
+						midcolor=".25 .25 .25"
+						endcolor="0 0 0"
+						minsize="{minsize}"
+						maxsize="{maxsize}"
+						stickiness="1"
+						scale="1"
+					/>
+				</twopointemitter>
+			</template>	
+
+			<instance name="spark"  minsize="35" maxsize="40" a="Bip01 L Hand" b="Bip01 L Forearm"/>
+			<instance name="spark"  minsize="35" maxsize="40" a="Bip01 R Hand" b="Bip01 R Forearm"/>
+			<instance name="spark"  minsize="50" maxsize="65" a="Bip01 L Thigh" b="Bip01 L Calf"/>
+			<instance name="spark"  minsize="50" maxsize="65" a="Bip01 R Thigh" b="Bip01 R Calf"/>
+			<instance name="spark"  minsize="50" maxsize="65" a="Bip01 L Foot" b="Bip01 L Calf"/>
+			<instance name="spark"  minsize="50" maxsize="65" a="Bip01 R Foot" b="Bip01 R Calf"/>	
+			<instance name="spark"  minsize="40" maxsize="50" a="Bip01 Neck" b="_bone_head"/>
+<!--
+			<billboard
+				delay="550"
+				bone="_bone_fx_07"
+				life="150"
+				startcolor=".25"
+				endcolor="0"
+				size="220"
+				depthbias="-50"
+				material="/shared/effects/materials/whitedot.material"
+			/>
+-->
+			
+			<template name="trail">	
+				<twopointtrailemitter
+					bone_a="{bone_a}"
+					bone_b="{bone_b}"
+					spawnrate="44"
+					particlelife="500"
+					texpostime="500"
+					texposscale="0.0"
+					texstretchscale="1.0"
+					material="/shared/effects/materials/swoosh_add.material"
+					subframepos="true"
+				>
+					<particle
+						startcolor="0 0 0"
+						midcolor=".075 0 .15"
+						endcolor="0 0 0" 
+					/>
+				</twopointtrailemitter>
+			</template>
+			
+			<instance name="trail" bone_a="Bip01 L Clavicle" bone_b="Bip01 L Hand"/>
+			<instance name="trail" bone_a="Bip01 R Clavicle" bone_b="Bip01 R Hand"/>
+			<instance name="trail" bone_a="Bip01 R Foot" bone_b="Bip01 R Thigh"/>
+			<instance name="trail" bone_a="Bip01 L Foot" bone_b="Bip01 L Thigh"/>
+			<instance name="trail" bone_a="Bip01 Pelvis" bone_b="Bip01 Head"/>
+			<instance name="trail" bone_a="_bone_weapon2" bone_b="_bone_weapon3"/>
+
+		</particlesystem>
+
+	</definitions>
+
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<spawnmodifier instance="instance1" modifier="modifier0"/>
+		<spawnmodifier instance="instance1" modifier="modifier1"/>
+		<waitfordeath instance="instance0" />
+	</thread>
+
+</effect>

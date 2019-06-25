@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ability
+	name="Ability_Gadget_Goldenveil4"
+
+	icon="/heroes/engineer/ability_01/icon.tga"
+	
+	casttime="0"
+	castactiontime="0"
+
+	actiontype="target_self"
+	targetradius="200"
+	
+	nostun="true"
+	nosilence="true"
+	
+	movespeedpercharge="3.5"
+	maxcharges="100"
+>
+	<onspawn>
+		<setaccumulator value="0" />
+	</onspawn>
+	
+	<onimpact>
+		<setaccumulator value="1" entity="source_entity" />
+		<kill target="source_entity" source="" />
+	</onimpact>
+	
+	<onframe>
+		<setvar0 a="movement" b="frametime" op="mult" /> <!-- This is the # of units travelled in 1 frame -->
+		<setvar0 a="result" b="1" op="mult" /> <!-- Multiplier -->
+		
+		<changeaccumulator b="var0" op="add" />
+		<compare a="accumulator" b="1" op="ge">
+			<changeaccumulator b="1" op="sub" />
+			<addcharges count="1" entity="this_entity" />
+		</compare>		
+	</onframe>
+</ability>

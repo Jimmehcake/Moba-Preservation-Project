@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model name="rig.max" file="high.model" type="K2" high="high.model" med="med.model" low="low.model" >
+	
+	<!-- activated W then play MetalWardenShred Animations -->
+	
+	<anim name="idle" clip="clips_nohat/default_1.clip" fps="30" loop="true" blendtime="200" />
+
+<anim name="attack_1" clip="clips_nohat/attack_1.clip" fps="27" loop="false" blendtime="200">
+		<startevent cmd="StopEffect 1"/>
+		<startevent cmd="StopEffect 4"/>
+		<startevent cmd="StartEffect sounds/foley/panda_attack.effect"/>
+		<frameevent frame="5" cmd="PlaySoundLinear /heroes/chi/sounds/foley/who_%.wav 650 1300 .5"/>
+	</anim>
+	
+	<anim name="attack_2" clip="clips_nohat/attack_2.clip" fps="27" loop="false" blendtime="200">
+		<startevent cmd="StopEffect 1"/>
+		<startevent cmd="StopEffect 4"/>
+		<frameevent frame="5" cmd="PlaySoundLinear /heroes/chi/sounds/foley/who_%.wav 650 1300 .5"/>
+		<frameevent frame="7" cmd="PlaySoundLinear sounds/attack_grunt_%.wav 650 1300 1"/>
+	</anim>
+	
+	<anim name="walk_1" clip="clips_nohat/walk_1.clip" fps="34" loop="true" loopbackframe="1">
+		<startevent cmd="StartEffect sounds/foley/move.effect 3"/>
+		<endevent cmd="StopEffect 3" />
+	</anim>
+	
+	<anim name="death_1" clip="clips_nohat/death_1.clip" fps="40" loop="true" loopbackframe="-1">
+		<startevent cmd="StopEffect 1"/>
+		<startevent cmd="StopEffect 4"/>
+		<frameevent frame="1" cmd="StartEffect effects/death.effect"/>
+		<frameevent frame="1" cmd="PlaySoundLinear sounds/death_grunt.wav 400 2200 .8"/>
+		<frameevent frame="1" cmd="PlaySoundLinear sounds/foley/panda_death.wav 0 1300 1"/>
+		<frameevent frame="8" cmd="StartEffect /shared/effects/waterhackbody#GetTerrainType()#.effect"/>
+		<frameevent frame="8" cmd="PlaySoundLinear /shared/sounds/foley/bodyfall_light_%.wav 128 1300 .85"/>
+	</anim>
+
+	<anim name="item_1" clip="clips_nohat/item_1.clip" fps="30" loop="false">
+	</anim>
+	
+	<anim name="ability_1" clip="clips_nohat/ability_1.clip" fps="30" loop="false">
+	</anim>
+	
+	
+	<anim name="ability_2" clip="clips/ability_2.clip" fps="30" loop="false">
+	</anim>
+	
+	<anim name="ability_2_end" clip="clips_nohat/item_1.clip" fps="50" loop="false" />
+	
+	
+	<anim name="knock_1" clip="clips_nohat/knock_1.clip" loop="true" loopbackframe="-1"/>
+	
+	<anim name="ability_4" clip="clips_nohat/ability_4.clip" fps="30" loop="false"/>
+	
+	<anim name="bored_1" clip="clips_nohat/bored_1.clip" fps="30" loop="false"/>
+	
+	<anim name="taunt_1" clip="clips_nohat/taunt_1.clip" fps="30" loop="false"/>
+	
+</model>

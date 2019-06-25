@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect entityeffectscale="true" deferred="true">
+
+	<definitions>
+	
+		<particlesystem name="system0" space="world" scale="1">
+
+			<sound
+				linearfalloff="true" 
+				falloffstart="800"
+				falloffend="1300"
+				volume=".7"
+				sample="/heroes/sapphire/ability_02/sounds/exp.wav"
+			/>
+			
+			<sound
+				linearfalloff="true" 
+				falloffstart="800"
+				falloffend="1300"
+				volume=".7"
+				sample="../../sounds/ab2_death.wav"
+			/>
+			
+			<billboard
+				life="250"
+				startalpha="1"
+				midalpha="1"
+				endalpha="0"
+				midalphapos=".75"
+				startparam=".25"
+				endparam="0"
+				startsize="0"
+				endsize="1000"
+				depthbias="-100"
+				position="0 0 20"
+				material="/shared/effects/materials/refract_ring.material"
+				lockup="true"
+				lockright="true"
+				pitch="90"
+			/>
+
+			<billboard
+				material="/shared/effects/materials/bulb_add.material"				
+				startcolor=".15"				
+				endcolor="0 0 0"
+				life="250"	
+				position="0 0 10"
+				startsize="200"
+				endsize="600"
+				depthbias="-150"			
+			/>
+			
+			<billboard
+				delay="100"
+				material="/shared/effects/materials/bulb_add.material"				
+				startcolor=".15"					
+				endcolor="0 0 0"
+				life="250"	
+				position="0 0 10"
+				startsize="200"
+				endsize="600"
+				depthbias="-150"			
+			/>
+			
+			<billboard
+				delay="200"
+				material="/shared/effects/materials/bulb_add.material"				
+				startcolor=".03"				
+				endcolor="0 0 0"
+				life="250"	
+				position="0 0 10"
+				startsize="200"
+				endsize="600"
+				depthbias="-150"			
+			/>
+			
+			
+			
+			<simpleemitter
+				count="25"
+				minparticlelife="500"
+				maxparticlelife="700"
+				drag=".01"
+				offsetphere="0"
+				gravity="50"
+				minspeed="750"
+				maxspeed="1200"								
+				position="0 0 0"
+				depthbias="-30"
+				maxangle="90"
+				material="/shared/effects/materials/bubble_add.material"
+			>
+				<particle
+					minangle="0"
+					maxangle="360"
+					minanglespeed="-70"
+					maxanglespeed="70"
+					size="20"
+					color=".3 1 .5"	
+					midcolorpos=".4"					
+					startalpha="0"
+					midalpha="2"
+					endalpha="0"
+					midalphapos=".75"
+					minscale=".3"
+					maxscale="1"
+				/>
+			</simpleemitter>
+			<simpleemitter
+				minspeed="200"
+				maxspeed="400"
+				life="300"				
+				count="10"
+				position="0 0 50"
+				minparticlelife="700"			
+				maxparticlelife="900"				
+				material="/shared/effects/materials/blood_white.material"
+				offsetsphere="95"
+				depthbias="-20"
+				gravity="25"
+				drag=".02"
+			>
+				<particle 
+					minangle="0"
+					maxangle="160"
+					minanglespeed="-10"
+					maxanglespeed="10"
+					startsize="20"
+					endsize="160"
+					color=".2 .6 .3"
+					startalpha="1"
+					midalpha="1"
+					endalpha="0"
+					minscale=".8"
+					maxscale="1.5"
+				/>
+				<particle 
+					minangle="0"
+					maxangle="160"
+					minanglespeed="-10"
+					maxanglespeed="10"
+					startsize="20"
+					endsize="160"
+					color="0 .8 .2"
+					startalpha="1"
+					midalpha="1"
+					endalpha="0"
+					minscale=".8"
+					maxscale="1.5"
+				/>
+			</simpleemitter>
+			<simpleemitter
+				minspeed="200"
+				maxspeed="400"
+				life="300"				
+				count="15"
+				position="0 0 50"
+				minparticlelife="700"			
+				maxparticlelife="900"				
+				material="/shared/effects/materials/whitewater_02.material"
+				offsetsphere="95"
+				depthbias="-20"
+				gravity="25"
+				drag=".02"
+			>
+				<particle
+					minanglespeed="-50"
+					maxanglespeed="50"
+					minangle="-60"
+					maxangle="60"
+					startcolor="0 0 0"
+					midcolor=".3"
+					endcolor="0 0 0"
+					startsize="40"
+					endsize="90"
+					startalpha="0"
+					midalpha="1"
+					endalpha="0"
+					minscale=".8"
+					maxscale="1.2"
+				/>
+				
+				<particle
+					minanglespeed="-50"
+					maxanglespeed="50"
+					minangle="-60"
+					maxangle="60"
+					startcolor="0 0 0"
+					midcolor="0 .5 .2"
+					endcolor="0 0 0"
+					startsize="40"
+					endsize="90"
+					startalpha="0"
+					midalpha="1"
+					endalpha="0"
+					minscale=".8"
+					maxscale="1.2"
+				/>
+			</simpleemitter>
+
+			<billboard
+				life="200"
+				position="0 0 50"			
+				startcolor=".1 .8 .3"
+				endcolor="0"
+				size="350"
+				depthbias="-100"
+				material="/shared/effects/materials/whitedot.material"
+			/>
+
+			<simpleemitter	
+				life="1200"				
+				count="20"			
+				position="0 0 50"
+				minparticlelife="800"			
+				maxparticlelife="1250"	
+				depthbias="-10"			
+				material="/shared/effects/materials/refract_wave.material"			
+				offsetsphere="50"
+				minspeed="0"
+				maxspeed="520"
+				minangle="0"
+				maxangle="12"
+				direction="0 0 1"
+				gravity="8"
+				drag=".005"
+			>
+				<particle
+					turn="true"
+				>
+					<billboard
+						startparam=".5"
+						endparam="0"
+						startalpha="0"
+						midalpha="1"
+						endalpha="0"
+						material="/shared/effects/materials/refract_outsplash.material"
+						size="100"
+						life="700"
+						pitch="90"
+						roll="0"
+						lockup="true"
+						lockright="true"
+					/>
+				</particle>
+			</simpleemitter>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+
+		</particlesystem>
+
+	</definitions>
+
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<spawnmodifier instance="instance1" modifier="modifier1"/> 
+		<waitfordeath instance="instance0" />
+		<waitfordeath instance="instance1" />
+	</thread>
+
+</effect>

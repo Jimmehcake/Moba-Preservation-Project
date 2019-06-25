@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model name="artillery_r_bullet2www2.max" file="model.model" type="K2" >
+<anim name="idle" clip="model.clip" fps="30" loop="1" loopbackframe="-1" />
+</model>

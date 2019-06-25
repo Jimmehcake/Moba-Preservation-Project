@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true" useentityeffectscale="1">
+
+	<definitions>
+
+		<particlesystem name="system0" space="world" scale="1">
+
+
+			<sound
+				linearfalloff="true" 
+				falloffstart="2500"
+				falloffend="2500"
+				volume=".75"
+				sample="/heroes/sand_wraith/ability_04/sounds/cast.wav"
+			/>
+
+			<sound
+				life="5000"
+			    norestart="true"
+				channel="5762"
+			    forcestereo="true"
+			    sound2d="true"
+				linearfalloff="true" 
+				falloffstart="2500"
+				falloffend="2500"
+				volume="1"
+				sample="/heroes/sand_wraith/alt4/sounds/vox_1.wav"
+			/>
+
+			<simpleemitter
+				count="26"
+				particlelife="1300"				
+				spawnrate="650"
+				minspeed="100"
+				maxspeed="750"
+				gravity="10"
+				direction="0 0 1"
+				minangle="0"
+				maxangle="25"
+				drag="0.01"
+				material="/shared/effects/materials/whitewater_02_overlay.material"
+				offsetsphere="25 25 10"
+				position="0 0 40"
+			>
+				<particle 
+					minangle="0"
+					maxangle="360"
+					minanglespeed="-60"
+					maxanglespeed="60"
+					startsize="40"
+					endsize="120"
+					startcolor=".75 .25 .75"
+					endcolor="0"
+					startstickiness="0"
+					endstickiness=".4"
+					startalpha="1"
+					endalpha="0"
+				/>
+			</simpleemitter>
+
+			
+			<simpleemitter
+				count="2"
+				particlelife="1300"				
+				spawnrate="650"
+				minspeed="100"
+				maxspeed="750"
+				gravity="20"
+				direction="0 0 1"
+				minangle="0"
+				maxangle="1"
+				drag="0.01"
+				material="/shared/effects/materials/whitewater_02_overlay.material"
+				offsetsphere="25 25 10"
+				position="0 0 40"
+			>
+				<particle 
+					depthbias="-100"
+					startcolor=".8 .5 .8"
+					endcolor="0"					
+					height="500"
+					startwidth="50"
+					endwidth="200"
+					startscale="1"
+					endscale="2"
+					startalpha="1"
+					endalpha="0"
+					lockup="1"
+					lockright="1"
+				/>
+			</simpleemitter>			
+
+			
+			<simpleemitter
+				life="400"
+				position="0 0 30"
+				spawnrate="10"
+				bone="_bone_centerofchest"
+				particlelife="800"
+				gravity="-1"
+				material="/shared/effects/materials/whitewater_02_overlay.material"
+				offsetsphere="32 32 0"
+				direction="1 0 0"
+				minangle="-180"
+				maxangle="180"
+				speed="0"
+				directionalspace="global"
+				inheritvelocity=".3"
+				depthbias="-20"
+			>
+				<particle
+					minangle="0"
+					maxangle="360"
+					anglespeed="20"
+					startsize="20"
+					midsize="100"
+					endsize="110"
+					lockup="true"
+					lockright="true"
+					pitch="90"
+					startcolor=".8 .5 .8"
+					endcolor="0"
+					startalpha="1"
+					endalpha="0"
+				/>
+			</simpleemitter >
+						
+			
+		</particlesystem>
+
+	</definitions>
+
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+
+</effect>

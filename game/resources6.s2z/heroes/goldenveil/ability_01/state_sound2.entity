@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Goldenveil_Sound2"
+	
+	ishidden="true"
+
+	passiveeffect="effects/sound_impact.effect"
+	stack="false"
+	effecttype=""
+	allowtransfer="false"
+	
+>
+<onframe/>
+	
+	<altavatar key="Hero_Goldenveil.Alt3"
+		passiveeffect="../alt3/ability_01/effects/sound_impact.effect"
+ 	/>
+	
+	<altavatar key="Hero_Goldenveil.Alt4"
+		passiveeffect="../alt3/ability_01/effects/sound_impact.effect"
+ 	/>
+</state>

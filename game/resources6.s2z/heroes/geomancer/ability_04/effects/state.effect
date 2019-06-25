@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="" deferred="true" useentityeffectscale="true">
+
+	<definitions>
+
+	<particlesystem name="system0" space="world" scale="1.0">
+	
+		
+		<model
+			expirelife="250"
+			parentmodel="true"
+			parentskeleton="true"
+			startcolor=".1 0 .5"
+			endcolor="0 0 0"
+			material="/shared/effects/materials/shell.material"
+			scale="1"
+
+		/>
+
+		<model
+			bone="_bone_lefthand"
+			position="0 0 0"
+			model="amethyst_state/model.mdf"
+			material="material_generic.material"
+			anim="idle"
+			scale=".75"
+			midscalepos=".3"
+			expirelife="250"
+			startalpha="1"	
+			midalpha="1"				
+			endalpha="1"
+			minyaw="0"
+			maxyaw="360"
+		>
+			<model
+				bone="_bone_lefthand"
+				position="0 0 0"
+				model="amethyst_state/model.mdf"
+				anim="idle"
+				expirelife="250"
+				startalpha="1"	
+				midalpha="1"				
+				endalpha="1"
+			/>
+		</model>
+		
+		<model
+			bone="_bone_righthand"
+			position="0 0 0"
+			model="amethyst_state/model.mdf"
+			material="material_generic.material"
+			anim="idle"
+			scale=".75"
+			midscalepos=".3"
+			expirelife="250"
+			startalpha="1"	
+			midalpha="1"				
+			endalpha="1"
+			minyaw="0"
+			maxyaw="360"
+		>
+			<model
+				bone="_bone_righthand"
+				position="0 0 0"
+				model="amethyst_state/model.mdf"
+				anim="idle"
+				expirelife="250"
+				startalpha="1"	
+				midalpha="1"				
+				endalpha="1"
+			/>
+		</model>
+
+		<model
+			position="0 0 20"
+			model="amethyst_state_ground/model.mdf"
+			material="material_generic.material"
+			anim="idle"
+			scale="1.2"
+			midscalepos=".3"
+			expirelife="250"
+			startalpha="1"	
+			midalpha="1"				
+			endalpha="1"
+			minyaw="0"
+			maxyaw="360"
+		>
+			<model
+				model="amethyst_state_ground/model.mdf"
+				anim="idle"
+				expirelife="250"
+				startalpha="1"	
+				midalpha="1"				
+				endalpha="1"
+			/>
+		</model>
+
+		<billboard
+			bone="_bone_centerofchest"
+			expirelife="250"
+			material="/shared/effects/materials/whitedot.material"
+			size="175"
+			startcolor=".25 0 .6"
+			endcolor="0 0 0"
+			lockup="1"
+			lockright="1"
+			pitch="90"
+			loop="true"
+			depthbias="-50"
+		/>
+		
+		<simpleemitter
+			bone="_bone_centerofchest"
+			count="25"
+			spawnrate="250"
+			minparticlelife="100"
+			maxparticlelife="200"
+			speed="300"
+			drag="0.10"
+			material="/shared/effects/materials/whitedot.material"
+			offsetsphere="10 10 10"
+			position="0 0 0"
+			depthbias="-75"
+		>
+			<particle
+				turn="1"
+				heightdistort=".1"
+				minstartwidth="1"
+				maxwidth="2"
+				minstartscale="10"
+				maxstartscale="30"
+				minendscale="0"
+				maxendscale="5"
+				startcolor=".15 0 .3"
+				endcolor="0 0 0"
+				midcolorpos=".25"
+			/>
+		</simpleemitter>
+			
+		<billboard
+			bone="_bone_centerofchest"
+			life="500"
+			material="/shared/effects/materials/whitedot.material"
+			size="50"
+			startcolor="1 1 1"
+			endcolor="0 0 0"
+			lockup="1"
+			lockright="1"
+			pitch="90"
+			depthbias="-75"
+		/>
+		
+			<simpleemitter	
+				spawnrate="11500"
+				life="1500"				
+				count="15"			
+				position="0 0 100"
+				minparticlelife="1500"			
+				maxparticlelife="3000"	
+				depthbias="-40"			
+				material="/shared/effects/materials/pyroclast_01.material"			
+				offsetsphere="50 50 100"
+				minspeed="0"
+				maxspeed="620"
+				angle="10"
+				direction="0 0 1"
+				drag=".01"
+				gravity="15"
+			>
+				<particle 
+					minangle="-25"
+					maxangle="25"
+					minanglespeed="-50"
+					maxanglespeed="50"
+					startcolor=".25"
+					endcolor="0"
+					startsize="100"
+					midsize="100"
+					endsize="180"
+					startalpha="0"
+					midalpha=".5"
+					endalpha="0"
+				/>
+			</simpleemitter>
+			
+			<billboard
+				bone="_bone_centerofchest"
+				life="750"
+				param="0.1"	
+				startsize="100"
+				endsize="300"
+				startalpha="0"
+				midalpha=".5"
+				endalpha="0"				
+				depthbias="-15"
+				material="/shared/effects/materials/refract_pinch.material"
+				lockup="1"
+				lockright="1"
+				pitch="90"
+			/>
+
+	</particlesystem>
+</definitions>
+<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		
+		<waitfordeath instance="instance0" />
+		
+</thread>
+
+</effect>
+

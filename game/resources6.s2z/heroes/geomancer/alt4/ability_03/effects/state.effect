@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true" >
+
+	<definitions>
+	
+		
+			
+		<particlesystem name="system1" space="world" scale="1.0">
+			
+			<groundsprite
+				bone="_bone_origin"
+				size="130"
+				color=".35 .3 .3"
+				material="/shared/effects/materials/sand_groun.material"
+			/>
+			
+			<groundsprite
+				bone="_bone_origin"
+				size="90"
+				color=".2 .16 .1"
+				alpha=".5"
+				material="/shared/effects/materials/corona_08_blend.material"
+			/>
+			
+			<groundsprite
+				bone="_bone_origin"
+				size="70"
+				alpha=".75"
+				material="/shared/effects/materials/ground_smash_overlay_darker.material"
+			/>
+			
+			<terrainemitter
+				spawnrate="20"
+				offsetsphere="60 60 0"
+				minparticlelife="500"
+				maxparticlelife="800"
+				angle="0"
+				direction="0 0 1"
+				speed="300"
+				drag=".1"
+				material="/shared/effects/materials/pyroclast_05.material"
+			>
+				<particle
+					maxangle="360"
+					minanglespeed="-100"
+					maxanglespeed="100"
+					size="70"
+					color=".3 .155 .1"
+					startalpha=".5"
+					midalpha="1"
+					endalpha="0"
+				/>
+				
+				<particle
+					maxangle="360"
+					minanglespeed="-100"
+					maxanglespeed="100"
+					size="70"
+					color=".15 .1 .05"
+					startalpha=".5"
+					midalpha="1"
+					endalpha="0"
+				/>
+			</terrainemitter>
+			
+			
+			
+				
+		</particlesystem>
+		
+
+
+		<particlesystem name="system0" space="world" scale="1.5">
+			
+			<sound
+		        soundloop="true"
+				fadein="250"
+				fadeout="1050"
+				linearfalloff="true"
+				falloffstart="800"
+				falloffend="1300"
+				volume="1"
+				sample="/heroes/geomancer/ability_03/sounds/loop.wav"
+			/>
+			
+			<sound
+		        soundloop="true"
+				fadein="250"
+				fadeout="1050"
+				linearfalloff="true"
+				falloffstart="0"
+				falloffend="1300"
+				volume=".2"
+				sample="/heroes/geomancer/ability_03/sounds/loop_vox.wav"
+			/>
+			
+			<sound		        
+				linearfalloff="true"
+				falloffstart="0"
+				falloffend="1300"
+				volume=".5"
+				sample="/heroes/geomancer/ability_03/sounds/cast.wav"
+			/>
+			
+			<terrainemitter
+				spawnrate="50"
+				offsetsphere="60 60 0"
+				minparticlelife="500"
+				maxparticlelife="800"
+				angle="0"
+				direction="0 0 1"
+				speed="300"
+				drag=".1"
+				material="/shared/effects/materials/pyroclast_05.material"
+			>
+				<particle
+					maxangle="360"
+					minanglespeed="-100"
+					maxanglespeed="100"
+					size="70"
+					color=".6 .45 .35"
+					startalpha=".5"
+					midalpha="1"
+					endalpha="0"
+				/>
+				
+				<particle
+					maxangle="360"
+					minanglespeed="-100"
+					maxanglespeed="100"
+					size="70"
+					color=".3 .225 .175"
+					startalpha=".5"
+					midalpha="1"
+					endalpha="0"
+				/>
+			</terrainemitter>
+			
+			<terrainemitter
+				spawnrate="80"
+				offsetsphere="80 80 0"
+				minparticlelife="500"
+				maxparticlelife="800"
+				angle="45"
+				direction="0 0 1"
+				speed="300"
+				drag=".05"
+				gravity="30"
+				minparticlescale=".5"
+				maxparticlescale="1"
+				material="/shared/effects/materials/dust_puff.material"
+			>
+				<particle
+					maxangle="360"
+					minanglespeed="-100"
+					maxanglespeed="100"
+					size="20"
+					color=".8 .45 .35"
+					startalpha=".5"
+					midalpha="1"
+					endalpha="1"
+				/>
+				
+				<particle
+					maxangle="360"
+					minanglespeed="-100"
+					maxanglespeed="100"
+					size="20"
+					color=".8 .7 .6"
+					startalpha=".5"
+					midalpha="1"
+					endalpha="1"
+				/>
+				
+				<particle
+					maxangle="360"
+					minanglespeed="-100"
+					maxanglespeed="100"
+					size="20"
+					color=".4 .3 .2"
+					startalpha=".5"
+					midalpha="1"
+					endalpha="1"
+				/>
+			</terrainemitter>
+			
+			
+			<simpleemitter
+				spawnrate="5"
+				particlelife="700"
+				position="0 0 20"
+				material="/shared/effects/materials/pyroclast_ring.material"
+			>
+				<particle
+					startcolor="1 .5 .31"
+					endcolor=".3 .2 .1"
+					startalpha=".5"
+					midalpha=".5"
+					endalpha="0"
+					startsize="0"
+					endsize="300"
+					lockup="1"
+					lockright="1"
+					pitch="90"
+					maxangle="360"
+					anchor="1"
+				/>
+			</simpleemitter>
+			
+			<groundsprite
+				bone="_bone_origin"
+				size="55"
+				startcolor=".15 .075 0"
+				endcolor="0"
+				expirelife="500"
+				material="/shared/effects/materials/smash_add.material"
+			/>
+			
+			<groundsprite
+				bone="_bone_origin"
+				size="90"
+				startcolor=".05 .025 0"
+				endcolor="0"
+				expirelife="500"
+				material="/shared/effects/materials/corona_06_ground.material"
+			/>
+			
+
+			
+			<groundsprite
+				bone="_bone_origin"
+				size="40"
+				startcolor=".5 .25 0"
+				endcolor="0"
+				expirelife="500"
+				material="/shared/effects/materials/whitedot_ground.material"
+			/>
+
+
+		</particlesystem>
+		
+	
+
+	</definitions>
+
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<spawnparticlesystem instance="instance1" particlesystem="system1" />
+		<waitfordeath instance="instance0" />
+		<waitfordeath instance="instance1" />
+	</thread>
+
+</effect>

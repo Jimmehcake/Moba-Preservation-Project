@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+	<definitions>
+		<particlesystem name="system0" space="local" scale="1.0">
+			
+			<sound
+			    life="2000"
+			    fadein="0"
+				volume="1"
+				sample="/heroes/warchief/ability_01/sounds/fire_who_%.wav"
+				linearfalloff="true"
+				falloffstart="800" 
+				falloffend="1300" 
+			/>
+			
+			<light
+				expirelife="200"			
+				startcolor="6 1.8 0"			
+				endcolor="0 0 0"
+				falloffstart="100"
+				falloffend="155"	
+			/>	
+			
+			<simpleemitter
+				spawnrate="150"
+				minparticlelife="100"
+				maxparticlelife="300"
+				material="/shared/effects/materials/fireball_01.material"
+			>
+				<particle
+					startsize="150"
+					endsize="40"
+					maxangle="360"
+					startcolor="1 .5 0"
+					endcolor=".2 0 0"
+				/>
+			</simpleemitter>	
+			
+			<simpleemitter
+				spawnrate="200"
+				speed="800"
+				drag=".095"
+				minparticlelife="100"
+				maxparticlelife="300"
+				material="/shared/effects/materials/soul_projectile2.material"
+			>
+				<particle
+					startsize="150"
+					endsize="40"
+					maxangle="360"
+					startcolor="1 .5 .2"
+					midcolor="1 .25 .1"
+					endcolor="0"
+				/>
+				<particle
+					startsize="150"
+					endsize="40"
+					maxangle="360"
+					startcolor="1 .5 .2"
+					midcolor="1 .1 .1"
+					endcolor="0"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				spawnrate="200"
+				minparticlelife="100"
+				maxparticlelife="300"
+				material="/shared/effects/materials/heathaze.material"
+			>
+				<particle
+					startsize="150"
+					endsize="40"
+					maxangle="360"
+					startalpha="1"
+					endalpha="0"
+					param=".01"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				spawnrate="400"
+				minspeed="1000"
+				maxspeed="4000"
+				drag=".05"
+				inheritvelocity=".25"
+				particlelife="300"
+				
+			>
+				<particle
+					maxyaw="360"
+					maxroll="360"
+					maxangle="360"
+					minanglespeed="-400"
+					maxanglespeed="400"
+					minyawspeed="-400"
+					maxyawspeed="400"
+					minpitchspeed="-400"
+					maxpitchspeed="400"
+				>
+					<billboard
+						position="0 30 0"
+						maxroll="360"
+						startcolor="1 .5 .25"
+						endcolor="0"
+						size="30"
+						life="500"
+						minscale=".5"
+						maxascale="1"
+						material="/shared/effects/materials/spark_11.material"
+					/>
+				</particle>
+			</simpleemitter>
+					
+			
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+		<!-- <die /> -->
+	</thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][pos] -->
+

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectile
+	name="Projectile_Goldenveil_Ability2_Toss"
+
+	lifetime="300"
+	useexactlifetime="true"
+	gravity="3000"
+>
+</projectile>

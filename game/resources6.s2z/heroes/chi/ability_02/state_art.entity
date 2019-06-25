@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Chi_Ability2_Art"
+
+	icon="icon.tga"
+	passiveeffect=""
+	displaylevel="true"
+
+	modifierkey="ChiShredder"
+	effecttype=""
+	
+	ishidden="true"
+>
+</state>

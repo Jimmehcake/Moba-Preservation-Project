@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+	<definitions>
+		<particlesystem name="systemEntity" space="entity" scale="1">
+			<template name="weaponCircle">
+				<billboard
+					material="{material}"
+					lockup="true" lockright="true"
+					pitch="{pitch=90}" rollspeed="{rollspeed}" yaw="{yaw=0}" roll="{roll=0}"
+					alpha="{alpha=1}"
+					scale="{scale=1}"
+					position="{position}"
+					directionalspace="local"
+					color="{color}"
+				/>
+			</template>
+			<model
+				model="/shared/models/invis.mdf"
+				bone="_bone_fx_02"
+				scale=".5"
+			>
+				<instance name="weaponCircle" rollspeed="150" yaw="90" color="0 10 .6" position="4 0 0" scale=".25" alpha="1" material="/heroes/fade/alt6/effects/cyber/circle.material"/>
+				<instance name="weaponCircle" rollspeed="-150" yaw="90" color="0 10 .6" position="4 0 0" scale=".24" alpha=".6" material="/heroes/fade/alt6/effects/cyber/circle.material"/>
+				<instance name="weaponCircle" rollspeed="-100" yaw="90"  color="0 10 .5" position="3 0 0" scale=".27" alpha="1" material="/heroes/vanya/alt5/effects/cyber/weapon_circle_s.material"/>
+				<instance name="weaponCircle" rollspeed="-100" yaw="90"  color="0 10 .5" position="3 0 0" scale=".27" alpha="1" material="/heroes/vanya/alt5/effects/cyber/weapon_circle_s.material"/>
+				<instance name="weaponCircle" rollspeed="50" yaw="90"  color="0 10 .5" position="7 0 0" scale=".16" alpha="1" material="/heroes/hellbringer/alt7/effects/cyber/circle2.material"/>
+				<instance name="weaponCircle" rollspeed="-50" yaw="90"  color="0 10 .5" position="7 0 0" scale=".16" alpha="1" material="/heroes/hellbringer/alt7/effects/cyber/circle2.material"/>
+
+			</model>
+			
+			
+			
+			
+			<model
+				model="/shared/models/invis.mdf"
+				bone="_bone_fx_02"
+				scale=".4"
+			>
+				<billboard
+					material="/heroes/mumra/alt6/effects/cyber/arrow.material"
+					framespeed=".5"
+					scale=".4"
+					width="16" height="36"
+					position="3 -15 0"
+					color="0 10 .8"
+					alpha="1"
+					lockup="true" lockright="true"
+					pitch="0" yaw="-90" roll="-90"
+					directionalspace="local"
+				/>
+			
+			</model>
+			
+			
+			
+			<model
+				model="/shared/models/invis.mdf"
+				bone="_bone_fx_02"
+				scale=".4"
+			>
+				<billboard
+					life="1000" loop="1"
+					material="cyber/cross.material"
+					lockup="true" lockright="true"
+					pitch="90" yaw="90"
+					alpha="1"
+					startscale=".3"
+					midscale=".35"
+					endscale=".3"
+					position="7 0 0"
+					directionalspace="local"
+					color="0 10 .6"
+				/>
+			</model>
+			
+			
+			<model
+				model="/shared/models/invis.mdf"
+				bone="Bip01 Head"
+				scale=".5"
+			>
+				<model
+					life="500" loop="true"
+					model="cyber/holoscreen.mdf"
+					scale="4"
+					roll="90"
+					yaw="170"
+					pitch="90"
+					startcolor="1" midcolor="2" endcolor="1"
+					material="cyber/circle.material"
+					position="7 0 -20"
+				/>
+				<billboard
+					life="300" loop="true"
+					material="cyber/sign.material"
+					scale="1.4"
+					position="-33 0 -25"
+					startcolor="0 2 .9" midcolor="0 1 .5" endcolor="0 2 .9"
+					startalpha=".7" midalpha="1" endalpha=".7"
+					lockup="true" lockright="true"
+					pitch="0" yaw="-100" roll="10"
+					directionalspace="local"
+				/>
+			
+				<model
+					life="500" loop="true"
+					model="cyber/holoscreen.mdf"
+					scale="4"
+					roll="90"
+					yaw="170"
+					pitch="-90"
+					startcolor="1" midcolor="2" endcolor="1"
+					material="cyber/circle2.material"
+					position="7 0 20"
+				/>
+				<billboard
+					life="300" loop="true"
+					material="cyber/sign.material"
+					scale="1.4"
+					position="-33 0 25"
+					startcolor="0 2 .9" midcolor="0 1 .5" endcolor="0 2 .9"
+					startalpha=".7" midalpha="1" endalpha=".7"
+					lockup="true" lockright="true"
+					pitch="180" yaw="-80" roll="-10"
+					directionalspace="local"
+				/>
+				
+				<model
+					life="500" loop="true"
+					model="cyber/holoscreen.mdf"
+					scale="4"
+					roll="90"
+					yaw="170"
+					pitch="100"
+					startcolor="0 1 .5" midcolor="0 2 .9" endcolor="0 1 .5"
+					material="cyber/holoscreen2.material"
+					position="2 0 -15"
+				/>
+				
+				<model
+					life="500" loop="true"
+					model="cyber/holoscreen.mdf"
+					scale="4"
+					roll="90"
+					yaw="170"
+					pitch="-100"
+					startcolor="0 1 .5" midcolor="0 2 .9" endcolor="0 1 .5"
+					material="cyber/holoscreen2.material"
+					position="2 0 15"
+				/>
+				
+				
+				
+				<model
+					life="300" loop="true"
+					model="cyber/holoscreen.mdf"
+					scale="3.6"
+					roll="90"
+					yaw="170"
+					pitch="90"
+					startcolor=".6" midcolor="1" endcolor=".6"
+					material="cyber/circle3.material"
+					position="-10 0 -18"
+				/>
+				<model
+					life="300" loop="true"
+					model="cyber/holoscreen.mdf"
+					scale="3.6"
+					roll="90"
+					yaw="170"
+					pitch="-90"
+					startcolor=".6" midcolor="1" endcolor=".6"
+					material="cyber/circle3.material"
+					position="-10 0 18"
+				/>
+				
+			</model>
+			
+			
+			<model
+				model="/shared/models/invis.mdf"
+				bone="Bone05"
+				scale=".5"
+			>
+				<billboard
+					material="cyber/ring.material"
+					lockup="true" lockright="true"
+					pitch="90" yaw="90"
+					alpha="10"
+					scale=".5"
+					position="0 -30 0"
+					directionalspace="local"
+					color="0 2 .6"
+					yawspeed="150"
+					pitchspeed="100"
+					height="30"
+				/>
+				<billboard
+					material="cyber/ring.material"
+					lockup="true" lockright="true"
+					pitch="90" yaw="0"
+					alpha="10"
+					scale=".5"
+					position="0 -30 0"
+					directionalspace="local"
+					color="2 2 .6"
+					yawspeed="150"
+					pitchspeed="100"
+					height="30"
+				/>
+				<billboard
+					material="cyber/ring.material"
+					lockup="true" lockright="true"
+					pitch="0" yaw="90"
+					alpha="10"
+					scale=".5"
+					position="0 -30 0"
+					directionalspace="local"
+					color="2 2 .6"
+					yawspeed="150"
+					pitchspeed="100"
+					height="30"
+				/>
+			</model>
+			
+			<model
+				model="/shared/models/invis.mdf"
+				bone="Bone01"
+				scale=".5"
+			>
+				<billboard
+					material="cyber/ring.material"
+					lockup="true" lockright="true"
+					pitch="90" yaw="90"
+					alpha="10"
+					scale=".5"
+					position="0 30 0"
+					directionalspace="local"
+					color="0 2 .6"
+					yawspeed="150"
+					pitchspeed="100"
+					height="30"
+				/>
+				<billboard
+					material="cyber/ring.material"
+					lockup="true" lockright="true"
+					pitch="90" yaw="0"
+					alpha="10"
+					scale=".5"
+					position="0 30 0"
+					directionalspace="local"
+					color="2 2 .6"
+					yawspeed="150"
+					pitchspeed="100"
+					height="30"
+				/>
+				<billboard
+					material="cyber/ring.material"
+					lockup="true" lockright="true"
+					pitch="0" yaw="90"
+					alpha="10"
+					scale=".5"
+					position="0 30 0"
+					directionalspace="local"
+					color="2 2 .6"
+					yawspeed="150"
+					pitchspeed="100"
+					height="30"
+				/>
+			</model>
+			
+			
+			
+			
+			
+			<model
+				model="/shared/models/invis.mdf"
+				bone="_bone_weapon1"
+				scale="1"
+			>
+				<instance name="weaponCircle" rollspeed="150" yaw="0" pitch="180" color="0 10 .6" position="4 -2 -1" scale=".33" alpha="1" material="/heroes/mumra/alt6/effects/cyber/weapon_circle.material"/>
+				<instance name="weaponCircle" rollspeed="-250" yaw="0" pitch="180" color="0 10 .5" position="4 -5 -1" scale=".24" alpha="1" material="/heroes/mumra/alt6/effects/cyber/weapon_circle_s.material"/>
+				<instance name="weaponCircle" rollspeed="-100" yaw="0" pitch="180" color="0 10 .5" position="4 -.5 -1" scale=".38" alpha="1" material="/heroes/vanya/alt5/effects/cyber/weapon_circle_s.material"/>
+				<instance name="weaponCircle" rollspeed="-100" yaw="0" pitch="180" color="0 10 .5" position="4 -.5 -1" scale=".38" alpha="1" material="/heroes/vanya/alt5/effects/cyber/weapon_circle_s.material"/>
+				<instance name="weaponCircle" rollspeed="50" yaw="0" pitch="180" color="0 10 .5" position="4 -6 -1" scale=".18" alpha="1" material="/heroes/hellbringer/alt7/effects/cyber/circle2.material"/>
+				<instance name="weaponCircle" rollspeed="-50" yaw="0" pitch="180" color="0 10 .5" position="4 -6 -1" scale=".18" alpha="1" material="/heroes/hellbringer/alt7/effects/cyber/circle2.material"/>
+
+			</model>
+			
+			<model
+				model="/shared/models/invis.mdf"
+				bone="_bone_weapon1"
+				scale=".6"
+			>
+				<billboard
+					material="/heroes/mumra/alt6/effects/cyber/arrow.material"
+					framespeed=".5"
+					scale=".4"
+					width="16" height="36"
+					position="15 -8 -6"
+					color="0 10 .7"
+					alpha="1"
+					lockup="true" lockright="true"
+					pitch="0" yaw="-10" roll="-120"
+					directionalspace="local"
+				/>
+				
+				<billboard
+					material="/heroes/mumra/alt6/effects/cyber/arrow.material"
+					framespeed=".5"
+					scale=".4"
+					width="16" height="36"
+					position="5 -8 10"
+					color="0 10 .7"
+					alpha="1"
+					lockup="true" lockright="true"
+					pitch="10" yaw="0" roll="0"
+					directionalspace="local"
+				/>
+				
+				<billboard
+					material="/heroes/mumra/alt6/effects/cyber/arrow.material"
+					framespeed=".5"
+					scale=".4"
+					width="16" height="36"
+					position="-5 -8 -6"
+					color="0 10 .7"
+					alpha="1"
+					lockup="true" lockright="true"
+					pitch="-10" yaw="0" roll="120"
+					directionalspace="local"
+				/>
+			
+			</model>
+			
+
+		</particlesystem>
+
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<spawnparticlesystem instance="instanceEntity" particlesystem="systemEntity" />
+		<waitfordeath instance="instance0" />
+		<waitfordeath instance="instanceEntity" />
+	</thread>
+</effect>

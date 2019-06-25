@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Goldenveil_Sound_Initiator"
+
+	icon=""
+	passiveeffect=""
+	propagatetoillusions="false"
+	effecttype=""
+	ishidden="true"
+>
+	<onexpired>
+		<areaofeffect
+			global="true"
+			targetscheme="all_heroes"
+			targetselection="all"
+			ignoreinvulnerable="true"
+		>
+			<!--Allies--> 
+			<compare a="source_team" b="target_team" op="eq">
+				<applystate name="State_Goldenveil_Ally_Spot" target="source_entity" duration="150000"/>
+			</compare>					
+		</areaofeffect>
+	</onexpired>
+
+</state>

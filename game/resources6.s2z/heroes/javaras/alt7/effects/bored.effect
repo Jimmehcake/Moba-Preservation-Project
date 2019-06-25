@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+	<definitions>
+		<particlesystem name="system0" space="world" scale="1">
+		
+			<template name="flames">
+				<trackeremitter
+					life="{life}"
+					delay="{delay}"
+					bone="{bone_a}"
+					targetbone="{bone_b}"
+					tracktype="target"
+					trackspeed="1"
+					spawnrate="{spawnrate}"
+					particlelife="700"
+					speed="100"
+					drag=".05"
+					direction="0 0 0"
+					inheritvelocity="0"
+					gravity="-10"
+					distancelife="1"
+					offsetsphere="7"
+					material="/shared/effects/materials/mysticenergy.material"
+				>
+					<particle
+						minangle="0"
+						maxangle="360"
+						startcolor=".41 .06 .52" midcolor=".23 .04 .3" endcolor="0 0 0" midcolorpos=".4"
+						minstartsize="1"
+						maxstartsize="2"
+						minendsize="7"
+						maxendsize="14"
+						startalpha="0"
+						midalpha=".7"
+						endalpha="0"
+						midalphapos=".5"
+						turn="true"
+					/>
+				</trackeremitter>
+				
+				<trackeremitter
+					life="{life}"
+					delay="{delay}"
+					bone="{bone_a}"
+					targetbone="{bone_b}"
+					tracktype="target"
+					trackspeed="1"
+					spawnrate="{spawnrate}"
+					gravity="-10"
+					particlelife="700"
+					speed="100"
+					drag=".05"
+					direction="0 0 0"
+					inheritvelocity="0"
+					distancelife="1"
+					offsetsphere="7"
+					material="/shared/effects/materials/mysticenergy2.material"
+				>
+					<particle
+						minangle="0"
+						maxangle="360"
+						startcolor=".41 .52 .41" midcolor=".23 .04 .3" endcolor="0 0 0" midcolorpos=".4"
+						minstartsize="1"
+						maxstartsize="2"
+						minendsize="7"
+						maxendsize="14"
+						startalpha="0"
+						midalpha=".7"
+						endalpha="0"
+						midalphapos=".5"
+						turn="true"
+					/>
+				</trackeremitter>
+				
+				<trackeremitter
+					life="{life}"
+					delay="{delay}"
+					bone="{bone_b}"
+					targetbone="{bone_a}"
+					tracktype="target"
+					trackspeed="1"
+					spawnrate="{spawnrate}"
+					particlelife="700"
+					speed="100"
+					gravity="-10"
+					drag=".05"
+					direction="0 0 0"
+					inheritvelocity="0"
+					distancelife="1"
+					offsetsphere="7"
+					material="/shared/effects/materials/mysticenergy.material"
+				>
+					<particle
+						minangle="0"
+						maxangle="360"
+						startcolor=".41 .06 .52" midcolor=".23 .04 .3" endcolor="0 0 0" midcolorpos=".4"
+						minstartsize="1"
+						maxstartsize="2"
+						minendsize="7"
+						maxendsize="14"
+						startalpha="0"
+						midalpha=".7"
+						endalpha="0"
+						midalphapos=".5"
+						turn="true"
+					/>
+				</trackeremitter>
+				
+				<trackeremitter
+					life="{life}"
+					delay="{delay}"
+					bone="{bone_b}"
+					targetbone="{bone_a}"
+					tracktype="target"
+					trackspeed="1"
+					spawnrate="{spawnrate}"
+					particlelife="700"
+					speed="100"
+					gravity="-10"
+					drag=".05"
+					direction="0 0 0"
+					inheritvelocity="0"
+					distancelife="1"
+					offsetsphere="7"
+					material="/shared/effects/materials/mysticenergy2.material"
+				>
+					<particle
+						minangle="0"
+						maxangle="360"
+						startcolor=".41 .06 .52" midcolor=".23 .04 .3" endcolor="0 0 0" midcolorpos=".4"
+						minstartsize="1"
+						maxstartsize="2"
+						minendsize="7"
+						maxendsize="14"
+						startalpha="0"
+						midalpha=".7"
+						endalpha="0"
+						midalphapos=".5"
+						turn="true"
+					/>
+				</trackeremitter>
+				
+			</template>
+			
+			<instance name="flames" bone_a="_bone_weaponattach" bone_b="_bone_weapon2" spawnrate="50" delay="800" life="4000"/>
+			<instance name="flames" bone_a="_bone_weaponattach" bone_b="_bone_weapon1" spawnrate="50" delay="800" life="4000"/>
+
+			<instance name="flames" bone_a="_bone_weaponattach001" bone_b="_bone_weapon006" spawnrate="50" delay="800" life="4000"/>
+			
+			<billboard
+				delay="700"
+				life="3500"
+				bone="_bone_weaponattach"
+				material="/shared/effects/materials/whitedot.material"
+				startcolor="0"
+				midcolor=".26 .03 .4"
+				endcolor="0"
+				midcolorpos=".1"
+				size="20"
+				depthbias="-20"
+			/>
+			
+			<billboard
+				delay="700"
+				life="3500"
+				bone="_bone_weapon2"
+				material="/shared/effects/materials/whitedot.material"
+				startcolor="0"
+				midcolor=".32 .04 .6"
+				endcolor="0"
+				midcolorpos=".1"
+				startsize="10"
+				endsize="30"
+				depthbias="-20"
+			/>
+			
+			<billboard
+				delay="700"
+				life="3500"
+				bone="_bone_weapon1"
+				material="/shared/effects/materials/whitedot.material"
+				startcolor="0"
+				midcolor=".58 .04 .32"
+				endcolor="0"
+				midcolorpos=".1"
+				startsize="10"
+				endsize="30"
+				depthbias="-20"
+			/>
+			
+			<billboard
+				delay="700"
+				life="3500"
+				bone="_bone_centerofchest"	
+				material="/shared/effects/materials/whitedot.material"
+				startcolor="0"
+				midcolor=".26 .03 .5"
+				endcolor="0"
+				midcolorpos=".1"
+				size="30"
+				depthbias="-50"
+				position="0 0 0"
+			/>
+			
+			<template name="hands">
+				<controller bone="{bone}" scale=".5">
+					<simpleemitter
+						delay="{delay}"
+						life="{life}"
+						spawnrate="{spawnrate}"
+						minparticlelife="300"
+						maxparticlelife="800"			
+						gravity="-2"
+						minspeed="30"
+						maxspeed="90"
+						drag=".1"
+						material="/shared/effects/materials/mysticenergy.material"
+						offsetsphere="{offsetsphere}"
+						minangle="0"
+						maxangle="45"
+						depthbias="-10"
+						direction="0 0 1"
+					>
+						<particle 
+							minangle="0"
+							maxangle="360"
+							startcolor=".52 .06 .41" midcolor=".3 .04 .23" endcolor="0 0 0" midcolorpos=".4"
+							minstartsize="2"
+							maxstartsize="4"
+							minendsize="15"
+							maxendsize="30"
+							startalpha="0"
+							midalpha=".7"
+							endalpha="0"
+							midalphapos=".5"
+							turn="true"
+						/>
+					</simpleemitter>
+					
+					<simpleemitter
+						delay="{delay}"
+						life="{life}"
+						spawnrate="{spawnrate}"
+						minparticlelife="300"
+						maxparticlelife="800"			
+						gravity="-2"
+						minspeed="20"
+						maxspeed="80"
+						drag=".1"
+						material="/shared/effects/materials/mysticenergy2.material"
+						offsetsphere="{offsetsphere}"
+						minangle="0"
+						maxangle="45"
+						depthbias="-10"
+						direction="0 0 1"
+					>
+						<particle 
+							minangle="0"
+							maxangle="360"
+							startcolor=".52 .06 .41" midcolor=".3 .04 .23" endcolor="0 0 0" midcolorpos=".4"
+							minstartsize="2"
+							maxstartsize="4"
+							minendsize="15"
+							maxendsize="30"
+							startalpha="0"
+							midalpha=".7"
+							endalpha="0"
+							midalphapos=".5"
+							turn="true"
+						/>
+					</simpleemitter>
+				</controller>
+				
+				<billboard
+					delay="{delay}"
+					life="{life}"
+					bone="{bone}"
+					material="/shared/effects/materials/whitedot.material"
+					startcolor="0"
+					midcolor=".49 .07 .35"
+					endcolor="0"
+					midcolorpos=".1"
+					startsize="10"
+					endsize="30"
+					depthbias="-20"
+				/>
+			</template>
+			
+			<instance name="hands" bone="Bip01 R Hand" offsetsphere="10" spawnrate="30" delay="3700" life="1200"/>
+			<instance name="hands" bone="Bip01 L Hand" offsetsphere="10" spawnrate="30" delay="3700" life="1200"/>
+		
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+		<!-- <die /> -->
+	</thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][pos] -->
+

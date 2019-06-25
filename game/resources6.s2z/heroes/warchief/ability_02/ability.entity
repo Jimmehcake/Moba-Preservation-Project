@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ability
+	name="Ability_Warchief2"
+
+	icon="icon.tga"
+	
+	anim="ability_1"
+	casttime="0"
+	castactiontime="0"
+	casteffect=""
+	
+	frontqueue="true"
+	inheritmovement="true"
+	
+	ischanneling="true"
+	channeltime="3000"
+	
+	maxlevel="4"
+	requiredlevel="1,3,5,7"
+
+	actiontype="facing"
+	targetscheme="enemy_units"
+	casteffecttype="Magic"
+	
+	manacost="100"
+	cooldowntime="14000"
+	
+	noshuffle="true"
+>
+	<onimpact>
+		<setpos0 position="source_position" positionend="target_position" positionmodifier="pointonline" positionvalue="100" />
+		<spawnunit name="Pet_Warchief_Ability2" source="this_owner_entity" target="pos0" pushentity="true" />
+		<setproxy target="stack_entity" />
+		<inheritactions target="this_proxy_entity" source="source_entity" />
+		<selectentity source="source_entity" targets="this_proxy_entity" />
+		
+		<spawnaffector name="Affector_Warchief_Ability2" target="this_proxy_entity" />
+		<applystate name="State_Warchief_Ability2_Self" target="this_owner_entity" duration="3000" proxy="this_proxy_entity" />
+		
+		<!-- Custom channeling script -->
+		<showchannelbar duration="3000" />
+		
+		<!-- Accumulator switch to prevent instant recasting -->
+		<setaccumulator value="1" />
+	</onimpact>
+	
+	<modifier key="Warchief_W_Active" modpriority="100"
+		ignorecooldown="true"
+		icon="iconb.tga"
+		
+		frontqueue="false"
+		inheritmovement="false"
+		noninterrupting="false"
+		
+		ischanneling="false"
+		channeltime=""
+		
+		actiontype="target_self"
+		targetscheme="nothing"
+		casteffecttype=""
+		activatescheme="movement"
+
+		casttime="0"
+		castactiontime="0"
+		manacost="0"		
+		cooldowntime="0"
+		
+		interface="single_plus_one"
+	>
+		<onchannelstart />
+		
+		<onimpact>
+			<compare a="accumulator" b="1" op="ne">
+				<teleport source="this_owner_entity" target="this_proxy_entity" />
+				<expirestate name="State_Warchief_Ability2_Self" target="this_owner_entity" />
+			</compare>			
+		</onimpact>
+	</modifier>
+</ability>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Sapphire_Ability2_Slow"
+	
+	icon="icon.tga"
+	passiveeffect="effects/state.effect"
+	
+	movespeedslow="0.10,0.13,0.16,0.20"
+
+	effecttype="StatusDebuff"
+	allowtransfer="false"
+>
+	<altavatar key="Hero_Sapphire.Alt" modpriority="1"
+		passiveeffect="../alt/ability_02/effects/state.effect"
+	/>
+	
+	<altavatar key="Hero_Sapphire.Alt2" modpriority="1"
+		passiveeffect="../alt2/ability_02/effects/state.effect"
+	/>
+	
+	<altavatar key="Hero_Sapphire.Alt3" modpriority="1"
+		passiveeffect="../alt3/ability_02/effects/state.effect"
+	/>
+	
+	<altavatar key="Hero_Sapphire.Alt4" modpriority="1"
+		passiveeffect="../alt4/ability_02/effects/state.effect"
+	/>
+</state>

@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="ability_02">
+	<definitions>
+		<particlesystem name="system0" space="world">
+
+
+			<sound
+				linearfalloff="true" 
+				falloffstart="1000"
+				falloffend="2500"
+				volume="0.5"
+				sample="/heroes/javaras/ability_02/sounds/cast.wav"
+			/>
+			
+			<sound
+				linearfalloff="true" 
+				falloffstart="1000"
+				falloffend="2500"
+				volume="1"
+				sample="/heroes/javaras/alt5/sounds/ab2_%.wav"
+			/>
+			
+		<template name="lingering_flames">
+			<simpleemitter
+				bone="{bone}"
+				life="{life}"
+				spawnrate="{spawnrate}"
+				minparticlelife="500"
+				maxparticlelife="900"			
+				gravity="-2"
+				minspeed="40"
+				maxspeed="80"
+				drag=".1"
+				material="/shared/effects/materials/mysticenergy.material"
+				offsetsphere="0"
+				minangle="0"
+				maxangle="45"
+				depthbias="-10"
+				direction="{direction}"
+			>
+				<particle 
+					minangle="0"
+					maxangle="360"
+					startcolor="0 .5 1"
+					midcolor="0 .25 .5"
+					endcolor="0 0 0"
+					midcolorpos=".4"
+					minstartsize="1"
+					maxstartsize="2"
+					minendsize="5"
+					maxendsize="8"
+					startalpha="0"
+					midalpha="1"
+					endalpha="0"
+					midalphapos=".5"
+					turn="true"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				bone="{bone}"
+				life="{life}"
+				spawnrate="{spawnrate}"
+				minparticlelife="500"
+				maxparticlelife="900"			
+				gravity="-2"
+				minspeed="40"
+				maxspeed="80"
+				drag=".1"
+				material="/shared/effects/materials/mysticenergy2.material"
+				offsetsphere="0"
+				minangle="0"
+				maxangle="45"
+				depthbias="-10"
+				direction="{direction}"
+			>
+				<particle 
+					minangle="0"
+					maxangle="360"
+					startcolor="0 .5 1"
+					midcolor="0 .25 .5"
+					endcolor="0 0 0"
+					midcolorpos=".4"
+					minstartsize="1"
+					maxstartsize="2"
+					minendsize="5"
+					maxendsize="8"
+					startalpha="0"
+					midalpha="1"
+					endalpha="0"
+					midalphapos=".5"
+					turn="true"
+				/>
+			</simpleemitter>
+
+			<billboard
+				bone="{bone}"
+				life="{life}"
+				startcolor="0 .5 1"
+				endcolor="0"
+				size="20"
+				depthbias="-25"
+				expirelife="500"
+				material="/shared/effects/materials/whitedot.material"
+			/>
+		</template>
+		
+		<template name="smoke">
+			<trailemitter
+				life="{life}"
+				bone="{bone}"
+				spawnrate="10"
+				particlelife="1000"
+				gravity="-7"
+				material="/shared/effects/materials/solid_bolt.material"
+				position="{position}"
+				inheritvelocity=".2"
+				drag=".1"
+				direction="0 0 -1"
+				speed="10"
+			>
+				<particle
+					color="-1"
+					startsize="30"
+					endsize="1"
+					startalpha="0"
+					midalpha=".1"
+					endalpha="0"
+				/>
+			</trailemitter>
+			
+			<simpleemitter
+				life="{life}"
+				bone="{bone}"
+				spawnrate="5"
+				minparticlelife="200"
+				maxparticlelife="1000"			
+				gravity="-5"
+				minspeed="10"
+				maxspeed="50"
+				drag=".05"
+				material="/shared/effects/materials/spark.material"
+				offsetsphere="15"
+				minangle="20"
+				maxangle="90"
+				direction="0 0 1"
+				directionalspace="global"
+				inheritvelocity=".1"
+			>
+				<particle 
+					minangle="0"
+					maxangle="360"
+					startcolor="0"
+					midcolor=".5 .75 1"
+					endcolor="0 0 0"
+					midcolorpos=".3"
+					minstartsize="3"
+					maxstartsize="6"
+					endsize="0"
+				/>
+			</simpleemitter>
+		</template>
+			
+		<simpleemitter
+			count="1"
+		>
+			<particle			
+			>
+				<model
+					directionalspace="world"
+					position="0 0 0"
+					scale="1"
+					model="embers/model.mdf"
+					material="embers/material.material"
+					anim="idle"
+					color="0 0 1"
+					life="2000"
+					startalpha="1"
+					midalpha="1"
+					endalpha="0"
+					midalphapos=".8"
+				>
+					<instance name="lingering_flames" bone="GeoSphere005" life="1500" spawnrate="20" direction="0 0 0"/>
+					<instance name="lingering_flames" bone="GeoSphere006" life="1500" spawnrate="20" direction="0 0 0"/>
+					<instance name="lingering_flames" bone="GeoSphere002" life="1500" spawnrate="20" direction="0 0 0"/>
+
+				</model>
+			</particle>
+		</simpleemitter>
+		
+		<simpleemitter
+			delay="330"
+			count="1"
+		>
+			<particle			
+			>
+				<model
+					directionalspace="world"
+					position="0 0 0"
+					scale="1"
+					model="embers/model.mdf"
+					material="embers/material.material"
+					anim="idle"
+					color="0 0 1"
+					life="2000"
+					startalpha="1"
+					midalpha="1"
+					endalpha="0"
+					midalphapos=".8"
+				>
+					<instance name="lingering_flames" bone="GeoSphere005" life="1500" spawnrate="50" direction="0 0 0"/>
+					<instance name="lingering_flames" bone="GeoSphere006" life="1500" spawnrate="50" direction="0 0 0"/>
+					<instance name="lingering_flames" bone="GeoSphere002" life="1500" spawnrate="50" direction="0 0 0"/>
+					
+				</model>
+			</particle>
+		</simpleemitter>
+		
+		
+			<template name="flames">
+				<controller scale="{scale}" bone="{bone}">
+					<simpleemitter
+						delay="{delay}"
+						count="{count}"
+						minparticlelife="500"
+						maxparticlelife="900"			
+						gravity="-2"
+						minspeed="40"
+						maxspeed="160"
+						drag=".1"
+						material="/shared/effects/materials/mysticenergy.material"
+						offsetsphere="20"
+						minangle="0"
+						maxangle="45"
+						depthbias="-10"
+						direction="{direction}"
+					>
+						<particle 
+							minangle="0"
+							maxangle="360"
+							startcolor="0 .5 1"
+							midcolor="0 .25 .5"
+							endcolor="0 0 0"
+							midcolorpos=".4"
+							minstartsize="2"
+							maxstartsize="4"
+							minendsize="15"
+							maxendsize="30"
+							startalpha="0"
+							midalpha="1"
+							endalpha="0"
+							midalphapos=".5"
+							turn="true"
+						/>
+					</simpleemitter>
+					
+					<simpleemitter
+						delay="{delay}"
+						count="{count}"
+						minparticlelife="500"
+						maxparticlelife="900"			
+						gravity="-2"
+						minspeed="40"
+						maxspeed="160"
+						drag=".1"
+						material="/shared/effects/materials/mysticenergy2.material"
+						offsetsphere="20"
+						minangle="0"
+						maxangle="45"
+						depthbias="-10"
+						direction="{direction}"
+					>
+						<particle 
+							minangle="0"
+							maxangle="360"
+							startcolor="0 .5 1"
+							midcolor="0 .25 .5"
+							endcolor="0 0 0"
+							midcolorpos=".4"
+							minstartsize="2"
+							maxstartsize="4"
+							minendsize="15"
+							maxendsize="30"
+							startalpha="0"
+							midalpha="1"
+							endalpha="0"
+							midalphapos=".5"
+							turn="true"
+						/>
+					</simpleemitter>
+
+					<billboard
+						delay="{delay}"
+						life="{life}"
+						startcolor="0 .05 .2"
+						endcolor="0"
+						size="150"
+						depthbias="-25"
+						expirelife="500"
+						material="/shared/effects/materials/whitedot.material"
+					/>
+
+					<billboard
+						delay="{delay}"
+						life="{life}"
+						startcolor=".1 .1 .2"
+						endcolor="0"
+						size="50"
+						material="/shared/effects/materials/starlight.material"
+					/>				
+					
+					<simpleemitter
+						delay="{delay}"
+						life="{life}"
+						spawnrate="5"
+						particlelife="600"
+						minspeed="0"
+						maxspeed="30"
+						drag="0.07"
+						offsetsphere="5"
+						material="/shared/effects/materials/refract_outsplash.material"
+					>
+						<particle
+							startalpha=".6"
+							endalpha="0.0"
+							minangle="0"
+							maxangle="360"
+							startsize="5"
+							endsize="60"
+							param=".2"
+							anchor="1"
+						/>
+					</simpleemitter>
+
+					<simpleemitter
+						delay="{delay}"
+						life="{life}"
+						spawnrate="5"			
+						particlelife="500"			
+						gravity="-2"
+						speed="20"
+						drag=".01"
+						depthbias="-200"
+						material="/shared/effects/materials/refract_wellwave.material"
+						offsetsphere="10 10 10"
+						minangle="-265"
+						maxangle="265"
+						direction="0 0 -1"
+					>
+						<particle 
+							minangle="0"
+							maxangle="360"
+							minanglespeed="-10"
+							maxanglespeed="10"
+							startsize="50"
+							endsize="55"
+							param=".0141151"
+							startalpha="0.0"
+							midalpha="1"
+							endalpha="0"
+						/>
+					</simpleemitter>
+					
+					<simpleemitter
+						delay="{delay}"
+						life="{life}"
+						count="150"
+						spawnrate="300"
+						minparticlelife="900"
+						maxparticlelife="2000"			
+						gravity="-5"
+						minspeed="200"
+						maxspeed="500"
+						drag=".2"
+						material="/shared/effects/materials/spark.material"
+						offsetsphere="30"
+						minangle="20"
+						maxangle="90"
+						direction="0 0 1"
+						directionalspace="global"
+						inheritvelocity=".1"
+					>
+						<particle 
+							minangle="0"
+							maxangle="360"
+							startcolor="0"
+							midcolor=".5 .75 1"
+							endcolor="0 0 0"
+							midcolorpos=".3"
+							minstartsize="3"
+							maxstartsize="6"
+							endsize="0"
+						/>
+					</simpleemitter>
+				</controller>
+			</template>
+			
+			<instance name="flames" bone="_bone_centerofchest" direction="0 0 0" scale=".9" life="500" count="100" delay="0"/>
+			<instance name="flames" bone="_bone_centerofchest" direction="0 0 0" scale=".9" life="500" count="100" delay="330"/>
+		
+		<orbiteremitter
+			delay="330"
+			life="800"
+			position="0 0 50"
+			count="300"
+			minparticlelife="300"
+			maxparticlelife="500"
+			origin="0 0 0" 
+			orbit="0 0 800" 
+			direction="0 0 1" 
+			offset="200 0 10"
+			cylindrical="true" 
+			material="/shared/effects/materials/smoke_17.material"
+			drag=".07"
+		>
+			<particle 
+				minangle="0"
+				maxangle="0"
+				minanglespeed="-180"
+				maxanglespeed="180"
+				color="-1"
+				startframe="0"
+				endframe="1"
+				minsize="20"
+				maxsize="40"
+				startalpha="0"
+				midalpha=".4"
+				endalpha="0"
+				midalphapos=".25"
+			/>
+		</orbiteremitter>
+			
+		<light
+			life="250"			
+			startcolor=".6 11 20"			
+			endcolor="0 0 0"
+			midcolorpos=".2"
+			falloffstart="00"
+			falloffend="255"
+			position="0 0 20"	
+		/>
+		
+		<light
+			delay="330"
+			life="250"			
+			startcolor=".6 11 20"			
+			endcolor="0 0 0"
+			midcolorpos=".2"
+			falloffstart="00"
+			falloffend="255"
+			position="0 0 20"	
+		/>		
+		
+		<simpleemitter
+			life="300"
+			spawnrate="15"
+			particlelife="400"
+			gravity="-6"
+			speed="0.0"
+			acceleration="0.0"
+			timenudge="0"
+			position="0 0 0"
+			material="/shared/effects/materials/flare_01.material"
+		>
+			<particle
+				startcolor="1 1 1"
+				endcolor="0.0 0.0 0.0"
+
+
+				startalpha=".02"
+				endalpha="0"
+
+				minangle="0"
+				maxangle="360"
+				minanglespeed="0"
+				maxanglespeed="0"
+
+				startsize="150"
+				midsize="120"
+				endsize="50"
+
+				lockup="true"
+				pitch="90"
+
+			/>
+		</simpleemitter>
+
+		
+		
+		<simpleemitter
+			
+			count="1"
+			particlelife="200"
+			gravity="-6"
+			speed="0.0"
+			acceleration="0.0"
+			timenudge="0"
+			position="0 0 40"
+			
+			material="/shared/effects/materials/blink.material"
+		>
+			<particle
+				anglespeed="20"
+				startcolor="0 0 0"
+				midcolor="1 1 1"
+				endcolor="0.0 0.0 0.0"
+				midcolorpos=".1"
+
+
+				startsize="280"
+				midsize="220"
+				endsize="0"
+
+
+			/>
+		</simpleemitter>		
+
+
+			<billboard
+				position="0 0 20"
+				life="200"
+				color="1 1 1"
+				startalpha="1.0"				
+				endalpha="1"
+				startparam="0.05"
+				endparam="0.0"				
+				startsize="128"
+				endsize="524"
+				material="/shared/effects/materials/refract_pinch.material"
+				lockup="1"
+				pitch="90"
+			/>
+			
+				<billboard
+				position="0 0 20"
+				delay="350"
+				life="300"
+				color="1 1 1"
+				startalpha="1.0"
+				
+				endalpha="1.0"
+				startparam="0.05"
+				endparam="0.0"
+				
+				startsize="524"
+				endsize="128"
+				lockup="1"
+				pitch="90"
+
+				material="/shared/effects/materials/refract_pinch.material"
+			/>
+      </particlesystem>
+   </definitions>
+   <thread>
+      <spawnparticlesystem instance="instance0" particlesystem="system0" />
+      <waitfordeath instance="instance0" />
+      <!-- <die /> -->
+   </thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->
+

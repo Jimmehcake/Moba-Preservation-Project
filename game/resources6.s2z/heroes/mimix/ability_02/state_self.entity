@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Mimix_Ability2_Self"
+
+	icon="icon.tga"
+	passiveeffect=""
+	
+	effecttype=""
+	allowtransfer="false"
+	
+	modifierkey="mimix_ability2_Charging"
+>
+	<onframe>
+		<targettype type="immobilized" source="this_owner_entity" target="this_owner_entity">
+			<unbind target="this_owner_entity" />
+			<delete target="this_proxy_entity" />
+		</targettype>
+		
+		<targettype type="stunned" source="this_owner_entity" target="this_owner_entity">
+			<unbind target="this_owner_entity" />
+			<delete target="this_proxy_entity" />
+		</targettype>
+	</onframe>
+
+</state>

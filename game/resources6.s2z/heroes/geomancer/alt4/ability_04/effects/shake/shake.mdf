@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model name="bone_helpers.max" file="shake.model" type="K2" >
+	<anim name="idle" clip="shake.clip" fps="60" />
+</model>

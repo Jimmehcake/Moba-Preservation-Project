@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Fade_Ability2_ExpirePet"
+
+	icon="/heroes/fade/ability_02/icon.tga"
+	passiveeffect=""
+	revealed="false"
+	sighted="true"
+	ishidden="false"
+	
+	effecttype=""
+>
+	<onframe>
+		<targettype target="this_proxy_entity" type="alive" />
+		<else>
+			<expire />
+		</else>
+	</onframe>
+
+	<onexpired>
+		<kill target="this_proxy_entity" source="" />
+	</onexpired>
+	
+	<ondeath>
+		<kill target="this_proxy_entity" source="" />
+	</ondeath>
+	
+	<aura
+		gadget="Gadget_Fade_Ability2"
+		radius="0"
+		targetscheme="self"
+	/>
+	
+	<altavatar key="Hero_Fade.Alt3" modpriority="90"
+		passiveeffect="/heroes/fade/alt3/ability_02/effects/shroud_effect.effect"
+	/>
+	
+	<altavatar key="Hero_Fade.Alt5" modpriority="90"
+		passiveeffect="/heroes/fade/alt5/ability_02/effects/shroud_effect.effect"
+	/>
+	
+	<altavatar key="Hero_Fade.Alt6" modpriority="90"
+		icon="/heroes/fade/alt6/ability_02/icon.tga"
+	/>
+
+	<altavatar key="Hero_Fade.Alt9" modpriority="90"
+		passiveeffect="/heroes/fade/alt9/ability_02/effects/shroud_effect.effect"
+	/>
+	
+	<altavatar key="Hero_Fade.Alt10" modpriority="90"
+		passiveeffect="/heroes/fade/alt10/ability_02/effects/shroud_effect.effect"
+	/>
+	
+</state>

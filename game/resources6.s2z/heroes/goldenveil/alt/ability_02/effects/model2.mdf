@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model name="" file="tree.model" type="K2" >
+<anim name="idle" clip="/heroes/shaman/alt4/ability_01/effects/olive_tree/default_1.clip" fps="80" loop="false"/>
+</model>

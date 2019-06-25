@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_SandWraith_Ability4_Illusion"
+	
+	serverentity="true"
+	ishidden="true"
+	
+	unitwalking="true"
+	movespeed="105"
+>
+
+	<onframe>
+		<cantarget targetscheme="enemy_heroes" source="this_owner_entity" target="this_proxy_entity" ignoreinvulnerable="false" />
+		<else>
+			<order command="attack" force="true" forceduration="8000" source="this_owner_entity" target="this_proxy_entity" />
+		</else>
+		<targettype type="alive" target="this_proxy_entity" />
+		<else>
+			<kill target="this_owner_entity" source="" />
+		</else>
+		
+		<compare a="this_proxy_entity" b="0" op="eq">
+			<kill target="this_owner_entity" source="" />
+		</compare>
+	</onframe>
+
+</state>

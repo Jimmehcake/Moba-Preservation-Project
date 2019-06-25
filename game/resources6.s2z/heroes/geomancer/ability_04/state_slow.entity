@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Geomancer_Ability4_Slow"
+	icon="icon.tga"
+
+	passiveeffect=""
+	
+	movespeedslowstart="0.5"
+	
+	effecttype="StatusDebuff"
+	allowtransfer="true"
+>
+	<onframe />
+</state>

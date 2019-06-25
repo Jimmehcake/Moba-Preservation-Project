@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ability
+	name="Ability_SandWraith3"
+
+	icon="icon.tga"
+	
+	maxlevel="4"
+	requiredlevel="1,3,5,7"
+	
+	actiontype="passive"
+>
+	<onattackstart>
+		<cantarget targetscheme="enemy_nonboss_npc_units" effecttype="Physical">
+			<chance threshold="0.05,0.10,0.15,0.20">
+				<addcritical chance="1.0" multiplier="3.0" />
+			</chance>
+		</cantarget>
+	</onattackstart>
+
+	<ondamaged propagatetoillusions="false">
+		<currentdamageeffecttype effecttype="Returned" />
+		<else>
+			<setvar0 a="source_damage" b="0.03,0.06,0.09,0.11" op="mult" />
+			<areaofeffect
+				center="source_entity"
+				radius="700"
+				targetselection="all"
+				targetscheme="enemy_nonboss_units"
+				effecttype=""
+			>
+				<damage effecttype="Magic Splash Returned DOT" amount="1" b="var0" op="mult" />
+				<playeffect effect="../alt5/ability_03/effects/impact.effect" target="target_entity" source="target_entity"/>
+				
+				<!--
+					<hasavatarkey name="Hero_SandWraith.Alt5">
+						<playeffect effect="../alt5/ability_03/effects/impact.effect" target="target_entity" source="target_entity"/>
+					</hasavatarkey>
+				-->
+			</areaofeffect>
+			<scaledamage scale="0.97,0.94,0.91,0.89" />
+		</else>
+	</ondamaged>
+
+
+	<aura name="SandWraith_E" state="State_SandWraith_Ability3" targetscheme="my_illusions" radius="99999" effecttype="" />
+	
+	<aura name="SandWraith_E" state="State_SandWraith_Ability3" targetscheme="self" radius="0" effecttype="" />
+	
+
+	<altavatar key="Hero_SandWraith.Alt4" modpriority="90"
+		icon="../alt4/ability_03/icon.tga"
+	/>
+	
+	<altavatar key="Hero_SandWraith.Alt9" 
+	    icon="/heroes/sand_wraith/alt9/ability_03/icon.tga"
+	/>
+	
+</ability>

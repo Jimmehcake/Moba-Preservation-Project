@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ability
+	name="Ability_Geomancer1"
+	
+	icon="icon.tga"
+	
+	anim="shot"
+	casttime="1000"
+	castactiontime="100"
+	casteffect=""
+	maxlevel="4"
+	requiredlevel="1,3,5,7"
+	
+	actiontype="target_position"
+	casteffecttype="Magic"
+	targetscheme="enemy_units"
+	activatescheme="movement"
+	manacost="90,100,110,120"
+	cooldowntime="11000"
+	
+	range="1250"
+	forcerange="1250"
+	novoiceresponse="true"
+	allowoutofboundscast="true"
+
+	targetradius="250"
+	
+	showlinecast="true"
+	linecastrange="1250"
+	linecastwidth="250"
+	
+	areacastmaterial="/shared/materials/area_cast_indicator_spokes.material"
+	
+	showrangeandradiusintooltip="true"
+>
+	<onimpact>
+			<playeffect effect="effects/cast.effect" source="source_position" occlude="true" />
+	</onimpact>
+	
+	<oncomplete>
+		<!-- Distance check to prevent long-range casts on the same frame -->
+		<setpos0 position="target_position" />
+		<distance target="pos0" />
+		<compare a="result" b="1750" op="lt">
+			<spawnprojectile name="Projectile_Geomancer_Ability1" source="source_entity" target="target_position" proxy="stack_entity" bind="source_entity" bindturn="true" pushentity="true" bindstate="State_Geomancer_Ability1_Self" />
+			<playanim name="ability_1_swim" target="source_entity" />
+			<setproxy entity="this_entity" target="stack_entity" />
+		</compare>
+	</oncomplete>
+	
+	<modifier key="Geomancerburrow" modpriority="100"
+		ignorecooldown="true"
+		anim=""
+		icon="icon_b.tga"
+		casttime="0"
+		castactiontime="0"
+		manacost="0"
+		actiontype="no_target"
+		cooldowntime="0"
+		responsetype="Staccato"
+		nosilence="true"
+	>
+		<onimpact>
+			<expirestate name="State_Geomancer_Ability1_Self" target="this_owner_entity" />
+			<unbind target="this_owner_entity" />
+			<kill target="proxy_entity" source="" />
+		</onimpact>
+	</modifier>
+</ability>

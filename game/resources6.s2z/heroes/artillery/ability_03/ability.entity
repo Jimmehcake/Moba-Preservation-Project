@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ability
+	name="Ability_Artillery3"
+	
+	icon="icon.tga"
+
+	statuseffecttooltip="State_Artillery_Ability3_Slow"
+
+	maxlevel="4"
+	requiredlevel="1,3,5,7"
+	
+	casttime="0"
+	castactiontime="0"
+	casteffect=""
+	anim="ability_3"
+	
+	actiontype="passive"
+
+	modifierkey="Artillery_Bunker1,Artillery_Bunker2,Artillery_Bunker3,Artillery_Bunker4"
+	modifierkey2="Artillery_Bunker_On"
+
+	noshuffle="true"
+>
+	<onframe />
+	
+	<modifier key="Artillery_Bunker0_Sotm" modpriority="100"
+		modifierkey2="Artillery_Bunker1_Sotm,Artillery_Bunker2_Sotm,Artillery_Bunker3_Sotm,Artillery_Bunker4_Sotm"
+	>
+	</modifier>
+	
+	<altavatar key="Hero_Artillery.Alt4"
+		icon="../alt4/ability_03/icon.tga"
+	/>
+
+	<altavatar key="Hero_Artillery.Alt9"
+		icon="../alt9/ability_03/icon.tga"
+	/>
+	
+	<altavatar key="Hero_Artillery.Alt10"
+		icon="../alt9/ability_03/icon.tga"
+	/>
+	
+	<altavatar key="Hero_Artillery.Alt11"
+		icon="../alt11/ability_03/icon.tga"
+	/>
+</ability>

@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="1">
+
+	<definitions>
+
+		<particlesystem name="system1" space="world" scale="1">
+		
+			<sound
+				linearfalloff="true"
+				falloffstart="1000"
+				falloffend="2000" 
+				volume=".55" 
+				sample="/heroes/geomancer/ability_04/sounds/explosion.wav"
+				life="6000" 
+			/>
+
+
+			<light
+				
+				startcolor="8 4 0"
+				endcolor="0 0 0"
+				falloffstart="200"
+				falloffend="500"
+				life="1000"
+				position="0 0 100"
+			
+			/>	
+			
+			
+			<model
+				model="../../../ability_04/effects/amethyst_explosion/model.mdf"
+				material="material_generic.material"
+				anim="idle"
+				scale="1.25"
+				life="3000"
+				alpha=".5"
+				position="0 0 0"
+			>
+			</model>
+			
+			<model
+				model="../../../ability_04/effects/amethyst_explosion/model.mdf"
+				material="material.material"
+				anim="idle"
+				scale="1.25"
+				life="3000"
+				startalpha="1"	
+				midalpha="1"				
+				endalpha="1"
+				midalphapos=".95"
+				position="0 0 0"
+			>
+			</model>
+			
+			
+		
+			
+	
+			<simpleemitter				
+				speed="0"
+				count="8"
+				spawnrate="320"
+				position="0 0 0"
+				minparticlelife="500"
+				maxparticlelife="750"
+				material="/shared/effects/materials/whitedot.material"
+				offsetsphere="200 200 0"
+				depthbias="0"
+				angle="180"
+				
+				inheritvelocity=".0"
+			>
+				<particle>
+					<simpleemitter
+						count="2"
+						minparticlelife="500"
+						maxparticlelife="1000"
+						spawnrate="35"
+						minspeed="450"
+						maxspeed="650"
+						gravity="20"
+						direction="0 0 1"
+						minangle="0"
+						maxangle="1"
+						drag="0.01"
+						material="/shared/effects/materials/pyroclast_03.material"
+						offsetsphere="10 10 50"
+						position="0 0 0"
+					>
+						<particle
+							depthbias="-100"
+							minscale="0.7"
+							maxscale="1.3"
+							color="1 .5 0"
+							height="100"
+							startwidth="25"
+							endwidth="50"
+							startscale="3"
+							endscale="6"
+							startalpha="1"
+							endalpha="0"
+							lockup="1"
+							lockright="1"
+							minyaw="0"
+							maxyaw="360"
+							yawspeed="-35"
+						/>
+					</simpleemitter>					
+					
+					<simpleemitter
+						count="2"
+						minparticlelife="500"
+						maxparticlelife="1000"
+						spawnrate="35"
+						minspeed="450"
+						maxspeed="650"
+						gravity="20"
+						direction="0 0 1"
+						minangle="0"
+						maxangle="1"
+						drag="0.01"
+						material="/shared/effects/materials/pyroclast_03.material"
+						offsetsphere="10 10 50"
+						position="0 0 0"
+					>
+						<particle
+							depthbias="-100"
+							color="1 .5 0"
+							height="100"
+							startwidth="25"
+							endwidth="50"
+							startscale="3"
+							endscale="6"
+							startalpha="1"
+							endalpha="0"
+							lockup="1"
+							lockright="1"
+							minyaw="0"
+							maxyaw="360"
+							yawspeed="-35"
+						/>
+					</simpleemitter>	
+
+					<model
+						model="../../../ability_04/effects/amethyst_explosion/model.mdf"
+						material="material_generic.material"
+						anim="idle"
+						minscale="0.70"
+						maxscale="1.3"
+						life="3000"
+						alpha=".5"
+						minyaw="-360"
+						maxyaw="360"
+						midalphapos=".95"
+						position="0 0 0"
+					>
+					</model>
+				
+					<model
+						model="../../../ability_04/effects/amethyst_explosion/model.mdf"
+						material="material.material"
+						anim="idle"
+						minscale="0.70"
+						maxscale="1.3"
+						life="3000"
+						startalpha="1"	
+						midalpha="1"				
+						endalpha="1"
+						minyaw="-360"
+						maxyaw="360"
+						midalphapos=".95"
+						position="0 0 0"
+					>
+					</model>
+					
+					<groundsprite
+						
+						position="0 0 0"
+						life="3000"
+						material="/shared/effects/materials/fire_ground.material"
+						size="200"				
+						minyaw="-360"
+						maxyaw="360"
+						color="1 1 1"
+						startalpha="1"
+						
+						endalpha="0"
+					
+					/>					
+					
+				</particle>
+			</simpleemitter>
+	
+	
+			<model
+				model="../../../ability_04/effects/amethyst_explosion/model.mdf"
+				material="material_generic.material"
+				anim="idle"
+				scale="1.75"
+				life="1750"
+				alpha=".5"
+				midalphapos=".9"
+				position="0 0 0"
+			/>
+
+			<model
+				model="../../../ability_04/effects/amethyst_explosion/model.mdf"
+				material="material.material"
+				anim="idle"
+				scale="1.75"
+				life="1750"
+				startalpha="1"	
+				midalpha="1"				
+				endalpha="1"
+				midalphapos=".9"
+				position="0 0 0"
+			>
+			
+			
+			
+			
+				<template name="flashes">
+				
+					<simpleemitter
+						bone="{bone}"
+						speed="0"
+						life="500"
+						spawnrate="50"
+						position="0 0 0"
+						minparticlelife="500"
+						maxparticlelife="750"
+						material="/shared/effects/materials/blob_add.material"
+						offsetsphere="5"
+						depthbias="0"
+						inheritvelocity=".0"
+					>
+						<particle 
+							minanglespeed="-80"
+							maxanglespeed="80"
+							startcolor=".25 .125 0"
+							endcolor="0"
+							minsize="4"
+							maxsize="8"
+							startscale="2"
+							endscale="4"
+							startalpha=".75"
+							endalpha="0"
+						/>
+					</simpleemitter>
+
+					
+				</template>
+
+				<instance name="flashes" bone="Box043" />
+				<instance name="flashes" bone="Box040" />
+				<instance name="flashes" bone="Box037" />
+				<instance name="flashes" bone="Box028" />
+				<instance name="flashes" bone="Box035" />
+				<instance name="flashes" bone="Box046" />
+				<instance name="flashes" bone="Box044" />
+				<instance name="flashes" bone="Box033" />
+				<instance name="flashes" bone="Box045" />
+				<instance name="flashes" bone="Box040" />
+			
+			
+			</model>
+
+			<simpleemitter	
+				spawnrate="11500"
+				life="1200"				
+				count="30"			
+				position="0 0 150"
+				minparticlelife="1500"			
+				maxparticlelife="2550"	
+				depthbias="-10"			
+				material="/shared/effects/materials/smoke_particle.material"			
+				offsetsphere="155 155 50"
+				minspeed="0"
+				maxspeed="520"
+				minangle="0"
+				maxangle="12"
+				direction="0 0 1"
+				gravity="8"
+				drag=".005"
+			>
+				<particle 
+					minangle="-25"
+					maxangle="25"
+					minanglespeed="-100"
+					maxanglespeed="100"
+					color=".45 .42 .35"
+					startsize="150"
+					endsize="400"
+					startalpha="0"
+					midalpha=".3"
+					endalpha="0"
+				/>
+				<particle 
+					minangle="-25"
+					maxangle="25"
+					minanglespeed="-100"
+					maxanglespeed="100"
+					color=".45"
+					startsize="150"
+					endsize="400"
+					startalpha="0"
+					midalpha=".3"
+					endalpha="0"
+				/>
+				<particle 
+					minangle="-25"
+					maxangle="25"
+					minanglespeed="-50"
+					maxanglespeed="50"
+					color=".2"
+					startsize="150"
+					midsize="150"
+					endsize="420"
+					startalpha="0"
+					midalpha=".3"
+					endalpha="0"
+				/>
+			</simpleemitter>
+			
+
+
+
+				
+			<simpleemitter	
+				spawnrate="11500"
+				life="1500"				
+				count="20"			
+				position="0 0 150"
+				minparticlelife="1500"			
+				maxparticlelife="3000"	
+				depthbias="-40"			
+				material="/shared/effects/materials/pyroclast_02.material"			
+				offsetsphere="125 125 100"
+				minspeed="0"
+				maxspeed="620"
+				angle="140"
+				direction="0 0 1"
+				drag=".011"
+				gravity="11"
+			>
+				<particle 
+					minangle="-25"
+					maxangle="25"
+					minanglespeed="-50"
+					maxanglespeed="50"
+					color=".2 .2 .3"
+					
+					startsize="150"
+					midsize="150"
+					endsize="220"
+					startalpha="0"
+					midalpha="1"
+					endalpha="0"
+				/>
+			</simpleemitter>
+		
+
+		
+
+	
+		
+			
+			<billboard
+				life="300"
+				position="0 0 50"			
+				startcolor=".2 .1 0"
+				endcolor="0"
+				endsize="1050"
+				depthbias="-100"
+				lockup="1"
+				pitch="90"
+				maxroll="360"
+				material="/shared/effects/materials/pulse.material"
+			/>
+
+			<billboard
+
+				life="200"
+				position="0 0 50"			
+				startcolor=".4 .2 0"
+				endcolor="0"
+				endsize="1150"
+				depthbias="-100"
+				lockup="1"
+				pitch="90"
+				material="/shared/effects/materials/corona_06.material"
+			/>
+
+	
+	
+			<groundsprite
+				
+				position="0 0 0"
+				life="1000"
+				material="/shared/effects/materials/fire_ground.material"
+				size="400"				
+							
+				color="1 1 1"
+				startalpha="1"
+				
+				endalpha="0"
+			
+			/>			
+
+			<billboard
+				life="400"
+				position="0 0 50"
+				midalpha="1"			
+				startalpha="0"
+				endalpha="0"
+				startsize="300"
+				endsize="1400"
+				depthbias="-100"
+				startparam="0.15"
+				endparam="0"
+				lockup="1"
+				pitch="90"
+				material="/shared/effects/materials/refract_ring.material"
+			/>		
+		</particlesystem>
+
+	</definitions>
+
+	<thread>
+      	<spawnparticlesystem instance="instance1" particlesystem="system1" />
+	  	<camerashake2 scale="11" radius="1200" duration="400" frequency="22" />
+      	<waitfordeath instance="instance1" />
+   	</thread>
+
+</effect>

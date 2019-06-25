@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<statenetaccum
+	name="State_Sapphire_Ability3"
+
+	icon="icon.tga"
+	passiveeffect="effects/state.effect"
+	
+	effecttype="StatusBuff"
+	allowtransfer="true"
+	
+	attackspeed="0.20,0.35,0.50,0.65"
+
+	shield="true"
+	maxaccumulator="100,160,220,280"
+>
+	
+	<oninflict>
+		<setaccumulator value="100,160,220,280" />
+	</oninflict>
+	
+	<onrefresh>
+		<setaccumulator value="100,160,220,280" />
+	</onrefresh>
+	
+	<ondamaged>		
+		<compare a="accumulator" b="damage_applied" op="le">
+			<changedamage b="accumulator" op="sub" />
+			<setaccumulator value="0" />
+			<expire />
+		</compare>
+		<else>
+			<setaccumulator value="accumulator" valueb="damage_applied" valueop="sub" />
+			<changedamage b="0" op="min" />
+		</else>
+		
+		<!-- SFX -->
+		<damageeffecttype effecttype="DOT" />
+		<else>
+			<playeffect effect="effects/damage_sound.effect" source="source_entity" target="source_entity" occlude="true" />
+		</else>
+	</ondamaged>
+	
+	<onexpired>
+		<hasavatarkey name="Hero_Sapphire.Alt" >
+			<playeffect effect="/heroes/sapphire/alt/ability_03/effects/expire_sound.effect" source="source_entity" target="source_entity" occlude="true" />
+		</hasavatarkey>
+		<else>
+			<playeffect effect="effects/expire_sound.effect" source="source_entity" target="source_entity" occlude="true" />
+		</else>
+	</onexpired>
+
+	<ondeath>
+		<playeffect effect="effects/expire_sound.effect" source="source_entity" target="source_entity" occlude="true" />
+	</ondeath>
+	
+	<altavatar key="Hero_Sapphire.Alt" modpriority="1"
+		passiveeffect="../alt/ability_03/effects/state.effect"
+	/>
+	
+	<altavatar key="Hero_Sapphire.Alt2" modpriority="1"
+		passiveeffect="../alt2/ability_03/effects/state.effect"
+	/>
+	
+	<altavatar key="Hero_Sapphire.Alt3" modpriority="1"
+		passiveeffect="../alt3/ability_03/effects/state.effect"
+	/>
+	
+	<altavatar key="Hero_Sapphire.Alt4" modpriority="1"
+		passiveeffect="../alt4/ability_03/effects/state.effect"
+	/>
+	
+</statenetaccum>

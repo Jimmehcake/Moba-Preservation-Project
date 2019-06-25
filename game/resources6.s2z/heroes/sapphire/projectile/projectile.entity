@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectile
+	name="Projectile_Sapphire"
+
+	speed="2000"
+	gravity="0"
+	canturn="false"
+	modelscale="1.25"
+
+	model="/shared/models/invis.mdf"
+	traileffect="effects/trail.effect"
+	impacteffect="effects/impact.effect"
+>
+	<altavatar key="Hero_Sapphire.Alt" modpriority="1"
+		traileffect="../alt/projectile/effects/trail.effect"
+		impacteffect="../alt/projectile/effects/impact.effect"
+	/>
+	<altavatar key="Hero_Sapphire.Alt2" modpriority="1"
+		traileffect="../alt2/projectile/effects/trail.effect"
+		impacteffect="../alt2/projectile/effects/impact.effect"
+	/>	
+	<altavatar key="Hero_Sapphire.Alt3" modpriority="1"
+		traileffect="../alt3/projectile/effects/trail.effect"
+		impacteffect="../alt3/projectile/effects/impact.effect"
+	/>
+	
+	<altavatar key="Hero_Sapphire.Alt4" modpriority="1"
+		traileffect="../alt4/projectile/effects/trail.effect"
+		impacteffect="../alt4/projectile/effects/impact.effect"
+	/>
+	
+</projectile>

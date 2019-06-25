@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ability
+	name="Ability_DrunkenMaster3"
+
+	icon="icon.tga"
+	passiveeffect=""
+	
+	maxlevel="4"
+	requiredlevel="1,3,5,7"
+
+	actiontype="passive"
+>
+	<onattackingdamageevent>
+		<damageeffecttype effecttype="DOT" />
+		<else>
+			<cantarget targetscheme="enemy_heroes">
+				<applystate name="State_Drunkenmaster_Ability3" target="this_owner_entity" duration="5000" />
+			</cantarget>
+		</else>
+	</onattackingdamageevent>
+	
+	<altavatar key="Hero_DrunkenMaster.Alt10"
+	    icon="/heroes/drunkenmaster/alt10/ability_03/icon.tga"
+	/>		
+</ability>

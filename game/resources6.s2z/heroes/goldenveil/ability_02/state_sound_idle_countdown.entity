@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Goldenveil_Idle_Sound_Countdown"
+
+	icon="icon.tga"
+	passiveeffect=""
+	
+	ishidden="true"
+	
+	effecttype=""
+	allowtransfer="false"
+
+>	
+
+	<onframe>
+		<!-- Carried objects -->
+		<areaofeffect
+			radius="900"
+			targetscheme="visible_enemy_heroes"
+			targetselection="closest"
+		>
+			<hasmodifier entity="target_entity" name="reveal_item" propagatetoillusions="false">
+				<expirestate name="State_Goldenveil_Idle_Sound_Countdown" target="source_entity" />
+				
+				<!-- SFX -->
+				<hasavatarkey name="Hero_Goldenveil.Alt" target="this_owner_entity">
+					<playeffect effect="/heroes/goldenveil/alt/ability_02/effects/spotted_sound.effect" source="this_owner_entity" target="this_owner_entity" occlude="true" />
+				</hasavatarkey>
+				<else>
+					<hasavatarkey name="Hero_Goldenveil.Alt2" target="this_owner_entity">
+						<playeffect effect="/heroes/goldenveil/alt2/ability_02/effects/spotted_sound.effect" source="this_owner_entity" target="this_owner_entity" occlude="true" />
+					</hasavatarkey>
+					<else>
+						<hasavatarkey name="Hero_Goldenveil.Alt3" target="this_owner_entity">
+							<playeffect effect="/heroes/goldenveil/alt3/ability_02/effects/spotted_sound.effect" source="this_owner_entity" target="this_owner_entity" occlude="true" />
+						</hasavatarkey>
+						<else>
+							<hasavatarkey name="Hero_Goldenveil.Alt4" target="this_owner_entity">
+								<playeffect effect="/heroes/goldenveil/alt4/ability_02/effects/spotted_sound.effect" source="this_owner_entity" target="this_owner_entity" occlude="true" />
+							</hasavatarkey>
+							<else>
+								<playeffect effect="effects/spotted_sound.effect" source="this_owner_entity" target="this_owner_entity" occlude="true" />
+							</else>
+						</else>
+					</else>
+				</else>
+			</hasmodifier>
+			<else>
+				<condition test="hasstate State_DustOfRevelation_icu" target="source_entity">
+					<expirestate name="State_Goldenveil_Idle_Sound_Countdown" target="source_entity" />
+					
+					<!-- SFX -->
+					<hasavatarkey name="Hero_Goldenveil.Alt" target="this_owner_entity">
+						<playeffect effect="/heroes/goldenveil/alt/ability_02/effects/spotted_sound_dust.effect" source="this_owner_entity" target="this_owner_entity" occlude="true" />
+					</hasavatarkey>
+					<else>
+						<hasavatarkey name="Hero_Goldenveil.Alt2" target="this_owner_entity">
+							<playeffect effect="/heroes/goldenveil/alt2/ability_02/effects/spotted_sound_dust.effect" source="this_owner_entity" target="this_owner_entity" occlude="true" />
+						</hasavatarkey>
+						<else>
+							<hasavatarkey name="Hero_Goldenveil.Alt3" target="this_owner_entity">
+								<playeffect effect="/heroes/goldenveil/alt3/ability_02/effects/spotted_sound_dust.effect" source="this_owner_entity" target="this_owner_entity" occlude="true" />
+							</hasavatarkey>
+							<else>
+								<hasavatarkey name="Hero_Goldenveil.Alt4" target="this_owner_entity">
+									<playeffect effect="/heroes/goldenveil/alt4/ability_02/effects/spotted_sound.effect" source="this_owner_entity" target="this_owner_entity" occlude="true" />
+								</hasavatarkey>
+								<else>
+									<playeffect effect="effects/spotted_sound_dust.effect" source="this_owner_entity" target="this_owner_entity" occlude="true" />
+								</else>
+							</else>
+						</else>
+					</else>
+				</condition>
+				<else>
+					<condition test="hasstate State_TokenOfSight_Vision" target="target_entity">
+						<expirestate name="State_Goldenveil_Idle_Sound_Countdown" target="source_entity" />
+					
+						<!-- SFX -->
+						<hasavatarkey name="Hero_Goldenveil.Alt" target="this_owner_entity">
+							<playeffect effect="/heroes/goldenveil/alt/ability_02/effects/spotted_sound.effect" source="this_owner_entity" target="this_owner_entity" occlude="true" />
+						</hasavatarkey>
+						<else>
+							<hasavatarkey name="Hero_Goldenveil.Alt2" target="this_owner_entity">
+								<playeffect effect="/heroes/goldenveil/alt2/ability_02/effects/spotted_sound.effect" source="this_owner_entity" target="this_owner_entity" occlude="true" />
+							</hasavatarkey>
+							<else>
+								<hasavatarkey name="Hero_Goldenveil.Alt3" target="this_owner_entity">
+									<playeffect effect="/heroes/goldenveil/alt3/ability_02/effects/spotted_sound.effect" source="this_owner_entity" target="this_owner_entity" occlude="true" />
+								</hasavatarkey>
+								<else>
+									<hasavatarkey name="Hero_Goldenveil.Alt4" target="this_owner_entity">
+										<playeffect effect="/heroes/goldenveil/alt4/ability_02/effects/spotted_sound.effect" source="this_owner_entity" target="this_owner_entity" occlude="true" />
+									</hasavatarkey>
+									<else>
+										<playeffect effect="effects/spotted_sound.effect" source="this_owner_entity" target="this_owner_entity" occlude="true" />
+									</else>
+								</else>
+						   </else>
+						</else>
+					</condition>
+				</else>
+			</else>
+		</areaofeffect>
+		<else>
+			<!-- Placed objects -->
+			<areaofeffect
+				radius="816"
+				targetscheme="enemy_objects"
+				targetselection="closest"
+			>
+				<hasmodifier entity="target_entity" name="reveal_item" propagatetoillusions="false">
+					<expirestate name="State_Goldenveil_Idle_Sound_Countdown" target="source_entity" />
+					
+					<!-- SFX -->
+					<hasavatarkey name="Hero_Goldenveil.Alt" target="this_owner_entity">
+						<playeffect effect="/heroes/goldenveil/alt/ability_02/effects/spotted_sound.effect" source="this_owner_entity" target="this_owner_entity" occlude="true" />
+					</hasavatarkey>
+					<else>
+						<hasavatarkey name="Hero_Goldenveil.Alt2" target="this_owner_entity">
+							<playeffect effect="/heroes/goldenveil/alt2/ability_02/effects/spotted_sound.effect" source="this_owner_entity" target="this_owner_entity" occlude="true" />
+						</hasavatarkey>
+						<else>
+							<hasavatarkey name="Hero_Goldenveil.Alt3" target="this_owner_entity">
+								<playeffect effect="/heroes/goldenveil/alt3/ability_02/effects/spotted_sound.effect" source="this_owner_entity" target="this_owner_entity" occlude="true" />
+							</hasavatarkey>
+							<else>
+								<hasavatarkey name="Hero_Goldenveil.Alt4" target="this_owner_entity">
+									<playeffect effect="/heroes/goldenveil/alt4/ability_02/effects/spotted_sound.effect" source="this_owner_entity" target="this_owner_entity" occlude="true" />
+								</hasavatarkey>
+								<else>
+									<playeffect effect="effects/spotted_sound.effect" source="this_owner_entity" target="this_owner_entity" occlude="true" />
+								</else>
+							</else>
+						</else>
+					</else>
+				</hasmodifier>
+			</areaofeffect>
+		</else>
+	</onframe>
+
+</state>

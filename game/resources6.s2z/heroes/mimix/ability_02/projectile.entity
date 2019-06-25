@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectile
+	name="Projectile_Mimix_Ability2"
+
+	speed="1200"
+	gravity="0"
+	impactdistance="120"
+
+	modelscale="1.2"
+	model="/shared/effects/models/side_to_side/model.mdf"
+	traileffect="effects/trail.effect"
+
+	canturn="true"
+	flying="true"
+	flyheight="11"
+	deatheffect=""
+>
+	<onspawn>
+		<applystate name="State_Mimix_Ability2_Self" duration="4000" target="source_entity" proxy="this_entity" />
+	</onspawn>
+	
+	<onimpact>
+		<targettype type="illusion" target="this_proxy_entity" />
+		<else>
+			<setpos0 position="target_position" positionend="this_position" positionvalue="-250" positionmodifier="pointpastline" />
+			<spawnunit name="Gadget_Mimix_Ability2_wall" count="1" target="pos0" pushentity="true" fixedposition="true" />
+			<spawnunit name="Gadget_Mimix_Ability2" count="1" offset="75 -35" offsetspace="stack_entity" target="pos0" fixedposition="true" />
+			<spawnunit name="Gadget_Mimix_Ability2" count="1" offset="-75 -35" offsetspace="stack_entity" target="pos0" fixedposition="true" />
+			<spawnunit name="Gadget_Mimix_Ability2" count="1" offset="-125 -75" offsetspace="stack_entity" target="pos0" fixedposition="true" />
+			<spawnunit name="Gadget_Mimix_Ability2" count="1" offset="125 -75" offsetspace="stack_entity" target="pos0" fixedposition="true" />
+			<spawnunit name="Gadget_Mimix_Ability2" count="1" offset="175 -125" offsetspace="stack_entity" target="pos0" fixedposition="true" />
+			<spawnunit name="Gadget_Mimix_Ability2" count="1" offset="-175 -125" offsetspace="stack_entity" target="pos0" fixedposition="true" />
+			<spawnunit name="Gadget_Mimix_Ability2" count="1" offset="-225 -175" offsetspace="stack_entity" target="pos0" fixedposition="true" />
+			<spawnunit name="Gadget_Mimix_Ability2" count="1" offset="225 -175" offsetspace="stack_entity" target="pos0" fixedposition="true" />
+			<spawnunit name="Gadget_Mimix_Ability2" count="1" offset="-225 -250" offsetspace="stack_entity" target="pos0" fixedposition="true" />
+			<spawnunit name="Gadget_Mimix_Ability2" count="1" offset="225 -250" offsetspace="stack_entity" target="pos0" fixedposition="true" />
+			<spawnunit name="Gadget_Mimix_Ability2" count="1" offset="-225 -300" offsetspace="stack_entity" target="pos0" fixedposition="true" />
+			<spawnunit name="Gadget_Mimix_Ability2" count="1" offset="225 -300" offsetspace="stack_entity" target="pos0" fixedposition="true" />
+		</else>
+
+		<applystate name="State_Mimix_Ability2" target="target_entity" duration="2000" />
+		<expirestate name="State_Mimix_Ability2_Self" target="source_entity" />
+		<damage amount="30,60,90,120" effecttype="Magic" />
+	</onimpact>
+	
+	<ondeath>
+		<expirestate name="State_Mimix_Ability2_Self" target="source_entity" />
+	</ondeath>
+	
+	<altavatar key="Hero_Mimix.Alt" modpriority="1"
+		traileffect="/heroes/mimix/alt/ability_02/effects/trail.effect"
+	/>
+	
+	<altavatar key="Hero_Mimix.Alt2" modpriority="1"
+		traileffect="../alt2/ability_02/effects/trail.effect"
+	/>
+	
+</projectile>

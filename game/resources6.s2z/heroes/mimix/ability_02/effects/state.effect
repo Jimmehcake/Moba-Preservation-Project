@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true" useentityeffectscale="true">
+
+	<definitions>
+
+		
+		<particlesystem name="system0" space="world" useentityeffectscale="true" scale="1">
+
+
+			<template name="trails">
+				<twopointtrailemitter
+					life="1050"
+					bone_a="{bone01}"
+					bone_b="{bone02}"
+					spawnrate="25"
+					particlelife="750"
+					gravity="5"
+					subframepose="1"
+					drag="0.01"
+					speed="100"
+					direction="0 -1 0"
+					minangle="-10"
+					maxangle="10"
+					texpostime="750"
+					texposscale="0"
+					texstretchscale="1"
+					material="/shared/effects/materials/blob_reveal_white.material"
+					startparticlealpha="1"
+					endparticlealpha="0"
+					depthbias="-450"
+				>
+					<particle
+						color="1 0 1"
+						startalpha="1"
+						endalpha="1"
+						startframe="0"
+						endframe="1"
+						size="350"
+					/>
+					<particle
+						color="0 1 0"
+						startalpha="1"
+						endalpha="1"
+						startframe="0"
+						endframe="1"
+						size="350"
+					/>
+				</twopointtrailemitter>
+			</template>
+
+			<instance name="trails" bone01="Bone006" bone02="Bone016"/>
+			
+		</particlesystem>
+
+	</definitions>
+
+	<thread>
+		<spawnparticlesystem instance="instance0"  particlesystem="system0" />	
+		<spawnmodifier instance="instance1" modifier="modifier0"/>  
+		<waitfordeath instance="instance0" />
+		<waitfordeath instance="instance1" />	  
+	</thread>
+
+</effect>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+
+	<definitions>
+
+		<particlesystem name="system0" space="world" scale="1" entityeffectscale="true">
+
+			
+				<beam
+					color=".3"
+					bone_a="_bone_weapon3"
+					bone_b="_bone_weaponattach"
+					size="20"
+					material="/shared/effects/materials/beam.material"
+				/>
+				
+				<twopointtrailemitter
+					bone_a="_bone_weapon3"
+					bone_b="_bone_weaponattach"
+					spawnrate="50"
+					particlelife="500"
+					texposscale="0"
+					texpostime="500"
+					texstretchscale="1"
+					material="/shared/effects/materials/swoosh_white.material"
+				>
+					<particle
+						startcolor=".3"
+						endcolor="0"
+					/>
+				</twopointtrailemitter>
+			
+			
+	
+			
+		</particlesystem>
+
+	</definitions>
+
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+
+</effect>

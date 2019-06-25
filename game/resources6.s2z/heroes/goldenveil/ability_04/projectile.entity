@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectile
+	name="Projectile_Goldenveil_Ability4"
+
+	speed="2000"
+	gravity="2500"
+
+	modelscale="2"
+	model="effects/model.mdf"
+	traileffect="effects/trail.effect"
+	impacteffect="effects/hit.effect"
+	effectscale="1"
+	
+
+>
+	<onimpact>
+		<applystate name="State_Goldenveil_Ability4_Slow" target="target_entity" duration="4000" />
+		<applystate name="State_Goldenveil_Ability4" continuous="true" pushentity="true" />
+		<setvar0 a="source_charges" b="50,70,90" op="mult" source="stack_entity" />
+		<damage amount="180,240,300" b="var0" op="add" effecttype="Magic" target="target_entity" />
+	</onimpact>
+	
+	<altavatar key="Hero_Goldenveil.Alt"
+		model="/shared/models/invis.mdf"
+		traileffect="../alt/ability_04/effects/trail.effect"
+		impacteffect="../alt/ability_04/effects/hit.effect"
+ 	/>
+	
+	<altavatar key="Hero_Goldenveil.Alt2"
+		model="/shared/models/invis.mdf"
+		traileffect="../alt2/ability_04/effects/trail.effect"
+		impacteffect="../alt2/ability_04/effects/hit.effect"
+ 	/>
+	
+	<altavatar key="Hero_Goldenveil.Alt3"
+		model="/shared/models/invis.mdf"
+		traileffect="../alt3/ability_04/effects/trail.effect"
+		impacteffect="../alt3/ability_04/effects/hit.effect"
+ 	/>
+	
+	<altavatar key="Hero_Goldenveil.Alt4"
+		model="/shared/models/invis.mdf"
+		traileffect="../alt3/ability_04/effects/trail.effect"
+		impacteffect="../alt3/ability_04/effects/hit.effect"
+ 	/>
+	
+	<altavatar key="Hero_Goldenveil.Alt5"
+		model="/shared/models/invis.mdf"
+		traileffect="../alt5/ability_04/effects/trail.effect"
+		impacteffect="../alt5/ability_04/effects/hit.effect"
+ 	/>
+	
+</projectile>

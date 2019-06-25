@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true" useentityeffectscale="true">
+
+	<definitions>
+
+		<particlesystem name="system0" space="world" scale="1">
+			
+			<sound
+			    randomloop="true"
+				linearfalloff="true" 
+				falloffstart="0"
+				falloffend="1300"
+				volume="0.8" 
+				soundloop="true"
+				fadein="1000"
+				fadeout="500"
+				sample="/heroes/goldenveil/ability_04/sounds/state.wav"
+			/>
+			
+			<simpleemitter
+				bone="_bone_centerofchest"
+				spawnrate="20"
+				minparticlelife="500"
+				maxparticlelife="1000"
+				gravity="-15"
+				position="0 0 0"
+				offsetsphere="35 35 10"
+				material="/shared/effects/materials/spark_12.material"
+				depthbias="0"
+				minspeed="100"
+				maxspeed="150"
+			>
+				<particle
+					minangle="0"
+					maxangle="360"
+					startcolor="1 .5 .75"
+					midcolor="1 .3 1"
+					endcolor="0 0 0"
+					size="15"
+					minstartscale="1"
+					maxstartscale="3"
+					endscale="0"
+				/>
+			</simpleemitter>
+			<simpleemitter
+				bone="_bone_centerofchest"
+				spawnrate="20"
+				minparticlelife="500"
+				maxparticlelife="1000"
+				gravity="-15"
+				position="0 0 0"
+				offsetsphere="10"
+				material="/shared/effects/materials/whitedot.material"
+				depthbias="0"
+				minspeed="30"
+				maxspeed="70"
+			>
+				<particle
+					minangle="0"
+					maxangle="360"
+					startcolor=".3 .1 .2"
+					midcolor=".6 .15 .5"
+					endcolor="0 0 0"
+					size="15"
+					minstartscale="3"
+					maxstartscale="5"
+					endscale="0"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter	
+				bone="_bone_centerofchest"
+				spawnrate="20"
+				position="0 0 0"
+				minparticlelife="400"
+				maxparticlelife="600"
+				gravity="-20"
+				material="/shared/effects/materials/light_glow.material"
+				offsetsphere="0"
+				drag="0.07"
+
+				minspeed="20"
+				maxspeed="250"		
+			>
+				<particle
+					minangle="-360"
+					maxangle="360"
+
+					startsize="0"	
+					endsize="30"								
+					depthbias="-100"
+					startcolor="0"
+					midcolor=".75 .2 .5"
+					endcolor="0"
+					midcolorpos=".5"
+					startalpha="1"
+					midalpha="1"
+					endalpha="0"
+					midalphapos=".25"
+					minscale="3"
+					maxscale="8"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter	
+					bone="_bone_centerofchest"
+					spawnrate="8"
+					position="0 0 0"
+					minparticlelife="400"
+					maxparticlelife="600"
+					gravity="-30"
+					material="/shared/effects/materials/linbing.material"
+					offsetsphere="30"
+					drag="0.01"
+					minspeed="20"
+					maxspeed="50"
+					minangle="90"
+					maxangle="90"
+				>
+					<particle
+						startsize="25"
+						midsize="25"
+						endsize="10"
+						midsizepos=".75"
+						depthbias="-100"
+						startcolor="1"
+						midcolor="1"
+						endcolor="0 0 0"
+						midcolorpos=".75"
+						startalpha="1"
+						midalpha="1"
+						endalpha="0"
+						midalphapos=".25"
+						minscale=".3"
+						maxscale=".8"
+						minstartframe="0" maxstartframe="1"
+						minendframe="1" maxendframe="0"
+						minframespeed=".1"
+						maxframespeed="1"
+					/>
+				</simpleemitter>	
+
+		</particlesystem>
+
+	</definitions>
+
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+
+</effect>

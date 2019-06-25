@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+	<definitions>
+	
+		<particlesystem name="system0" space="world" scale=".8">
+
+		<sound  
+			    norestart="true"
+			    delay="50"
+				channelid="warresp"
+				volume="1"
+				sample="/heroes/warchief/ability_03/sounds/core_ready.wav"
+				linearfalloff="true"
+				falloffstart="400" 
+				falloffend="800" 
+			/>
+			
+			<sound  
+			    norestart="true"
+			    delay="50"
+				channelid="warrest"
+				volume=".8"
+				sample="../../sounds/ab3_ready.wav"
+				linearfalloff="true"
+				falloffstart="400" 
+				falloffend="800" 
+			/>
+			
+			<billboard
+				bone="_bone_lefteye"
+				size="3"
+				color="1 0 0"
+				depthbias="-5"
+				material="/shared/effects/materials/whitedot.material"
+			/>
+			
+			<billboard
+				bone="_bone_righteye"
+				size="3"
+				color="1 0 0"
+				depthbias="-5"
+				material="/shared/effects/materials/whitedot.material"
+			/>
+			
+			<model
+				model="arms/model.mdf"
+				parentskeleton="1"
+				color="2 0 0"
+			/>
+			
+			<billboard
+				bone="Bip01 L Finger1"
+				position="0 0  10"
+				alpha="1"			
+				size="50"
+				startparam="0.15"
+				endparam="0"
+				color=".5 0 0"
+				material="/shared/effects/materials/whitedot.material"
+				depthbias="-10"
+			/>
+			<billboard
+				bone="Bip01 R Finger1"
+				position="0 0  10"
+				alpha="1"			
+				size="50"
+				startparam="0.15"
+				endparam="0"
+				color=".5 0 0"
+				material="/shared/effects/materials/whitedot.material"
+				depthbias="-10"
+			/>
+			
+			<controller bone="Bip01 R Forearm" >
+				<beam 
+					position_a="-20 0 0"
+					position_b="30 0 0"
+					size="50"
+					material="/shared/effects/materials/black_spot.material"
+				/>
+				
+				<beam 
+					position_a="-30 0 0"
+					position_b="30 0 0"
+					color="1 0 0"
+					size="60"
+					framespeed="1.2"
+					material="/shared/effects/materials/femme_fire_trail.material"
+				/>
+			</controller>
+			
+			<controller bone="Bip01 L Forearm" >
+				<beam 
+					position_a="-20 0 0"
+					position_b="30 0 0"
+					size="50"
+					material="/shared/effects/materials/black_spot.material"
+				/>
+				
+				<beam 
+					position_a="-30 0 0"
+					position_b="30 0 0"
+					color="1 0 0"
+					size="60"
+					framespeed="1.2"
+					material="/shared/effects/materials/femme_fire_trail.material"
+				/>
+			</controller>
+			
+			<controller bone="_bone_weapon1" directionalspace="local" >
+				<billboard
+					position="0 0 30"
+					size="50"
+					color=".7 0 0"
+					material="/shared/effects/materials/whitedot.material"
+				/>
+				
+				<simpleemitter
+					position="0 0 30"
+					spawnrate="10"
+					minparticlelife="500"
+					maxparticlelife="1000"
+					directionalspace="global"
+					speed="100"
+					drag=".09"
+					offsetsphere="0"
+					material="/shared/effects/materials/phantom_white.material"
+				>
+					<particle
+						startsize="30"
+						endsize="100"
+						startcolor=".75 0 0"
+						endcolor=".25 0 0"
+						startalpha=".7"
+						endalpha="0"
+						maxangle="360"
+						anchor="1"
+					/>
+					
+					<particle
+						startsize="30"
+						endsize="100"
+						startcolor=".5 0 0"
+						endcolor=".25 0 0"
+						startalpha=".7"
+						endalpha="0"
+						maxangle="360"
+						anchor="1"
+					/>
+				</simpleemitter>
+				
+				<simpleemitter
+					position="0 0 30"
+					spawnrate="20"
+					minparticlelife="500"
+					maxparticlelife="1000"
+					directionalspace="global"
+					speed="100"
+					drag=".09"
+					offsetsphere="0"
+					material="/shared/effects/materials/phantom_white.material"
+				>
+					<particle
+						startsize="30"
+						endsize="100"
+						startcolor=".75 0 0"
+						endcolor=".25 0 0"
+						startalpha=".7"
+						endalpha="0"
+						maxangle="360"
+					/>
+					
+					<particle
+						startsize="30"
+						endsize="100"
+						startcolor=".5 0 0"
+						endcolor=".25 0 0"
+						startalpha=".7"
+						endalpha="0"
+						maxangle="360"
+					/>
+				</simpleemitter>
+				
+				<simpleemitter
+					position="0 0 30"
+					spawnrate="10"
+					minparticlelife="500"
+					maxparticlelife="1000"
+					directionalspace="global"
+					offsetsphere="0"
+					material="/shared/effects/materials/blood1.material"
+				>
+					<particle
+						startsize="30"
+						endsize="100"
+						startcolor=".5 0 0"
+						endcolor=".25 0 0"
+						startalpha="1"
+						endalpha="0"
+						startframe=".5"
+						endframe="1"
+						maxangle="360"
+						anchor="1"
+					/>
+				</simpleemitter>
+				<simpleemitter
+					position="0 0 30"
+					spawnrate="10"
+					minparticlelife="500"
+					maxparticlelife="800"
+					directionalspace="global"
+					offsetsphere="20"
+					material="/shared/effects/materials/blood1.material"
+				>
+					<particle
+						startsize="30"
+						endsize="80"
+						startcolor=".7 0 0"
+						endcolor=".5 0 0"
+						startalpha="1"
+						endalpha="0"
+						startframe=".5"
+						endframe="1"
+						maxangle="360"
+						anchor="1"
+					/>
+				</simpleemitter>
+			</controller>
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<spawnmodifier instance="instance1" modifier="heal_skin" />
+		<waitfordeath instance="instance0" />
+		<waitfordeath instance="instance1" /> 
+	</thread>
+</effect>

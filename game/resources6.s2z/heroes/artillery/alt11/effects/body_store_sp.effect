@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="">
+	<definitions>
+		
+		<particlesystem deferred="true" name="system0" space="entity" scale="1">
+			<model
+				model="/shared/models/invis.mdf"
+				bone="_bone_back02"
+				scale="1.2"
+				position="-2 -1 3"
+			>
+				<billboard
+					material="/shared/effects/materials/whitedot.material"
+					scale=".4"
+					color="0 4 .6" 
+					position="0"						
+					directionalspace="local"
+				/>
+				<billboard
+					material="/shared/effects/materials/whitedot.material"
+					scale=".2"
+					color=".3" 
+					position="0"						
+					directionalspace="local"
+				/>
+				
+				<trailemitter
+				    position="0"
+					spawnrate="40"
+					minparticlelife="50"
+					maxparticlelife="90"
+					minspeed="500"
+					maxspeed="600"
+					drag="0.05"
+					direction="0 1 -.7"
+					angle="0"
+					material="/shared/effects/materials/refract_longsplash_scroll.material"
+					texposscale="2"
+					texpostime="1000"
+					texstretchscale="0.0"
+					directionalspace="local"
+					lockup="true" lockright="true"
+				>
+					<particle
+						turn="1"
+						flare="1"
+						startparam="0.0" midparam=".015" endparam="0" midparampos=".3"
+						startsize="0" midsize="40" endsize="120" midsizepos=".4"
+					/>
+				</trailemitter>
+				
+			
+				<trailemitter
+				    position="0"
+					spawnrate="40"
+					particlelife="60"
+					speed="1500"
+					drag="0.05"
+					direction="0 1 -.7"
+					angle="0"
+					material="/shared/effects/materials/refract_longsplash_scroll.material"
+					texposscale="2"
+					texpostime="1000"
+					texstretchscale="0.0"
+					directionalspace="local"
+					lockup="true" lockright="true"
+				>
+					<particle
+						turn="1"
+						flare="1"
+						startparam="0.0" midparam="0.01" endparam="0" midparampos=".3"
+						startsize="0" midsize="40" endsize="120" midsizepos=".4"
+					/>
+				</trailemitter>
+				<simpleemitter
+				    position="0"
+					spawnrate="15"
+					minparticlelife="150" maxparticlelife="350"
+					gravity="2"
+					offsetsphere="5 5 0"
+					speed="205"
+					drag=".03"
+					acceleration="0"
+					material="/shared/effects/materials/spark_12.material"
+					minangle="0" maxangle="30"
+					direction="0 .3 -1"
+					depthbias="10"
+					directionalspace="local"
+					lockup="true" lockright="true"
+				>
+					<particle
+						minangle="0" maxangle="360"
+						startcolor="0 2 1" midcolor="0 2 1" endcolor="0 0 0" midcolorpos=".75"
+						startsize="5" endsize="2"
+						minanglespeed="-90" maxanglespeed="90"
+						directionalspace="local"
+						startanchor="1" endanchor="0"
+					/>
+				</simpleemitter>
+		
+				
+				
+				<simpleemitter
+				    position="0"
+					spawnrate="100"
+					minparticlelife="70" maxparticlelife="250"
+					gravity="0"
+					material="/shared/effects/materials/light_rays2.material"
+					particledirectionspace="local"
+					minspeed="50" maxspeed="100"
+					direction="0 0 -1"
+					angle="10"
+					depthbias="2"
+					directionalspace="local"
+					lockup="true" lockright="true"
+				>
+					<particle
+						turn="1"
+						startcolor=".5 .5 1" midcolor=".5 .5 1" endcolor="0 .15 .1"
+						startsize="8" endsize="10" scale="1"
+						flare="0"						
+						startalpha="1" midalpha=".75" endalpha="0" midalphapos=".1"
+					/>
+				</simpleemitter>
+				<simpleemitter
+				    position="0"
+					spawnrate="500"
+					minparticlelife="70" maxparticlelife="450"
+					gravity="0"
+					material="/shared/effects/materials/light_rays2.material"
+					particledirectionspace="local"
+					minspeed="50" maxspeed="100"
+					direction="0 0 -1"
+					angle="10"
+					depthbias="2"
+					directionalspace="local"
+					lockup="true" lockright="true"
+				>
+					<particle
+						turn="1"
+						startcolor="0 .3 .08"   endcolor="0" 
+						startsize="12" endsize="10" scale="1"
+						flare="0"
+						startalpha="1" midalpha=".75" endalpha="0" midalphapos=".1"
+					/>
+				</simpleemitter>
+			</model>
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<spawnparticlesystem instance="instanceSystemEntity" particlesystem="systemEntity" />
+		<waitfordeath  instance="instance0"/>
+		<waitfordeath instance="instanceSystemEntity" />
+	</thread>
+</effect>

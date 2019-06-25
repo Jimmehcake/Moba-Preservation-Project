@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gadget
+	name="Gadget_Mimix_Ability2_wall"
+	
+	icon="icon.tga"
+	portrait=""
+	model="wall/model.mdf"
+	passiveeffect="effects/impact.effect"
+	spawneffect=""
+
+	isselectable="false"
+	invulnerable="true"
+	
+	preglobalscale="1"
+	modelscale="6.0"
+	effectscale="0.2"
+	boundsheight="64"
+	boundsradius="28"
+	selectionradius="26"
+	targetoffset="0 0 64"
+	
+	buildingwalking="true"
+	cliffwalking="true"
+	treewalking="true"
+
+	blocking="true"
+	noallyblock="true"
+	noblockneutralspawn="true"
+
+	movespeed="0"
+	turnrate="540"
+	turnsmoothing="0.05"
+	ismobile="false"
+	canrotate="true"
+
+	immunity="GadgetImmunity"
+
+	canattack="false"
+	
+	lifetime="2500,3000,3500,4000"
+	showlifetime="true"
+
+	corpsetime="0"
+	corpsefadetime="0"
+	corpsefadeeffect=""
+>
+	<onexpired>
+		<!-- Fixes models from persisting after they die for now -->
+	</onexpired>
+
+	<altavatar key="Hero_Mimix.Alt" modpriority="1"
+		model="/heroes/mimix/alt/ability_02/wall/model.mdf"
+		passiveeffect="/heroes/mimix/alt/ability_02/effects/impact.effect"
+	/>
+	
+	<altavatar key="Hero_Mimix.Alt2" modpriority="1"
+		passiveeffect="../alt2/ability_02/effects/impact.effect"
+	/>
+	
+</gadget>

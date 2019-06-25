@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="1">
+
+	<definitions>
+	
+		<modifier
+			alpha="0"
+		/>
+
+		<particlesystem name="system0" space="world" scale="3">
+			
+			<groundsprite
+				delay="1900"
+				life="4400"
+				material="/shared/effects/materials/blackhole_overlay.material"
+				size="30"
+				midsizepos=".1"
+				color="1 1 1"
+				startalpha="0"
+				midalpha=".8"
+				endalpha="0"
+				midalphapos=".1"
+				position="0 -55 0"
+				
+			/>
+			
+			<groundsprite
+				delay="2300"
+				life="4000"
+				material="/shared/effects/materials/blackhole_overlay.material"
+				size="30"
+				midsizepos=".1"
+				color="1 1 1"
+				startalpha="0"
+				midalpha=".8"
+				endalpha="0"
+				midalphapos=".8"
+				position="0 -55 0"
+				
+			/>
+			
+			<template name="hoof">
+				<simpleemitter
+					delay="{delay}"
+					position="{position}"
+					spawnrate="10"
+					particlelife="2000"
+					offsetsphere="0 0 0"
+					life="{life}"
+				>
+					<particle>
+						<terrainemitter
+							count="1"
+							particlelife="3000"
+						>
+							<particle>
+								<debris
+									position="0 0 10"
+									offsetsphere="100 100 100"
+									minscale=".05"
+									maxscale=".2"
+									life="3000"
+									model="/shared/effects/models/debris/debris.mdf"
+									minspeed="100.0"
+									maxspeed="600.0"
+									minrotationspeed="500.0"
+									maxrotationspeed="600.0"
+									gravity="60.0"
+									minangle="0"
+									maxangle="40"
+									startcolor=".7 .2 .2"
+									midcolor=".2 1 .2"
+									endcolor=".2 .2 1"
+									collide="true"
+									startalpha="1.0"
+									midalpha="1.0"
+									endalpha="0.0"
+									midalphapos="0.9"
+									bounce="0.7"
+									reflect="0.6"
+								/>
+							</particle>
+						</terrainemitter>
+					</particle>
+				</simpleemitter>
+				
+				<simpleemitter		
+					position="{position}"
+					life="{life}"
+					delay="{delay}"
+					spawnrate="200"			
+					particlelife="1000"			
+					gravity="0"
+					speed="20"
+					drag=".01"
+					depthbias="0"
+					material="/shared/effects/materials/smoke_17.material"
+					offsetsphere="20 20 10"
+					minangle="-265"
+					maxangle="265"
+					direction="0 0 -1"
+				>
+					<particle 
+						minangle="0"
+						maxangle="360"
+						minanglespeed="-10"
+						maxanglespeed="10"
+						startsize="10"
+						endsize="40"
+						startcolor=".545 .388 .247"
+						midcolor=".2 1 .2"
+						endcolor=".2 .2 1"
+						param=".0141151"
+						startalpha="0.0"
+						midalpha=".9"
+						endalpha="0"
+						midalphapos=".1"
+					/>
+				</simpleemitter>
+			</template>
+		
+			<instance name="hoof" position="10 -55 0" delay="1600" life="1000"/>
+			<instance name="hoof" position="-10 -55 0" delay="1600" life="1000"/>
+			
+			<model
+				position="0 0 0"
+				scale=".33"
+				model="model.mdf"
+				anim="death_1"
+				life="5000"
+				material="../material.material"
+				startcolor="1"
+				midcolor="-1"
+				endcolor="-1"
+				midcolorpos=".6"
+			>
+			</model>
+			
+		</particlesystem>
+
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<spawnmodifier instance="instance1"/>
+		<waitfordeath instance="instance0" />
+		<waitfordeath instance="instance1" />
+		<!-- <die /> -->
+	</thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->
+

@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+
+	<definitions>
+	
+		<particlesystem name="system0" space="world" scale=".91">
+
+			<terrainemitter
+				position="0 0 30"
+				spawnrate="100"
+				bone="_bone_centerofchest"
+				particlelife="1000"
+				gravity="10"
+				material="/shared/effects/materials/sand_blend.material"
+				offsetsphere="33 33 0"
+				direction="1 0 0"
+				minangle="-180"
+				maxangle="180"
+				drag="0.1"
+				speed="250"
+				directionalspace="global"
+				inheritvelocity=".3"
+				depthbias="-20"
+			>
+				<particle
+					minangle="0"
+					maxangle="360"
+					anglespeed="40"
+					startsize="20"
+					midsize="40"
+					endsize="50"
+					lockup="true"
+					lockright="true"
+					pitch="90"
+					startcolor="1"
+					midcolor=".5 .5 1"
+					endcolor="0 .5 1"
+					startalpha="1"
+					endalpha="0"
+				/>
+			</terrainemitter>		
+	
+			<template name="sand">
+				<simpleemitter
+					position="0 5 0"
+					spawnrate="70"
+					bone="{bone}"
+					particlelife="650"
+					gravity="13"
+					material="/shared/effects/materials/pyroclast_03.material"
+					offsetsphere="{offset}"
+					direction="1 0 0"
+					minangle="-180"
+					maxangle="180"
+					speed=".02"
+					directionalspace="global"
+					inheritvelocity=".13"
+				>
+					<particle
+						minangle="0"
+						maxangle="45"
+						anglespeed="20"
+						maxstartsize="32"
+						midsize="20"
+						endsize="15"
+						startcolor="1 1 .6 "
+						endcolor=".2 .2 .12"				
+						startstickeness="1"
+						endstickiness="0"
+						startalpha="0"
+						midalpha=".7"
+						endalpha="0"
+						midalphapos=".75"
+					/>
+				</simpleemitter>	
+				
+				<simpleemitter
+					position="0 5 0"
+					spawnrate="40"
+					bone="{bone}"
+					particlelife="800"
+					gravity="13"
+					material="/shared/effects/materials/sand_blend.material"
+					offsetsphere="{offset2}"
+					direction="1 0 0"
+					minangle="-180"
+					maxangle="180"
+					speed=".02"
+					directionalspace="global"
+					inheritvelocity=".1"
+					colide="true"
+				>
+					<particle
+						minangle="0"
+						maxangle="360"
+						anglespeed="20"
+						maxstartsize="33"
+						midsize="22"
+						endsize="0"
+						startcolor=".6 .5 .3 "
+						endcolor=".3 .25 .1"				
+						startstickeness="1"
+						endstickiness="0"
+						startalpha="0"
+						midalpha="1"
+						endalpha="0"
+						midalphapos=".75"
+					/>
+				</simpleemitter>			
+			</template>
+			
+			<instance name="sand" bone="_bone_center" offset="20" offset2="30"/>
+			<instance name="sand" bone="_bone_righthand" offset="6" offset2="10"/>
+			<instance name="sand" bone="_bone_lefthand" offset="6" offset2="10"/>
+			<instance name="sand" bone="_bone_head" offset="6" offset2="10"/>
+		</particlesystem>
+	
+		<particlesystem name="system1" space="world" scale=".7">
+		
+			<sound
+		        soundloop="true"
+				randomloop="true"
+				fadein="500"
+				fadeout="1000"
+				linearfalloff="true" 
+				falloffstart="0"
+				falloffend="800"
+				volume=".5"
+				sample="../sounds/move.wav"
+			/>
+			
+			<!-- trailing puddles -->
+			
+			<simpleemitter
+				spawnrate="15"
+				position="0 0 1"
+				offsetsphere="10 10 0"
+				bone="_bone_origin"
+				particlelife="600"
+			>
+				<particle
+				
+				>
+					<billboard
+						life="600"
+						position="0 0 0"
+						material="/shared/effects/materials/blob.material"
+						startalpha="0"
+						midalpha="1"
+						endalpha="0"
+						midalphapos=".3"
+						
+						color="2"
+						
+						minscale=".5"
+						maxscale=".8"
+						
+						startsize="10"
+						midsize="100"
+						endsize="120"
+						midsizepos=".3"
+						
+						depthbias="-30"
+						lockup="true"
+						lockright="true"
+						pitch="90"
+					/>
+					
+					<billboard
+						life="600"
+						position="0 0 0"
+						material="/shared/effects/materials/whitedot.material"
+						startalpha="1"
+						midalpha=".3"
+						endalpha="0"
+						midalphapos=".3"
+						
+						startcolor=".2"
+						midcolor="0 .5 1"
+						endcolor="0"
+						midcolorpos=".3"
+						
+						minscale=".8"
+						maxscale="1.4"
+						
+						startsize="10"
+						midsize="100"
+						endsize="120"
+						midsizepos=".3"
+						
+						depthbias="-30"
+						lockup="true"
+						lockright="true"
+						pitch="90"
+					/>
+					
+					<billboard
+						life="600"
+						position="0 0 0"
+						material="/shared/effects/materials/lightning_01.material"
+						startalpha="0"
+						midalpha="0"
+						endalpha="0"
+						midalphapos=".3"
+						
+						startcolor="0"
+						midcolor=".1 .3 .4"
+						endcolor="0"
+						midcolorpos=".3"
+						
+						minscale=".8"
+						maxscale="1.4"
+						
+						startsize="10"
+						midsize="100"
+						endsize="120"
+						midsizepos=".3"
+						
+						depthbias="-30"
+						lockup="true"
+						lockright="true"
+						pitch="90"
+						
+						minroll="-180"
+						maxroll="180"
+					/>
+					
+					<billboard
+						life="600"
+						position="0 0 0"
+						material="/shared/effects/materials/refract_ring2_depth.material"
+						startalpha=".2"
+						midalpha=".3"
+						endalpha="0"
+						midalphapos=".8"
+						
+						color="2"
+						
+						minscale="1"
+						maxscale="1.3"
+						
+						startsize="10"
+						midsize="100"
+						endsize="120"
+						midsizepos=".3"
+						
+						param=".1"
+						depthbias="0"
+						lockup="true"
+						lockright="true"
+						pitch="90"
+					/>
+				</particle>
+			</simpleemitter>
+			
+			<template name="trails">
+				<trailemitter
+					bone="{bone}"
+					spawnrate="50"
+					particlelife="400"
+					texpostime="500"
+					texposscale="0.0"
+					texstretchscale=".4"
+					material="/shared/effects/materials/light_trail.material"
+				>
+					<particle
+						startcolor=".2 .5 1"
+						midcolor="0 .4 .8"
+						endcolor="0"
+						startalpha="0"
+						midalpha="0"
+						endalpha="0"
+						midalphapos=".075"
+						startsize="15"
+						midsize="15"
+						endsize="5"
+						midsizepos="0.2"
+				 />
+				</trailemitter>
+			</template>
+			
+			<instance name="trails" bone="Bip001 L Hand"/>
+			<instance name="trails" bone="Bip001 R Hand"/>
+		</particlesystem>
+
+	</definitions>
+
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<spawnparticlesystem instance="instance1" particlesystem="system1" />
+		<waitfordeath instance="instance0"/>
+		<waitfordeath instance="instance1"/>
+	</thread>
+
+</effect>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ability
+	name="Ability_Sapphire4"
+	
+	icon="icon.tga"
+	
+	anim="ability_4"
+	casttime="1000"
+	castactiontime="1000"
+
+	maxlevel="3"
+	requiredlevel="6,11,16"
+	
+	actiontype="target_self"
+	casteffecttype="Magic"
+	
+	manacost="100"
+	cooldowntime="150000,135000,120000"
+
+	targetradius="1200"
+	casteffect="effects/cast_sound.effect"
+>
+
+    <onlearn>
+		<hasavatarkey name="Hero_Sapphire.Alt" >
+			<delayannouncer duration="4000" sourceonly="true" source="this_owner_entity" />
+			<pausevoiceovers duration="4000" />
+			<play2dsound sample="/heroes/sapphire/alt/sounds/ab4_learn.wav" channel="116" volume="1.0" dampen="0.5" sourceonly="true" targetonly="true" />
+		</hasavatarkey>
+		<else>
+			<hasavatarkey name="Hero_Sapphire.Alt3" />
+			<else>
+				<hasavatarkey name="Hero_Sapphire.Alt4" />
+				<else>
+					<delayannouncer duration="3000" sourceonly="true" source="this_owner_entity" />
+					<pausevoiceovers duration="3000" />
+					<play2dsound sample="/heroes/sapphire/ability_04/sounds/ab4_learn.wav" channel="116" volume="1.0" dampen="0.5" sourceonly="true" targetonly="true" />
+				</else>
+			</else>
+		</else>
+	</onlearn>
+	
+	<onimpact>
+		<applystate name="State_Sapphire_Ability4_Self" duration="4000,5500,7000" proxy="this_entity" />
+		<hasavatarkey name="Hero_Sapphire.Alt" >
+			<playeffect effect="../alt/ability_04/effects/cast.effect" source="this_owner_entity" target="" occlude="false" />
+		</hasavatarkey>
+		<else>
+			<hasavatarkey name="Hero_Sapphire.Alt2" >
+				<playeffect effect="../alt2/ability_04/effects/cast.effect" source="this_owner_entity" target="" occlude="false" />
+			</hasavatarkey>
+			<else>
+				<hasavatarkey name="Hero_Sapphire.Alt3" >
+					<playeffect effect="../alt3/ability_04/effects/cast.effect" source="this_owner_entity" target="" occlude="false" />
+				</hasavatarkey>
+				<else>
+					<hasavatarkey name="Hero_Sapphire.Alt4" >
+						<playeffect effect="../alt4/ability_04/effects/cast.effect" source="this_owner_entity" target="" occlude="false" />
+					</hasavatarkey>
+					<else>
+						<playeffect effect="effects/cast.effect" source="this_owner_entity" target="" occlude="false" />
+					</else>
+				</else>	
+			</else>	
+		</else>	
+		<areaofeffect
+			center="this_owner_entity"
+			radius="1200"
+			targetscheme="enemy_heroes"
+			targetselection="all"
+			effecttype="Magic"
+		>
+			<applystate name="State_Sapphire_Ability4" duration="4000,5500,7000" />
+		</areaofeffect>
+		<starttimer duration="4000,5500,7000" />
+		<applystate name="State_Sapphire_Ability4_Cooldown" target="this_owner_entity" duration="500" />
+	</onimpact>
+	
+	<modifier key="Sapphire_ability4_Cooldown" modpriority="90"
+		disabled="true"
+	>
+	</modifier>
+	
+	<modifier key="Sapphire_ability4_Active" modpriority="100"
+		ignorecooldown="true"
+		icon="icon_b.tga"
+		manacost="0"
+		casttime="0"
+		castactiontime="0"
+		noresponse="true"
+		casteffect=""
+		anim="idle"
+	>
+		<onimpact>
+			<expirestate name="State_Sapphire_Ability4_Self" />
+			<resettimer />
+			
+			<areaofeffect
+				center="this_owner_entity"
+				radius="99999"
+				targetscheme="enemy_heroes"
+				targetselection="all"
+				effecttype="SuperiorMagic"
+				ignoreinvulnerable="true"
+			>
+				<hasmodifier entity="target_entity" name="Sapphire_ability4_Frozen">
+					<expirestate name="State_Sapphire_Ability4" />
+					<hasavatarkey name="Hero_Sapphire.Alt" >
+						<playeffect effect="/heroes/sapphire/alt/ability_04/effects/unfrozen_voice.effect" source="this_owner_entity" target="" visibility="allies"/>
+					</hasavatarkey>
+					<else>
+						<hasavatarkey name="Hero_Sapphire.Alt3" >
+							<playeffect effect="/heroes/sapphire/alt3/ability_04/effects/unfrozen_voice.effect" source="this_owner_entity" target="" visibility="allies"/>
+						</hasavatarkey>
+						<else>
+							<hasavatarkey name="Hero_Sapphire.Alt4" >
+								<playeffect effect="/heroes/sapphire/alt4/ability_04/effects/unfrozen_voice.effect" source="this_owner_entity" target="" visibility="allies"/>
+							</hasavatarkey>
+							<else>
+								<playeffect effect="effects/unfrozen_voice.effect" source="this_owner_entity" target="" visibility="allies"/>
+							</else>
+						</else>
+					</else>
+				</hasmodifier>
+			</areaofeffect>
+		</onimpact>
+	</modifier>
+	
+	<altavatar key="Hero_Sapphire.Alt" modpriority="1"
+		casteffect="/heroes/sapphire/alt/ability_04/effects/cast_sound.effect"
+	/>
+	
+	<altavatar key="Hero_Sapphire.Alt3" modpriority="1"
+		casteffect="/heroes/sapphire/alt3/ability_04/effects/cast_sound.effect"
+	/>
+	
+	<altavatar key="Hero_Sapphire.Alt4" modpriority="1"
+		casteffect="/heroes/sapphire/alt4/ability_04/effects/cast_sound.effect"
+	/>
+	
+</ability>

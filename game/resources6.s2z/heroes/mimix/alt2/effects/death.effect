@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+
+	<definitions>
+
+		<modifier
+			name="modifier0"
+			material="/shared/effects/materials/phantom_white_reveal.material"
+			startcolor="1 1 1"
+			midcolor="2 0 3"
+			endcolor="5"
+			midcolorpos=".025"
+			startalpha="1"
+			midalpha="0"
+			endalpha="0"
+			midalphapos=".1"
+			life="7500"
+		/>
+
+		<particlesystem name="system0" space="world" scale=".5">
+
+		<!-- 	<light
+				delay="0"	
+				life="400"			
+				startcolor="1"			
+				endcolor="0 0 0"
+				midcolorpos=".2"
+				falloffstart="100"
+				falloffend="200"
+				bone="_bone_center"	
+			/>
+			 -->
+			<trackeremitter
+				life="1500"
+				position="0 0 40"
+				targetbone="_bone_center"
+				inheritvelocity="0.25"
+				tracktype="distance"
+				trackspeed=".5" 
+				spawnrate="50"
+				particlelife="3000"
+				offsetsphere="65 65 5"
+				speed="100"
+				direction="0 0 1"
+				material="/shared/effects/materials/ring_04_reveal.material"
+			>
+				<particle 
+					startsize="4"
+					endsize="0"
+					startalpha="0"
+					midalpha="1"
+					endalpha="0"
+					midalphapos=".1"
+					maxangle="360"
+					minscale="1.5"
+					maxscale="4"
+					color="1 .35 1"
+				/>
+				<particle 
+					startsize="4"
+					endsize="0"
+					startalpha="0"
+					midalpha="1"
+					endalpha="0"
+					midalphapos=".1"
+					maxangle="360"
+					minscale="1.5"
+					maxscale="4"
+					color=".25 .65 1"
+				/>
+			</trackeremitter>
+
+			<billboard
+				life="400"
+				color="1 1 1"
+				startalpha="1.0"
+				endalpha="1"
+				startparam="0.15"
+				endparam="0.0"
+				startsize="728"
+				endsize="124"
+				bone="_bone_center"
+				material="/shared/effects/materials/refract_ring.material"
+			/>
+
+			<billboard
+				bone="_bone_center"
+				delay="160"
+				depthbias="-40"
+				life="800"
+				startalpha="1.0"
+				endalpha="0"
+				startparam="0.1"
+				endparam="0.0"
+				startsize="155"
+				endsize="755"
+				material="/shared/effects/materials/refract_pinch.material"
+			/>
+		
+			<billboard
+				delay="233"
+				bone="_bone_center"
+				startwidth="1100"
+				endwidth="000"
+				startheight="50"
+				endheight="10"
+				life="210"
+				material="/shared/effects/materials/whitedot.material"
+				startcolor="0  0 0"
+				endcolor="1 .5 0"
+			/>
+
+			<billboard
+				delay="233"
+				startwidth="800"
+				endwidth="000"
+				startheight="10"
+				endheight="10"
+				bone="_bone_center"
+				depthbias="-20"
+				life="210"
+				material="/shared/effects/materials/whitedot.material"
+				startcolor="0  0 0"
+				endcolor="0 0 1"
+			/>
+
+			<billboard
+				delay="160"
+				bone="_bone_center"
+				life="500"
+				color="1 1 1"
+				startalpha="1.0"
+				endalpha="1"
+				startparam="0.15"
+				endparam="0.0"
+				startsize="228"
+				endsize="124"
+				material="/shared/effects/materials/refract_ring.material"
+				lockup="1"
+				pitch="90"
+			/>
+			
+			<simpleemitter
+				bone="_bone_center"
+				delay="0"
+				life="700"
+				spawnrate="35" 
+				minparticlelife="200" maxparticlelife="300"
+				gravity="-6"
+				minspeed="5"  maxspeed="15"
+				direction="0 0 1"
+				minangle="0" maxangle="180"
+				offsetsphere="100"
+				depthbias="-150"
+				material="/shared/effects/materials/ring_04_reveal.material"
+			>
+				<particle
+					color="1 .5 1"
+					startalpha="0"
+					midalpha="1"
+					endalpha="0"
+					midalphapos=".4"
+					maxangle="90"
+					startsize="50"
+					endsize="1"
+					scale="1"
+					startframe="0"
+					endframe="1"
+				/>
+			</simpleemitter>
+
+		</particlesystem>
+		
+		<particlesystem name="system1" space="world" scale=".7">
+			<!-- <light
+				delay="50"
+				life="250"			
+				startcolor=".6 11 20"			
+				endcolor="0 0 0"
+				midcolorpos=".2"
+				falloffstart="00"
+				falloffend="255"
+				position="0 0 20"	
+			/>		 -->
+			<simpleemitter
+				bone="_bone_center"
+				delay="50"
+				life="500"
+				spawnrate="35"
+				minparticlelife="200" maxparticlelife="300"
+				gravity="-6"
+				speed="0.0"
+				offsetsphere="100"
+				position="0 0 0"
+				material="/shared/effects/materials/ring_04_reveal.material"
+			>
+				<particle
+					startcolor=".25 .7 1"
+					endcolor="0.0 0.0 0.0"
+					startalpha=".02"
+					endalpha="0"
+					minangle="0"
+					maxangle="360"
+					minanglespeed="0"
+					maxanglespeed="0"
+					startsize="200"
+					midsize="120"
+					endsize="50"
+					lockup="true"
+					pitch="90"
+					scale=".35"
+					startframe="0"
+					endframe="1"
+				/>
+			</simpleemitter>
+			<simpleemitter
+				bone="_bone_center"
+				delay="50"
+				count="1"
+				particlelife="200"
+				gravity="-6"
+				speed="0.0"
+				acceleration="0.0"
+				timenudge="0"
+				position="0 0 40"
+				material="/shared/effects/materials/blink.material"
+			>
+				<particle
+					anglespeed="20"
+					startcolor="0 0 0"
+					midcolor="1 1 1"
+					endcolor="0.0 0.0 0.0"
+					midcolorpos=".1"
+					startsize="350"
+					midsize="220"
+					endsize="0"
+				/>
+			</simpleemitter>		
+			<billboard
+				bone="_bone_center"
+				delay="50"
+				position="0 0 20"
+				life="300"
+				color="1 1 1"
+				startalpha="1.0"				
+				endalpha="1"
+				startparam="0.1"
+				endparam="0.0"				
+				startsize="128"
+				endsize="524"
+				material="/shared/effects/materials/refract_pinch.material"
+				lockup="1"
+				pitch="90"
+			/>
+			
+			<billboard
+				bone="_bone_center"
+				life="500"
+				startcolor="1 .5 0"
+				endcolor="0 0 0"
+				startparam=".5"
+				endparam="0.4"
+				startsize="25"
+				endsize="300"
+				depthbias="-100"
+				position="0 0 25"
+				material="/shared/effects/materials/stomp_01.material"
+				lockup="true"
+				lockright="true"
+				pitch="90"
+			/>
+
+			<billboard
+				bone="_bone_center"
+				life="500"
+				startcolor="1 .5 .75"
+				endcolor="0 0 0"
+				startsize="50"
+				endsize="350"
+				depthbias="-100"
+				position="0 0 25"
+				material="/shared/effects/materials/corona_06.material"
+				lockright="true"
+				lockup="true"
+				pitch="90"
+			/>
+			
+			<simpleemitter
+				bone="_bone_center"
+				count="100"
+				spawnrate="2000"
+				minparticlelife="300"
+				maxparticlelife="400"
+				drag=".01"
+				offsetphere="85 85 20"
+				gravity="-3"
+				minspeed="300"
+				maxspeed="1500"								
+				direction="0 0 1"
+				position="0 0 25"
+				depthbias="-30"
+				material="/shared/effects/materials/ring_04_reveal.material"
+			>			
+
+				<particle
+					startcolor="1 .5 .75"
+					endcolor="0.0 0.0 0.0"
+					startalpha=".02"
+					endalpha="0"
+					minangle="0"
+					maxangle="360"
+					minanglespeed="0"
+					maxanglespeed="0"
+					startsize="200"
+					midsize="120"
+					endsize="50"
+					lockup="true"
+					pitch="90"
+					scale=".15"
+					startframe="0"
+					endframe="1"
+				/>
+			</simpleemitter>
+		</particlesystem>
+
+	</definitions>
+
+	<thread>
+		<spawnparticlesystem instance="instance0"  particlesystem="system0" />
+		<spawnparticlesystem instance="instance2"  particlesystem="system1" />			
+		<spawnmodifier instance="instance1" modifier="modifier0"/>  
+		<waitfordeath instance="instance0" />
+		<waitfordeath instance="instance1" />
+		<waitfordeath instance="instance2" />
+	</thread>
+
+</effect>

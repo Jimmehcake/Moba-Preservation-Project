@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Purg_Sound_Initiator"
+
+	icon=""
+	passiveeffect=""
+	propagatetoillusions="false"
+	effecttype=""
+	ishidden="true"
+>
+ <onexpired>
+			<areaofeffect
+				global="true"
+				targetscheme="all_heroes"
+				targetselection="all"
+				ignoreinvulnerable="true"
+			>
+			
+							<hasmodifier entity="target_entity" name="Doombringer_Sound" propagatetoillusions="false">
+								<applystate name="State_Purg_Spot_Doom" target="source_entity" duration="150000"/>
+							</hasmodifier>
+				<!--1-->	 <else>
+				<!--1-->	</else>		
+			</areaofeffect>
+   </onexpired>
+
+</state>

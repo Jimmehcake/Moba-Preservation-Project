@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="dragon_slave" useentityeffectscale="true">
+	<definitions>
+
+		<particlesystem name="system0" space="entity" scale="1.25">
+			<sound
+			    soundloop="true"
+				randomloop="true"
+				fadein="500"
+				fadeout="500"
+				linearfalloff="true" 
+				falloffstart="800"
+				falloffend="1300"
+				volume=".5" 
+				sample="/heroes/chi/ability_01/sounds/loop.wav"
+			/>
+
+			
+			<billboard
+				expirelife="300"
+				startalpha="1"			
+				midalpha=".4"
+				endalpha="1"
+				loop="1"
+				position="0 0 140"
+				size="60"
+				bone="_bone_overhead"
+				material="/shared/effects/materials/disarm.material"
+				roll="120"
+			/>
+			
+			<simpleemitter
+				bone="_bone_centerofchest"
+				expirelife="300"
+				startspawnrate="5" endspawnrate="0"
+				offsetsphere="0"
+				minparticlelife="1000"
+				maxparticlelife="1500"
+				position="0 0 0"
+			>
+				<particle turn="1" anchor="1"
+				>
+					<model
+						bone="_bone_centerofchest"
+						anim="idle"
+						model="/shared/effects/models/circle_of_bones/model.mdf"
+						minscale=".5"
+						maxscale="1.3"
+						minptich="0"
+						maxpitch="360"
+						minroll="0"
+						maxroll="360"
+						minyaw="0"
+						maxyaw="360"
+						rollspeed="550"
+						
+					>	
+						<trailemitter	
+							life="1800"
+							bone="_bone_fx_01"
+							spawnrate="100"
+							depthbias="-100"
+							minparticlelife="1600"
+							maxparticlelife="1750"
+							texposscale="0"
+							texstretchscale=".9"
+							position="0 0 0"
+							material="/shared/effects/materials/water_scrolling.material"					
+						>
+							<particle 
+								color=".4 1 1"
+								size="8"					
+						 />
+						</trailemitter>
+						<trailemitter	
+							life="1800"
+							bone="_bone_fx_01"
+							spawnrate="100"
+							depthbias="-100"
+							minparticlelife="700"
+							maxparticlelife="850"
+							texposscale="0"
+							texstretchscale="1"
+							position="0 0 0"
+							material="/shared/effects/materials/chainlinkconnect_gold.material"					
+						>
+							<particle 
+								size="4"					
+						 />
+						</trailemitter>
+					</model>
+				</particle>
+			</simpleemitter>
+		
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+		<!-- <die /> -->
+	</thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->
+

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="1" useentityeffectscale="1">
+	<definitions>
+
+		<particlesystem name="system0" space="entity" scale="0.3">
+
+			<sound
+			    norestart="true"
+				channel="7566"
+			    soundloop="true"
+				fadein="500"
+				fadeout="1000"
+				linearfalloff="true" 
+				falloffstart="1300"
+				falloffend="1300"
+				volume=".5"
+				sample="/heroes/artillery/ability_03/sounds/loop_self.wav"
+			/>
+
+			<sound
+				linearfalloff="true" 
+				falloffstart="100"
+				falloffend="2500"
+				volume="1"
+				sample="/heroes/artillery/ability_03/sounds/primed.wav"
+			/>
+
+			
+			
+			<simpleemitter
+				bone="_bone_centerofchest"
+				spawnrate="100"
+				particlelife="610"
+				gravity="0"
+				speed="0"
+				position="0 0 0"
+				acceleration="11"
+				material="/shared/effects/materials/whitedot.material"
+				offsetsphere="355 355 355"
+				drag="0.01"
+				direction="1 0 0"
+				
+			>
+				<particle 
+					startstickiness="0"
+					endstickiness="1"
+					startcolor="0 .3 1" midcolor=".2 .4 .85"
+					endcolor="0 0 0"
+					startsize="10"
+					endsize="0"	
+					turn="1"
+					heightdistort="0.02"				
+				
+				/>
+				<particle 
+					startstickiness="0"
+					endstickiness="1"
+					startcolor=".3 .5 1" midcolor=".2 .4 .85"
+					endcolor="0 0 0"
+					startsize="25"
+					endsize="0"	
+					turn="1"
+					heightdistort="0.02"				
+				
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				bone="_bone_centerofchest"
+				spawnrate="20"
+				minparticlelife="500" maxparticlelife="700"
+				gravity="0"
+				speed="0"
+				position="0 0 0"
+				acceleration="11"
+				material="/shared/effects/materials/lightning_01.material"
+				offsetsphere="20"
+				drag="0.01"
+				direction="1 0 0"
+				
+			>
+				<particle 
+					startstickiness="0" endstickiness="1"
+					startcolor="0 .1 .25" midcolor="0 .1 .25" endcolor="0 0 0"
+					startsize="100" endsize="1000"	
+					turn="1"
+					heightdistort="0.02"
+                  
+				
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				bone="_bone_centerofchest"
+				spawnrate="20"
+				minparticlelife="500" maxparticlelife="700"
+				gravity="0"
+				speed="0"
+				position="0 0 0"
+				acceleration="11"
+				material="/shared/effects/materials/steam_01.material"
+				offsetsphere="20"
+				drag="0.01"
+				direction="1 0 0"
+				
+			>
+				<particle 
+					startstickiness="0" endstickiness="1"
+					startcolor="0 .15 .3" midcolor="0" endcolor="0 0 0"
+					startsize="100" endsize="1000"	
+					turn="1"
+					heightdistort="0.02"
+                  
+				
+				/>
+			</simpleemitter>
+			
+			
+			
+			
+			
+			
+		</particlesystem>
+
+				
+		
+	</definitions>
+
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+		<!-- <die /> -->
+	</thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][pos] -->
+
+

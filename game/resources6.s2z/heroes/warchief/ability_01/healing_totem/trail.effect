@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+	<definitions>
+		<particlesystem name="system0" space="world" scale="1.35">
+			
+			<billboard
+				size="25"
+				color=".25 .5 .1"
+				material="/shared/effects/materials/whitedot.material"
+			/>
+		
+			<billboard
+				size="40"
+				color=".1 .33 .1"
+				material="/shared/effects/materials/corona_01.material"
+			/>
+			
+			<controller rollspeed="5000" >
+				<trailemitter
+					position="0 0 12"
+					directionalspace="local"
+					direction="0 0 -1"
+					angle="0"
+					speed="100"
+					spawnrate="150"
+					particlelife="100"
+					material="/shared/effects/materials/phantom_smoke_18.material"
+				>
+					<particle
+						startcolor="0 1 0"
+						midcolor=".5 .5 .1"
+						endcolor="0"
+						startsize="10"
+						endsize="5"
+					/>
+				</trailemitter>
+				
+				<trailemitter
+					position="11 0 -7"
+					directionalspace="local"
+					direction="-1 0 1"
+					angle="0"
+					speed="100"
+					spawnrate="150"
+					particlelife="100"
+					material="/shared/effects/materials/phantom_smoke_18.material"
+				>
+					<particle
+						startcolor="0 1 0"
+						midcolor=".5 .5 .1"
+						endcolor="0"
+						startsize="10"
+						endsize="5"
+					/>
+				</trailemitter>
+				
+				<trailemitter
+					position="-11 0 -7"
+					directionalspace="local"
+					direction="1 0 1"
+					angle="0"
+					speed="100"
+					spawnrate="150"
+					particlelife="100"
+					material="/shared/effects/materials/phantom_smoke_18.material"
+				>
+					<particle
+						startcolor="0 1 0"
+						midcolor=".5 .5 .1"
+						endcolor="0"
+						startsize="10"
+						endsize="5"
+					/>
+				</trailemitter>
+			</controller>
+			
+			<simpleemitter
+				spawnrate="700"
+				minparticlelife="200"
+				maxparticlelife="600"
+				offsetsphere="30"
+				maxspeed="50"
+				material="/shared/effects/materials/spark_11.material"
+			>
+				<particle
+					startcolor="0"
+					midcolor="2 2 .5"
+					endcolor="0"
+					midcolorpos=".15"
+					size="2"
+				/>
+			</simpleemitter>
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+</effect>

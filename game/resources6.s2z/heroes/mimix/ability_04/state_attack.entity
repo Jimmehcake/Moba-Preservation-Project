@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Mimix_Ability4_Attack"
+	
+	icon="icon.tga"
+	passiveeffect=""
+	
+	ishidden="true"
+	
+	effecttype=""
+	allowtransfer="false"
+>
+
+	<oninflict>
+		<distance source="this_owner_entity" target="this_proxy_entity" />
+		<compare a="result" b="900" op="lt">
+			<resetattackcooldown source="this_owner_entity" target="this_owner_entity" />
+			<order command="attack" source="this_owner_entity" target="this_proxy_entity" />			
+		</compare>
+	</oninflict>
+	
+	<onrefresh>
+		<distance source="this_owner_entity" target="this_proxy_entity" />
+		<compare a="result" b="900" op="lt">
+			<resetattackcooldown source="this_owner_entity" target="this_owner_entity" />
+			<order command="attack" source="this_owner_entity" target="this_proxy_entity" />
+		</compare>
+	</onrefresh>
+	
+	<onexpired>
+		<order command="follow" source="this_owner_entity" target="source_entity" />
+	</onexpired>
+</state>

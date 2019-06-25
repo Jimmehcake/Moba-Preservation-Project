@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true" useentityeffectscale="1">
+	<definitions>
+		<particlesystem name="system0" space="world" scale="1">
+			<simpleemitter
+				count="30"
+				particlelife="1300"
+				spawnrate="350"
+				minspeed="500"
+				maxspeed="1750"
+				gravity="10"
+				direction="0 0 1"
+				minangle="20"
+				maxangle="65"
+				drag="0.02"
+				material="/shared/effects/materials/sand_blend.material"
+				offsetsphere="20 20 10"
+				position="0 0 40"
+			>
+				<particle
+					minangle="0"
+					maxangle="360"
+					minanglespeed="-60"
+					maxanglespeed="60"
+					startsize="40"
+					endsize="120"
+					color=".7"
+					startalpha=".55"
+					endalpha="0"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				count="30"
+				particlelife="1000"
+				spawnrate="350"
+				speed="1600"
+				direction="0 0 1"
+				minangle="90"
+				maxangle="90"
+				position="0 0 40"
+			>
+				<particle turn="1">
+					<simpleemitter
+						life="250"
+						minstartspawnrate="30"
+						maxstartspawnrate="40"
+						endspawnrate="0"
+						minparticlelife="600"
+						maxparticlelife="1200"
+						offsetsphere="15 15 0"
+						material="/shared/effects/materials/pyroclast_07.material"
+						direction="0 0 1"
+						startminspeed="1400"
+						startmaxspeed="1800"
+						midspeed="400"
+						endspeed="200"
+						angle="10"
+						drag="0.01"
+						gravity="50"
+					>
+						<particle
+							maxangle="360"
+							minsize="50"
+							maxsize="125"
+							startalpha="0"
+							midalpha=".55"
+							endalpha="0"
+							midalphapos=".1"
+							color=".6"
+						/>
+						<particle
+							maxangle="360"
+							minsize="50"
+							maxsize="125"
+							startalpha="0"
+							midalpha=".55"
+							endalpha="0"
+							midalphapos=".1"
+							color=".8"
+						/>
+					</simpleemitter>
+				</particle>
+			</simpleemitter>
+			
+			<billboard
+				life="600"
+				material="/shared/effects/materials/dust.material"
+				startsize="0"
+				midsize="700"
+				endsize="1000"
+				position="0 0 40"
+				color="1"
+				startalpha="1"
+				endalpha="0"
+				lockup="true"
+				lockright="true"
+				pitch="-90"
+			/>
+			
+			<billboard
+				life="600"
+				material="/shared/effects/materials/skull_3.material"
+				startsize="170"
+				endsize="220"
+				position="-50 0 450"
+				color="1"
+				startalpha="0"
+				midalpha=".5"
+				endalpha="0"
+				midalphapos=".1"
+			/>
+			
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+</effect>

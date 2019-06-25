@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="ability_02_state" deferred="1" useentityeffectscale="1">
+	<definitions>
+		<particlesystem name="system0" space="local">
+			<billboard
+				expirelife="500"
+				material="/shared/effects/materials/eyeground.material"
+				size="110"
+				position="0 0 10"
+				color=".8 0 1"
+				pitch="-90" 
+				alpha=".7"
+				lockup="true"
+			/>
+			
+			<simpleemitter
+				spawnrate="1000"
+				particlelife="750"
+				gravity="0" speed="50" drag=".05"
+				material="/shared/effects/materials/smoke_17.material"
+				offsetsphere="10 10 0"
+				position="0 0 -3"
+				collide="1"
+				offsetradial="60"
+				limitinheritvelocity="150"
+			>
+				<particle
+					startalpha=".5" endalpha="0"
+					startcolor=".4 .1 .4" midcolor="0 0 0" endcolor="0.0 0.0 0.0"		
+					minangle="0" maxangle="90"
+					minanglespeed="0" maxanglespeed="30"
+					startsize="0" endsize="35"
+					scale="3"
+					startanchor="1" endanchor=".5"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				life="700"
+				spawnrate="2"
+				particlelife="1400"
+				speed="0.0" gravity="-6"
+				acceleration="0.0"
+				timenudge="0"
+				position="0 0 0"
+				material="/shared/effects/materials/eyeground.material"
+			>
+
+				<particle
+					startcolor="1 .5 3"
+					midcolor=".7 .1 1"
+					endcolor="0.0 0.0 0.0"
+					size="150"
+					angle="210"
+					startalpha="1"
+					endalpha="0"
+
+					lockup="true"
+					pitch="90"
+
+				/>
+				
+			</simpleemitter>
+      </particlesystem>
+   </definitions>
+   <thread>
+       <spawnparticlesystem instance="instance0" particlesystem="system0" />
+      <waitfordeath instance="instance0" />
+      <!-- <die /> -->
+   </thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->
+

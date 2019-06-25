@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+
+	<definitions>
+
+		<particlesystem name="system0" space="world" scale="1" entityeffectscale="true">
+
+			<controller bone="_bone_weapon3" >
+				<beam
+					color=".3 .2 0"
+					position_a="0 0 2"
+					position_b="0 0 -22"
+					size="10"
+					material="/shared/effects/materials/beam.material"
+				/>
+				
+				<twopointtrailemitter
+					position_a="0 0 2"
+					position_b="0 0 -22"
+					spawnrate="50"
+					particlelife="500"
+					texposscale="0"
+					texpostime="500"
+					texstretchscale="1"
+					material="/shared/effects/materials/swoosh_white.material"
+				>
+					<particle
+						startcolor=".5 .3 0"
+						endcolor="0"
+					/>
+				</twopointtrailemitter>
+			</controller>
+			
+			<controller bone="_bone_weapon1" >
+				<beam
+					color=".3 .2 0"
+					position_a="0 0 -2"
+					position_b="0 0 22"
+					size="10"
+					material="/shared/effects/materials/beam.material"
+				/>
+				
+				<twopointtrailemitter
+					position_a="0 0 -2"
+					position_b="0 0 22"
+					spawnrate="50"
+					particlelife="500"
+					texposscale="0"
+					texpostime="500"
+					texstretchscale="1"
+					material="/shared/effects/materials/swoosh_white.material"
+				>
+					<particle
+						startcolor=".5 .3 0"
+						endcolor="0"
+					/>
+				</twopointtrailemitter>
+			</controller>
+			
+		</particlesystem>
+
+	</definitions>
+
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+
+</effect>

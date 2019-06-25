@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Geomancer_Ability3_DummyTeleport"
+
+	icon="icon.tga"
+	passiveeffect=""
+	
+	ishidden="true"
+	serverentity="true"
+
+	effecttype=""
+>
+	<onexpired>
+		<teleport entity="source_entity" target="source_position" interpolate="true" noninterrupting="true" />
+	</onexpired>
+</state>

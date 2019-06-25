@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Goldenveil_Ability2_Teleport"
+
+	icon="icon.tga"
+	
+	ishidden="true"
+	
+	effecttype=""
+	allowtransfer="false"
+>
+	<oninflict>
+		<teleport target="source_position" interpolate="true" noninterrupting="true" />
+	</oninflict>
+</state>
+
+	

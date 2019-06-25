@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true" useentityeffectscale="true">
+
+	<definitions>
+
+		<particlesystem name="system0" space="world" scale="1">
+
+		<sound
+				linearfalloff="true" 
+				falloffstart="0"
+				falloffend="1500"
+				volume=".90"
+				sample="../../../sounds/imp_%.wav"
+			/>	
+			
+			<simpleemitter
+				bone="_bone_centerofchest"
+				count="10"
+				minparticlelife="200"
+				maxparticlelife="400"
+				speed="200"
+				material="/shared/effects/materials/flames_04.material"
+			>
+				<particle
+					turn="1"
+					startsize="15"
+					endsize="40"
+					startalpha="1"
+					midalpha="1"
+					endalpha="0"
+					minscale="1"
+					maxscale="2"
+					startcolor=".2 .6 .8"
+					endcolor=".3 0 .7"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				bone="_bone_centerofchest"
+				count="40"
+				minparticlelife="200"
+				maxparticlelife="600"
+				speed="200"
+				material="/shared/effects/materials/phantom_white_reveal.material"
+			>
+				<particle
+					maxangle="360"
+					endsize="30"
+					minstartsize="30"
+					maxstartsize="50"
+					startalpha=".7"
+					endalpha="0"
+					startcolor=".2 .6 .8"
+					endcolor=".4 0 .7"
+					minscale="1"
+					maxscale="2"
+					startframe="0"
+					endframe="1"
+				/>
+				<particle
+					maxangle="360"
+					endsize="30"
+					minstartsize="30"
+					maxstartsize="50"
+					startalpha=".7"
+					endalpha="0"
+					startcolor=".1 .5 1"
+					endcolor=".3 0 .5"
+					minscale="1"
+					maxscale="2"
+					startframe="0"
+					endframe="1"
+				/>
+				<particle
+					maxangle="360"
+					endsize="30"
+					minstartsize="30"
+					maxstartsize="50"
+					startalpha=".7"
+					endalpha="0"
+					startcolor=".5 0 1"
+					endcolor=".3 0 .5"
+					minscale="1"
+					maxscale="2"
+					startframe="0"
+					endframe="1"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				bone="_bone_centerofchest"
+				count="10"
+				minparticlelife="200"
+				maxparticlelife="400"
+				speed="200"
+				material="/shared/effects/materials/fire_add.material"
+			>
+				<particle
+					turn="1"
+					startsize="50"
+					endsize="20"
+					angle="180"
+					startalpha=".25"
+					midalpha=".25"
+					midalphapos=".75"
+					endalpha="0"
+					startcolor=".3 0 .5"
+					endcolor="0"
+					minscale="1"
+					maxscale="2"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				bone="_bone_centerofchest"
+				count="1"
+				particlelife="500"
+				material="/shared/effects/materials/phantom_smoke_18.material"
+			>
+				<particle
+					startsize="60"
+					endsize="200"
+					startcolor=".5 0 2"
+					endcolor="0"
+					startalpha="1"
+					midalpha="1"
+					endalpha="0"
+				/>
+			</simpleemitter>
+			
+<!-- 			<simpleemitter
+				bone="_bone_centerofchest"
+				count="1"
+				particlelife="500"
+				material="/shared/effects/materials/heathaze.material"
+			>
+				<particle
+					startsize="60"
+					endsize="200"
+					param=".25"
+					startalpha=".8"
+					endalpha="0"
+				/>
+			</simpleemitter> -->
+			
+			<simpleemitter
+				bone="_bone_centerofchest"
+				count="20"
+				minparticlelife="100"
+				maxparticlelife="200"
+				inheritvelocity=".05"
+				offsetsphere="10"
+				expirelife="100"
+				startparticlealpha="1"
+				endparticlealpha="0"
+				minspeed="300"
+				maxspeed="600"
+				material="/shared/effects/materials/goop_reveal_ground.material"
+			>
+				<particle
+					turn="1"
+					startsize="50"
+					endsize="30"
+					angle="0"
+					startalpha="1"
+					midalpha="1"
+					midalphapos=".75"
+					endalpha="0"
+					startcolor=".3 1 1"
+					endcolor=".1 .5 1"
+					minscale="1"
+					maxscale="2"
+				/>
+			</simpleemitter>
+			
+			<billboard			
+				life="100"
+				bone="_bone_centerofchest"
+				startsize="45"
+				endsize="220"
+				material="/shared/effects/materials/whitedot.material"
+				startalpha="1"
+				endalpha="0"
+				color="0 .2 1"
+				depthbias="-35"
+			/>
+
+		</particlesystem>
+
+	</definitions>
+
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0"/>
+		<waitfordeath instance="instance0" />
+	</thread>
+
+</effect>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Geomancer_Ability4_Disabled"
+	
+	icon="icon.tga"
+	passiveeffect="effects/state.effect"
+		
+	stunned="true"
+	frozen="true"
+	
+	effecttype="StatusDisable"
+	allowtransfer="true"
+	
+	negativeeffect="stunned"
+>
+	<onframe>
+		<damage effecttype="Magic DOT" target="this_owner_entity" amount="50,75,100" b="frametime" op="mult" />
+	</onframe>
+	
+	<onexpired>
+		<playanim name="idle" />
+	</onexpired>
+	
+	<altavatar key="Hero_Geomancer.Alt4"
+		passiveeffect="../alt4/ability_04/effects/state.effect"
+	/>
+	
+	<altavatar key="Hero_Geomancer.Alt5"
+		passiveeffect="../alt5/ability_04/effects/state.effect"
+	/>
+	
+	<altavatar key="Hero_Geomancer.Alt6"
+		passiveeffect="../alt6/ability_04/effects/state.effect"
+	/>
+</state>

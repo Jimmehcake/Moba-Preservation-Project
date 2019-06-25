@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect useentityeffectscale="true" deferred="true">
+	<definitions>
+	
+			
+		<modifier
+			name="modifier0"
+			life="3000"
+			startcolor="1 2 2"
+			midcolor="1 2 2"
+			endcolor="1"
+			midcolorpos="0.92"
+		/>
+		
+		<particlesystem name="system0" space="world" scale=".8">
+
+		
+		<sound  
+		        life="5000"
+		        delay="250"
+				volume=".4"
+				sample="/heroes/warchief/ability_02/sounds/cast.wav"
+				linearfalloff="true"
+				falloffstart="800" 
+				falloffend="1300" 
+			/>
+			
+			<sound  
+			    life="5000"
+				volume="1"
+				sample="/heroes/warchief/ability_02/sounds/core_cast.wav"
+				linearfalloff="true"
+				falloffstart="800" 
+				falloffend="1300" 
+			/>
+			
+			<simpleemitter
+				direction="0 0 1"
+				spawnrate="100"
+				minangle="90"
+				maxangle="90"
+				speed="100"
+				drag=".01"
+				particlelife="600"
+			>
+				<particle
+					turn="1"
+				>
+					<billboard
+						position="0 100 20"
+						life="600"
+						startalpha="0"
+						midalpha=".5"
+						endalpha="0"
+						midalphapos=".33"
+						startcolor="1 .75 .3"
+						endcolor=".5 .35 .1"
+						maxroll="360"
+						minrollspeed="-100"
+						maxrollspeed="100"
+						startsize="50"
+						endsize="250"
+						material="/shared/effects/materials/pyroclast_05.material"
+					/>
+				</particle>
+			</simpleemitter>
+			
+			<groundsprite
+				life="1500"
+				loop="1"
+				startsize="0"
+				endsize="200"
+				startcolor="0 0 .75"
+				endcolor="0"
+				material="/shared/effects/materials/corona_01_ground.material"
+			/>
+			
+			<groundsprite
+				delay="750"
+				life="1500"
+				loop="1"
+				startsize="0"
+				endsize="200"
+				startcolor="0 0 .75"
+				endcolor="0"
+				material="/shared/effects/materials/corona_01_ground.material"
+			/>
+			
+			<billboard
+				life="1000"
+				loop="1"
+				position="0 0 10"
+				lockup="1"
+				pitch="90"
+				startsize="0"
+				endsize="300"
+				startcolor="0 1 2"
+				endcolor="0"
+				material="/shared/effects/materials/corona_07.material"
+			/>
+			
+			<billboard
+				life="1000"
+				delay="333"
+				loop="1"
+				position="0 0 10"
+				lockup="1"
+				pitch="90"
+				startsize="0"
+				endsize="300"
+				startcolor="0 1 2"
+				endcolor="0"
+				material="/shared/effects/materials/corona_07.material"
+			/>
+			
+			<billboard
+				life="1000"
+				delay="666"
+				loop="1"
+				position="0 0 10"
+				lockup="1"
+				pitch="90"
+				startsize="0"
+				endsize="300"
+				startcolor="0 1 2"
+				endcolor="0"
+				material="/shared/effects/materials/corona_07.material"
+			/>
+			
+			
+			<!--
+			<simpleemitter
+				delay="500"
+				spawnrate="15"
+				life="2500"
+				offsetradial="110 110 0"
+				particlelife="1000"
+			>
+				<particle
+					scale="1"
+				>
+					<trailemitter
+						spawnrate="20"
+						direction="0 0 1"
+						angle="0"
+						speed="300"
+						acceleration="-200"
+						drag=".02"
+						particlelife="1000"
+						life="500"
+						texpostime="500"
+						material="/shared/effects/materials/glow_04.material"
+					>
+						<particle
+							startsize="70"
+							midsize="15"
+							midsizepos=".15"
+							endsize="0"
+							startcolor=".0"
+							midcolor="1 1 .5"
+							endcolor="1 1 .5"
+							scale=".5"
+							lockup="1"
+						/>
+					</trailemitter>
+				</particle>
+			</simpleemitter>
+			-->
+			<template name="smoke" >
+				<controller  yaw="{angle}" yawspeed="120">
+					<model
+						life="700"
+						model="smoke/model.mdf"
+						expirelife="500"
+						startcolor="0"
+						endcolor=".05 .15 .15"
+						scale=".85"
+					/>
+					<model
+						delay="700"
+						life="1000"
+						loop="1"
+						model="smoke/model.mdf"
+						expirelife="500"
+						startcolor=".05 .15 .15"
+						midcolor=".05 .05 .165"
+						endcolor=".05 .15 .15"
+						scale=".85"
+					/>
+				</controller>
+			</template>
+
+			<instance name="smoke" angle="0" />
+			<instance name="smoke" angle="90" />
+			<instance name="smoke" angle="180" />
+			<instance name="smoke" angle="270" />
+			
+	
+			
+				
+		
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<spawnmodifier instance="instance1" modifier="modifier0"/>  
+		<waitfordeath instance="instance0" />
+		<waitfordeath instance="instance1" /> 
+		<!-- <die /> -->
+	</thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->
+

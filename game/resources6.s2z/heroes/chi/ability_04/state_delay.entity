@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Chi_Ability4_Delay"
+
+	icon="icon.tga"
+	ishidden="true"
+	
+	effecttype=""
+	allowtransfer="false"
+>	
+	<onexpired>
+		<applystate name="State_Chi_Ability4_Timer" duration="500" target="target_entity" />
+	</onexpired>
+</state>

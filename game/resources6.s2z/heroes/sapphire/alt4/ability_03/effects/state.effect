@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="1" useentityeffectscale="1">
+	<definitions>
+		<particlesystem name="system0" space="world" scale="1.0" >
+			
+			<sound
+			    soundloop="true"
+				randomloop="true"
+				fadein="250"
+				fadeout="1500"
+				linearfalloff="true" 
+				falloffstart="0"
+				falloffend="1300"
+				volume=".5" 
+				sample="/heroes/sapphire/ability_03/sounds/loop.wav"
+			/>
+			
+			<sound
+			    delay="8250"
+				linearfalloff="true" 
+				falloffstart="0"
+				falloffend="1300"
+				volume=".5" 
+				sample="/heroes/sapphire/ability_03/sounds/pre_exp.wav"
+			/>
+			
+			<billboard
+				life="150"
+				bone="_bone_centerofchest"
+				expirelife="150"
+				material="/shared/effects/materials/corona_01.material"
+				startsize="0"
+				endsize="136"
+				startcolor="0"
+				endcolor="0 .6 1"
+				startalpha="0"
+				midalpha="1"
+				endalpha="1"
+				midalphapos=".65"
+				position="15 -5 0"
+			/>
+			<model
+				life="150"
+				bone="_bone_centerofchest"
+				model="/heroes/ichor/ability_02/effects/ally_sphere/model.mdf"
+				material="material.material"
+				color="1 0 0"
+				startscale="0"
+				endscale="1.4"
+				yaw="180"
+				position="15 -5 0"
+				rollspeed="300"
+				yawspeed="100"
+				startalpha="0"
+				midalpha=".5"
+				endalpha=".5"
+				midalphapos=".975"
+				directionalspace="global"
+			/>
+			
+			
+			<billboard
+				delay="140"
+				bone="_bone_centerofchest"
+				expirelife="150"
+				material="/shared/effects/materials/corona_07.material"
+				startsize="150"
+				endsize="0"
+				startcolor="1 .5 0"
+				endcolor="0"
+				startalpha="1"
+				midalpha="1"
+				endalpha="0"
+				midalphapos=".65"
+				position="15 -5 0"
+			/>
+			
+			<billboard
+				delay="140"
+				bone="_bone_centerofchest"
+				expirelife="150"
+				material="/shared/effects/materials/corona_01.material"
+				startsize="125"
+				endsize="0"
+				startcolor="0 .6 .7"
+				endcolor="0"
+				startalpha="1"
+				midalpha="1"
+				endalpha="0"
+				midalphapos=".65"
+				position="15 -5 0"
+			/>
+			
+			<model
+				delay="140"
+				bone="_bone_centerofchest"
+				expirelife="150"
+				position="15 -5 0"
+				model="/heroes/riftmage/ability_04/effects/sphere/model.mdf"
+				material="../../../ability_02/effects/sphere/material2.material"
+				anim="idle"
+				startscale=".59"
+				endscale="0"
+				startalpha="1"
+				endalpha="0"
+				color="1 .5 0"
+			>
+			</model>
+			<model
+				delay="140"
+				bone="_bone_centerofchest"
+				model="/heroes/ichor/ability_02/effects/ally_sphere/model.mdf"
+				material="material.material"
+				startscale="1.35"
+				endscale="0"
+				yaw="180"
+				position="15 -5 0"
+				rollspeed="150"
+				yawspeed="100"
+				startalpha=".3"
+				midalpha=".3"
+				endalpha="0"
+				midalphapos=".975"
+				directionalspace="global"
+				color="1 .5 0"
+			/>
+			
+			<model
+				delay="140"
+				bone="_bone_centerofchest"
+				expirelife="150"
+				position="15 -5 0"
+				model="/heroes/riftmage/ability_04/effects/sphere/model.mdf"
+				material="../../../ability_03/effects/material.material"
+				anim="idle"
+				startscale=".63"
+				endscale="0"
+				startalpha=".7"
+				midalpha=".7"
+				endalpha="0"
+				color="1 .7 0"
+			>
+			</model>
+			
+			<billboard
+				position="15 -5 0"
+				color="1 .5 0"
+				scale="1.2"
+				material="/shared/effects/materials/corona_06.material"
+				bone="_bone_centerofchest"
+				lockup="1" lockright="0" pitch="-100"
+				width="200"
+				height="100"
+			/>
+			
+      </particlesystem>
+   </definitions>
+   <thread>
+      <spawnparticlesystem instance="instance0" particlesystem="system0" />
+      <waitfordeath instance="instance0" />
+      <!-- <die /> -->
+   </thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->
+

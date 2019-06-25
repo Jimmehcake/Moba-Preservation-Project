@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gadget
+	name="Gadget_SandWraith_Ability1_PathSticky"
+		
+	icon=""
+	portrait=""
+	model="/shared/models/invis.mdf"
+	skin=""
+	
+	passiveeffect="../hd_sandwraith2/ability_01/effects/gadget.effect"
+	spawneffect=""
+	respawneffect=""
+	isselectable="false"
+	iscontrollable="false"
+	invulnerable="true"
+	selectsound=""
+	orderconfirmedsound=""
+	
+	preglobalscale="1.1"
+	modelscale="1.0"
+	effectscale="1.0"
+	boundsheight="38"
+	boundsradius="42"
+	selectionradius="0"
+	targetoffset="0 0 0"
+
+	canrotate="false"
+	ismobile="false"
+	isflying="false"
+	clearvision="false"
+	drawonmap="false"
+
+	attacktype="none"
+	
+	lifetime="8000"
+	deathtime="0"
+	corpsetime="0"
+	corpsefadetime="0"
+	
+	antiblocking="true"
+	
+	noblockneutralspawn="true"
+>
+	<aura state="State_SandWraith_Ability1_Path" radius="150" duration="3000" targetscheme="my_units" />
+	<aura state="State_SandWraith_Ability1_Debuff" radius="150" duration="1000" targetscheme="enemy_units" effecttype="Magic"  disablenegativeeffectpopuponrefresh="true" />
+	
+	<altavatar key="Hero_SandWraith.Alt3" modpriority="1"
+		passiveeffect="../alt3/ability_01/effects/gadget.effect"
+	/>
+	
+	<altavatar key="Hero_SandWraith.Alt4" modpriority="1"
+		passiveeffect="../alt4/ability_01/effects/gadget.effect"
+	/>
+	
+	<altavatar key="Hero_SandWraith.Alt5" modpriority="1"
+		passiveeffect="../alt5/ability_01/effects/gadget.effect"
+	/>
+
+	<altavatar key="Hero_SandWraith.Alt9" modpriority="1"
+		passiveeffect="../alt9/ability_01/effects/gadget.effect"
+	/>
+	
+	<altavatar key="Hero_SandWraith.Alt10" modpriority="1"
+		passiveeffect="../alt10/ability_01/effects_03/gadget.effect"
+	>
+		<modifier key="rainstorm"
+			passiveeffect="../alt10/ability_01/effects_01/gadget.effect"
+		/>
+		
+		<modifier key="lightning"
+			passiveeffect="../alt10/ability_01/effects_02/gadget.effect"
+		/>
+	</altavatar>
+	
+	<altavatar key="Hero_SandWraith.Alt11" modpriority="1"
+		passiveeffect="../alt11/ability_01/effects/gadget.effect"
+	/>
+	
+</gadget>

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+	<definitions>
+		<particlesystem name="system0" space="world" scale="1">
+			
+			<sound
+			    forcestereo="true"
+			    norestart="true"
+				channel="6666665"
+				sample="/heroes/calamity/ability_04/sounds/vault_collaps.wav"				linearfalloff="true"
+				falloffstart="1300" 
+				falloffend="1300" 
+				volume="1"
+			/>
+			
+			<simpleemitter
+				position="0 0 100"
+				count="30"
+				minparticlelife="700"
+				maxparticlelife="1300"
+				direction="0 0 1"
+				angle="20"
+				minspeed="1500"
+				maxspeed="3000"
+				gravity="30"
+				drag="0.0075"
+				material="/shared/effects/materials/abstract_reveal_02.material"
+			>
+				<particle
+					maxangle="360"
+					minanglespeed="-100"
+					maxanglespeed="100"
+					minsize="25"
+					maxsize="100"
+					color="0"
+					midcolorpos=".5"
+					startframe="1"
+					midframe="0"
+					endframe="1"
+					midframepos=".2"
+					anchor="1"
+					depthbias="-50"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				position="0 0 100"
+				count="50"
+				minparticlelife="800"
+				maxparticlelife="1000"
+				direction="0 0 1"
+				minangle="50"
+				maxangle="70"
+				minspeed="300"
+				maxspeed="400"
+				gravity="10"
+				drag="0.015"
+				material="/shared/effects/materials/phantom_white_reveal.material"
+			>
+				<particle
+					maxangle="360"
+					minanglespeed="-100"
+					maxanglespeed="100"
+					minsize="175"
+					maxsize="225"
+					startalpha=".5"
+					midalpha=".25"
+					endalpha="0"
+					midalphapos=".25"
+					color="0"
+					midcolorpos=".5"
+					startframe="1"
+					endframe="0"
+					anchor="1"
+					depthbias="-50"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				position="0 0 100"
+				mincount="8"
+				maxcount="12"
+				minparticlelife="500"
+				maxparticlelife="800"
+				material="/shared/effects/materials/shadow_cut_reveal.material"
+				maxspeed="50"
+			>
+				<particle
+					maxangle="360"
+					minanglespeed="-400"
+					maxanglespeed="400"
+					maxpitch="360"
+					startalpha="1"
+					midalpha="1"
+					endalpha="1"
+					midalphapos=".2"
+					minsize="100"
+					maxsize="150"
+					startscale=".5"
+					minendscale="3"
+					maxendscale="6"
+					midscalepos=".3"
+					startframe="1"
+					midframe="0"
+					endframe="1"
+					midframepos=".2"
+					startcolor="1 .2 0"
+					midcolor=".1 0 0"
+					endcolor="0"
+					anchor="1"
+					depthbias="-150"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				position="0 0 100"
+				count="50"
+				offsetsphere="100"
+				minparticlelife="400"
+				maxparticlelife="600"
+				gravity="-20"
+				direction="0 0 1"
+				angle="40"
+				maxspeed="1000"
+				drag="0.02"
+				material="/shared/effects/materials/abstract_reveal.material"
+			>
+				<particle
+					maxangle="360"
+					startalpha="0"
+					midalpha="1"
+					endalpha="1"
+					midalphapos=".2"
+					minsize="10"
+					maxsize="15"
+					minscale="1.0"
+					maxscale="2.0"
+					minstartframe=".1"
+					maxstartframe=".3"
+					midframe="0"
+					endframe="1"
+					midframepos=".25"
+					startcolor=".1 .05 0"
+					midcolor=".1 -.05 .05"
+					endcolor="0"
+				/>
+			</simpleemitter>
+			
+			<billboard
+				position="0 0 100"
+				life="400"
+				material="/shared/effects/materials/corona_06_blend.material"
+				startcolor=".7 0 0"
+				endcolor="0"
+				startsize="100"
+				endsize="800"
+				midsizepos=".3"
+				startalpha=".75"
+				endalpha="0"
+				lockup="true"
+				lockright="true"
+				pitch="-90"
+			/>
+
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<camerashake2 scale="3" frequency="20" radius="2000" duration="300" />
+		<waitfordeath instance="instance0" />
+	</thread>
+</effect>

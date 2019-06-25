@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Goldenveil_Ability2_Sight"
+	
+	icon=""
+	ishidden="true"
+	
+	sighted="true"
+>
+
+	<onexpired>
+		<hasmodifier name="Goldenveil_tree" entity="this_owner_entity" >
+			<applystate name="State_Goldenveil_Ability2_Stealth" continuous="true" target="this_owner_entity" />
+		</hasmodifier>
+	</onexpired>
+
+</state>

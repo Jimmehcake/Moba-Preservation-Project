@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gadget
+	name="Gadget_Calamity_Ability4"
+	
+	icon=""
+	portrait=""
+	model="/shared/models/invis.mdf"
+	passiveeffect="effects/trail.effect"
+
+	preglobalscale="1"
+	modelscale="1"
+	effectscale="1"
+
+	boundsheight="0"
+	boundsradius="0"
+	isselectable="false"
+	iscontrollable="false"
+	selectionradius="0"
+	targetoffset="0 0 0"
+
+	canrotate="false"
+	ismobile="false"	
+	
+	attacktype="none"
+	combattype="Ranged"
+	
+	sightrangeday="0"
+	sightrangenight="0"
+	
+	alwaysvisible="true"
+	
+	alwaystransmitdata="true"
+
+	unitwalking="true"
+	canattack="false"
+	deathtime="0"
+	corpsetime="0"
+	invulnerable="true"
+	flying="true"
+	flyheight="80"
+	drawonmap="false"
+	
+	lifetime="10000"
+	clearvision="false"
+>
+
+	<altavatar key="Hero_Calamity.Alt" modpriority="1"
+		passiveeffect="../alt/ability_04/effects/trail.effect"
+	/>
+
+	<altavatar key="Hero_Calamity.Alt2"
+		passiveeffect="../alt2/ability_04/effects/trail.effect"
+	/>
+
+	<altavatar key="Hero_Calamity.Alt3"
+		passiveeffect="../alt3/ability_04/effects/trail.effect"
+	/>
+
+	<altavatar key="Hero_Calamity.Alt4"
+		passiveeffect="../alt4/ability_04/effects/trail.effect"
+	/>
+	
+	<altavatar key="Hero_Calamity.Alt5"
+		passiveeffect="../alt5/ability_04/effects/trail.effect"
+	/>
+	
+	<altavatar key="Hero_Calamity.Alt6"
+		passiveeffect="../alt6/ability_04/effects/trail.effect"
+	/>
+	
+	<altavatar key="Hero_Calamity.Alt8"
+		passiveeffect="../alt8/ability_04/effects/trail.effect"
+	/>
+	
+	<altavatar key="Hero_Calamity.Alt9"
+		passiveeffect="../alt9/ability_04/effects/trail.effect"
+	/>
+	
+</gadget>

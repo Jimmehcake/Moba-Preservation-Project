@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect useentityeffectscale="true" deferred="true">
+	<definitions>
+	
+		<particlesystem name="system0" space="world" scale="1.1">
+			
+			<sound
+			    life="6000"
+				linearfalloff="true" 
+				falloffstart="400"
+				falloffend="1300"		
+				volume="1" 
+				sample="/heroes/mimix/ability_02/sounds/expire.wav"
+			/>
+			
+		<model
+			parentmodel="true"
+			parentskeleton="true"
+			color=".8 .4 .1"
+			alpha=".5"
+			material="/shared/effects/materials/shell2.material"
+		/>
+
+		<template name="link">
+			<beam
+			bone_a="{bone1}"
+				bone_b="{bone2}"
+				size="80"
+				color=".5 .5 .1"
+				expirelife="120"	
+				material="/shared/effects/materials/glow_02_blend.material"
+				framespeed="2"
+			/>
+			<beam
+				bone_a="{bone1}"
+				bone_b="{bone2}"
+				size="130"
+				color="1"
+				expirelife="200"	
+				material="/shared/effects/materials/trail_02.material"
+			/>
+			<beam
+				bone_a="{bone1}"
+				bone_b="{bone2}"
+				size="25"
+				color="1"
+				expirelife="120"	
+				material="/shared/effects/materials/glow_02.material"
+				framespeed="1.2"
+			/>		
+		</template>
+			
+		<instance name="link" bone1="Bone001" bone2="Bone011"/>
+		<instance name="link" bone1="Bone002" bone2="Bone012"/>
+		<instance name="link" bone1="Bone003" bone2="Bone013"/>
+		<instance name="link" bone1="Bone004" bone2="Bone014"/>
+		<instance name="link" bone1="Bone005" bone2="Bone015"/>
+		<instance name="link" bone1="Bone006" bone2="Bone016"/>
+		<instance name="link" bone1="Bone007" bone2="Bone017"/>
+		<instance name="link" bone1="Bone008" bone2="Bone018"/>
+		<instance name="link" bone1="Bone009" bone2="Bone019"/>
+		<instance name="link" bone1="Bone010" bone2="Bone020"/>		
+		<instance name="link" bone1="Bone017" bone2="Bone018"/>
+		<instance name="link" bone1="Bone013" bone2="Bone014"/>
+		<instance name="link" bone1="Bone011" bone2="Bone012"/>
+		<instance name="link" bone1="Bone015" bone2="Bone016"/>
+		<instance name="link" bone1="Bone019" bone2="Bone020"/>
+		<instance name="link" bone1="Bone013" bone2="Bone018"/>
+		<instance name="link" bone1="Bone014" bone2="Bone017"/>
+		<instance name="link" bone1="Bone011" bone2="Bone013"/>
+		<instance name="link" bone1="Bone012" bone2="Bone014"/>
+		<instance name="link" bone1="Bone011" bone2="Bone015"/>
+		<instance name="link" bone1="Bone012" bone2="Bone016"/>
+		<instance name="link" bone1="Bone015" bone2="Bone020"/>
+		<instance name="link" bone1="Bone016" bone2="Bone019"/>
+	
+		</particlesystem>		
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<spawnmodifier instance="instance1" modifier="modifier0"/>  
+		<waitfordeath instance="instance0" />
+		<waitfordeath instance="instance1" /> 
+		<!-- <die /> -->
+	</thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->
+

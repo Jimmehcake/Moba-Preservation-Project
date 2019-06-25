@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model name="rig.max" file="/heroes/artillery/alt9/high.model" type="K2" high="/heroes/artillery/alt9/high.model" med="/heroes/artillery/alt9/med.model" low="/heroes/artillery/alt9/low.model" >
+
+	<anim name="idle" clip="/heroes/artillery/alt9/clips/default_1.clip" loop="true" blendtime ="250"/>
+	
+	<anim name="portrait" clip="/heroes/artillery/alt9/clips/default_1.clip" loop="true" fps="15"/> 
+	
+	<anim name="item_1" clip="/heroes/artillery/alt9/clips/item_1.clip" fps="30"/>
+
+	<anim name="bored_1" clip="/heroes/artillery/alt9/clips/bored_1.clip" fps="30">
+		<frameevent frame="80" cmd="StartEffect /heroes/artillery/alt9/effects/bored.effect 1" />
+		<endevent cmd="StopEffect 1"/>
+	</anim>	
+
+	<anim name="walk_1" clip="/heroes/artillery/alt9/clips/walk_1.clip" fps="36" loop="true">
+	
+		<frameevent frame="1" cmd="StartEffect /shared/effects/waterhack#GetTerrainType()#.effect"/>
+		<frameevent frame="13" cmd="StartEffect /shared/effects/waterhack#GetTerrainType()#.effect"/>
+		<frameevent frame="25" cmd="StartEffect /shared/effects/waterhack#GetTerrainType()#.effect"/>
+		<frameevent frame="36" cmd="StartEffect /shared/effects/waterhack#GetTerrainType()#.effect"/>
+		<frameevent frame="48" cmd="StartEffect /shared/effects/waterhack#GetTerrainType()#.effect"/>
+		<frameevent frame="60" cmd="StartEffect /shared/effects/waterhack#GetTerrainType()#.effect"/>
+										
+		<frameevent frame="1" cmd="StartEffect /shared/effects/footstep_r_#GetTerrainType()#.effect"/>
+		<frameevent frame="13" cmd="StartEffect /shared/effects/footstep_l_#GetTerrainType()#.effect"/>
+		<frameevent frame="25" cmd="StartEffect /shared/effects/footstep_r_#GetTerrainType()#.effect"/>
+		<frameevent frame="36" cmd="StartEffect /shared/effects/footstep_l_#GetTerrainType()#.effect"/>
+		<frameevent frame="48" cmd="StartEffect /shared/effects/footstep_r_#GetTerrainType()#.effect"/>
+		<frameevent frame="60" cmd="StartEffect /shared/effects/footstep_l_#GetTerrainType()#.effect"/>
+	</anim>
+
+	<anim name="taunt_1" clip="/heroes/artillery/alt9/clips/taunt_1.clip" />
+
+	<anim name="death_1" clip="/heroes/artillery/alt9/clips/death_1.clip" fps="30" loop="true" loopbackframe="-1">
+		<frameevent frame="1" cmd="PlaySoundLinear sounds/death_grunt_%.wav 400 1300 .8"/>
+		<frameevent frame="1" cmd="PlaySoundLinear sounds/death_foley.wav 0 1300 1"/>
+	</anim>
+
+	<anim name="attack_1" clip="/heroes/artillery/alt9/clips/attack_1.clip" fps="30">
+		<frameevent frame="0" cmd="PlaySoundLinear /heroes/artillery/alt9/sounds/draw_%.wav 400 1300 1"/>
+	</anim>
+	
+	<anim name="attack_2" clip="/heroes/artillery/alt9/clips/attack_2.clip" fps="30">
+		<frameevent frame="1" cmd="PlaySoundLinear /heroes/artillery/alt9/sounds/attack_grunt_%.wav 0 1300 1"/>
+	</anim>
+	
+	<anim name="bunker_attack_1" clip="/heroes/artillery/alt9/clips/attack_1.clip" fps="30">
+		<frameevent frame="0" cmd="PlaySoundLinear /heroes/artillery/alt9/sounds/draw_%.wav 400 1300 1"/>
+	</anim>
+	
+	<anim name="bunker_attack_2" clip="/heroes/artillery/alt9/clips/attack_2.clip" fps="30">
+
+	</anim>
+	
+	<anim name="bunker_walk_1" clip="/heroes/artillery/alt9/clips/bunker_walk_1.clip" fps="30">
+	</anim>
+
+	<anim name="ability_3" clip="/heroes/artillery/alt9/clips/ability_3.clip" fps="40">
+		
+	</anim>
+	
+	<anim name="ability_4" clip="/heroes/artillery/alt9/clips/ability_4.clip" fps="60">
+		<frameevent frame="1" cmd="PlaySoundLinear /heroes/artillery/alt9/sounds/attack_grunt_%.wav 0 1300 1"/>
+	</anim>
+	
+	<anim name="ability_1" clip="/heroes/artillery/alt9/clips/ability_1.clip" loop="true" startframe="0" numframes="50" loopbackframe="10" fps="100">
+		<frameevent frame="1" cmd="PlaySoundLinear /heroes/artillery/alt9/sounds/ab1.wav 0 1300 1"/>
+		<frameevent frame="1" cmd="PlaySoundLinear /heroes/artillery/alt9/sounds/attack_grunt_%.wav 0 1300 1"/>
+	</anim>
+	
+	<anim name="ability_1_vfx" clip="/heroes/artillery/alt9/clips/ability_1.clip" loop="true" startframe="0" numframes="50" loopbackframe="10" fps="70">
+	</anim>
+	
+	<anim name="ability_1_end" clip="/heroes/artillery/alt9/clips/ability_1.clip" loop="false" startframe="1" numframes="1" fps="50"/>
+		
+	<anim name="knock_1" clip="/heroes/artillery/alt9/clips/knock_1.clip" loop="true" loopbackframe="-1"/>		
+			
+</model>

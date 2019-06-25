@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Cthulhuphant_Ability2"
+
+	icon="icon.tga"
+	passiveeffect="effects/shield.effect"
+	effecttype=""
+	
+	modifierkey="Cthulhuphant_Shield"
+	
+	impactinterval="1000"
+	
+>
+	<oninflict>
+		<setaccumulator value="1200" />
+	</oninflict>
+	
+	<onimpact>
+		<spawnaffector name="Affector_Cthulhuphant_Ability2" target="source_entity" pushentity="true" />
+	</onimpact>
+
+	<ondamaged>
+		<!-- Front_Angle = 180 - Back_Angle -->
+		<condition test="back_impact_angle ge 115">
+			<setvar0 a="source_damage" />
+			<condition test="var0 ge accumulator">
+				<evaluate a="var0" b="accumulator" op="sub" />
+				<evaluate a="result" b="var0" op="add" />
+				<changedamage b="result" op="min" />
+				<setaccumulator value="0" />
+				<expire />
+			</condition>
+			<condition test="var0 le accumulator">
+				<changedamage b="0" op="min" />
+				<evaluate a="accumulator" b="var0" op="sub" />
+				<setaccumulator value="result" />
+			</condition>
+		</condition>
+	</ondamaged>
+	
+	<modifier key="Alt" modpriority="1"
+		passiveeffect="/heroes/cthulhuphant/alt/ability_02/effects/shield.effect"
+	>	
+		<oninflict>
+			<setaccumulator value="1200" />
+		</oninflict>
+
+		<ondamaged>
+			<!-- Front_Angle = 180 - Back_Angle -->
+			<condition test="back_impact_angle ge 115">
+				<setvar0 a="source_damage" />
+				<condition test="var0 ge accumulator">
+					<evaluate a="var0" b="accumulator" op="sub" />
+					<evaluate a="result" b="var0" op="add" />
+					<changedamage b="result" op="min" />
+					<setaccumulator value="0" />
+					<expire />
+				</condition>
+				<condition test="var0 le accumulator">
+					<changedamage b="0" op="min" />
+					<evaluate a="accumulator" b="var0" op="sub" />
+					<setaccumulator value="result" />
+				</condition>
+			</condition>
+		</ondamaged>
+	</modifier>	
+	
+</state>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Cthulhuphant_Ability3_Look"
+
+	icon="icon.tga"
+	passiveeffect=""
+	effecttype="StatusDebuff"
+	ishidden="true"
+>
+	
+	<onframe>
+		<hasmodifier name="Cthulhuphant_Spirited" entity="target_entity" />
+		<else>
+			<applystate name="State_Cthulhuphant_Ability3_Slow" effecttype="Magic" continuous="true" timeout="frametime" />
+			<evaluate a="back_impact_angle" source="target_entity" target="source_entity" />
+			<compare a="result" b="110" op="ge">
+				<addcharges count="1" />
+				<compare a="charges" b="40" op="ge">
+					<multcharges value="0" />
+					<applystate name="State_Cthulhuphant_Ability3" duration="3000" target="target_entity" effecttype="Magic" />
+					<playeffect effect="effects/debuff.effect" source="target_entity" />
+					<expire />
+				</compare>
+			</compare>
+		</else>
+	</onframe>
+	
+</state>

@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect useentityeffectscale="true" deferred="true">
+	<definitions>
+	
+		<particlesystem name="system0" space="world" scale="1.1">
+			<sound
+				dampen="0.7"
+				norestart="true"	
+				channelid="mira"
+				linearfalloff="true" 
+				falloffstart="400"
+				falloffend="1300"		
+				volume="1" 
+				sample="/heroes/mimix/ability_02/sounds/imp.wav"
+			/>
+			
+			
+			<sound
+			    forcestereo="true"
+				norestart="true"
+				channelid="mimsrs"
+			    soundloop="true"
+				randomloop="true"
+				fadein="250"
+				fadeout="250"
+				linearfalloff="true" 
+				falloffstart="400"
+				falloffend="1300"
+				volume="1" 
+				sample="/heroes/mimix/ability_02/sounds/state.wav"
+			/>
+		<model
+			parentmodel="true"
+			parentskeleton="true"
+			color=".3 .1 .9"
+			alpha=".5"
+			material="/shared/effects/materials/shell2.material"
+		/>
+
+		<template name="link">
+			<beam
+				bone_a="{bone1}"
+				bone_b="{bone2}"
+				size="180"
+				color="1 .2 1"
+				expirelife="120"	
+				material="/shared/effects/materials/femme_lightning_01_blend.material"
+				framespeed="2"
+			/>
+			<beam
+				bone_a="{bone1}"
+				bone_b="{bone2}"
+				size="100"
+				color=" 1 .7 1"
+				expirelife="200"	
+				material="/shared/effects/materials/trail_01.material"
+			/>
+			<beam
+				bone_a="{bone1}"
+				bone_b="{bone2}"
+				size="120"
+				color="1 .5 1"
+				expirelife="120"	
+				material="/shared/effects/materials/femme_lightning_10.material"
+				framespeed="1.2"
+			/>		
+		</template>
+			
+		<instance name="link" bone1="Bone001" bone2="Bone011"/>
+		<instance name="link" bone1="Bone002" bone2="Bone012"/>
+		<instance name="link" bone1="Bone003" bone2="Bone013"/>
+		<instance name="link" bone1="Bone004" bone2="Bone014"/>
+		<instance name="link" bone1="Bone005" bone2="Bone015"/>
+		<instance name="link" bone1="Bone006" bone2="Bone016"/>
+		<instance name="link" bone1="Bone007" bone2="Bone017"/>
+		<instance name="link" bone1="Bone008" bone2="Bone018"/>
+		<instance name="link" bone1="Bone009" bone2="Bone019"/>
+		<instance name="link" bone1="Bone010" bone2="Bone020"/>		
+		<instance name="link" bone1="Bone017" bone2="Bone018"/>
+		<instance name="link" bone1="Bone013" bone2="Bone014"/>
+		<instance name="link" bone1="Bone011" bone2="Bone012"/>
+		<instance name="link" bone1="Bone015" bone2="Bone016"/>
+		<instance name="link" bone1="Bone019" bone2="Bone020"/>
+		<instance name="link" bone1="Bone013" bone2="Bone018"/>
+		<instance name="link" bone1="Bone014" bone2="Bone017"/>
+		<instance name="link" bone1="Bone011" bone2="Bone013"/>
+		<instance name="link" bone1="Bone012" bone2="Bone014"/>
+		<instance name="link" bone1="Bone011" bone2="Bone015"/>
+		<instance name="link" bone1="Bone012" bone2="Bone016"/>
+		<instance name="link" bone1="Bone015" bone2="Bone020"/>
+		<instance name="link" bone1="Bone016" bone2="Bone019"/>
+		
+		<template name="link">
+			<twopointemitter
+				count="12"
+				bone_a="{bone1}"
+				bone_b="{bone2}"
+
+				direction="0 0 1"
+				minangle="90"
+				maxangle="90"
+			>
+				<particle
+				>
+					<groundsprite						
+						material="/shared/effects/materials/crack_5_ground.material"
+						color=".065"
+						size="255"
+						maxyaw="360"
+					/>
+				</particle>
+				<particle
+				>
+					<groundsprite						
+						material="/shared/effects/materials/crack_1_ground_blue.material"
+						color=".12"
+						size="255"
+						maxyaw="360"
+					/>
+				</particle>
+			</twopointemitter>
+			
+			<beam
+				bone_a="{bone1}"
+				bone_b="{bone2}"
+				size="180"
+				color=".8 .2 1"
+				expirelife="120"	
+				material="/shared/effects/materials/femme_lightning_01_blend.material"
+				framespeed="2"
+			/>
+			<beam
+				bone_a="{bone1}"
+				bone_b="{bone2}"
+				size="100"
+				color=" .7 .7 1"
+				expirelife="200"	
+				position="0 0 500"
+				material="/shared/effects/materials/trail_03.material"
+			/>
+			<beam
+				bone_a="{bone1}"
+				bone_b="{bone2}"
+				size="120"
+				color=" .5 .5 1"
+				expirelife="120"	
+				material="/shared/effects/materials/femme_lightning_10.material"
+				framespeed="1.2"
+			/>	
+			<twopointtrailemitter
+				spawnrate="5"
+				particlelife="600"
+				bone_a="{bone1}"
+				bone_b="{bone2}"
+				speed="300"
+				direction="0 0 1"
+				minangle="0"
+				maxangle="0"
+				position="0 0 -10"
+				material="/shared/effects/materials/fire_scrolling_blue_beam.material"
+			>
+				<particle
+					startcolor="0"
+					midcolor=".2 .7 1"
+					endcolor="0"
+					startalpha="1"
+					midalpha=".7"
+					endalpha="0"
+					startscale="0"
+					endscale="5"
+				>
+				</particle>
+			</twopointtrailemitter>
+			
+			<twopointemitter
+				spawnrate="8"
+				particlelife="1000"
+				bone_a="{bone1}"
+				bone_b="{bone2}"
+				speed="300"
+				direction="0 0 1"
+				minangle="90"
+				maxangle="90"
+				material="/shared/effects/materials/bad_heal_smoke_06.material"
+			>
+				<particle
+					maxangle="360"
+					startcolor="0"
+					endcolor=".1 .3 .3"
+					startalpha=".7"
+					midalpha=".2"
+					endalpha="0"
+					startscale="0"
+					midscale="300"
+					endscale="340"
+				>
+				</particle>
+			</twopointemitter>
+			
+			<twopointemitter
+				spawnrate="15"
+				minparticlelife="170"
+				maxparticlelife="400"
+				bone_a="{bone1}"
+				bone_b="{bone2}"
+				speed="100"
+				direction="0 0 1"
+				minangle="80"
+				maxangle="90"
+				material="/shared/effects/materials/light_glow.material"
+			>
+				
+				<particle
+					maxangle="360"
+					startcolor="1"
+					endcolor="0"
+					startscale="0"
+					endscale="350"
+				>
+				</particle>
+			</twopointemitter>
+			
+		</template>
+				
+		<instance name="link" bone1="Bone003" bone2="Bone008"/>
+		<instance name="link" bone1="Bone004" bone2="Bone007"/>
+		<instance name="link" bone1="Bone001" bone2="Bone003"/>
+		<instance name="link" bone1="Bone002" bone2="Bone004"/>
+		<instance name="link" bone1="Bone001" bone2="Bone005"/>
+		<instance name="link" bone1="Bone002" bone2="Bone006"/>
+		<instance name="link" bone1="Bone005" bone2="Bone000"/>
+		<instance name="link" bone1="Bone006" bone2="Bone009"/>
+			
+		<!-- <controller yaw="22.5">
+			<simpleemitter
+				spawnrate="30"
+				particlelife="3500"
+				position="0 -280 100"
+				yaw="30"
+				offsetsphere="700 200 0"
+			>
+				<particle 
+				>
+					<billboard
+						material="/shared/effects/materials/light_rays.material"
+						startscale="3"
+						endscale="3"
+						width="120"
+						minheight="220"
+						maxheight="200"
+						startcolor="0 0 0"
+						midcolor=".06 .18 .25"
+						endcolor="0 0 0"
+						position="0 0 125"	
+						
+						lockup="1"
+						minlife="1333"
+						maxlife="2000"
+					/>
+				
+				
+				</particle>
+			</simpleemitter>
+		</controller> -->		
+		</particlesystem>	
+
+		<particlesystem name="system1" space="world" scale="1">
+		<simpleemitter
+				bone="_bone_centerofchest"
+				life="800"
+				gravity="-1"
+				spawnrate="15"
+				minparticlelife="550"
+				maxparticlelife="1000"
+				offsetsphere="25 25 25"
+				material="/shared/effects/materials/circuits_reveal.material"
+				inheritvelocity="-0.1"
+			>
+				<particle 
+					minangle="-180"
+					maxangle="180"
+					startcolor="0 .2 .5"
+					midcolor="0 .7 1"
+					endcolor="0"
+					startsize="20"
+					endsize="30"
+					startalpha="0"
+					midalpha="1"
+					endalpha="0"
+					midalphapos=".2"
+					minscale="3.5"
+					maxscale="4.5"
+					framespeed="2"
+				/>
+			</simpleemitter>
+		
+			<simpleemitter
+				bone="_bone_centerofchest"
+				life="800"
+				gravity="-1"
+				spawnrate="15"
+				minparticlelife="250"
+				maxparticlelife="1000"
+				offsetsphere="25 25 25"
+				material="/shared/effects/materials/water_spray_add.material"
+				inheritvelocity="-0.1"
+			>
+				<particle 
+					minangle="-180"
+					maxangle="180"
+					startcolor="0 0 0"
+					midcolor="0 .1 .2"
+					endcolor="0 0 0"
+					size="20"
+					minstartscale="2"
+					maxstartscale="4"
+					minendscale="4"
+					maxendscale="6"
+					startalpha="0"
+					midalpha=".65"
+					endalpha="0"
+					midalphapos=".2"
+				/>
+			</simpleemitter>
+
+			<template name="trails">
+				<twopointtrailemitter
+					life="1050"
+					bone_a="{bone01}"
+					bone_b="{bone02}"
+					spawnrate="25"
+					particlelife="750"
+					gravity="5"
+					subframepose="1"
+					drag="0.01"
+					speed="100"
+					direction="0 -1 0"
+					minangle="-10"
+					maxangle="10"
+					texpostime="750"
+					texposscale="0"
+					texstretchscale="1"
+					material="/shared/effects/materials/blob_reveal_white.material"
+					startparticlealpha="1"
+					endparticlealpha="0"
+					depthbias="-450"
+				>
+					<particle
+						color="1 0 1"
+						startalpha="1"
+						endalpha="1"
+						startframe="0"
+						endframe="1"
+						size="350"
+					/>
+					<particle
+						color="0 1 0"
+						startalpha="1"
+						endalpha="1"
+						startframe="0"
+						endframe="1"
+						size="350"
+					/>
+				</twopointtrailemitter>
+			</template>
+
+			<instance name="trails" bone01="Bone006" bone02="Bone016"/>
+			
+			<template name="images">
+				<simpleemitter
+					count="4"
+					delay="{zdelay}"
+					spawnrate="10"
+					particlelife="3000"
+					offsetsphere="0 0 0"
+					position="0 0 0"
+					minangle="0"
+					maxangle="0"
+					direction="0 1 0"
+				>
+					<particle
+					turn="true"
+					>
+						<model
+							position="0 0 0"
+							startscale="1"
+							endscale=".5"
+							life="500"
+							model="../../model.mdf"
+							material="../../ability_01/effects/material.material"
+							anim="walk_1"
+							startcolor="0 .2 .5"
+							midcolor="0"
+							endcolor="0 0 0"
+							midcolorpos=".2"
+							startalpha="0"
+							midalpha="1"
+							endalpha="0"
+						/>
+						
+					</particle>
+				</simpleemitter>
+			</template>
+			
+			<instance name="images" zdelay="0"/>
+      </particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<spawnparticlesystem instance="instance1" particlesystem="system1" />
+		<waitfordeath instance="instance0" />
+		<waitfordeath instance="instance1" /> 
+		<!-- <die /> -->
+	</thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->
+

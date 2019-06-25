@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectile
+	name="Projectile_Sapphire_Ability1_EnemyCliff"
+	
+	lifetime="300"
+	useexactlifetime="true"
+	gravity="0"
+	
+	canturn="true"
+	flying="true"
+	flyheight="0"
+	
+	touchcliffs="true"
+	
+	touchradius="40"
+	touchradiusdiradjust="true"
+	touchtargetscheme="Nothing"
+	toucheffecttype=""
+	maxtouchespertarget="1"
+>
+	<ontouch>
+		<teleport source="this_proxy_entity1" interpolate="false" facetarget="false" target="target_position" nooffset="true" />
+		
+		<compare source="this_proxy_entity" a="source_entity" b="0" op="ne">
+			<pushentity entity="this_proxy_entity" />
+			<cantarget target="stack_proxy_entity" effecttype="Magic">
+				<damage effecttype="Magic" target="stack_proxy_entity" amount="40,80,120,160" />
+				<applystate name="State_Stunned" target="stack_proxy_entity" duration="1100,1400,1700,2000" />
+				<applystate name="Stunned_Sapphire_Sound" target="stack_proxy_entity" duration="1100,1400,1700,2000" />
+				<unbind target="target_entity" />
+				<kill target="this_proxy_entity" source="" />
+			</cantarget>
+			<hasavatarkey name="Hero_Sapphire.Alt" >
+				<playeffect effect="../alt/ability_01/effects/impact2.effect" source="this_position" target="" occlude="true" />
+			</hasavatarkey>
+			<else>
+				<hasavatarkey name="Hero_Sapphire.Alt2" >
+					<playeffect effect="../alt2/ability_01/effects/impact2.effect" source="this_position" target="" occlude="true" />
+				</hasavatarkey>
+				<else>
+					<hasavatarkey name="Hero_Sapphire.Alt3" >
+						<playeffect effect="../alt3/ability_01/effects/impact2.effect" source="this_position" target="" occlude="true" />
+					</hasavatarkey>
+					<else>
+						<hasavatarkey name="Hero_Sapphire.Alt4" >
+							<playeffect effect="../alt4/ability_01/effects/impact2.effect" source="this_position" target="" occlude="true" />
+						</hasavatarkey>
+						<else>
+							<playeffect effect="effects/impact2.effect" source="this_position" target="" occlude="true" />
+						</else>	
+					</else>
+				</else>
+			</else>
+		</compare>
+		<kill target="this_entity" source="" />
+	</ontouch>
+</projectile>

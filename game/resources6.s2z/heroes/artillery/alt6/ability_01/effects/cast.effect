@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect>
+
+	<definitions>
+
+		<particlesystem name="system0" space="world">
+
+			<controller bone="Bip02 Prop1">
+				<simpleemitter
+					life="1000"
+					position="0 0 10"
+					spawnrate="250"
+					minparticlelife="200"
+					maxparticlelife="500"
+					gravity="20"
+					minspeed="100"
+					maxspeed="200"
+					drag=".01"
+					material="/shared/effects/materials/spark_10.material"
+					offsetsphere="2"
+					minangle="0"
+					maxangle="15"
+					direction="0 1 0"
+					directionalspace="local"
+				>
+					<particle 
+						minangle="0"
+						maxangle="360"
+						startcolor="1"
+						midcolor="1 .55 0"
+						endcolor="0 0 0"
+						midcolorpos=".2"
+						minstartsize="5"
+						maxstartsize="8"
+						midsize="8"
+						endsize="5"
+						startalpha="0"
+						midalpha=".7"
+						endalpha="0"
+						midalphapos=".5"
+					/>
+				</simpleemitter>
+			</controller>
+		</particlesystem>
+
+	</definitions>
+
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+
+</effect>

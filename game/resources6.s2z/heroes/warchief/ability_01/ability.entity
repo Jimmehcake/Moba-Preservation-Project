@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ability
+	name="Ability_Warchief1"
+	
+	icon="icon.tga"
+	
+	anim="ability_3"
+	casttime="400"
+	castactiontime="100"
+
+	maxlevel="4"
+	requiredlevel="1,3,5,7"
+
+	actiontype="self_position"
+	targetscheme="all_heroes"
+	targetradius="700"
+	
+	manacost="100,140,180,220"
+	cooldowntime="14000"
+	
+	showrangeandradiusintooltip="true"
+>
+	<onimpact>
+		
+		<hasavatarkey name="Hero_Warchief.Alt2">
+			<playeffect effect="../alt2/ability_01/effects/cast.effect" source="this_owner_entity" />
+		</hasavatarkey>
+		<else>
+			<hasavatarkey name="Hero_Warchief.Alt">
+				<playeffect effect="../alt/ability_01/effects/cast.effect" source="this_owner_entity" />
+			</hasavatarkey>
+			<else>
+				<playeffect effect="effects/cast.effect" source="this_owner_entity" />
+			</else>
+		</else>
+		
+		<spawnunit name="Gadget_Warchief_Ability1_Searing" count="1" offset="-100 0" target="this_owner_entity" maxactive="1" />
+		<compare a="1,2,3,4" b="2" op="ge">
+			<!-- Ability is level 2 or higher -->
+			<spawnunit name="Gadget_Warchief_Ability1_Healing" count="1" offset="100 0" target="this_owner_entity" maxactive="1" />
+			<compare a="1,2,3,4" b="3" op="ge">
+				<!-- Ability is level 3 or higher -->
+				<spawnunit name="Gadget_Warchief_Ability1_Shocking" count="1" offset="0 -100" target="this_owner_entity" maxactive="1" />
+			</compare>
+		</compare>
+	</onimpact>
+</ability>

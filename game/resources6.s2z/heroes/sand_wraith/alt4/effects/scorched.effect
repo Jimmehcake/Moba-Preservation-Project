@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+
+	<definitions>
+
+		<particlesystem name="system0" space="world" scale="1">
+		
+					<terrainemitter
+									spawnrate="10"
+									range="70"
+									particlelife="1000"
+									drag="0.05"
+								>
+									<particle>			
+										<billboard 
+											
+											life="1000"
+											startcolor=".6 .1 .8"
+											midcolor="6 .1 8"
+											endcolor=" 1 .3 1"
+											midcolorpos=".25"
+											material="/shared/effects/materials/bubble_pop.material"
+											startalpha="1"
+											midalpha="1"
+											endalpha="0"
+											midalphapos=".8"
+											minframe="0"
+											maxframe="1"
+											minframespeed="2"
+											maxframespeed="2"
+											offsetsphere="10 4 0"
+											minscale=".4"
+											maxscale=".4"
+											turn="true"
+											angle="-45"
+										/>
+										</particle>
+																								
+								</terrainemitter>
+		
+		
+								
+								
+
+			<simpleemitter
+						spawnrate="3"
+						position="0 0 1"
+						offsetsphere="10 10 0"
+						bone="_bone_origin"
+						particlelife="1000"
+												
+					>
+						<particle>
+							<billboard
+							life="1000"
+							position="0 0 0"
+							material="/shared/effects/materials/refract_ring_depth.material"
+							startalpha=".2"
+							midalpha=".5"
+							endalpha="0"
+							midalphapos=".8"
+							
+							color="2"
+							
+							minscale="1"
+							maxscale="1.3"
+							
+							startsize="6"
+							midsize="80"
+							endsize="100"
+							midsizepos=".4"
+							
+							param=".1"
+							depthbias="0"
+							lockup="true"
+							lockright="true"
+							pitch="90"
+							
+							/>
+						</particle>
+					</simpleemitter>
+	
+					<simpleemitter
+				spawnrate="10"
+				position="0 0 1"
+				offsetsphere="10 10 0"
+				bone="_bone_origin"
+				particlelife="800"
+			>
+				<particle
+				
+				>
+					<billboard
+						life="800"
+						position="0 0 0"
+						material="/shared/effects/materials/puddle.material"
+						startalpha="0"
+						midalpha="1"
+						endalpha="0"
+						midalphapos=".5"
+						color=".6 .1 .8"		
+						minscale=".5"
+						maxscale=".8"
+						
+						startsize="10"
+						midsize="100"
+						endsize="200"
+						midsizepos=".5"
+						
+						depthbias="-30"
+						lockup="true"
+						lockright="true"
+						pitch="90"
+					/>
+				</particle>
+			</simpleemitter>
+			
+			
+		</particlesystem>
+
+	</definitions>
+
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+
+</effect>

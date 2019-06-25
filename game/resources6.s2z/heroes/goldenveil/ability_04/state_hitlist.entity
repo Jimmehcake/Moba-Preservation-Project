@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Goldenveil_Ability4_Hitlist"
+	
+	icon="icon.tga"
+	passiveeffect=""
+	
+	ishidden="true"
+	serverentity="true"
+	
+	effecttype=""
+	allowtransfer="false"
+	
+	deathpersist="true"
+	
+	modifierkey="Goldenveil_Ability4_Hitlist"
+>
+	
+</state>

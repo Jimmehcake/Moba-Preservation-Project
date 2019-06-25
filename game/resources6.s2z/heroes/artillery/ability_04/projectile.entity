@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectile
+	name="Projectile_Artillery_Ability4"
+
+	speed="100"
+	gravity="0"
+
+	flying="true"
+	flyheight="200"
+
+	acceleration="150"
+
+	modelscale="1"
+	model="/shared/models/invis.mdf"
+	traileffect="effects/trail.effect"
+>
+	<onspawn>
+		<!-- store initial time to calculate elapsed time on impact -->
+		<setparam a="time" b="0" op="add"/>
+	</onspawn>
+	
+	<onimpact>
+		<combatevent effecttype="AbilityBasedProjectile">
+			<onimpact>
+				<!-- Calculating exact distance traveled -->
+				<!-- distance = (base_speed * elapsed_time) + (0.5 * acceleration * elapsed_time_squared) -->
+				<setparam a="time" b="param" op="sub" /> <!-- param = t -->
+				<setparam a="param" b="1000" op="div" /> <!-- milliseconds to seconds (since speed and acceleration are measured in seconds)-->
+				<setvar0 a="param" b="param" op="mult" /> <!-- var0 = t-sq -->
+				<setparam a="param" b="100" op="mult" /> <!-- param = u*t - SET b TO INITIAL SPEED -->
+				<setvar0 a="var0" b="150" op="mult" /> <!-- var0 = a*t-sq - SET b TO ACCELERATION -->
+				<setvar0 a="var0" b="0.5" op="mult" /> <!-- var0 = (1/2)*a*t-sq -->
+				<setparam a="param" b="var0" op="add" /> <!-- param = distance traveled, yay! -->
+				<!-- we would convert distance to time here, but 1 distance = 1 millisecond of stun, so no conversion necessary -->
+				<setparam a="param" b="1000" op="add" /> <!-- add base 1 second stun -->
+				<compare a="param" b="4000" op="gt"> <!-- max of 4 second stun -->
+					<setparam a="4000" />
+				</compare>
+				
+				<evaluate a="param" b="1000" op="div" />
+				<popup name="seconds_decimal" a="result" source="target_entity" target="source_entity" />
+
+				<!-- AOE damage/Stun -->
+				<areaofeffect
+					radius="225,250,275"
+					targetselection="all"
+					targetscheme="enemy_units"
+					effecttype="Magic"
+					source="source_entity"
+					center="target_position"
+				>
+					<applystate name="State_Stunned_Knockdown" target="target_entity" duration="param" />
+					<playanim name="knock_1" target="target_entity" />
+					<damage effecttype="Magic" amount="200,250,300" /> <!-- Flat damage -->
+					
+					<playeffect effect="effects/impact.effect" source="target_entity" target="target_entity" />
+					<hasmodifier entity="source_entity" name="Artillery_Bunker_On">
+						<applystate name="State_Artillery_Ability3_Slow" duration="3000" />
+					</hasmodifier>
+				</areaofeffect>
+                <hasavatarkey name="Hero_Artillery.set_ascension" >
+					<playeffect effect="../set_ascension/ability_04/effects/explosion.effect" source="this_position" target="" occlude="true" />
+				</hasavatarkey>
+		        <else>
+					 <hasavatarkey name="Hero_Artillery.Alt4" >
+						<playeffect effect="../alt4/ability_04/effects/explosion.effect" source="this_position" target="" occlude="true" />
+					</hasavatarkey>
+					<else>
+						 <hasavatarkey name="Hero_Artillery.Alt5" >
+							<playeffect effect="../alt5/ability_04/effects/explosion.effect" source="this_position" target="" occlude="true" />
+						</hasavatarkey>
+						<else>
+							<hasavatarkey name="Hero_Artillery.Alt7" >
+								<playeffect effect="../alt7/ability_04/effects/explosion.effect" source="this_position" target="" occlude="true" />
+							</hasavatarkey>
+							<else>
+								<hasavatarkey name="Hero_Artillery.Alt8" >
+									<playeffect effect="../alt8/ability_04/effects/explosion.effect" source="this_position" target="" occlude="true" />
+								</hasavatarkey>
+								<else>
+									<hasavatarkey name="Hero_Artillery.Alt9" >
+										<playeffect effect="../alt9/ability_04/effects/explosion.effect" source="this_position" target="" occlude="true" />
+									</hasavatarkey>
+									<else>
+										<hasavatarkey name="Hero_Artillery.Alt10" >
+										<playeffect effect="../alt9/ability_04/effects/explosion.effect" source="this_position" target="" occlude="true" />
+										</hasavatarkey>
+										<else>
+											<hasavatarkey name="Hero_Artillery.Alt11" >
+												<playeffect effect="../alt11/ability_04/effects/explosion.effect" source="this_position" target="" occlude="true" />
+											</hasavatarkey>
+											<else>
+												<playeffect effect="effects/explosion.effect" source="this_position" target="" occlude="true" />
+											</else>
+										</else>
+									</else>
+								</else>
+							</else>
+						</else>
+					</else>
+				</else>
+			</onimpact>
+		</combatevent>
+	</onimpact>
+	
+	<ondisjointed>
+		<retarget target="this_proxy_entity" />
+	</ondisjointed>
+	
+	<altavatar key="Hero_Artillery.Alt4"
+		traileffect="../alt4/ability_04/effects/trail_sotm.effect"
+	/>
+	
+	<altavatar key="Hero_Artillery.Alt5"
+		traileffect="../alt5/ability_04/effects/trail_sotm.effect"
+	/>
+	
+	<altavatar key="Hero_Artillery.Alt6"
+		traileffect="../alt6/ability_04/effects/trail_sotm.effect"
+	/>
+	
+	<altavatar key="Hero_Artillery.Alt7"
+		traileffect="../alt7/ability_04/effects/trail_sotm.effect"
+	/>
+	
+	<altavatar key="Hero_Artillery.Alt8"
+		traileffect="../alt8/ability_04/effects/trail_sotm.effect"
+	/>
+	
+	<altavatar key="Hero_Artillery.Alt9"
+		traileffect="../alt9/ability_04/effects/trail_sotm.effect"
+	/>
+	
+	<altavatar key="Hero_Artillery.Alt10"
+		traileffect="../alt9/ability_04/effects/trail_sotm.effect"
+	/>
+	
+	<altavatar key="Hero_Artillery.Alt11"
+		traileffect="../alt11/ability_04/effects/trail_sotm.effect"
+	/>
+	
+	<altavatar key="Hero_Artillery.set_ascension"
+		traileffect="../set_ascension/ability_04/effects/trail_sotm.effect"
+	/>
+	
+</projectile>

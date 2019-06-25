@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect useentityeffectscale="true" deferred="true">
+	<definitions>
+	
+			
+		<modifier
+			name="modifier0"
+			life="3000"
+			startcolor="4 .5 .5"
+			midcolor="4 .5 .5"
+			endcolor="1 1 1"
+			midcolorpos="0.889"
+		/>
+		
+		<particlesystem name="system0" space="world" scale="1.2">
+
+		
+			<simpleemitter
+				bone="_bone_centerofchest"
+				spawnrate="20"
+				speed="200"
+				drag=".07"
+				gravity="-30"
+				particlelife="500"
+				material="/shared/effects/materials/phantom_white.material"
+			>
+				<particle
+					startcolor="1 0 0"
+					endcolor=".5 0 0"
+					startsize="20"
+					endsize="70"
+					startwidth="40"
+					endwidth="140"
+					startalpha="1"
+					endalpha="0"
+					maxangle="360"
+					minanglespeed="-100"
+					maxanglespeed="100"
+				/>
+				<particle
+					startcolor=".75 0 0"
+					endcolor=".35 0 0"
+					startsize="20"
+					endsize="70"
+					startwidth="40"
+					endwidth="140"
+					startalpha="1"
+					endalpha="0"
+					maxangle="360"
+					minanglespeed="-100"
+					maxanglespeed="100"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				bone="_bone_centerofchest"
+				spawnrate="20"
+				speed="200"
+				drag=".07"
+				gravity="-30"
+				particlelife="500"
+				material="/shared/effects/materials/soul_projectile2.material"
+			>
+				<particle
+					startcolor=".4 0 0"
+					endcolor="0"
+					startsize="20"
+					endsize="70"
+					startalpha="1"
+					endalpha="0"
+					maxangle="90"
+					minanglespeed="-100"
+					maxanglespeed="100"
+				/>
+			</simpleemitter>
+
+
+			
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<spawnmodifier instance="instance1" modifier="modifier0"/>  
+		<waitfordeath instance="instance0" />
+		<waitfordeath instance="instance1" /> 
+		<!-- <die /> -->
+	</thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->
+

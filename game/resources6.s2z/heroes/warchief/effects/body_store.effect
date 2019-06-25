@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="ability_04_impact">
+	<definitions>
+		<particlesystem name="system0" space="world" useentityeffectscale="true" scale="1">
+			<sound
+				dampen="0.5"
+				channelid="storeaud"
+				sound2d="true"
+				volume=".5"
+				sample="../sounds/store_audio.wav"
+			/>	
+			<sound
+				delay="700"
+				dampen="0.5"
+				channelid="storeaudv"
+				sound2d="true"
+				volume=".7"
+				sample="../sounds/voice/select_4.wav"
+			/>
+			
+			<!-- model in left arm -->
+			<model
+				bone="Bone020"
+				model="/heroes/warchief/ability_01/searing_totem/model_inarm.mdf"
+				expirelife="0"
+				scale="1"
+				yaw="150" roll="-5"
+			/>
+			<!-- glow eyes -->
+			<billboard
+				delay="2600"
+				bone="_bone_lefteye"
+				size="3"
+				color="0 .5 1"
+				depthbias="-1"
+				material="/shared/effects/materials/whitedot.material"
+			/>
+			<billboard
+				delay="2600"
+				bone="_bone_righteye"
+				size="3"
+				color="0 .5 1"
+				depthbias="-1"
+				material="/shared/effects/materials/whitedot.material"
+			/>
+			
+			<!-- burning arms-->
+			<model
+				delay="2600"
+				model="/heroes/warchief/ability_03/effects/arms/model.mdf"
+				parentskeleton="1"
+				color="0 .2 1"
+			/>
+			<controller bone="Bip01 R Forearm" >
+				<beam 
+					delay="2800"
+					position_a="-30 0 0"
+					position_b="30 0 0"
+					color="0 .5 1"
+					size="60"
+					framespeed="1.2"
+					material="/shared/effects/materials/femme_fire_trail.material"
+				/>
+			</controller>
+			<controller bone="Bip01 L Forearm" >
+				<beam 
+					delay="2800"
+					position_a="-30 0 0"
+					position_b="30 0 0"
+					color="0 .5 1"
+					size="60"
+					framespeed="1.2"
+					material="/shared/effects/materials/femme_fire_trail.material"
+				/>
+			</controller>
+			
+			<!-- weapon effects -->
+			<controller name="bodyeffect" bone="_bone_weapon2" delay="2600" >	
+				<billboard
+					size="50"
+					color="0 .3 .6"
+					material="/shared/effects/materials/whitedot.material"
+				/>
+				
+				<simpleemitter
+					spawnrate="50"
+					minparticlelife="300"
+					maxparticlelife="500"
+					directionalspace="global"
+					direction="0 0 1"
+					angle="15"
+					speed="200"
+					offsetsphere="20"
+					material="/shared/effects/materials/soul_projectile3.material"
+				>
+					<particle
+						startsize="30"
+						endsize="5"
+						startcolor="0 .25 .5"
+						midcolor="0 0 .5"
+						endcolor="0"
+						maxangle="360"
+					/>
+					<particle
+						startsize="30"
+						endsize="5"
+						startcolor="0 .25 .5"
+						midcolor="0 .15 .5"
+						endcolor="0"
+						maxangle="360"
+					/>
+				</simpleemitter>
+				
+				<simpleemitter
+					spawnrate="150"
+					minparticlelife="500"
+					maxparticlelife="700"
+					directionalspace="global"
+					direction="0 0 1"
+					angle="15"
+					speed="200"
+					offsetsphere="20"
+					material="/shared/effects/materials/phantom_smoke_04.material"
+				>
+					<particle
+						startsize="30"
+						endsize="5"
+						startcolor="0 .5 1"
+						midcolor="0 0 1"
+						endcolor="0"
+						maxangle="360"
+					/>
+				</simpleemitter>
+				
+				<simpleemitter
+					spawnrate="50"
+					particlelife="700"
+					directionalspace="global"
+					direction="0 0 1"
+					angle="40"
+					gravity="-20"
+					speed="100"
+				>
+					<particle
+						maxangle="360"
+						maxroll="360"
+						maxyaw="360"
+						minyawspeed="-200"
+						maxyawspeed="200"
+						minpitcspeed="-200"
+						maxpitchspeed="200"
+						minanglespeed="-200"
+						maxanglespeed="200"
+					>
+						<billboard
+							minlife="500"
+							maxlife="700"
+							position="0 30 0"
+							startsize="10"
+							endsize="2"
+							startcolor="0 .5 1"
+							midcolor="0 .75 1"
+							endcolor="0"
+							maxangle="360"
+							material="/shared/effects/materials/spark.material"
+						/>
+					</particle>
+				</simpleemitter>
+			</controller>
+		
+		
+			<template name="smoke" >
+				<controller  yaw="{angle}" yawspeed="300">
+					<model
+						delay="100"
+						life="1800"
+						model="../ability_02/effects/smoke/model.mdf"
+						expirelife="500"
+						startcolor="0"
+						midcolor="0 .3 .8"
+						endcolor="0"
+						startscale=".1"
+						endscale=".4"
+					/>
+				</controller>
+			</template>
+
+			<instance name="smoke" angle="0" />
+			<instance name="smoke" angle="90" />
+			<instance name="smoke" angle="180" />
+			<instance name="smoke" angle="270" />
+			<simpleemitter
+				delay="1500"
+				life="900"
+				direction="0 0 1"
+				count="30"
+				spawnrate="200"
+				minangle="90"
+				maxangle="90"
+				speed="300"
+				drag=".01"
+				particlelife="600"
+				depthbias="-75" 
+				material="/shared/effects/materials/pyroclast_05.material"
+				gravity="-3"
+				position="0 0 10"
+			>
+				<particle
+					turn="1"
+					startalpha="0"
+					midalpha=".5"
+					endalpha="0"
+					midalphapos=".33"
+					startcolor="1 .75 .3"
+					endcolor=".5 .35 .1"
+					maxroll="360"
+					minrollspeed="-100"
+					maxrollspeed="100"
+					startsize="50"
+					endsize="150"
+					minscale=".6"
+					maxscale=".8"
+				/>
+			</simpleemitter>
+			<simpleemitter
+				position="0 0 30"
+				life="1000"
+				spawnrate="15"
+				speed="200"
+				drag=".02"
+				gravity="-50"
+				particlelife="800"
+			>
+				<particle
+					maxangle="360"
+					maxyaw="360"
+					maxpitch="360"
+					minanglespeed="-400"
+					maxanglespeed="400"
+					minyawspeed="-400"
+					maxyawspeed="400"
+					minpitchspeed="-400"
+					maxpitchspeed="400"
+				>
+					<trailemitter
+						spawnrate="100"
+						particlelife="200"
+						life="800"
+						position="0 50 0"
+						texposscale=".7"
+						startparticlecolor="1"
+						midparticlecolor="1"
+						endparticlecolor="0"
+						material="/shared/effects/materials/soul_projectile3.material"
+					>
+						<particle
+							startcolor="0 .75 1"
+							enddcolor="0 0 1"
+							startsize="20"
+							endsize="0"
+						/>
+					</trailemitter>
+				</particle>
+			</simpleemitter>
+			<simpleemitter
+				delay="2500"
+				position="0 0 60"
+				count="20"
+				minspeed="200"
+				maxspeed="300"
+				drag=".07"
+				particlelife="500"
+				material="/shared/effects/materials/soul_projectile3.material"
+			>
+				<particle
+					startcolor="0 .3 .6"
+					endcolor="0"
+					startsize="20"
+					endsize="70"
+					startalpha="1"
+					endalpha="0"
+					turn="1"
+					angle="90"
+					minanglespeed="-100"
+					maxanglespeed="100"
+				/>
+			</simpleemitter>
+			<simpleemitter
+				delay="2500"
+				position="0 0 60"
+				count="1"
+				particlelife="100"
+				material="/shared/effects/materials/whitedot.material"
+			>
+				<particle
+					startsize="0"
+					endsize="200"
+					startcolor="0 1 1"
+					endcolor="0"
+					scale="1.5"
+				/>
+			</simpleemitter>
+			<simpleemitter
+				delay="2500"
+				position="0 0 60"
+				count="5"
+				maxparticlelife="300"
+				minparticlelife="100"
+				material="/shared/effects/materials/pyroclast_ring.material"
+			>
+				<particle
+					startsize="0"
+					endsize="300"
+					color="0 .4 1"
+					startalpha="1"
+					midalpha=".7"
+					endalpha="0"
+					maxangle="360"
+					scale="1.5"
+				/>
+			</simpleemitter>
+			<simpleemitter
+				delay="2450"
+				position="0 0 60"
+				count="1"
+				particlelife="100"
+				material="/shared/effects/materials/corona_07.material"
+			>
+				<particle
+					startsize="0"
+					endsize="200"
+					startcolor=".2 .7 1"
+					endcolor="0"
+					scale="1.5"
+				/>
+			</simpleemitter>
+			<simpleemitter
+				delay="2500"
+				position="0 0 60"
+				count="200"
+				particlelife="300"
+				minspeed="500"
+				maxspeed="2500"
+				drag=".03"
+				particlecolor="2"
+				material="/shared/effects/materials/spark.material"
+			>
+				<particle
+					startcolor=".15 .5 1"
+					endcolor="0"
+					startsize="0"
+					endsize="15"
+				/>
+			</simpleemitter>
+			<billboard
+				delay="2500"
+				bone="_bone_centerofchest"
+				life="150"
+				color="0 .5 .8"
+				startsize="50"
+				endsize="150"			
+				depthbias="-20"
+				material="/shared/effects/materials/whitedot.material"
+			/>
+      </particlesystem>
+   </definitions>
+   <thread>
+      <spawnparticlesystem instance="instance0"  particlesystem="system0" />	
+	  <spawnmodifier instance="instance1" modifier="modifier0"/>  
+	  <waitfordeath instance="instance0" />
+	  <waitfordeath instance="instance1" />	  
+      <!-- <die /> -->
+   </thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->
+

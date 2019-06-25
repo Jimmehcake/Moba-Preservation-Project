@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+	<definitions>
+		<particlesystem name="system0" space="world" scale="1">
+			<sound
+				linearfalloff="true" 
+				falloffstart="1300"
+				falloffend="1300"
+				volume="1"
+				sample="/heroes/javaras/sounds/death_foley.wav"
+			/>
+			<billboard
+				life="3000"
+				bone="_bone_centerofchest"	
+				material="/shared/effects/materials/whitedot.material"
+				startcolor=".28 .02 .17"
+				midcolor=".49 .09 .35"
+				endcolor=".28 .02 .17"
+				size="30"
+				depthbias="-50"
+				position="0 0 0"
+			/>
+			<template name="smoke">
+				<trailemitter
+					life="{life}"
+					bone="{bone}"
+					spawnrate="70"
+					particlelife="1000"
+					gravity="-7"
+					material="/shared/effects/materials/solid_bolt.material"
+					position="{position}"
+					inheritvelocity=".2"
+					drag=".1"
+					direction="0 0 -1"
+					speed="10"
+				>
+					<particle
+						color="-1"
+						startsize="30"
+						endsize="1"
+						startalpha="0"
+						midalpha=".1"
+						endalpha="0"
+					/>
+				</trailemitter>
+				
+				<simpleemitter
+					life="{life}"
+					bone="{bone}"
+					spawnrate="15"
+					minparticlelife="200"
+					maxparticlelife="1000"			
+					gravity="-5"
+					minspeed="10"
+					maxspeed="50"
+					drag=".05"
+					material="/shared/effects/materials/spark.material"
+					offsetsphere="15"
+					minangle="20" maxangle="90"
+					direction="0 0 1"
+					directionalspace="global"
+					inheritvelocity=".1"
+				>
+					<particle 
+						minangle="0" maxangle="360"
+						startcolor="0" midcolor=".81 .13 .57" endcolor="0 0 0" midcolorpos=".3"
+						minstartsize="3" maxstartsize="6" endsize="0"
+					/>
+				</simpleemitter>
+			</template>
+			
+			<instance name="smoke" bone="_bone_centerofchest" position="0 0 0" life="3000"/>
+			<instance name="smoke" bone="Bip01 R Forearm" position="0 0 0" life="3000"/>
+			<instance name="smoke" bone="Bip01 L Forearm" position="0 0 0" life="3000"/>
+			<instance name="smoke" bone="Bip01 Head" position="0 0 0" life="3000"/>
+
+			<groundsprite
+				directionalspace="local"
+				life="3000"
+				material="/shared/effects/materials/crack_4_ground.material"
+				color=".5" midcolorpos=".2"
+				startalpha=".9" midalpha=".9" endalpha="0" midalphapos=".8"
+				position="-20 10 0"
+				yaw="-38"
+				width="100"
+				startheight="10" midheight="130" endheight="130" midheightpos=".05"
+			/>
+			
+			<controller scale=".5" >
+				<simpleemitter
+					count="5"
+					expirelife="250"
+					spawnrate="30"
+					gravity="0"
+					speed="0"
+					drag="0"
+					acceleration="0"
+					position="0 0 0"
+					offsetsphere="110 110 0"
+					minsize="1"
+					maxsize="2"
+				>
+					<particle>
+						<model
+							position="0 0 -3"
+							life="1750"
+							name="emitter0"
+							anim="idle"
+							model="/shared/effects/models/rocks_moraxus/model.mdf"
+							material="/shared/effects/models/rocks_moraxus/material.material"
+							scale=".4"
+							startcolor=".5" endcolor=".5"
+							startalpha="1" midalpha="1" endalpha="0"
+							minyaw="0" maxyaw="45"
+						>
+						</model>
+						
+						<model
+							position="0 0 -3"
+							life="1750"
+							name="emitter0"
+							anim="idle"
+							model="/shared/effects/models/rocks_moraxus/model.mdf"
+							material="/shared/effects/models/rocks_moraxus/material.material"
+							scale=".3"
+							startcolor=".5" endcolor=".5"
+							startalpha="1" midalpha="1" endalpha="0"
+							minyaw="135" maxyaw="180"
+						/>
+						
+						<model
+							position="0 0 0"
+							life="1750"
+							name="emitter0"
+							anim="idle"
+							model="/shared/effects/models/rocks_moraxus/model.mdf"
+							material="/shared/effects/models/rocks_moraxus/material.material"
+							scale=".2"
+							startcolor=".5" endcolor=".5"
+							startalpha="1" midalpha="1" endalpha="0"
+							minyaw="65" maxyaw="110"
+						>
+						</model>
+					</particle>
+				</simpleemitter>
+			</controller>
+
+			<simpleemitter
+				count="8"
+				particlelife="1300"				
+				spawnrate="650"
+				minspeed="100"
+				maxspeed="500"
+				gravity="20"
+				direction="0 0 1"
+				minangle="0"
+				maxangle="1"
+				drag="0.01"
+				material="/shared/effects/materials/pyroclast_03.material"
+				offsetsphere="25 25 10"
+				position="0 0 10"
+			>
+				<particle 
+					depthbias="-100"
+					startcolor=".71 .15 .55"
+					endcolor="-1"					
+					height="100"
+					startwidth="20"
+					endwidth="200"
+					startscale="1"
+					endscale="2"
+					startalpha="1"
+					endalpha="0"
+					lockup="1"
+					lockright="1"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				count="20"
+				position="0 0 20"
+				particlelife="800"
+				gravity="-1"
+				material="/shared/effects/materials/pyroclast_03.material"
+				offsetsphere="60 60 0"
+				direction="0 0 1"
+				speed="50"
+				depthbias="-20"
+			>
+				<particle
+					minangle="0"
+					maxangle="360"
+					anglespeed="20"
+					startsize="20"
+					midsize="100"
+					endsize="110"
+					lockup="true"
+					lockright="true"
+					pitch="90"
+					
+					startcolor=".71 .15 .55"
+					endcolor="0"					
+
+					startalpha=".2"
+					midalpha=".5"
+					endalpha="0"
+					midalphapos=".75"
+				/>
+			</simpleemitter >
+			
+			<simpleemitter
+				life="2000"
+				position="0 0 10"
+				spawnrate="150"			
+				particlelife="2500"			
+				gravity="0"
+				speed="30"
+				drag=".01"
+				depthbias="0"
+				material="/shared/effects/materials/smoke_17.material"
+				offsetsphere="50 50 5"
+				minangle="-265"
+				maxangle="265"
+				direction="0 0 -1"
+			>
+				<particle 
+					minangle="0" maxangle="360" minanglespeed="-10" maxanglespeed="10"
+					startsize="15" endsize="50"
+					startalpha="0.0" midalpha=".6" endalpha="0" midalphapos=".1"
+					color="-1"
+				/>
+			</simpleemitter>
+			
+			<template name="lingering_flames">
+				<simpleemitter
+					bone="{bone}"
+					life="{life}"
+					spawnrate="{spawnrate}"
+					minparticlelife="500"
+					maxparticlelife="900"			
+					gravity="-2"
+					minspeed="40"
+					maxspeed="80"
+					drag=".1"
+					material="/shared/effects/materials/mysticenergy.material"
+					offsetsphere="0"
+					minangle="0" maxangle="45"
+					depthbias="-10"
+					direction="{direction}"
+				>
+					<particle 
+						minangle="0"
+						maxangle="360"
+						startcolor=".4 .15 .75" midcolor=".2 .1 .5" endcolor="0 0 0" midcolorpos=".4"
+						minstartsize="1" maxstartsize="2" minendsize="5" maxendsize="8"
+						startalpha="0" midalpha="1" endalpha="0" midalphapos=".5"
+						turn="true"
+					/>
+				</simpleemitter>
+				
+				<simpleemitter
+					bone="{bone}"
+					life="{life}"
+					spawnrate="{spawnrate}"
+					minparticlelife="500"
+					maxparticlelife="900"			
+					gravity="-2"
+					minspeed="40"
+					maxspeed="80"
+					drag=".1"
+					material="/shared/effects/materials/mysticenergy2.material"
+					offsetsphere="0"
+					minangle="0"
+					maxangle="45"
+					depthbias="-10"
+					direction="{direction}"
+				>
+					<particle 
+						minangle="0"
+						maxangle="360"
+						startcolor=".4 .15 .75"
+						midcolor=".2 .1 .5"
+						endcolor="0 0 0"
+						midcolorpos=".4"
+						minstartsize="1"
+						maxstartsize="2"
+						minendsize="5"
+						maxendsize="8"
+						startalpha="0"
+						midalpha="1"
+						endalpha="0"
+						midalphapos=".5"
+						turn="true"
+					/>
+				</simpleemitter>
+
+				<billboard
+					bone="{bone}"
+					life="{life}"
+					startcolor=".4 .23 .76"
+					endcolor="0"
+					size="20"
+					depthbias="-25"
+					expirelife="500"
+					material="/shared/effects/materials/whitedot.material"
+				/>
+			</template>
+			
+			<template name="smoke">
+				<trailemitter
+					life="{life}"
+					bone="{bone}"
+					spawnrate="70"
+					particlelife="1000"
+					gravity="-7"
+					material="/shared/effects/materials/solid_bolt.material"
+					position="{position}"
+					inheritvelocity=".2"
+					drag=".1"
+					direction="0 0 -1"
+					speed="10"
+				>
+					<particle
+						color="-1"
+						startsize="30"
+						endsize="1"
+						startalpha="0"
+						midalpha=".1"
+						endalpha="0"
+					/>
+				</trailemitter>
+				
+				<simpleemitter
+					life="{life}"
+					bone="{bone}"
+					spawnrate="5"
+					minparticlelife="200"
+					maxparticlelife="1000"			
+					gravity="-5"
+					minspeed="10"
+					maxspeed="50"
+					drag=".05"
+					material="/shared/effects/materials/spark.material"
+					offsetsphere="15"
+					minangle="20"
+					maxangle="90"
+					direction="0 0 1"
+					directionalspace="global"
+					inheritvelocity=".1"
+				>
+					<particle 
+						minangle="0"
+						maxangle="360"
+						startcolor="0"
+						midcolor=".4 .14 .7"
+						endcolor="0 0 0"
+						midcolorpos=".3"
+						minstartsize="3"
+						maxstartsize="6"
+						endsize="0"
+					/>
+				</simpleemitter>
+			</template>
+				
+			<simpleemitter
+				delay="200"
+				count="3"
+				offsetsphere="70 50 0"
+				spawnrate="15"
+			>
+				<particle			
+				>
+					<model
+						directionalspace="world"
+						position="0 0 0"
+						scale="1"
+						model="../ability_02/effects/embers/model.mdf"
+						material="../ability_02/effects/embers/material.material"
+						anim="death"
+						color=".82 .14 .59"
+						life="1700"
+						startalpha="1" midalpha="1" endalpha="0" midalphapos=".8"
+					>
+						<instance name="lingering_flames" bone="GeoSphere005" life="1500" spawnrate="50" direction="0 0 0"/>
+						<instance name="lingering_flames" bone="GeoSphere006" life="1500" spawnrate="50" direction="0 0 0"/>
+						<instance name="lingering_flames" bone="GeoSphere002" life="1500" spawnrate="50" direction="0 0 0"/>
+						
+						<instance name="smoke" bone="GeoSphere007" position="0 0 0" life="1500"/>
+						<instance name="smoke" bone="GeoSphere004" position="0 0 0" life="1500"/>
+						<instance name="smoke" bone="GeoSphere003" position="0 0 0" life="1500"/>
+						<instance name="smoke" bone="GeoSphere008" position="0 0 0" life="1500"/>
+					</model>
+				</particle>
+			</simpleemitter>
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+</effect>

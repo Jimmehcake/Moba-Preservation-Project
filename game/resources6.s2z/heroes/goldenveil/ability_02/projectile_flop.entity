@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectile
+	name="Projectile_Goldenveil_Ability2_Flop"
+	
+	gravity="3000"
+	lifetime="1000"
+	useexactlifetime="true"
+
+	modelscale="1.0"
+	model=""
+	deatheffect=""
+	canturn="false"
+>
+
+	<onspawn>
+		<expirestate name="State_Goldenveil_Ability2_Modifier" target="source_entity" />
+		<expirestate name="State_Goldenveil_Ability2"  target="source_entity" />
+		<expirestate name="State_Goldenveil_Ability2_Stealth" target="source_entity" />
+		<setactivemodifierkey name="" entity="source_entity" />
+		<playanim name="ability_2_knock" target="target_position" />
+	</onspawn>
+
+	<onimpact>
+		<pushability name="Ability_Goldenveil2" />
+		<startcooldown duration="12000,11000,10000,9000" entity="stack_entity" />
+		<pushability name="Ability_Goldenveil2a" />
+		<startcooldown duration="12000,11000,10000,9000" entity="stack_entity" />
+		<pushability name="Ability_Goldenveil2b" />
+		<startcooldown duration="12000" entity="stack_entity" />
+	
+		<areaofeffect
+			targetscheme="enemy_units"
+			effecttype="Magic"
+			targetselection="all"
+			radius="275"
+			maxtotalimpacts=""
+			maximpactspertarget="1"
+		>
+			<spawnprojectile name="Projectile_Goldenveil_Ability2_Toss" bind="target_entity" source="target_position" target="target_position" />
+			<applystate name="State_Goldenveil_Ability2_Immobilized" duration="1600,1900,2200,2500" />
+			<damage amount="60,120,180,240" effecttype="Magic" />
+			
+			<!-- Control voice overs while ability voice is playing -->
+			<applystate name="State_Goldenveil_NoVox" target="source_entity" duration="2000" />
+			<delayannouncer duration="3000" teamonly="true" />
+			<pausevoiceovers duration="3000" />
+		</areaofeffect>
+		
+		
+		<!-- Art -->
+		<hasavatarkey name="Hero_Goldenveil.Alt">
+			<playeffect effect="../alt/ability_02/effects/impact.effect" target="source_entity" source="source_entity"/>
+		</hasavatarkey>
+		<else>
+			<hasavatarkey name="Hero_Goldenveil.Alt2">
+				<playeffect effect="../alt2/ability_02/effects/impact.effect" target="source_entity" source="source_entity"/>
+			</hasavatarkey>
+			<else>
+				<hasavatarkey name="Hero_Goldenveil.Alt3">
+					<playeffect effect="../alt3/ability_02/effects/impact.effect" target="source_entity" source="source_entity"/>
+				</hasavatarkey>
+				<else>
+					<hasavatarkey name="Hero_Goldenveil.Alt4">
+						<playeffect effect="../alt3/ability_02/effects/impact.effect" target="source_entity" source="source_entity"/>
+					</hasavatarkey>
+					<else>
+						<hasavatarkey name="Hero_Goldenveil.Alt5">
+							<playeffect effect="../alt5/ability_02/effects/impact.effect" target="source_entity" source="source_entity"/>
+						</hasavatarkey>
+						<else>
+							<playeffect effect="effects/impact.effect" target="source_entity" source="source_entity"/>
+						</else>
+					</else>
+				</else>
+			</else>
+		</else>
+		
+		<playanim name="idle" target="source_entity" />
+	
+	</onimpact>
+	
+</projectile>

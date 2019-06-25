@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Calamity_Ability4"
+	
+	effecttype=""
+	
+	icon="icon.tga"
+	passiveeffect=""
+
+	impactinterval="300"
+>
+	<oninflict>
+
+		<spawnunit name="Gadget_Calamity_Ability4" fixedposition="true" target="target_position" count="1" pushentity="true" offset="500 0" facing="this_owner_entity" />
+		<setproxy entity="this_entity" target="stack_entity" />
+
+		<spawnaffector name="Affector_Calamity_Ability4" target="this_proxy_entity" />
+		<!-- <playeffect effect="effects/bolt.effect" source="this_proxy_entity" target="" /> -->
+
+		<setpos0 entity="this_proxy_entity" offsetspace="this_proxy_entity" offset="0 -40 0" />
+		<spawnunit name="Gadget_Calamity_Ability4_Blocker_Main" fixedposition="true" target="pos0" count="1" facing="this_proxy_entity" />
+		<setpos1 entity="this_proxy_entity" offsetspace="this_proxy_entity" offset="135 -25 0" />
+		<spawnunit name="Gadget_Calamity_Ability4_Blocker_Side" fixedposition="true" target="pos1" count="1" facing="this_proxy_entity" />
+		<setpos2 entity="this_proxy_entity" offsetspace="this_proxy_entity" offset="-135 -25 0" />
+		<spawnunit name="Gadget_Calamity_Ability4_Blocker_Side" fixedposition="true" target="pos2" count="1" facing="this_proxy_entity" />
+
+		<spawnunit name="Gadget_Calamity_Ability4" fixedposition="true" target="target_position" count="1" pushentity="true" offset="-500 0" facing="this_owner_entity" proxy="this_proxy_entity" />
+		<setproxy entity="this_entity" target="stack_entity" />
+
+		<spawnaffector name="Affector_Calamity_Ability4" target="this_proxy_entity" />
+		<!-- <playeffect effect="effects/bolt.effect" source="this_proxy_entity" target="" /> -->
+
+		<setpos0 entity="this_proxy_entity" offsetspace="this_proxy_entity" offset="0 -40 0" />
+		<spawnunit name="Gadget_Calamity_Ability4_Blocker_Main" fixedposition="true" target="pos0" count="1" facing="this_proxy_entity" />
+		<setpos1 entity="this_proxy_entity" offsetspace="this_proxy_entity" offset="135 -25 0" />
+		<spawnunit name="Gadget_Calamity_Ability4_Blocker_Side" fixedposition="true" target="pos1" count="1" facing="this_proxy_entity" />
+		<setpos2 entity="this_proxy_entity" offsetspace="this_proxy_entity" offset="-135 -25 0" />
+		<spawnunit name="Gadget_Calamity_Ability4_Blocker_Side" fixedposition="true" target="pos2" count="1" facing="this_proxy_entity" />
+
+		<setaccumulator value="2" />
+	</oninflict>
+
+	<onimpact>
+		<compare a="accumulator" b="9" op="le">
+			<compare a="accumulator" b="2" op="eq">
+				<spawnunit name="Gadget_Calamity_Ability4" fixedposition="true" target="target_position" count="1" pushentity="true" offset="350 350" facing="this_owner_entity" proxy="this_proxy_entity" />
+				<setproxy entity="this_entity" target="stack_entity" />
+
+				<spawnaffector name="Affector_Calamity_Ability4" target="this_proxy_entity" />
+				<!-- <playeffect effect="effects/bolt.effect" source="this_proxy_entity" target="" /> -->
+
+				<setpos0 entity="this_proxy_entity" offsetspace="this_proxy_entity" offset="0 -40 0" />
+				<hasavatarkey name="Hero_Calamity.Alt8" >
+					<spawnunit name="Gadget_Calamity_Ability4_Blocker_Main2" fixedposition="true" target="pos0" count="1" facing="this_proxy_entity" />
+				</hasavatarkey>
+				<else>
+				<spawnunit name="Gadget_Calamity_Ability4_Blocker_Main" fixedposition="true" target="pos0" count="1" facing="this_proxy_entity" />
+				</else>
+				<setpos1 entity="this_proxy_entity" offsetspace="this_proxy_entity" offset="135 -25 0" />
+				<spawnunit name="Gadget_Calamity_Ability4_Blocker_Side" fixedposition="true" target="pos1" count="1" facing="this_proxy_entity" />
+				<setpos2 entity="this_proxy_entity" offsetspace="this_proxy_entity" offset="-135 -25 0" />
+				<spawnunit name="Gadget_Calamity_Ability4_Blocker_Side" fixedposition="true" target="pos2" count="1" facing="this_proxy_entity" />
+
+				<spawnunit name="Gadget_Calamity_Ability4" fixedposition="true" target="target_position" count="1" pushentity="true" offset="-350 -350" facing="this_owner_entity" proxy="this_proxy_entity" />
+				<setproxy entity="this_entity" target="stack_entity" />
+
+				<spawnaffector name="Affector_Calamity_Ability4" target="this_proxy_entity" />
+				<!-- <playeffect effect="effects/bolt.effect" source="this_proxy_entity" target="" /> -->
+
+				<setpos0 entity="this_proxy_entity" offsetspace="this_proxy_entity" offset="0 -40 0" />
+				<hasavatarkey name="Hero_Calamity.Alt8" >
+					<spawnunit name="Gadget_Calamity_Ability4_Blocker_Main2" fixedposition="true" target="pos0" count="1" facing="this_proxy_entity" />
+				</hasavatarkey>
+				<else>
+				<spawnunit name="Gadget_Calamity_Ability4_Blocker_Main" fixedposition="true" target="pos0" count="1" facing="this_proxy_entity" />
+				</else>
+				<setpos1 entity="this_proxy_entity" offsetspace="this_proxy_entity" offset="135 -25 0" />
+				<spawnunit name="Gadget_Calamity_Ability4_Blocker_Side" fixedposition="true" target="pos1" count="1" facing="this_proxy_entity" />
+				<setpos2 entity="this_proxy_entity" offsetspace="this_proxy_entity" offset="-135 -25 0" />
+				<spawnunit name="Gadget_Calamity_Ability4_Blocker_Side" fixedposition="true" target="pos2" count="1" facing="this_proxy_entity" />
+			</compare>
+			<compare a="accumulator" b="3" op="eq">
+				<spawnunit name="Gadget_Calamity_Ability4" fixedposition="true" target="target_position" count="1" pushentity="true" offset="0 500" facing="this_owner_entity" proxy="this_proxy_entity" />
+				<setproxy entity="this_entity" target="stack_entity" />
+
+				<spawnaffector name="Affector_Calamity_Ability4" target="this_proxy_entity" />
+				<!-- <playeffect effect="effects/bolt.effect" source="this_proxy_entity" target="" /> -->
+
+				<setpos0 entity="this_proxy_entity" offsetspace="this_proxy_entity" offset="0 -40 0" />
+				<hasavatarkey name="Hero_Calamity.Alt8" >
+					<spawnunit name="Gadget_Calamity_Ability4_Blocker_Main3" fixedposition="true" target="pos0" count="1" facing="this_proxy_entity" />
+				</hasavatarkey>
+				<else>
+				<spawnunit name="Gadget_Calamity_Ability4_Blocker_Main" fixedposition="true" target="pos0" count="1" facing="this_proxy_entity" />
+				</else>
+				<setpos1 entity="this_proxy_entity" offsetspace="this_proxy_entity" offset="135 -25 0" />
+				<spawnunit name="Gadget_Calamity_Ability4_Blocker_Side" fixedposition="true" target="pos1" count="1" facing="this_proxy_entity" />
+				<setpos2 entity="this_proxy_entity" offsetspace="this_proxy_entity" offset="-135 -25 0" />
+				<spawnunit name="Gadget_Calamity_Ability4_Blocker_Side" fixedposition="true" target="pos2" count="1" facing="this_proxy_entity" />
+
+				<spawnunit name="Gadget_Calamity_Ability4" fixedposition="true" target="target_position" count="1" pushentity="true" offset="0 -500" facing="this_owner_entity" proxy="this_proxy_entity" />
+				<setproxy entity="this_entity" target="stack_entity" />
+
+				<spawnaffector name="Affector_Calamity_Ability4" target="this_proxy_entity" />
+				<!-- <playeffect effect="effects/bolt.effect" source="this_proxy_entity" target="" /> -->
+
+				<setpos0 entity="this_proxy_entity" offsetspace="this_proxy_entity" offset="0 -40 0" />
+				<hasavatarkey name="Hero_Calamity.Alt8" >
+					<spawnunit name="Gadget_Calamity_Ability4_Blocker_Main3" fixedposition="true" target="pos0" count="1" facing="this_proxy_entity" />
+				</hasavatarkey>
+				<else>
+				<spawnunit name="Gadget_Calamity_Ability4_Blocker_Main" fixedposition="true" target="pos0" count="1" facing="this_proxy_entity" />
+				</else>
+				<setpos1 entity="this_proxy_entity" offsetspace="this_proxy_entity" offset="135 -25 0" />
+				<spawnunit name="Gadget_Calamity_Ability4_Blocker_Side" fixedposition="true" target="pos1" count="1" facing="this_proxy_entity" />
+				<setpos2 entity="this_proxy_entity" offsetspace="this_proxy_entity" offset="-135 -25 0" />
+				<spawnunit name="Gadget_Calamity_Ability4_Blocker_Side" fixedposition="true" target="pos2" count="1" facing="this_proxy_entity" />
+			</compare>
+			<compare a="accumulator" b="4" op="eq">
+				<spawnunit name="Gadget_Calamity_Ability4" fixedposition="true" target="target_position" count="1" pushentity="true" offset="-350 350" facing="this_owner_entity" proxy="this_proxy_entity" />
+				<setproxy entity="this_entity" target="stack_entity" />
+
+				<spawnaffector name="Affector_Calamity_Ability4" target="this_proxy_entity" />
+				<!-- <playeffect effect="effects/bolt.effect" source="this_proxy_entity" target="" /> -->
+
+				<setpos0 entity="this_proxy_entity" offsetspace="this_proxy_entity" offset="0 -40 0" />
+				<hasavatarkey name="Hero_Calamity.Alt8" >
+					<spawnunit name="Gadget_Calamity_Ability4_Blocker_Main4" fixedposition="true" target="pos0" count="1" facing="this_proxy_entity" />
+				</hasavatarkey>
+				<else>
+				<spawnunit name="Gadget_Calamity_Ability4_Blocker_Main" fixedposition="true" target="pos0" count="1" facing="this_proxy_entity" />
+				</else>
+				<setpos1 entity="this_proxy_entity" offsetspace="this_proxy_entity" offset="135 -25 0" />
+				<spawnunit name="Gadget_Calamity_Ability4_Blocker_Side" fixedposition="true" target="pos1" count="1" facing="this_proxy_entity" />
+				<setpos2 entity="this_proxy_entity" offsetspace="this_proxy_entity" offset="-135 -25 0" />
+				<spawnunit name="Gadget_Calamity_Ability4_Blocker_Side" fixedposition="true" target="pos2" count="1" facing="this_proxy_entity" />
+
+				<spawnunit name="Gadget_Calamity_Ability4" fixedposition="true" target="target_position" count="1" pushentity="true" offset="350 -350" facing="this_owner_entity" proxy="this_proxy_entity" />
+				<setproxy entity="this_entity" target="stack_entity" />
+
+				<spawnaffector name="Affector_Calamity_Ability4" target="this_proxy_entity" />
+				<!-- <playeffect effect="effects/bolt.effect" source="this_proxy_entity" target="" /> -->
+
+				<setpos0 entity="this_proxy_entity" offsetspace="this_proxy_entity" offset="0 -40 0" />
+				<hasavatarkey name="Hero_Calamity.Alt8" >
+					<spawnunit name="Gadget_Calamity_Ability4_Blocker_Main4" fixedposition="true" target="pos0" count="1" facing="this_proxy_entity" />
+				</hasavatarkey>
+				<else>
+				<spawnunit name="Gadget_Calamity_Ability4_Blocker_Main" fixedposition="true" target="pos0" count="1" facing="this_proxy_entity" />
+				</else>
+				<setpos1 entity="this_proxy_entity" offsetspace="this_proxy_entity" offset="135 -25 0" />
+				<spawnunit name="Gadget_Calamity_Ability4_Blocker_Side" fixedposition="true" target="pos1" count="1" facing="this_proxy_entity" />
+				<setpos2 entity="this_proxy_entity" offsetspace="this_proxy_entity" offset="-135 -25 0" />
+				<spawnunit name="Gadget_Calamity_Ability4_Blocker_Side" fixedposition="true" target="pos2" count="1" facing="this_proxy_entity" />
+			</compare>
+
+			<compare a="accumulator" b="9" op="eq">
+				<foreachproxy entity="this_entity">
+					<spawnprojectile name="Projectile_Calamity_Ability4" source="target_entity" target="this_owner_entity" bind="target_entity" proxy="target_entity" noresponse="true" />
+					<!-- <playeffect effect="effects/bolt.effect" source="target_entity" target="" /> -->
+				</foreachproxy>
+			</compare>
+
+			<setaccumulator value="accumulator" valueb="1" valueop="add" />
+		</compare>
+	</onimpact>
+</state>

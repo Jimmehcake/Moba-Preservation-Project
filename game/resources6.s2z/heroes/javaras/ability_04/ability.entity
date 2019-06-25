@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ability
+	name="Ability_Javaras4"
+
+	icon="icon.tga"
+	
+	anim="ability_4"
+	casttime="1000"
+	castactiontime="500"
+
+	maxlevel="3"
+	requiredlevel="6,11,16"
+
+	actiontype="target_entity"
+	targetscheme="enemy_mana_units"
+	casteffecttype="SuperiorMagic"
+	casteffect="cast.effect"
+	
+	manacost="125,200,275"
+	cooldowntime="120000,100000,80000"
+
+	range="600"
+	targetradius="225"
+	targetmaterial="/shared/materials/area_cast_indicator_pointed.material"
+	
+	impacteffect="impact.effect"
+	
+	showareacast="true"
+	areacastmaterial="/shared/materials/area_cast_indicator_spokes.material"
+
+	targetpriorities="enemy_heroes"
+>
+	<onimpact>
+		<applystate name="State_Stunned" duration="100,200,300" />
+		<applystate name="State_Javaras_Ability4" duration="1000" />
+		<setvar0 a="1.0,1.3,1.6" b="target_missingmana" op="mult" />
+		<popup name="bonus_damage" a="var0" source="target_entity" />
+		<damage effecttype="Magic" amount="1" b="var0" op="mult" />
+		
+		<hasavatarkey name="Hero_Javaras.Alt7">
+			<playeffect effect="../alt7/ability_04/effects/area_effect.effect" source="target_position" target="" occlude="true" />		
+		</hasavatarkey>
+		
+		<areaofeffect
+			center="target_entity"
+			radius="225"
+			targetscheme="enemy_units"
+			targetselection="all"
+			ignore="target_entity"
+			effecttype="Magic"
+		>
+			<damage effecttype="Magic" amount="0" b="var0" op="add" />
+		</areaofeffect>
+	</onimpact>
+	
+	<modifier key="ult_boost" modpriority="100"
+		targetradius="450"
+		targetmaterial="/shared/materials/area_cast_indicator_pointed.material"
+	>
+		<onimpact>
+			<applystate name="State_Stunned" duration="100,200,300" />
+			<applystate name="State_Javaras_Ability4" duration="1000" />
+			<setvar0 a="0.9,1.2,1.5" b="target_missingmana" op="mult" />
+			<popup name="bonus_damage" a="var0" source="target_entity" />
+			
+			<hasavatarkey name="Hero_Javaras.Alt7">
+				<playeffect effect="../alt7/ability_04/effects/area_effect.effect" source="target_position" target="" occlude="true" />		
+			</hasavatarkey>
+			
+			<areaofeffect
+				center="target_entity"
+				radius="450"
+				targetscheme="enemy_units"
+				targetselection="all"
+				effecttype="Magic"
+			>
+				<damage effecttype="Magic" amount="0" b="var0" op="add" />
+			</areaofeffect>
+		</onimpact>
+	</modifier>
+
+	<altavatar key="Hero_Javaras.Alt2" modpriority="100"
+		casteffect="/heroes/javaras/alt2/ability_04/effects/cast.effect"
+	/>
+	
+	<altavatar key="Hero_Javaras.Alt4" modpriority="100"
+		casteffect="/heroes/javaras/alt4/ability_04/effects/cast.effect"
+		impacteffect="/heroes/javaras/alt4/ability_04/effects/impact.effect"
+	>
+		<modifier key="Shroud_Set_Bonus" modpriority="100"
+			casteffect="../alt4/ability_04/effects/cast_boosted.effect"
+		/>
+	</altavatar>
+		
+	<altavatar key="Hero_Javaras.Alt5" modpriority="100"
+		casteffect="/heroes/javaras/alt5/ability_04/effects/cast.effect"
+		impacteffect="/heroes/javaras/alt5/ability_04/effects/impact.effect"
+	/>
+	
+	<altavatar key="Hero_Javaras.Alt6" modpriority="100"
+		casteffect="/heroes/javaras/alt6/ability_04/effects/cast.effect"
+		impacteffect="/heroes/javaras/alt6/ability_04/effects/impact.effect"
+	/>
+	
+	<altavatar key="Hero_Javaras.Alt7" modpriority="100"
+		casteffect="/heroes/javaras/alt7/ability_04/effects/cast.effect"
+		impacteffect="/heroes/javaras/alt7/ability_04/effects/impact.effect"
+	/>
+	
+	<altavatar key="Hero_Javaras.Alt8" modpriority="100"
+		casteffect="/heroes/javaras/alt8/ability_04/effects/cast.effect"
+		impacteffect="/heroes/javaras/alt8/ability_04/effects/area_effect.effect"
+	/>
+	
+	<altavatar key="Hero_Javaras.Alt9" modpriority="100"
+		casteffect="/heroes/javaras/alt9/ability_04/effects/cast.effect"
+		impacteffect="/heroes/javaras/alt9/ability_04/effects/area_effect.effect"
+	/>
+	
+	<modifier key="soccer" modpriority="150" 
+		baselevel="0"
+		maxlevel="1"
+		manacost="30"
+		cooldowntime="12000"
+		targetradius=""
+	>
+		<onimpact>
+			<compare a="target_health_percent" b="target_mana_percent" op="lt">
+				<takemana amount="100" />
+				<evaluate a="target_health_percent" b="100" op="mult" />
+				<givemana amount="result" />
+			</compare>
+			<else>
+				<reducecooldown duration="15000" />
+				<givemana amount="40" target="this_owner_entity" />
+			</else>
+		</onimpact>	
+	</modifier>
+	
+</ability>

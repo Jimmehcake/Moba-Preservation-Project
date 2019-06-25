@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectile
+	name="Projectile_Chi_Ability2"
+
+	gravity="0"
+	speed="1200"
+	
+	effectscale="1"
+	
+	canturn="true"
+	flying="true"
+	flyheight="80"
+	
+	touchradius="115"
+	maxtouchespertarget="1"
+	touchtargetscheme="enemy_units"
+	toucheffecttype="SuperiorMagic"
+	touchradiusdiradjust="true"
+>
+	
+	<ontouch>
+		<combatevent effecttype="AbilityBasedProjectile">
+			<onimpact>
+				<!-- Base Damage -->
+				<setvar0 a="40,60,80,100" />
+				
+				<!-- Bonus damage from Enlightenment (E) -->
+				<pushability name="Ability_Chi3" />
+				<cantarget targetscheme="enemy_heroes">
+					<compare a="source_level" source="stack_entity" b="0" op="gt">
+						<setvar1 a="source_accumulator" source="stack_entity" b="target_attackdamage" op="mult" />
+						<setvar1 a="var1" b="0" op="max" />
+						<popup name="bonus_damage" a="var1" source="target_entity" target="target_entity" />
+						<setvar0 a="var0" b="var1" op="add" />
+						<damage effecttype="SuperiorMagic" amount="1" b="var0" op="mult" />			
+					</compare>
+					<else>
+						<damage effecttype="SuperiorMagic" amount="1" b="var0" op="mult" />
+					</else>
+				</cantarget>
+				<else>
+					<damage effecttype="SuperiorMagic" amount="1" b="var0" op="mult" />
+				</else>
+				
+				<!-- VFX -->
+				<playeffect effect="effects/impact.effect" source="target_entity" />
+			</onimpact>
+		</combatevent>
+	</ontouch>
+	
+	<onimpact>
+		<!-- Circe exception check -->
+		<entitytype type="Hero_Chi" target="this_owner_entity">
+			<applystate name="State_Chi_Ability2" target="this_owner_entity" proxy="this_proxy_entity" continuous="true" />
+			<applystate name="State_Chi_Ability2_DamageAura" target="this_proxy_entity" continuous="true" />
+		</entitytype>
+		
+		<expirestate name="State_Chi_Ability2_Disabled" target="this_owner_entity" />
+	</onimpact>
+	
+	<modifier key="Chi2_Return" modpriority="100"
+		touchradius="115"
+	>
+		<onimpact>
+			<playeffect effect="effects/returned_audio.effect" source="this_owner_entity" target="this_owner_entity" occlude="true" />
+			<kill source="" target="this_proxy_entity" />
+			<expirestate name="State_Chi_Ability2_Disabled" target="this_owner_entity" />
+			<expirestate name="State_Chi_Ability2_Art" target="this_owner_entity" />
+			<pushability name="Ability_Chi2" />
+			<startcooldown duration="3000" entity="stack_entity" />
+		</onimpact>
+		
+		<ondisjointed>
+			<retarget target="this_owner_entity" />
+		</ondisjointed>
+	</modifier>
+
+</projectile>

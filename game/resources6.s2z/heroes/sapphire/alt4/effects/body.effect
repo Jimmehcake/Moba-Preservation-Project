@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+	<definitions>
+		<particlesystem name="system0" space="entity" scale="1">
+			<!-- all glow halo -->
+		
+			<billboard
+				expirelife="250"
+				bone="Bone009"
+				position="0 0 0"
+				material="/shared/effects/materials/whitedot.material"
+				loop="true"
+				life="1000"
+				startcolor="0 .05 .25"
+				midcolor="0 0 0"
+				endcolor="0 .05 .25"
+				midcolorpos=".8"
+				size="75"
+				depthbias="-50"
+			/>
+		
+			<template name="horn_glow">	
+				<beam
+					bone_a="{bone_a}"
+					bone_b="{bone_b}"
+					startsize="35"
+					endsize="40"
+					loop="true"
+					life="250"
+					startcolor=".1 .2 .3"
+					midcolor="0 .15 .25"
+					endcolor=".1 .2 .3"
+					midcolorpos=".8"
+					material="/shared/effects/materials/bow_glow_03.material"
+					framespeed="1"
+					depthbias="-30"
+					anchor="1"
+					scale="{scale}"
+				/>
+			</template>
+			<instance name="horn_glow" bone_a="_bone_horn_right02" bone_b="Bone014" />
+			<instance name="horn_glow" bone_a="_bone_horn_left02" bone_b="Bone018" />
+			<instance name="horn_glow" bone_a="_bone_horn_left01" bone_b="Bone014" />
+			<instance name="horn_glow" bone_a="_bone_horn_right01" bone_b="Bone018" />
+			
+		
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+</effect>

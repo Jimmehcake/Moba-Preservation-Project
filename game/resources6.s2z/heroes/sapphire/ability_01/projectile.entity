@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectile
+	name="Projectile_Sapphire_Ability1"
+	
+	speed="2000"
+	gravity="0"
+	
+	canturn="true"
+	flying="true"
+	flyheight="0"
+	
+	touchradius="50"
+	touchradiusdiradjust="true"
+	touchtargetscheme="nothing"
+	toucheffecttype=""
+	
+	impactdistance="60"
+>
+	<ontouch>
+		<kill target="this_entity" source="" />
+	</ontouch>
+	
+	<onimpact>
+		<compare target="target_entity" a="target_entity" b="0" op="ne">
+			<cantarget target="target_entity" effecttype="Magic">
+				<damage effecttype="Magic" amount="40,80,120,160" />
+				<cantarget target="target_entity" effecttype="Push">
+					<!-- Get the direction of the push -->
+					<getyaw source="this_proxy_entity" target="this_entity" />
+					<setvar0 a="result" />
+					<spawnunit name="Gadget_Sapphire_Ability1_Empty" target="target_position" pushentity="true" fixedposition="true" />
+					<setent0 entity="stack_entity" />
+					<spawnunit name="Gadget_Sapphire_Ability1_Empty" target="ent0" facing="ent0" angle="var0" pushentity="true" />
+					<delete target="ent0" />
+					<setent0 entity="stack_entity" />
+					<spawnunit name="Gadget_Sapphire_Ability1_Empty" target="ent0" offsetspace="ent0" offset="0 400" pushentity="true"/>
+					<delete target="ent0" />
+					<setent0 entity="stack_entity" />
+					<!-- Done, at this point ent0 is exactly where the target needs to be pushed -->
+				
+					<unbind target="target_entity" />
+					<spawnprojectile name="Projectile_Sapphire_Ability1_Enemy" source="target_entity" target="ent0" bind="target_entity" bindstate="State_Sapphire_Ability1_Bound" proxy="target_entity" param="1" pushentity="true" />
+					<spawnprojectile name="Projectile_Sapphire_Ability1_EnemyCliff" source="target_entity" target="ent0" proxy="stack_entity" proxy1="target_entity"/>
+				</cantarget>
+			</cantarget>
+			
+			<!-- Art -->
+			<hasavatarkey name="Hero_Sapphire.Alt" >
+				<playeffect effect="../alt/ability_01/effects/impact.effect" source="target_entity" target="" />
+			</hasavatarkey>
+			<else>
+				<hasavatarkey name="Hero_Sapphire.Alt2" >
+					<playeffect effect="../alt2/ability_01/effects/impact.effect" source="target_entity" target="" />
+				</hasavatarkey>
+				<else>
+					<hasavatarkey name="Hero_Sapphire.Alt3" >
+						<playeffect effect="../alt3/ability_01/effects/impact.effect" source="target_entity" target="" />
+					</hasavatarkey>
+					<else>
+						<hasavatarkey name="Hero_Sapphire.Alt4" >
+							<playeffect effect="../alt4/ability_01/effects/impact.effect" source="target_entity" target="" />
+						</hasavatarkey>
+						<else>
+							<playeffect effect="effects/impact.effect" source="target_entity" target="" />
+						</else>	
+					</else>
+				</else>
+			</else>
+			<unbind target="this_owner_entity" />
+			<setpos0 position="this_position" positionend="this_proxy_entity" positionvalue="100" positionmodifier="pointonline" />
+			<spawnprojectile name="Projectile_Sapphire_Ability1_Toss" source="this_owner_entity" target="pos0" bind="this_owner_entity" pushentity="true" />
+		</compare>
+		
+		<kill target="this_entity" source="" />
+	</onimpact>
+</projectile>

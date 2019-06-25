@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+
+	<definitions>
+
+		<particlesystem name="system0" space="world" scale=".5">
+			<sound
+			    forcestereo="true"
+			    channelid="chiind"
+			    life="2000"
+				volume="1"
+				sample="/heroes/chi/ability_04/sounds/charge.wav"
+				linearfalloff="true"
+				falloffstart="1300"
+				falloffend="2200" 
+			/>
+			
+			
+			<!-- <groundsprite	
+				expirelife="200"
+				material="/shared/effects/materials/ground_smash_overlay.material"
+				minsize="75"
+				maxsize="90"
+				scale="3"				
+				color="1"
+				startalpha=".65"
+				maxyaw="360"
+				endalpha="0"
+			/> -->
+		
+			<groundsprite
+				life="500"
+				startcolor="0"
+				midcolor="1"
+				endcolor=".1 .3 .2"
+				midcolorpos=".05"
+				size="100"
+				scale="2"
+				material="/shared/effects/materials/ember_reveal_blue.material"
+				startframe="0"
+				endframe="1"
+				maxyaw="360"	
+			/>
+			
+			<simpleemitter
+				count="1"	
+				particlelife="2000"				
+			>
+				<particle >
+					<groundsprite
+						life="1500"
+						material="/shared/effects/materials/rune04.material"
+						size="190"
+						startcolor=".5 .8 .9"
+						midcolorpos=".8"
+						endcolor="0 0 0"
+						maxyaw="0"	
+					/>
+				</particle>
+				<particle >
+					<groundsprite
+						life="1500"
+						material="/shared/effects/materials/rune05.material"
+						size="190"
+						startcolor=".5 .8 .9"
+						midcolorpos=".8"
+						endcolor="0 0 0"
+						maxyaw="0"	
+					/>
+				</particle>
+				<particle >
+					<groundsprite
+						life="1500"
+						material="/shared/effects/materials/rune06.material"
+						size="190"
+						startcolor=".5 .8 .9"
+						midcolorpos=".8"
+						endcolor="0 0 0"
+						maxyaw="0"	
+					/>
+				</particle>
+				<particle >
+					<groundsprite
+						life="1500"
+						material="/shared/effects/materials/rune07.material"
+						size="190"
+						startcolor=".5 .8 .9"
+						midcolorpos=".8"
+						endcolor="0 0 0"
+						maxyaw="0"	
+					/>
+				</particle>
+			</simpleemitter>
+			
+			
+
+			<!-- <billboard
+				delay="0"
+				position="0 0 20"
+				startsize="0"
+				endsize="700"
+				depthbias="-102"
+				life="100"
+				startcolor=".2 .5 .6"
+				endcolor="0 0 0"
+				material="/shared/effects/materials/whitedot.material"
+			/> -->
+
+			<!-- <simpleemitter
+				delay="00"
+				count="20"
+				position="0 0 20"
+				spawnrate="10000"
+				particlelife="1400"
+				speed="1600"
+			>
+				<particle>
+					<trailemitter
+						life="200"
+						spawnrate="30"
+						particlelife="400"
+					
+						offsetsphere="1"
+						
+						texpostime="200"
+						texposscale="0"
+						texstretchscale="1"
+						material="/shared/effects/materials/beam_02.material"
+					>
+						<particle
+							startcolor="1 1 1"
+							midcolor="1"
+							endcolor="0 0 0"
+							startsize="300"
+							endsize="0"
+							midcolorpos=".1"
+							midsizepos=".1"
+						/>
+					</trailemitter>
+				</particle>
+			</simpleemitter>
+ -->
+			<simpleemitter
+				
+			
+				startparticlecolor="1" endparticlecolor="0" midparticlecolorpos=".9"
+				offsetsphere="150 150 0"
+				spawnrate="12"
+				particlelife="650"
+				position="0 0 10"
+				direction="0 0 1"
+				material="/shared/effects/materials/light_rays.material"
+			>
+				<particle
+					startcolor="0 0 0"
+					midcolor="0 .3 .3"
+					endcolor="0 0 0"
+					midcolorpos=".2"
+					minwidth="30"
+					maxwidth="60"
+					scale="3"
+					minstartheight="100"
+					maxstartheight="150"
+					endheight="800"
+					endwidth="100"
+					lockup="1"
+					lockright="false"
+				/>
+			</simpleemitter>
+
+		</particlesystem>
+
+	</definitions>
+
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+
+</effect>

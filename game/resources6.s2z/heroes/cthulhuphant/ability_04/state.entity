@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Cthulhuphant_Ability4"
+
+	icon="icon.tga"
+	
+	impactinterval="1000"
+	
+	effecttype=""
+>
+	<oninflict>
+		<spawnaffector name="Affector_Cthulhuphant_Ability4" target="source_position" />
+		<setaccumulator value="0" />
+	</oninflict>
+
+	<onimpact>
+		<setaccumulator value="accumulator" valueb="1" valueop="add" />
+		<spawnaffector name="Affector_Cthulhuphant_Ability4" target="source_position" param="accumulator" />
+	</onimpact>
+
+</state>

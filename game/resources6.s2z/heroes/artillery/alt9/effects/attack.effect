@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="1">
+
+	<definitions>
+		
+		<particlesystem name="system0" space="world" scale="1">
+		
+			<sound
+				linearfalloff="true" 
+				falloffstart="200"
+				falloffend="1300"
+				volume="1"
+				sample="/heroes/artillery/alt9/sounds/shoot_%.wav"
+			/>
+			
+			<template name="rawkin_fingers">
+				<controller bone="{bone}">
+					<trailemitter
+						life="500"
+						position="3 0 0"
+						spawnrate="20"
+						particlelife="200"
+						texpostime="100"
+						direction="0 0 0"
+						texstretchscale="1"
+						material="/shared/effects/materials/flux_ray.material"
+					>
+						<particle
+							startcolor="1"
+							midcolor="1 .5 0"
+							endcolor="0 0 0"
+							startsize="1"
+							midsize="3"
+							endsize="0"
+							midsizepos="0.2"
+							startalpha="1"
+							endalpha="0"
+						/>
+					</trailemitter>
+				</controller>
+			</template>
+			
+			<instance name="rawkin_fingers" bone="Bip01 R Finger11"/>
+			<instance name="rawkin_fingers" bone="Bip01 R Finger21"/>
+			<instance name="rawkin_fingers" bone="Bip01 R Finger31"/>
+			<instance name="rawkin_fingers" bone="Bip01 R Finger41"/>
+			<instance name="rawkin_fingers" bone="Bip01 R Finger01"/>
+			
+			<instance name="rawkin_fingers" bone="Bip01 L Finger11"/>
+			<instance name="rawkin_fingers" bone="Bip01 L Finger21"/>
+			<instance name="rawkin_fingers" bone="Bip01 L Finger31"/>
+			<instance name="rawkin_fingers" bone="Bip01 L Finger41"/>
+			<instance name="rawkin_fingers" bone="Bip01 L Finger01"/>
+			
+<!-- 			<simpleemitter
+				bone="Bip01 L Hand"
+				life="500"
+				position="0 10 0"
+				spawnrate="50"
+				particlelife="1600"
+				gravity="1.0"
+				speed="10.0"
+				drag="0.0"
+				acceleration="0.0"
+				minangle="0"
+				maxangle="0"
+				direction="0 1 0"
+				particledirectionalspace="local"
+				offsetsphere="15"
+			>
+				<particle
+				>
+					<billboard
+						life="100"
+						material="/shared/effects/materials/flash_01.material"
+						lockup="1"
+						lockright="1"
+						pitch="90"
+						param=".012"
+						minsize="5"
+						maxsize="10"
+						directionalspace="local"
+						color=".7 .65 .3"
+						depthbias="-50"
+					/>
+				</particle>
+			</simpleemitter> -->
+			
+<!-- 			<simpleemitter
+				bone="Bip01 Prop1"
+				count="10"
+				drag=".001"
+				particlelife="600"
+				position="0 0 0"
+				gravity="20"
+				minspeed="20"
+				maxspeed="100"
+				direction="0 0 1"
+				offsetsphere="15"
+				minangle="0"
+				maxangle="30"
+				material="/shared/effects/materials/spark_10.material"
+				inheritvelocity=".15"
+				collide="true"
+				expirelife="1000"
+			>			
+				<particle
+					startcolor="1"
+					endcolor="0"
+					midcolorpos=".75"
+					size="1"
+					angle="90"
+				>
+					<trailemitter
+						position="0 0 0"
+						spawnrate="20"
+						particlelife="600"
+						texpostime="400"
+						direction="0 0 0"
+						texstretchscale="1"
+						material="/shared/effects/materials/flux_ray.material"
+					>
+						<particle
+							startcolor=".3 .5 0"
+							midcolor=".2 .8 0"
+							endcolor="0 0 0"
+							startsize="2"
+							midsize="3"
+							endsize="0"
+							midsizepos="0.2"
+							startalpha="1"
+							endalpha="0"
+						/>
+					</trailemitter>
+				</particle>
+			</simpleemitter> -->
+			
+
+			<template name="ball_of_fire">
+				<trailemitter
+					spawnrate="10"
+					particlelife="200"
+					texpostime="300"
+					texposscale="0.0"
+					texstretchscale=".4"
+					material="/shared/effects/materials/light_trail.material"
+					life="200"
+				>
+					<particle
+						startcolor=".4 .4 0"
+						midcolor=".5 1 0"
+						endcolor="0"
+						startalpha="0"
+						midalpha="1"
+						endalpha="0"
+						midalphapos=".075"
+						startsize="5"
+						midsize="15"
+						endsize="5"
+						midsizepos="0.2"
+				 />
+				</trailemitter>
+			
+				<trailemitter
+					spawnrate="15"
+					particlelife="200"
+					texpostime="750"
+					texposscale="0.0"
+					texstretchscale=".4"
+					material="/shared/effects/materials/light_trail.material"
+					direction="0 0 1"
+					speed="150"
+					angle="0"
+					drag="0.02"
+					life="200"
+				>
+					<particle
+						startcolor="0"
+						midcolor=".5 1 0"
+						endcolor="0"
+						midcolorpos=".05"
+						startsize="5"
+						midsize="10"
+						endsize="10"
+						midsizepos=".1"
+				 />
+				</trailemitter>
+			</template>
+			
+			<trackeremitter	
+				bone="Bip01 Prop1"
+				position="0 0 0"
+				targetbone="Bip01 Prop1"
+				targetposition="0 10 0"
+				inheritvelocity="0.25"
+				tracktype="distance"
+				trackspeed="9" 
+				spawnrate="100"
+				particlelife="200"
+				offsetsphere="60"
+				speed="450"
+				direction="0 0 1"
+				yawspeed="500"
+				life="150"
+			>
+				<particle 
+					startsize="4"
+					endsize="0"
+					startalpha="0"
+					midalpha="1"
+					endalpha="0"
+					midalphapos=".1"
+					maxangle="360"
+					minscale=".2"
+					maxscale=".6"
+					color=".2 .5 0"				
+				>
+					<instance name="ball_of_fire"/>
+				</particle>
+			</trackeremitter>	
+			
+		</particlesystem>
+
+	</definitions>
+
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />		
+		<waitfordeath instance="instance0" />
+	</thread>
+
+</effect>

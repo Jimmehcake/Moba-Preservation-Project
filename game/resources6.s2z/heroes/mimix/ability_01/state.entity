@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Mimix_Ability1"
+
+	icon="icon.tga"
+	passiveeffect="effects/state.effect"
+	
+	effecttype="StatusBuff"
+	allowtransfer="false"
+
+	impactinterval="1500"
+>
+	<onframe />
+	
+	<onimpact>
+		<targettype type="illusion" target="this_owner_entity">
+			<pushability source="source_entity" slot="3" />
+			<getlevel entity="stack_entity" />
+			<setvar0 a="result" />
+
+			<compare a="var0" b="1" op="eq">
+				<areaofeffect
+					center="this_owner_entity"
+					radius="300"
+					targetselection="all"
+					targetscheme="enemy_units"
+					effecttype="Magic"
+				>
+					<damage effecttype="Magic" amount="100,145,190,235" b="0.5" op="mult" />
+				</areaofeffect>
+			</compare>
+		
+			<compare a="var0" b="2" op="eq">
+				<areaofeffect
+					center="this_owner_entity"
+					radius="300"
+					targetselection="all"
+					targetscheme="enemy_units"
+					effecttype="Magic"
+				>
+					<damage effecttype="Magic" amount="100,145,190,235" b="0.75" op="mult" />
+				</areaofeffect>
+			</compare>
+
+			<compare a="var0" b="3" op="eq">
+				<areaofeffect
+					center="this_owner_entity"
+					radius="300"
+					targetselection="all"
+					targetscheme="enemy_units"
+					effecttype="Magic"
+				>
+					<damage effecttype="Magic" amount="100,145,190,235" b="1" op="mult" />
+				</areaofeffect>
+			</compare>
+		</targettype>
+
+		<else>
+			<areaofeffect
+				center="this_owner_entity"
+				radius="300"
+				targetselection="all"
+				targetscheme="enemy_units"
+				effecttype="Magic"
+			>
+				<damage effecttype="Magic" amount="100,145,190,235" />
+			</areaofeffect>
+		</else>
+		
+		
+		<!-- Art stuff -->
+		<targettype type="illusion" target="this_owner_entity">
+			<hasavatarkey name="Hero_Mimix.Alt2">
+				<playeffect effect="../alt2/ability_01/effects/impact_illu.effect" source="this_owner_position" target="" />
+			</hasavatarkey>
+			<else>
+				<hasavatarkey name="Hero_Mimix.Alt">
+					<playeffect effect="../alt/ability_01/effects/impact_illu.effect" source="this_owner_position" target="" />
+				</hasavatarkey>
+				<else>
+					<playeffect effect="effects/impact_illu.effect" source="this_owner_position" target="" />
+				</else>
+			</else>
+		</targettype>
+		<else>				
+			<hasavatarkey name="Hero_Mimix.Alt2">
+				<playeffect effect="../alt2/ability_01/effects/impact.effect" source="this_owner_position" target="" />
+			</hasavatarkey>
+			<else>	
+				<hasavatarkey name="Hero_Mimix.Alt">
+					<playeffect effect="../alt/ability_01/effects/impact.effect" source="this_owner_position" target="" />
+				</hasavatarkey>
+				<else>						
+					<playeffect effect="effects/impact.effect" source="this_owner_position" target="" />					
+				</else>	
+			</else>	
+		</else>
+	</onimpact>
+	
+	<altavatar key="Hero_Mimix.Alt" modpriority="1"
+		passiveeffect="/heroes/mimix/alt/ability_01/effects/state.effect"
+	/>
+	
+	<altavatar key="Hero_Mimix.Alt2" modpriority="1"
+		passiveeffect="../alt2/ability_01/effects/state.effect"
+	/>
+	
+</state>

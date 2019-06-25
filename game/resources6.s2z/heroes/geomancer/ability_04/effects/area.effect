@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="1" name="ability_02" useentityeffectscale="1" disable2dworld="true">
+	<definitions>
+
+		<particlesystem name="system0" space="world" scale="1.4">
+			
+			<sound
+				pitchshift="true"
+				minpitch="0.2"
+				maxpitch="0.3"
+				life="1000"
+				linearfalloff="true" 
+				falloffstart="1000"
+				falloffend="2500"
+				volume=".4"
+				sample="/heroes/pyromancer/ability_01/sounds/ability_01.wav"
+			/>
+			
+			<simpleemitter
+				count="5"
+				spawnrate="35"
+				particlelife="1600"
+				gravity="1.0"
+				speed="600.0"
+				drag="0.0"
+				acceleration="0.0"
+				minangle="0"
+				maxangle="10"
+				direction="0 1 0"
+				offsetdirection="0 0 0"
+				offsetradial="0 0 0"
+			>
+				<particle
+					turn="true"
+				>
+					<billboard
+						life="1000"
+						position="0 0 50"
+						material="/shared/effects/materials/refract_swell_directional.material"
+						lockup="1"
+						lockright="1"
+						pitch="90"
+						param=".012"
+						startsize="255"
+						endsize="555"
+						directionalspace="local"
+						roll="180"
+					/>
+				</particle>
+
+			</simpleemitter>
+
+			<simpleemitter
+				delay="0"
+				count="18"
+				spawnrate="340"
+				particlelife="1000"
+				gravity="1.0"
+				speed="800.0"
+				drag="0.0"
+				acceleration="0.0"
+				minangle="10"
+				maxangle="45"
+				direction="0 1 0"
+				offsetsphere="40 40 40"
+				particledirectionalspace="local"
+			>
+				<particle>
+					<simpleemitter
+						spawnrate="100"
+						minparticlelife="250"
+						maxparticlelife="400"
+						material="/shared/effects/materials/flame.material"
+						offsetsphere="10"
+						life="2000"
+					>
+						<particle
+							minangle="0"
+							maxangle="360"
+							startcolor="2 0 2"
+							midcolorpos=".75"
+							midcolor=".7 .3 0"
+							endcolor="0"
+							startsize="5"
+							midsize="50"
+							midsizepos=".2"
+							endsize="5"
+						/>
+						<particle
+							minangle="0"
+							maxangle="360"
+							startcolor="2 0 2"
+							midcolorpos=".75"
+							midcolor=".7 .15 0"
+							endcolor="0"
+							startsize="5"
+							midsize="50"
+							midsizepos=".2"
+							endsize="5"
+						/>
+					</simpleemitter>
+
+					<simpleemitter
+						spawnrate="125"
+						minparticlelife="200"
+						maxparticlelife="400"
+						material="/shared/effects/materials/soul_projectile2.material"
+						offsetsphere="9 10 5"
+						position="0 0 5"
+						direction="0 -1 .5"
+						minspeed="0"
+						maxspeed="30"
+						gravity="-1"
+						angle="20"
+						life="2000"
+					>
+						<particle 
+							minangle="0"
+							maxangle="360"
+							startcolor="1 0 1"
+							midcolor="1 .5 0"
+							endcolor="0 0 0"
+							midcolorpos=".75"
+							minstartsize="10"
+							maxstartsize="20"
+							endsize="20"
+							startanchor=".25"
+							endanchor="0"
+						/>
+					</simpleemitter>
+				</particle>
+			</simpleemitter>
+		</particlesystem>
+	
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+		<!-- <die /> -->
+	</thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->
+

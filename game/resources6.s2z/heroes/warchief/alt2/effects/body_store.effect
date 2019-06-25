@@ -1,0 +1,624 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="ability_04_impact">
+	<definitions>
+		<particlesystem name="system0" space="world" useentityeffectscale="true" scale="1">
+			<sound
+				dampen="0.5"
+				channelid="storeaud"
+				sound2d="true"
+				volume=".5"
+				sample="../sounds/store_audio.wav"
+			/>	
+			<sound
+				delay="1500"
+				dampen="0.5"
+				channelid="storeaudv"
+				sound2d="true"
+				volume=".7"
+				sample="../sounds/voice/select_2.wav"
+			/>
+			
+			<model
+				life="1300"
+				model="../ability_02/effects/spirit/model.mdf"
+				parentskeleton="1"
+				startcolor="0 .75 1"
+				endcolor="0"
+				alpha="1"
+				material="../ability_02/effects/spirit/material.material"
+			/>
+			<!-- model in left arm -->
+			<model
+				bone="Bone034"
+				model="/heroes/warchief/alt2/ability_01/searing_totem/model_inarm.mdf"
+				expirelife="0"
+				scale="1.1"
+				yaw="180"
+			/>
+			
+			<!-- glow eyes -->
+			<billboard
+				delay="300"
+				bone="_bone_lefteye"
+				position="0 0 -2"
+				size="3"
+				color="0 .75 1"
+				depthbias="0"
+				material="/shared/effects/materials/whitedot.material"
+			/>
+			
+			<billboard
+				delay="300"
+				bone="_bone_righteye"
+				position="0 0 -2"
+				size="3"
+				color="0 .75 1"
+				depthbias="0"
+				material="/shared/effects/materials/whitedot.material"
+			/>
+			
+			<model
+				delay="300"
+				model="/heroes/warchief/alt2/ability_03/effects/arms/model.mdf"
+				parentskeleton="1"
+				color="0 .5 1"
+			/>
+			
+			<!-- burning arms-->
+			<controller bone="Bip01 R Forearm" delay="300" >
+				<beam 
+					position_a="-30 0 0"
+					position_b="25 0 0"
+					color="0 .75 1"
+					size="60"
+					framespeed="1.2"
+					material="/shared/effects/materials/femme_fire_trail.material"
+				/>
+			</controller>
+			
+			<controller bone="Bip01 L Forearm" delay="300" >
+				<beam 
+					position_a="-30 0 0"
+					position_b="25 0 0"
+					color="0 .75 1"
+					size="60"
+					framespeed="1.2"
+					material="/shared/effects/materials/femme_fire_trail.material"
+				/>
+			</controller>
+			
+			<!-- weapon effects -->
+			<controller name="bodyeffect" bone="_bone_weapon2" delay="5000" scale=".65" >	
+				<billboard
+					size="50"
+					color="0 .6 .6"
+					material="/shared/effects/materials/whitedot.material"
+				/>
+				
+				<simpleemitter
+					spawnrate="20"
+					minparticlelife="600"
+					maxparticlelife="800"
+					offsetsphere="1"
+					particlescale="1.5"
+					gravity="-1"
+					direction="0 0 1"
+					material="/shared/effects/materials/lightning_reveal.material"
+				>
+					<!-- same particle to raise odds -->
+					<particle
+						startsize="30"
+						endsize="100"
+						maxangle="360"
+						startcolor="0 .2 .4"
+						midcolor=".2 0 .25"
+						endcolor="0"
+						midcolorpos=".25"
+						heightdistort="-2"
+						startframe=".15"
+						midframe=".8"
+						endframe="1"
+						midframepos=".85"
+					/>
+					<particle
+						startsize="30"
+						endsize="100"
+						maxangle="360"
+						startcolor="0 .2 .4"
+						midcolor=".2 0 .25"
+						endcolor="0"
+						midcolorpos=".25"
+						heightdistort="-2"
+						startframe=".15"
+						midframe=".8"
+						endframe="1"
+						midframepos=".85"
+						
+					/>
+					<particle
+						startsize="30"
+						endsize="100"
+						maxangle="360"
+						startcolor="0 .2 .4"
+						midcolor=".2 0 .25"
+						endcolor="0"
+						midcolorpos=".25"
+						heightdistort="-1"
+						startframe=".15"
+						midframe=".8"
+						endframe="1"
+						midframepos=".85"
+						
+					/>
+					<!--  noticeable particle -->
+					<particle
+						startsize="50"
+						endsize="150"
+						maxangle="360"
+						startcolor="0 1 1"
+						midcolor="1 0 1"
+						endcolor="0"
+						midcolorpos=".25"
+						heightdistort="-2"
+						startframe=".5"
+						midframe=".9"
+						endframe="1"
+						midframepos=".35"
+					
+					/>
+					<particle
+						startsize="55"
+						endsize="160"
+						maxangle="360"
+						startcolor="0 1 1"
+						midcolor="1 0 1"
+						endcolor="0"
+						midcolorpos=".25"
+						heightdistort="-2"
+						startframe=".5"
+						midframe=".9"
+						endframe="1"
+						midframepos=".35"
+						
+					/>
+				</simpleemitter>
+				
+				<simpleemitter
+					spawnrate="150"
+					minparticlelife="500"
+					maxparticlelife="700"
+					directionalspace="global"
+					direction="0 0 1"
+					angle="15"
+					speed="200"
+					offsetsphere="20"
+					material="/shared/effects/materials/phantom_smoke_04.material"
+				>
+					<particle
+						startsize="30"
+						endsize="5"
+						startcolor="0 .5 1"
+						midcolor=".15 0 .25"
+						endcolor="0"
+						maxangle="360"
+					/>
+				</simpleemitter>
+				
+				<simpleemitter
+					spawnrate="50"
+					particlelife="700"
+					directionalspace="global"
+					direction="0 0 1"
+					angle="40"
+					gravity="-20"
+					speed="100"
+				>
+					<particle
+						maxangle="360"
+						maxroll="360"
+						maxyaw="360"
+						minyawspeed="-200"
+						maxyawspeed="200"
+						minpitcspeed="-200"
+						maxpitchspeed="200"
+						minanglespeed="-200"
+						maxanglespeed="200"
+					>
+						<billboard
+							minlife="500"
+							maxlife="700"
+							position="0 30 0"
+							startsize="10"
+							endsize="2"
+							startcolor="0 .5 1"
+							midcolor="0 .75 1"
+							endcolor="0"
+							maxangle="360"
+							material="/shared/effects/materials/spark.material"
+						/>
+					</particle>
+				</simpleemitter>
+			</controller>
+			
+			<template name="smoke" >
+				<controller  yaw="{angle}" yawspeed="220">
+					<model
+						delay="100"
+						life="600"
+						model="/heroes/warchief/ability_02/effects/smoke/model.mdf"
+						material="/heroes/warchief/ability_02/effects/smoke/material2.material"
+						expirelife="500"
+						startcolor=".8 .5 1"
+						endcolor="0"
+						startscale="0"
+						midscale=".5"
+						endscale=".4"
+						midscalepos=".3"
+						position="0 0 0"
+					/>
+				</controller>
+			</template>
+
+			<instance name="smoke" angle="0" />
+			<instance name="smoke" angle="180" />
+			<template name="smoke" >
+				<controller  yaw="{angle}" yawspeed="190">
+					<model
+						delay="100"
+						life="600"
+						model="/heroes/warchief/ability_02/effects/smoke/model.mdf"
+						material="/heroes/warchief/ability_02/effects/smoke/material2.material"
+						expirelife="500"
+						startcolor=".3 .7 1"
+						endcolor="0"
+						startscale="0"
+						midscale=".5"
+						endscale=".4"
+						midscalepos=".3"
+						position="0 0 0"
+					/>
+				</controller>
+			</template>
+
+			<instance name="smoke" angle="90" />
+			<instance name="smoke" angle="270" />
+
+			<simpleemitter		
+				delay="150"
+				life="500"
+				position="0 0 0"
+				count="20"
+				spawnrate="175"
+				minparticlelife="400"
+				maxparticlelife="500"
+				gravity="0"
+				material="/shared/effects/materials/lightning_reveal.material"
+				offsetsphere="15"
+				direction="0 0 1"
+				minangle="70"
+				maxangle="90"
+				drag="0.03"
+				minspeed="520"
+				maxspeed="850"
+				directionalspace="local"
+				inheritvelocity="0.2"			
+			>
+				<particle
+					turn="1"
+					maxangle="360"
+					yaw="0"
+					startsize="80"
+					midsize="300"
+					endsize="400"
+					startcolor="0 .65 .5"
+					midcolor=".2 .35 1"
+					endcolor=".75 0 1"
+					scale=".5"
+					startframe="1"
+					midframe=".5"
+					endframe="1"
+					midframepos=".5"
+					startstickiness="0" endstickiness=".3"
+					minscale=".2"
+					maxscale=".35"
+				/>
+			</simpleemitter>
+	
+			<simpleemitter
+				delay="150"
+				life="500"
+				offsetsphere="60 60 10"
+				count="10"
+				spawnrate="175"
+				direction="0 0 1"
+				minspeed="1100"
+				maxspeed="1500"
+				minparticlelife="200"
+				maxparticlelife="300"
+				position="0 0 -5"
+				gravity="-5"
+				drag="0.02"
+				angle="50"
+				material="/shared/effects/materials/lightning_reveal.material"
+			>
+				<particle
+					turn="1"
+					maxangle="360"
+					yaw="0"
+					startsize="80"
+					midsize="300"
+					endsize="400"
+					startcolor="0 .65 .5"
+					midcolor=".2 .35 1"
+					endcolor=".75 0 1"
+					scale=".5"
+					startframe="1"
+					midframe=".5"
+					endframe="1"
+					midframepos=".5"
+					startstickiness="0" endstickiness=".3"
+					minscale=".25"
+					maxscale=".4"
+				/>
+			</simpleemitter>
+			<simpleemitter
+					delay="300"
+					count="20"
+					minparticlelife="100"
+					maxparticlelife="150"
+					speed=".1"
+					direction="0 -1 0"
+					angle="80"
+					material="/shared/effects/materials/light_rays.material"
+					depthbias="-10"
+				>
+					<particle
+						turn="1"
+						minstartwidth="10"
+						maxstartwidth="20"
+						minendwidth="20"
+						maxendwidth="80"
+						startheight="50"
+						minendheight="100"
+						maxendheight="250"
+						startframe="0"
+						midframe=".5"
+						endframe=".8"
+						midframepos=".45"
+						startparam=".75"
+						endparam="0"
+						startcolor=".8 .3 1"
+						midcolor="0 .3 .75"
+						endcolor="0"
+						lockup="true"
+						lockright="true"
+						pitch="-90"
+						angle="180"
+						offcenter="true"
+						center=".5 0"
+						scale="2"
+					/>
+				</simpleemitter>
+				<simpleemitter
+				delay="50"
+				count="5"
+				life="1500"
+				spawnrate="500"
+				particlelife="350"
+				offsetsphere="1 1 0"
+				minspeed="250"
+				maxspeed="500"
+				position="0 0 50"
+				minangle="0"
+				maxangle="0"
+				direction="0 0 1"
+			>
+				<particle
+				turn="0"
+				>
+					<billboard
+						spawnrate="50"
+						count="1"
+						minlife="250"
+						maxlife="350"
+						position="0 0 0"
+						material="/shared/effects/materials/light_rays.material"
+						yaw="0"
+						roll="0"
+						lockup="true"
+						lockright="true"
+						pitch="0"
+						startcolor="0 .2 .3"
+						midcolor="0 .1 .3"
+						endcolor="0 0 0"
+						minheight="175"
+						maxheight="500"
+						depthbias="-100"
+					>
+					</billboard>
+				</particle>
+			</simpleemitter>
+
+			<beam 
+				delay="200"
+				life="600"
+				position_a="0 20 150"
+				position_b="0 20 -50"
+				startcolor="0 .5 1"
+				midcolor="0 .5 1"
+				endcolor="0"
+				size="150"
+				framespeed="1.5"
+				material="/shared/effects/materials/femme_fire_trail.material"
+				depthbias="-35" 
+			/>
+		
+		
+
+			<billboard
+				bone="_bone_centerofchest"
+				delay="150"
+				life="250"
+				param="0.1"	
+				startsize="50"
+				endsize="750"
+				startalpha="0"
+				midalpha=".8"
+				endalpha="0"				
+				depthbias="-20"
+				material="/shared/effects/materials/refract_swell.material"
+			/>
+			<billboard
+				bone="_bone_centerofchest"
+				delay="300"
+				life="250"
+				startsize="50"
+				endsize="750"
+				startalpha="0"
+				midalpha="1"
+				endalpha="0"				
+				depthbias="-20"
+				material="/shared/effects/materials/fresnel.material"
+				lockup="1"
+				lockright="1"
+				pitch="90"
+				position="0 0 -60"
+				startcolor="0 .5 1"
+				endcolor="0"
+			/>
+			<billboard
+				bone="_bone_centerofchest"
+				delay="300"
+				life="250"
+				param="0.1"	
+				startsize="50"
+				endsize="750"
+				startalpha="0"
+				midalpha="1"
+				endalpha="0"				
+				depthbias="-20"
+				material="/shared/effects/materials/refract_swell.material"
+				lockup="1"
+				lockright="1"
+				pitch="90"
+				position="0 0 -60"
+			/>
+			<billboard
+				bone="_bone_centerofchest"
+				delay="250"
+				life="50"
+				startsize="50"
+				endsize="350"
+				startalpha="0"
+				midalpha="1"
+				endalpha="0"	
+				material="/shared/effects/materials/whitedot.material"
+				position="0 0 -10"
+				color=".3 .6 .7"
+			/>	
+			<simpleemitter		
+				delay="3530"
+				life="500"
+				position="-10 0 0"
+				count="10"
+				spawnrate="175"
+				minparticlelife="400"
+				maxparticlelife="500"
+				gravity="0"
+				material="/shared/effects/materials/lightning_reveal.material"
+				offsetsphere="5 5 2"
+				direction="0 0 1"
+				minangle="60"
+				maxangle="90"
+				drag="0.03"
+				minspeed="300"
+				maxspeed="400"
+			>
+				<particle
+					turn="1"
+					maxangle="360"
+					yaw="0"
+					startsize="80"
+					midsize="300"
+					endsize="400"
+					startcolor="0 .65 .5"
+					midcolor=".2 .35 1"
+					endcolor=".75 0 1"
+					scale=".5"
+					startframe="1"
+					midframe=".5"
+					endframe="1"
+					midframepos=".5"
+					startstickiness="0" endstickiness=".3"
+					minscale=".1"
+					maxscale=".2"
+				/>
+			</simpleemitter>
+			<billboard
+				bone="_bone_centerofchest"
+				delay="3550"
+				life="300"
+				param="0.1"	
+				startsize="50"
+				endsize="250"
+				startalpha="0"
+				midalpha=".6"
+				endalpha="0"	
+				material="/shared/effects/materials/refract_swell.material"
+				lockup="1"
+				lockright="1"
+				pitch="90"
+				position="-10 0 -60"
+			/>
+			<simpleemitter
+				delay="3550"
+				count="20"
+				spawnrate="500"
+				minparticlelife="450"
+				maxparticlelife="650"
+				gravity="20"
+				drag=".015"
+				minspeed="100"
+				maxspeed="400"
+				position="-10 0 0"
+				offsetsphere="15 15 0"
+				material="/shared/effects/materials/spark_12.material"
+				depthbias="-35"
+				angle="50"
+			>
+				 <particle
+					startcolor=".2 .8 1"
+					endcolor="0"
+					size="10"
+					maxangle="360"
+					depthbias="-10"
+					minanglespeed="-65"
+					maxanglespeed="65"
+					minscale=".6"
+					maxscale="1"
+				 />
+				 <particle
+					startcolor=".8 .3  1"
+					endcolor="0"
+					size="10"
+					maxangle="360"
+					depthbias="-10"
+					minanglespeed="-65"
+					maxanglespeed="65"
+					minscale=".6"
+					maxscale="1"
+				 />
+			</simpleemitter>
+      </particlesystem>
+   </definitions>
+   <thread>
+      <spawnparticlesystem instance="instance0"  particlesystem="system0" />	
+	  <spawnmodifier instance="instance1" modifier="modifier0"/>  
+	  <waitfordeath instance="instance0" />
+	  <waitfordeath instance="instance1" />	  
+      <!-- <die /> -->
+   </thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->
+

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="trail" deferred="true">
+	<definitions>
+		<particlesystem name="system0" space="world" scale="1.15">
+
+				<model
+					model="/shared/effects/models/sphere/model.mdf"
+					material="/shared/effects/materials/shell.material"
+					color=".1 .2 .4"
+					scale=".55"
+					position="0 0 0"
+					yawspeed="3000"
+				/>
+				
+				<billboard
+					material="/shared/effects/materials/whitedot_blend.material"
+					color=".1 .5 .7"
+					size="150"
+					alpha="1"
+					depthbias="-30"
+				/>
+				
+				<billboard
+					material="/shared/effects/materials/flare_01.material"
+					color=".5"
+					size="250"
+					alpha="1"
+					depthbias="-30"
+				/>
+				
+				<model
+					model="/shared/effects/models/sphere/model.mdf"
+					material="/shared/effects/materials/shell_flat.material"
+					color=".1 .2 .7"
+					scale=".55"
+					position="0 0 0"
+					yawspeed="3000"
+				/>
+				
+				<model
+					expirelife="250"
+					model="/heroes/prophet/alt6/effects/bird/bird_fly/model.mdf"
+					anim="idle"
+					scale="1.35"
+					color="0"
+					alpha="0"
+					position="0 0 0"
+					lockup="1"
+					lockright="1"
+					yaw="20"
+					roll="45"
+					pitch="-15"
+				>
+				<!-- Demon Soul Trail -->
+					<model
+						position="0 0 0"
+						expirelife="500"
+						name="emitter0" 
+						anim="idle"
+						model="/shared/effects/models/circle_of_bones/model.mdf"
+						scale="1"
+						color="0 0 0"
+						alpha="0"
+						rollspeed="2000"
+					>
+						<template name="trails">
+							<twopointtrailemitter
+								name="trail01"
+								position="0 0 0"
+								bone_a="{bone01}"
+								bone_b="{bone02}"
+								spawnrate="100"
+								particlelife="250"
+								subframepose="1"
+								texpostime="250"
+								texposscale="0"
+								texstretchscale="1"
+								material="/shared/effects/materials/soul_trail.material"
+							>
+								<particle
+									startcolor=".1 .5 2"
+									endcolor="1 1 0"
+									midcolorpos=".35"
+									startalpha="0"
+									midalpha="0"
+									endalpha="0"
+								/>
+							</twopointtrailemitter>
+						</template>
+						
+						<instance name="trails" bone01="_bone_fx_01"  bone02="_bone_fx_02"/>
+						<instance name="trails" bone01="_bone_fx_03"  bone02="_bone_fx_04"/>
+						<instance name="trails" bone01="_bone_fx_05"  bone02="_bone_fx_06"/>
+						<instance name="trails" bone01="_bone_fx_05"  bone02="_bone_fx_08"/>
+						<instance name="trails" bone01="_bone_fx_05"  bone02="_bone_fx_10"/>
+					</model>
+				
+
+					<simpleemitter
+						particlelife="400"
+						spawnrate="200"
+						minspeed="500"
+						maxspeed="1000"
+						acceleration="0.0"
+						position="0 0 0"
+						drag="0.1"
+						material="/shared/effects/materials/flare_07.material"
+						offsetsphere="0"
+						direction="0 -1 0"
+						minangle="0"
+						maxangle="120"
+					>
+						<particle
+							turn="true"
+							startcolor=".7 .65 0"
+							midcolor=".7 .62 0"
+							endcolor="0 0 0"
+							size="25"
+							startscale="1"
+							endscale="0"
+						>
+						</particle>
+					</simpleemitter>
+					
+				</model>
+
+		
+
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+</effect>
+

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model name="rig.max" file="high.model" type="K2" high="high.model" med="med.model" low="low.model">
+
+	<anim name="idle" clip="../alt4/clips/default_1.clip" loop="true">
+		<startevent cmd="StopSound 1"/>
+	</anim>
+	
+	<anim name="taunt_1" clip="../alt4/clips/taunt_1.clip"  fps="30"/>
+	
+	<anim name="portrait" clip="../alt4/clips/portrait_1.clip" loop="true" fps="20"/>
+
+	<anim name="bored_1" clip="../alt4/clips/bored_1.clip" fps="25">
+		<startevent cmd="StartEffect effects/walk.effect 1"/>
+		<endevent cmd="StopEffect 1"/>
+	</anim>
+	
+	<anim name="item_1" clip="../alt4/clips/item_1.clip"/>
+
+	<anim name="knock_1" clip="../alt4/clips/knock_1.clip" loop="true" loopbackframe="-1">
+		<startevent cmd="StopSound 1"/>
+	</anim>
+	
+	<anim name="death_1" clip="../alt4/clips/death_1.clip" loop="true" loopbackframe="-1">
+		<frameevent frame="1" cmd="PlaySoundLinear sounds/death_grunt.wav 400 2500 1"/>
+		<frameevent frame="50" cmd="PlaySoundLinear ../ability_01/sounds/cast.wav 400 2500 .8"/>
+		<startevent cmd="StopSound 1"/>
+		
+		<startevent cmd="StartEffect effects/death.effect 1"/>
+		<endevent cmd="StopEffect 1"/>
+	</anim>
+	
+	<anim name="ability_1_dive" clip="../alt4/clips/ability_1_dive.clip"/>
+
+	<anim name="ability_1_swim" clip="../alt4/clips/ability_1_swim.clip" loop="true"/>
+
+	<anim name="ability_1_burst" clip="../alt4/clips/ability_1_burst.clip"/>
+
+	<anim name="ability_2" clip="../alt4/clips/ability_2.clip">
+	</anim>
+
+	<!-- <anim name="ability_3" clip="../alt4/clips/ability_3.clip">
+		<frameevent frame="1" cmd="PlaySoundLinear ../ability_03/sounds/cast.wav 400 2000 .60"/>
+	</anim>
+ -->
+	<anim name="ability_4" clip="../alt4/clips/ability_4.clip">
+	</anim>
+
+	<anim name="attack_1" clip="../alt4/clips/attack_1.clip"/>
+
+	<anim name="attack_2" clip="../alt4/clips/attack_2.clip">
+		<frameevent frame="5" cmd="PlaySoundLinear sounds/attack_grunt_%.wav 0 1200 .60"/>
+	</anim>
+	
+	<anim name="walk_1" clip="../alt4/clips/walk_1.clip" loop="true" fps="28" >
+		<startevent cmd="PlaySoundLoopingLinear ../sounds/move.wav 0 1000 0.25 1 100 300"/>
+		<startevent cmd="StartEffect effects/walk.effect 1"/>
+		<endevent cmd="StopEffect 1"/>
+	</anim>
+	
+	<anim name="walk_burrow" clip="../alt4/clips/ability_3.clip" fps="28" loop="true">
+	   <startevent cmd="PlaySoundLoopingLinear ../sounds/move.wav 0 1000 0.25 1 100 300"/>
+	   <startevent cmd="StartEffect ../effects/walk.effect 1" />
+	   <endevent cmd="StopEffect 1" />
+	</anim>
+	
+</model>

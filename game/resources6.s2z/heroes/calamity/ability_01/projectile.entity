@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectile
+	name="Projectile_Calamity_Ability1"
+
+	speed="1250"
+	
+	gravity="2000"
+
+	modelscale="1"
+	model="/shared/models/invis.mdf"
+	traileffect="effects/trail.effect"
+
+	effectscale="1"
+>
+	<onimpact>
+		<spawnaffector name="Affector_Calamity_Ability1_Period" source="this_position" target="this_position" pushentity="true" />
+	</onimpact>
+
+	<altavatar key="Hero_Calamity.Alt"
+		traileffect="../alt/ability_01/effects/trail.effect"
+	/>
+
+	<altavatar key="Hero_Calamity.Alt2"
+		traileffect="../alt2/ability_01/effects/trail.effect"
+	/>
+
+	<altavatar key="Hero_Calamity.Alt3"
+		traileffect="../alt3/ability_01/effects/trail.effect"
+	/>
+	
+	<altavatar key="Hero_Calamity.Alt4"
+		traileffect="../alt4/ability_01/effects/trail.effect"
+	/>
+	
+	<altavatar key="Hero_Calamity.Alt5"
+		traileffect="../alt5/ability_01/effects/trail.effect"
+	/>
+	
+	<altavatar key="Hero_Calamity.Alt6"
+		traileffect="../alt6/ability_01/effects/trail.effect"
+	/>
+	
+	<altavatar key="Hero_Calamity.Alt8"
+		traileffect="../alt8/ability_01/effects/trail.effect"
+	/>
+	
+	<altavatar key="Hero_Calamity.Alt9"
+		traileffect="../alt9/ability_01/effects/trail.effect"
+	/>
+
+
+</projectile>

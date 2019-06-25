@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="" deferred="true" useentityeffectscale="0">
+	<definitions>
+		<particlesystem name="system1" space="world" scale="1.35">
+	<!-- 		<billboard	
+				delay="100"
+				material="/shared/effects/materials/sprayrefract.material"
+				life="300"
+				position="0 0 15"
+				startsize="80"
+				endsize="100"
+				midsizepos=".3"
+				scale=".8"
+				startparam=".5"
+				endparam="0"
+				startalpha="1"
+				endalpha="0"
+			/>	 -->
+			
+		<!-- 	<simpleemitter
+				delay="100"
+				depthbias="-30"	
+				count="3"
+				offsetsphere="10"
+				position="0 0 15"
+				gravity=""
+			>
+				<particle
+					turn="true"
+				>
+					<billboard
+						startparam=".5"
+						endparam="0"
+						startalpha="1"
+						endalpha="0"
+						material="/shared/effects/materials/sprayrefract.material"
+						startsize="80"
+						endsize="75"
+						minlife="3000"
+						maxlife="3100"
+						minscale=".6"
+						maxscale=".8"
+					/>
+				</particle>
+			</simpleemitter> -->
+		<!-- 	<simpleemitter
+				delay="100"
+				depthbias="-30"	
+				count="3"
+				offsetsphere="10"
+				position="0 0 15"
+			>
+				<particle
+					turn="true"
+				>
+					<billboard
+						startparam=".5"
+						endparam="0"
+						startalpha="1"
+						endalpha="0"
+						material="/shared/effects/materials/sprayrefract.material"
+						startsize="80"
+						endsize="85"
+						minlife="3000"
+						maxlife="3100"
+						minscale=".6"
+						maxscale=".8"
+					/>
+				</particle>
+			</simpleemitter> -->
+
+			<simpleemitter
+				delay="120"
+				depthbias="-30"
+				minparticlelife="1000"				
+				maxparticlelife="1500"				
+				count="6"
+				material="/shared/effects/materials/whitewater_02.material"
+				offsetsphere="10"
+				position="0 0 15"
+			>
+				<particle
+					size="30"
+					startcolor=".05 .25 .4"
+					endcolor="0"
+					minangle="0"
+					maxangle="360"
+					minscale=".7"
+					maxscale="1"
+				/>		
+			</simpleemitter>	
+			<simpleemitter
+				delay="120"
+				depthbias="-30"	
+				count="5"
+				offsetsphere="13"
+				position="0 0 15"
+			>
+				<particle
+					turn="true"
+				>
+					<billboard
+						startparam=".5"
+						endparam="0"
+						startalpha=".7"
+						endalpha="0"
+						material="/shared/effects/materials/refract_outsplash.material"
+						size="60"
+						minlife="2500"
+						maxlife="2700"
+						minscale=".7"
+						maxscale="1.5"
+					/>
+				</particle>
+			</simpleemitter>
+			<simpleemitter
+				delay="20"
+				depthbias="-30"
+				life="200"
+				minparticlelife="400"				
+				maxparticlelife="700"				
+				count="40"
+				minspeed="40"
+				maxspeed="70"
+				drag="0.01"
+				offsetsphere="2"
+				gravity="5"
+				material="/shared/effects/materials/whitewater_02.material"
+				position="0 0 15"
+			>
+				<particle
+					minanglespeed="-100"
+					maxanglespeed="100"
+					minangle="-60"
+					maxangle="60"
+					startcolor="0 0 0"
+					midcolor="0 .3 .4"
+					endcolor="0 0 0"
+					startsize="25"
+					endsize="50"
+					startalpha="0"
+					midalpha="1"
+					endalpha="0"
+					minscale=".3"
+					maxscale=".7"
+				/>
+				<particle
+					minanglespeed="-100"
+					maxanglespeed="100"
+					minangle="-60"
+					maxangle="60"
+					startcolor="0 0 0"
+					midcolor=".2"
+					endcolor="0 0 0"
+					startsize="25"
+					endsize="50"
+					startalpha="0"
+					midalpha="1"
+					endalpha="0"
+					minscale=".3"
+					maxscale=".7"
+				/>
+			</simpleemitter>
+			<simpleemitter
+				life="200"
+				minparticlelife="400"	
+				maxparticlelife="700"				
+				count="80"
+				minspeed="60"
+				maxspeed="130"
+				drag="0.01"
+				offsetsphere="2"
+				gravity="6"
+				material="/shared/effects/materials/bubble_add.material"
+				position="0 0 15"
+			>
+				<particle
+					minangle="0"
+					maxangle="360"
+					minanglespeed="-70"
+					maxanglespeed="70"
+					startsize="3"
+					endsize="1"
+					startcolor="0"
+					midcolor=".5 10 10"
+					endcolor="0 0 0"	
+					midcolorpos=".4"					
+					startalpha="0"
+					midalpha="2"
+					endalpha="0"
+					midalphapos=".75"
+					minscale=".5"
+					maxscale="1.3"
+				/>
+				<particle
+					minangle="0"
+					maxangle="360"
+					minanglespeed="-70"
+					maxanglespeed="70"
+					startsize="3"
+					endsize="1"
+					startcolor="0"
+					midcolor="10"
+					endcolor="0 0 0"	
+					midcolorpos=".4"					
+					startalpha="0"
+					midalpha="2"
+					endalpha="0"
+					midalphapos=".75"
+					minscale=".5"
+					maxscale="1.3"
+				/>
+			</simpleemitter>
+			<simpleemitter
+				life="200"
+				minparticlelife="350"	
+				maxparticlelife="700"				
+				count="15"
+				minspeed="30"
+				maxspeed="50"
+				drag="0.01"
+				offsetsphere="5"
+				gravity="2"
+				material="/shared/effects/materials/debris01_add.material"
+				position="0 0 15"
+			>
+				<particle
+					minangle="0"
+					maxangle="360"
+					minanglespeed="-70"
+					maxanglespeed="70"
+					startsize="3"
+					endsize="1"
+					startcolor="0"
+					midcolor="10 10 0"
+					endcolor="0 0 0"	
+					midcolorpos=".4"					
+					startalpha="0"
+					midalpha="2"
+					endalpha="0"
+					midalphapos=".75"
+					minscale=".5"
+					maxscale="1.5"
+				/>
+			</simpleemitter>
+			<simpleemitter
+				life="200"
+				minparticlelife="350"	
+				maxparticlelife="700"
+				count="15"
+				minspeed="30"
+				maxspeed="50"
+				drag="0.01"
+				offsetsphere="5"
+				gravity="2"
+				material="/shared/effects/materials/debris02_add.material"
+				position="0 0 15"
+			>
+				<particle
+					minangle="0"
+					maxangle="360"
+					minanglespeed="-70"
+					maxanglespeed="70"
+					startsize="3"
+					endsize="1"
+					startcolor="0"
+					midcolor="10 10 0"
+					endcolor="0 0 0"	
+					midcolorpos=".4"					
+					startalpha="0"
+					midalpha="2"
+					endalpha="0"
+					midalphapos=".75"
+					minscale=".5"
+					maxscale="1"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				life="600"
+				minparticlelife="2000"	
+				maxparticlelife="2300"
+				spawnrate="6"
+				offsetsphere="25 0 25"
+				gravity=".04"
+				material="/shared/effects/materials/drop01.material"
+				position="0 0 15"
+			>
+				<particle
+					minangle="-10"
+					maxangle="10"
+					startsize="2"
+					endsize="1.5"
+					startcolor=".1 .4 .6"
+					midcolor=".1 .4 .6"
+					endcolor="0 0 0"	
+					midcolorpos=".4"					
+					startalpha="0"
+					midalpha="2"
+					endalpha="0"
+					midalphapos=".75"
+					minscale=".7"
+					maxscale="1.1"
+					width="3"
+					startheight="2"
+					endheight="15"
+				/>
+				<particle
+					minangle="-10"
+					maxangle="10"
+					startsize="2"
+					endsize="1.5"
+					startcolor=".3 .4 .5"
+					midcolor=".3 .4 .5"
+					endcolor="0 0 0"	
+					midcolorpos=".4"					
+					startalpha="0"
+					midalpha="2"
+					endalpha="0"
+					midalphapos=".75"
+					minscale="1"
+					maxscale="2"
+					width="3"
+				/>
+			</simpleemitter>
+			<simpleemitter
+				life="600"
+				minparticlelife="1900"	
+				maxparticlelife="2200"
+				spawnrate="5"
+				offsetsphere="30 0 30"
+				gravity=".01"
+				material="/shared/effects/materials/drop01.material"
+				position="0 0 15"
+			>
+				<particle
+					minangle="-10"
+					maxangle="10"
+					startsize="2"
+					endsize="1.5"
+					startcolor=".1 .4 .6"
+					midcolor=".1 .4 .6"
+					endcolor="0 0 0"	
+					midcolorpos=".4"					
+					startalpha="0"
+					midalpha="2"
+					endalpha="0"
+					midalphapos=".75"
+					minscale="1"
+					maxscale="2"
+					width="3"
+				/>
+			</simpleemitter>
+			<simpleemitter
+				life="600"
+				minparticlelife="2300"	
+				maxparticlelife="2700"
+				spawnrate="35"
+				offsetsphere="30 0 30"
+				gravity=".01"
+				material="/shared/effects/materials/drop02.material"
+				position="0 0 15"
+			>
+				<particle
+					minangle="-10"
+					maxangle="10"
+					size="2"
+					startcolor=".1 .4 .6"
+					midcolor=".1 .4 .6"
+					endcolor="0 0 0"	
+					midcolorpos=".4"					
+					startalpha="0"
+					midalpha="2"
+					endalpha="0"
+					midalphapos=".75"
+					minscale=".3"
+					maxscale="1.3"
+				/>
+				<particle
+					minangle="-10"
+					maxangle="10"
+					size="2"
+					startcolor=".2 .4 .5"
+					midcolor=".2 .4 .5"
+					endcolor="0 0 0"	
+					midcolorpos=".4"					
+					startalpha="0"
+					midalpha="2"
+					endalpha="0"
+					midalphapos=".75"
+					minscale=".3"
+					maxscale="1.3"
+				/>
+			</simpleemitter>
+			<simpleemitter
+				life="600"
+				minparticlelife="2000"	
+				maxparticlelife="2300"
+				spawnrate="20"
+				offsetsphere="30 0 30"
+				gravity=".1"
+				material="/shared/effects/materials/drop03.material"
+				position="0 0 15"
+			>
+				<particle
+					startcolor=".1 .4 .6"
+					midcolor=".1 .4 .6"
+					endcolor="0 0 0"	
+					midcolorpos=".4"					
+					startalpha="0"
+					midalpha="2"
+					endalpha="0"
+					midalphapos=".75"
+					minscale=".5"
+					maxscale="1.5"
+					startheight="1"
+					endheight="5"
+				/>
+				<particle
+					startcolor=".2 .4 .5"
+					midcolor=".2 .4 .5"
+					endcolor="0 0 0"	
+					midcolorpos=".4"					
+					startalpha="0"
+					midalpha="2"
+					endalpha="0"
+					midalphapos=".75"
+					minscale=".5"
+					maxscale="1.5"
+					startheight="1"
+					endheight="5"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				life="600"
+				minparticlelife="1700"	
+				maxparticlelife="2000"
+				spawnrate="15"
+				offsetsphere="30 0 30"
+				gravity=".4"
+				material="/shared/effects/materials/drop03.material"
+				position="0 0 15"
+			>
+				<particle
+					startcolor=".1 .4 .6"
+					midcolor=".1 .4 .6"
+					endcolor="0 0 0"	
+					midcolorpos=".4"					
+					startalpha="0"
+					midalpha="2"
+					endalpha="0"
+					midalphapos=".75"
+					minscale=".5"
+					maxscale="1.5"
+					startheight="2"
+					endheight="10"
+				/>
+				<particle
+					startcolor=".2 .4 .5"
+					midcolor=".2 .4 .5"
+					endcolor="0 0 0"	
+					midcolorpos=".4"					
+					startalpha="0"
+					midalpha="2"
+					endalpha="0"
+					midalphapos=".75"
+					minscale=".5"
+					maxscale="1.5"
+					startheight="2"
+					endheight="10"
+				/>
+			</simpleemitter>
+			
+			<billboard	
+				delay="70"
+				material="/shared/effects/materials/spray.material"
+				startcolor=".1 .5 .7"
+				midcolor=".1 .5 .7"
+				endcolor="0"
+				life="300"
+				position="0 0 15"
+				startsize="30"
+				midsize="70"
+				endsize="100"
+				midsizepos=".3"
+				scale=".8"
+			/>	
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system1" />
+		<waitfordeath  instance="instance0"/>
+	</thread>
+</effect>
+<!-- [min|max][start|mid|end]property[speed][pos] -->

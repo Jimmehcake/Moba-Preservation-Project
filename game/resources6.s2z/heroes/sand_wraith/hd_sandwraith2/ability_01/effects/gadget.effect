@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="	" deferred="1">
+	<definitions>
+
+	
+		<particlesystem name="system0" space="world" scale="0.75">
+
+
+	
+			
+			
+			<terrainemitter
+				position="0 0 0"
+				spawnrate="11111"
+				count="2"
+				
+				gravity="0"			
+				offsetsphere="80 80 0"
+				direction="1 0 0"
+				minangle="-180"
+				maxangle="180"
+				speed="0"
+				directionalspace="global"
+				inheritvelocity="0"
+				depthbias="-20"
+			>
+				<particle
+										
+				>
+				
+
+					<groundsprite
+						delay="0"
+						material="/shared/effects/materials/sand_groun.material"	
+						minscale="2.2"
+						maxscale="2.65"
+						expirelife="600"
+						color=".6 .55 .4"
+						minyaw="-360"
+						maxyaw="360"
+						startalpha="0.4"							
+						endalpha="0"
+					/>
+					
+					
+				</particle>
+			</terrainemitter>
+			
+			<terrainemitter
+				position="0 0 0"
+				spawnrate="11111"
+				count="2"
+				
+				gravity="0"			
+				offsetsphere="20 20 0"
+				direction="1 0 0"
+				minangle="-180"
+				maxangle="180"
+				speed="0"
+				directionalspace="global"
+				inheritvelocity="0"
+				depthbias="-50"
+			>
+				<particle
+										
+				>
+				
+
+					<groundsprite
+						delay="0"
+						material="/shared/effects/materials/ember_reveal.material"	
+						minscale="1.35"
+						maxscale="2"
+						life="1200"
+						expirelife="500"
+						color=".5 .47 .4"
+						minyaw="-360"
+						maxyaw="360"
+						startframe="0.5"
+						endframe="1"
+						startalpha="0"	
+						midalpha="1"
+						endalpha="0"
+					/>
+					
+					
+				</particle>
+			</terrainemitter>
+			
+			<simpleemitter		
+					spawnrate="5"			
+					particlelife="500"			
+					gravity="-2"
+					speed="20"
+					drag=".01"
+					depthbias="-200"
+					material="/shared/effects/materials/refract_wellwave.material"
+					offsetsphere="10 10 10"
+					minangle="-265"
+					maxangle="265"
+					direction="0 0 -1"
+				>
+					<particle 
+						minangle="0"
+						maxangle="360"
+						minanglespeed="-10"
+						maxanglespeed="10"
+						startsize="200"
+						endsize="300"
+						param=".01"
+						startalpha="0.0"
+						midalpha="1"
+						endalpha="0"
+					/>
+				</simpleemitter>	
+			
+			
+      </particlesystem>
+   </definitions>
+<thread>
+	<spawnparticlesystem instance="instance0" particlesystem="system0" />
+	<spawnmodifier instance="instance1" modifier="modifier0"/>  
+	
+	<waitfordeath instance="instance0" />
+	<wait duration="20000"/>
+	<!-- <die /> -->
+</thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->

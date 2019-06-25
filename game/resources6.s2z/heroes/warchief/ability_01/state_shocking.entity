@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Warchief_Ability1_Shocking"
+
+	ishidden="true"
+	
+	modifierkey="Warchief_Ability1_Shocked"
+>
+	<!-- Prevents the same target from being stunned twice -->
+</state>

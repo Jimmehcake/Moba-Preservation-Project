@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="body">
+	<definitions>
+
+		<particlesystem name="system0" space="world" scale=".75">
+			
+			<groundsprite
+				bone="_bone_origin"
+				position="0 0 -100"
+				size="130"
+				color=".35 .3 .3"
+				material="/shared/effects/materials/sand_groun.material"
+			/>
+			
+			<groundsprite
+				bone="_bone_origin"
+				position="0 0 -100"
+				size="90"
+				color=".2 .16 .1"
+				alpha=".5"
+				material="/shared/effects/materials/corona_08_blend.material"
+			/>
+			
+			<groundsprite
+				bone="_bone_origin"
+				position="0 0 -100"
+				size="70"
+				alpha=".75"
+				material="/shared/effects/materials/ground_smash_overlay_darker.material"
+			/>
+			
+			<terrainemitter
+				spawnrate="20"
+				offsetsphere="60 60 0"
+				minparticlelife="500"
+				maxparticlelife="800"
+				angle="0"
+				direction="0 0 1"
+				speed="300"
+				drag=".1"
+				material="/shared/effects/materials/pyroclast_05.material"
+			>
+				<particle
+					maxangle="360"
+					minanglespeed="-100"
+					maxanglespeed="100"
+					size="70"
+					color=".3 .155 .1"
+					startalpha=".5"
+					midalpha="1"
+					endalpha="0"
+				/>
+				
+				<particle
+					maxangle="360"
+					minanglespeed="-100"
+					maxanglespeed="100"
+					size="70"
+					color=".15 .1 .05"
+					startalpha=".5"
+					midalpha="1"
+					endalpha="0"
+				/>
+			</terrainemitter>
+			<terrainemitter
+				spawnrate="20"
+				offsetsphere="60 60 0"
+				minparticlelife="500"
+				maxparticlelife="800"
+				angle="0"
+				direction="0 0 1"
+				speed="300"
+				drag=".1"
+				material="/shared/effects/materials/fire_add.material"
+			>
+				<particle
+					depthbias="-100"
+					startcolor="0 .5 .5"
+					midcolor=".25 0 .25"
+					endcolor="0"
+					startsize="20"
+					endsize="50"
+					startscale="2"
+					endscale="4"
+					startalpha=".33"
+					endalpha="0"
+					maxangle="360"
+					startframe="0"
+					endframe="1"
+				/>
+			</terrainemitter>
+			
+			
+			
+				
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+		<!-- <die /> -->
+	</thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->
+

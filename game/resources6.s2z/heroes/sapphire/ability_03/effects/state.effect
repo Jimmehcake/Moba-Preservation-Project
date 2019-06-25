@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="1" useentityeffectscale="1">
+	<definitions>
+		<particlesystem name="system0" space="world" scale="1.0" >
+
+			<sound
+			    soundloop="true"
+				randomloop="true"
+				fadein="250"
+				fadeout="1500"
+				linearfalloff="true" 
+				falloffstart="0"
+				falloffend="1300"
+				volume=".5" 
+				sample="/heroes/sapphire/ability_03/sounds/loop.wav"
+			/>
+			
+			<sound
+			    delay="8250"
+				linearfalloff="true" 
+				falloffstart="0"
+				falloffend="1300"
+				volume=".5" 
+				sample="/heroes/sapphire/ability_03/sounds/pre_exp.wav"
+			/>
+			<model
+				bone="_bone_centerofchest"
+				life="150"
+				position="15 -5 0"
+				model="/heroes/riftmage/ability_04/effects/sphere/model.mdf"
+				material="../../ability_02/effects/sphere/material2.material"
+				anim="idle"
+				startscale="0"
+				endscale=".6"
+				startalpha=".5"
+				endalpha="0"
+				color="0 0 1"
+			>
+			</model>
+			<billboard
+				bone="_bone_centerofchest"
+				life="150"
+				material="/shared/effects/materials/corona_01.material"
+				startsize="40"
+				endsize="140"
+				startcolor="0 .6 1"
+				endcolor="0"
+				startalpha="1"
+				midalpha="1"
+				endalpha="0"
+				midalphapos=".65"
+				position="15 -5 0"
+			/>
+			
+			
+			
+			<billboard
+				delay="140"
+				bone="_bone_centerofchest"
+				expirelife="150"
+				material="/shared/effects/materials/corona_01.material"
+				size="136"
+				startcolor="0 .6 1"
+				endcolor="0"
+				startalpha="1"
+				midalpha="1"
+				endalpha="0"
+				midalphapos=".65"
+				position="15 -5 0"
+			/>
+			<model
+				delay="140"
+				bone="_bone_centerofchest"
+				expirelife="150"
+				position="15 -5 0"
+				model="/heroes/riftmage/ability_04/effects/sphere/model.mdf"
+				material="../../ability_02/effects/sphere/material2.material"
+				anim="idle"
+				startscale=".6"
+				endscale="0"
+				startalpha=".7"
+				endalpha="0"
+				color="0 0 1"
+			>
+			</model>
+      </particlesystem>
+   </definitions>
+   <thread>
+      <spawnparticlesystem instance="instance0" particlesystem="system0" />
+      <waitfordeath instance="instance0" />
+      <!-- <die /> -->
+   </thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->
+

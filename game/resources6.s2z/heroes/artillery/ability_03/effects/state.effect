@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="1" useentityeffectscale="1">
+	<definitions>
+
+		<particlesystem name="system0" space="entity" scale="0.35">
+
+			<sound
+			    norestart="true"
+				channel="7566"
+			    soundloop="true"
+				fadein="500"
+				fadeout="1000"
+				linearfalloff="true" 
+				falloffstart="1300"
+				falloffend="1300"
+				volume=".5"
+				sample="/heroes/artillery/ability_03/sounds/loop_self.wav"
+			/>
+
+			<sound
+				linearfalloff="true" 
+				falloffstart="100"
+				falloffend="2500"
+				volume="1"
+				sample="/heroes/artillery/ability_03/sounds/primed.wav"
+			/>
+
+			<template name="lights">
+				<simpleemitter
+					bone="{bone}"
+					spawnrate="10"
+					particlelife="850"
+					offsetsphere="0 0 0"
+					minspeed="250"
+					maxspeed="500"
+					position="0 0 0"
+					minangle="0"
+					maxangle="1"
+					direction="0 -1 0"
+				>
+					<particle
+					turn="true"
+					>
+						<billboard
+							minlife="250"
+							maxlife="350"
+							position="{zpos}"
+							material="/shared/effects/materials/light_rays.material"
+							directionalspace="local"
+							yaw="180"
+							roll="180"
+							lockup="true"
+							lockright="true"
+							pitch="90"
+							startcolor=".3 .25 .15"
+							endcolor="0 0 0"
+							minheight="275"
+							maxheight="350"
+						>
+						</billboard>
+					</particle>
+				</simpleemitter>
+				
+				
+				<billboard
+					bone="{bone}"
+					expirelife="250"
+					position="{zpos}"
+					material="/shared/effects/materials/whitedot.material"
+					directionalspace="local"
+					yaw="180"
+					roll="180"
+					lockup="true"
+					lockright="true"
+					pitch="90"
+					startcolor=".2 .15 .05"
+					endcolor="0 0 0"
+					scale="5"
+				>
+				</billboard>
+			
+			</template>
+
+
+			<instance name="lights" bone="_bone_fx_04" zpos="0 0 0"/>
+			<instance name="lights" bone="_bone_fx_06" zpos="0 0 7"/>
+			
+			<instance name="lights" bone="_bone_fx_07" zpos="0 0 0"/>
+			<instance name="lights" bone="_bone_fx_08" zpos="0 0 0"/>
+			
+			<instance name="lights" bone="_bone_fx_03" zpos="0 0 0"/>
+			<instance name="lights" bone="_bone_fx_02" zpos="0 0 7"/>
+
+			
+			<template name="lights">
+				<simpleemitter
+					bone="{bone}"
+					spawnrate="10"
+					particlelife="850"
+					offsetsphere="0 0 0"
+					minspeed="250"
+					maxspeed="500"
+					position="0 0 0"
+					minangle="0"
+					maxangle="1"
+					direction="0 -1 0"
+				>
+					<particle
+					turn="true"
+					>
+						<billboard
+							minlife="250"
+							maxlife="350"
+							position="{zpos}"
+							material="/shared/effects/materials/light_rays.material"
+							directionalspace="local"
+							yaw="180"
+							roll="180"
+							lockup="true"
+							lockright="true"
+							pitch="90"
+							startcolor=".15 .125 .075"
+							endcolor="0 0 0"
+							minheight="275"
+							maxheight="350"
+						>
+						</billboard>
+					</particle>
+				</simpleemitter>
+				
+				
+				<billboard
+					bone="{bone}"
+					expirelife="250"
+					position="{zpos}"
+					material="/shared/effects/materials/whitedot.material"
+					directionalspace="local"
+					yaw="180"
+					roll="180"
+					lockup="true"
+					lockright="true"
+					pitch="90"
+					startcolor=".1 .075 0"
+					endcolor="0 0 0"
+					scale="5"
+				>
+				</billboard>
+			
+			</template>
+			
+			<instance name="lights" bone="_bone_lefteye" zpos="0 0 0"/>
+			<instance name="lights" bone="_bone_righteye" zpos="0 0 0"/>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<simpleemitter
+				bone="_bone_centerofchest"
+				spawnrate="222"
+				particlelife="610"
+				gravity="0"
+				speed="0"
+				position="0 0 0"
+				acceleration="11"
+				material="/shared/effects/materials/whitedot.material"
+				offsetsphere="355 355 355"
+				drag="0.01"
+				direction="1 0 0"
+				
+			>
+				<particle 
+					startstickiness="0"
+					endstickiness="1"
+					startcolor="1 1 0"
+					midcolor=".85 .85 .65"
+					endcolor="0 0 0"
+					startsize="12"
+					endsize="0"	
+					turn="1"
+					heightdistort="0.02"				
+				
+				/>
+			</simpleemitter>
+			
+		</particlesystem>
+
+				
+		
+	</definitions>
+
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+		<!-- <die /> -->
+	</thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][pos] -->
+
+

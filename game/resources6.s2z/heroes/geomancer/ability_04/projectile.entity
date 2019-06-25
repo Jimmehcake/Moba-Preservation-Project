@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectile
+	name="Projectile_Geomancer_Ability4"
+
+	speed="2000"
+	gravity="0"
+	
+	flying="true"
+	flyheight="50"
+
+	modelscale="1.0"
+	model="/shared/models/invis.mdf"
+	traileffect="effects/trail.effect"
+>
+	<onimpact>
+		<applystate name="State_Geomancer_Ability4" target="target_entity" duration="2500" />
+	</onimpact>
+	
+	
+	<altavatar key="Hero_Geomancer.Alt4"
+		traileffect="../alt4/ability_04/effects/trail.effect"
+	/>
+	
+	<altavatar key="Hero_Geomancer.Alt5"
+		traileffect="../alt5/ability_04/effects/trail.effect"
+	/>
+	
+	<altavatar key="Hero_Geomancer.Alt6"
+		traileffect="../alt6/ability_04/effects/trail.effect"
+	/>
+</projectile>

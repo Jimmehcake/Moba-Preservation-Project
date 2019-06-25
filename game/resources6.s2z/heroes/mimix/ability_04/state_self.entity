@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Self_Mimix_Ability4"
+	
+	icon="icon.tga"
+
+	modifierkey="Mimix_Ability4_Self"
+	
+	ishidden="true"
+	
+	effecttype=""
+	allowtransfer="false"
+
+>
+
+	<ondamaged>
+		<areaofeffect
+			targetscheme="my_illusions"
+			ignore="source_entity"
+			center="source_entity"
+			effecttype=""
+			targetselection="all"
+			radius="900"
+			maxtotalimpacts=""
+			maximpactspertarget="1"
+		>
+		</areaofeffect>
+		<compare a="result" b="1" op="ge">
+			<scaledamage scale="0.5" />
+			<damageeffecttype effecttype="DOT" />
+			<else>
+				<targettype type="hero">
+					<playeffect effect="effects/impact_deflection.effect" source="source_entity" />
+				</targettype>
+				<else>
+					<playeffect effect="effects/impact_deflection_creep.effect" source="source_entity" />
+				</else>
+			</else>
+			
+			<areaofeffect
+				targetscheme="my_illusions"
+				ignore="source_entity"
+				center="source_entity"
+				effecttype=""
+				targetselection="random"
+				radius="900"
+				maxtotalimpacts="1"
+				maximpactspertarget="1"
+			>
+				<damage amount="0.5" b="damage_attempted" op="mult" target="target_entity" source="source_entity" />
+				<playeffect effect="effects/reflect.effect" source="target_entity" />
+			</areaofeffect>
+		</compare>
+	</ondamaged>
+
+	<onframe />
+
+</state>

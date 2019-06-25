@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="Sandy Death">
+	<definitions>
+	
+		<modifier
+			life="20000"
+			name="modifier0"
+			material="death.material"
+			color="1 1 1"
+			startalpha="1"			
+			midalpha="0"
+			endalpha="0"
+			midalphapos="0.05"
+		/>		
+		
+	
+		<particlesystem name="system0" space="world" >
+
+      </particlesystem>
+   </definitions>
+<thread>
+	<spawnparticlesystem instance="instance0" particlesystem="system0" />
+	<spawnmodifier instance="instance1" modifier="modifier0"/>  
+	
+	<waitfordeath instance="instance0" />
+	<wait duration="20000"/>
+	<!-- <die /> -->
+</thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->

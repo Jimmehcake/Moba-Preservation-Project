@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="" deferred="true" useentityeffectscale="1">
+	<definitions>
+		<particlesystem name="system0" space="world" scale="0.8">
+			<template name="star_overhead">
+				<controller 
+					bone="_bone_overhead"
+					offset="{offset}"
+					scale="1"
+				>
+					<billboard					
+						size="42"
+						position="0 0 100"
+						bone="_bone_overhead"
+						material="/shared/effects/materials/coinbug.material"
+						color="1"
+						framespeed="8"
+					>
+					</billboard>
+				</controller>
+			</template>
+			
+			<instance name="star_overhead" offset="-40 0 0" />
+			<instance name="star_overhead" offset="0 0 0" />
+			<instance name="star_overhead" offset="40 0 0" />
+		</particlesystem>
+   </definitions>
+   <thread>
+      <spawnparticlesystem instance="instance0" particlesystem="system0" />
+      <waitfordeath instance="instance0" />
+      <!-- <die /> -->
+   </thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->
+

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectile
+	name="Projectile_Chi_Ability1"
+
+	speed="2750"
+	gravity="0"
+	flying="true"
+	flyheight="100"
+
+	modelscale="1"
+	model="/shared/models/invis.mdf"
+	traileffect="effects/trail.effect"
+	effectscale="1"
+	impacteffect="effects/impact.effect"
+>
+	<onimpact>
+		<combatevent effecttype="AbilityBasedProjectile">
+			<onimpact>
+				<applystate name="State_Chi_Ability1" duration="2100,2900,3700,4500" />
+				
+				<!-- Base Damage -->
+				<setvar0 a="60,85,110,135" />
+				
+				<!-- Bonus damage from Enlightenment (E) -->
+				<pushability name="Ability_Chi3" />
+				<compare source="stack_entity" a="source_level" b="0" op="gt">
+					<cantarget targetscheme="enemy_heroes">
+						<setvar1 a="source_accumulator" source="stack_entity" b="target_attackdamage" op="mult" />
+						<setvar1 a="var1" b="0" op="max" />
+						<popup name="bonus_damage" a="var1" source="target_entity" target="target_entity" />
+						<setvar0 a="var0" b="var1" op="add" />
+						<damage effecttype="SuperiorMagic" amount="1" b="var0" op="mult" />
+					</cantarget>
+					<else>
+						<damage effecttype="SuperiorMagic" amount="1" b="var0" op="mult" />
+					</else>						
+				</compare>
+				<else>
+					<damage effecttype="SuperiorMagic" amount="1" b="var0" op="mult" />
+				</else>
+			</onimpact>
+		</combatevent>
+	</onimpact>
+	
+	<altavatar key="Hero_Chi.Alt"
+		traileffect="../alt/ability_01/effects/trail.effect"
+	/>
+	
+	<altavatar key="Hero_Chi.Alt2"
+		traileffect="../alt2/ability_01/effects/trail.effect"
+	/>
+</projectile>

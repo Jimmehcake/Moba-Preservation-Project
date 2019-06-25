@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect>
+
+	<definitions>
+
+		<particlesystem name="system0" space="world">
+
+			<sound
+			    waitingfor="cal_inter"
+				norestart="true"
+				channel="1221123"
+			    delay="500"
+			    dampen="0.8"
+			    life="5000"
+			    forcestereo="true"
+			    voiceresponseoff="true"
+				linearfalloff="true" 
+				falloffstart="0"
+				falloffend="700"
+				volume="1"
+				sample="../a_kills_c.wav"
+			/>
+
+		</particlesystem>
+
+	</definitions>
+
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+
+</effect>

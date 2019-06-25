@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true" useentityeffectscale="true">
+
+	<definitions>
+		
+
+
+		<particlesystem name="system0" space="world" scale="2.0">
+			
+			
+			
+			<terrainemitter
+				spawnrate="50"
+				offsetsphere="60 60 0"
+				minparticlelife="500"
+				maxparticlelife="800"
+				angle="0"
+				direction="0 0 1"
+				speed="300"
+				drag=".1"
+				material="/shared/effects/materials/pyroclast_05.material"
+			>
+				<particle
+					maxangle="360"
+					minanglespeed="-100"
+					maxanglespeed="100"
+					size="70"
+					color=".6 .45 .35"
+					startalpha=".5"
+					midalpha="1"
+					endalpha="0"
+				/>
+				
+				<particle
+					maxangle="360"
+					minanglespeed="-100"
+					maxanglespeed="100"
+					size="70"
+					color=".3 .225 .175"
+					startalpha=".5"
+					midalpha="1"
+					endalpha="0"
+				/>
+			</terrainemitter>
+			
+			<terrainemitter
+				spawnrate="80"
+				offsetsphere="80 80 0"
+				minparticlelife="500"
+				maxparticlelife="800"
+				angle="45"
+				direction="0 0 1"
+				speed="300"
+				drag=".05"
+				gravity="30"
+				minparticlescale=".5"
+				maxparticlescale="1"
+				material="/shared/effects/materials/dust_puff.material"
+			>
+				<particle
+					maxangle="360"
+					minanglespeed="-100"
+					maxanglespeed="100"
+					size="20"
+					color=".8 .45 .35"
+					startalpha=".5"
+					midalpha="1"
+					endalpha="1"
+				/>
+				
+				<particle
+					maxangle="360"
+					minanglespeed="-100"
+					maxanglespeed="100"
+					size="20"
+					color=".8 .7 .6"
+					startalpha=".5"
+					midalpha="1"
+					endalpha="1"
+				/>
+				
+				<particle
+					maxangle="360"
+					minanglespeed="-100"
+					maxanglespeed="100"
+					size="20"
+					color=".4 .3 .2"
+					startalpha=".5"
+					midalpha="1"
+					endalpha="1"
+				/>
+			</terrainemitter>
+			
+			
+			<simpleemitter
+				spawnrate="5"
+				particlelife="700"
+				position="0 0 20"
+				material="/shared/effects/materials/pyroclast_ring.material"
+			>
+				<particle
+					startcolor="1 .3 1"
+					endcolor=".3 .2 .1"
+					startalpha=".5"
+					midalpha=".5"
+					endalpha="0"
+					startsize="0"
+					endsize="300"
+					lockup="1"
+					lockright="1"
+					pitch="90"
+					maxangle="360"
+					anchor="1"
+				/>
+			</simpleemitter>
+			
+			<groundsprite
+				bone="_bone_origin"
+				size="55"
+				startcolor=".15 0 .15"
+				endcolor="0"
+				expirelife="500"
+				material="/shared/effects/materials/smash_add.material"
+			/>
+			
+			<groundsprite
+				bone="_bone_origin"
+				size="90"
+				startcolor=".05 0 .05"
+				endcolor="0"
+				expirelife="500"
+				material="/shared/effects/materials/corona_06_ground.material"
+			/>
+			
+
+			
+			<groundsprite
+				bone="_bone_origin"
+				size="40"
+				startcolor=".25 0 .5"
+				endcolor="0"
+				expirelife="500"
+				material="/shared/effects/materials/whitedot_ground.material"
+			/>
+
+
+		</particlesystem>
+
+	</definitions>
+
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+
+</effect>

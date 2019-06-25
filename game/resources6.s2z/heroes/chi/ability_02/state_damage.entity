@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Chi_Ability2_Damage"
+
+	icon="icon.tga"
+	passiveeffect="effects/state.effect"
+	
+	impactinterval="1000"
+	
+	effecttype=""
+	allowtransfer="false"
+>	
+	<onframe>
+		<damage effecttype="Magic DOT" amount="30,50,70,90" b="frametime" op="mult" source="source_owner_entity" />
+		
+		<!-- Audio for impact -->
+		<areaofeffect
+			radius="250"
+			targetscheme="visible_enemy_units"
+			targetselection="closest"
+			ignoreinvulnerable="true"
+			maxtotalimpacts="1"
+		>
+		   <applystate name="State_Chi_Sound" continuous="true" target="source_entity" stack="false" timeout="frametime" />	
+		</areaofeffect>
+	</onframe>
+	
+	<onimpact>
+		<cantarget source="source_owner_entity" target="this_owner_entity" targetscheme="enemy_heroes">
+			<pushability source="source_owner_entity" name="Ability_Chi3" />
+			<compare a="source_level" source="stack_entity" b="0" op="gt">
+				<setvar1 source="stack_entity" target="this_owner_entity" a="source_accumulator" b="target_attackdamage" op="mult" />
+				<setvar1 a="var1" b="0" op="max" />
+				<setvar1 a="var1" b="0.7" op="mult" />
+				<popup name="bonus_damage" a="var1" source="this_owner_entity" target="this_owner_entity" />
+				<damage source="source_owner_entity" target="this_owner_entity" effecttype="SuperiorMagic" amount="0" b="var1" op="add" />
+			</compare>
+		</cantarget>
+	</onimpact>
+	
+	<altavatar key="Hero_Chi.Alt"
+		passiveeffect="../alt/ability_02/effects/state.effect"
+	/>
+	
+	<altavatar key="Hero_Chi.Alt2"
+		passiveeffect="../alt2/ability_02/effects/state.effect"
+	/>
+</state>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="1" useentityeffectscale="1">
+	<definitions>
+
+		<particlesystem name="system0" space="entity" scale="1">
+			
+			<model
+				model="pet.mdf"
+				material="/shared/effects/materials/shell_flat_outline.material"
+				parentskeleton="ture"
+				scale="1"
+				alpha=".4"
+				color=".4 .7 1"
+			/>
+			
+			<model
+				model="pet.mdf"
+				material="/shared/effects/materials/shell2_outline.material"
+				parentskeleton="ture"
+				scale="1"
+				alpha=".45"
+				color="1 3 15"
+			/>
+			
+			<template name="glow">
+				<controller bone="{bone}">
+					<billboard
+						material="/shared/effects/materials/whitedot.material"
+						scale=".55"
+						position="{position}"
+						color="0 .12 .25"
+						depthbias="-10"
+					/>
+					<billboard
+						material="/shared/effects/materials/whitedot.material"
+						scale=".4"
+						position="{position}"
+						color=".1"
+						depthbias="-10"
+					/>
+				</controller>
+			</template>
+			<instance name="glow" bone="Bip02 Head" position="0 0 0"/>
+			<instance name="glow" bone="Bip02 Neck" position="0 0 0"/>
+			<instance name="glow" bone="Bip02 Spine" position="0 0 0"/>
+			<instance name="glow" bone="Bip02 Spine1" position="0 0 0"/>
+			<instance name="glow" bone="Bone025" position="0 0 0"/>
+			
+			<template name="bone">
+			<trailemitter
+				bone="{bone}"
+				spawnrate="50"
+				particlelife="{life}"
+				texpostime="500"
+				texposscale="0.0"
+				texstretchscale=".4"
+				material="/shared/effects/materials/arrow_trail.material"
+				subframepos="true"
+				position="0 0 0"
+			>
+				<particle
+					startcolor=".2 .7 1"
+					midcolor=".1 .5 .8"
+					endcolor="0 0 0"
+					startsize="12"		
+					endsize="0"				
+			/>
+			</trailemitter>
+			</template>
+			<instance name="bone" bone="Bip02 Head" life="500"/>
+			<instance name="bone" bone="Bone011" life="500"/>
+			<instance name="bone" bone="Bone025" life="300"/>
+			
+			<template name="fire">
+				<simpleemitter
+					bone="{bone}"
+					spawnrate="50" minparticlelife="200" maxparticlelife="300" 
+					material="/shared/effects/materials/flame_white.material"
+					offsetsphere="2"
+					depthbias="-10"
+					position="0 0 0"
+				>
+					<particle					
+						minagle="-360" maxangle="360"
+						minanglespeed="-200"
+						maxanglespeed="200"
+						startcolor="0" midcolor="0 .2 .4" endcolor="0"
+						minsize="5" maxsize="7" startscale="5" endscale="1"
+					/>
+				</simpleemitter>
+			</template>	
+			<instance name="fire" bone="Bone011"/>
+			<instance name="fire" bone="Bip02 Head"/>				
+
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+		<!-- <die /> -->
+	</thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->
+

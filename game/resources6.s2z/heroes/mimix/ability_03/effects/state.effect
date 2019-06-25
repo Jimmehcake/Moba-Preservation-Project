@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="1" useentityeffectscale="1">
+
+	<definitions>
+		<particlesystem name="system0" space="world" scale="3">
+		
+			<template name="state">
+				<simpleemitter
+					timenudge="2000"
+					bone="{bone}"
+					spawnrate="10"
+					minparticlelife="1500"
+					maxparticlelife="2000"
+					speed="7"
+					direction="0 0 1"
+					offsetsphere="2"
+					material="/shared/effects/materials/phantom_white.material"
+				>
+					<particle
+						maxangle="360"
+						startcolor=".7 .4 1"
+						endcolor=".7 .0 1"
+						startalpha=".7"
+						midalpha=".6"
+						endalpha="0"
+						startscale="0"
+						midscale="6"
+						endscale="13"
+						anchor="1"
+						startframe="0"
+						endframe="1"
+					>
+					</particle>
+				</simpleemitter>
+				
+				<simpleemitter
+					timenudge="2000"
+					bone="{bone}"
+					spawnrate="20"
+					minparticlelife="1000"
+					maxparticlelife="1500"
+					speed="10"
+					direction="0 0 1"
+					offsetsphere="2"
+					material="/shared/effects/materials/bad_heal_smoke_06.material"
+				>
+					<particle
+						maxangle="360"
+						startcolor=".7 .4 1"
+						endcolor=".0 .12 .2"
+						startalpha=".5"
+						midalpha=".3"
+						endalpha="0"
+						startscale="0"
+						midscale="16"
+						endscale="4"
+						anchor="1"
+					>
+					</particle>
+				</simpleemitter>
+				
+				<simpleemitter
+					timenudge="2000"
+					bone="{bone}"
+					spawnrate="10"
+					minparticlelife="270"
+					maxparticlelife="400"
+					speed="30"
+					direction="0 0 1"
+					offsetsphere="0"
+					depthbias="-10"
+					material="/shared/effects/materials/light_glow.material"
+				>
+					<particle
+						maxangle="360"
+						startcolor="1"
+						endcolor="0"
+						startscale="0"
+						endscale="23"
+						anchor="1"
+					>
+					</particle>
+				</simpleemitter>
+				
+				<simpleemitter
+					timenudge="2000"
+					bone="{bone}"
+					spawnrate="20"
+					minparticlelife="170"
+					maxparticlelife="250"
+					speed="0"
+					direction="0 0 1"
+					offsetsphere="8"
+					depthbias="-10"
+					material="/shared/effects/materials/crack_8.material"
+				>
+					<particle
+						maxangle="360"
+						startcolor="2"
+						endcolor="0"
+						startscale="0"
+						endscale="8"
+						anchor="1"
+					>
+						<billboard
+							material="/shared/effects/materials/whitedot.material"
+							startscale=".02"
+							endscale=".08"
+							startcolor=".4 .18 .8"
+							endcolor="0 0 0"
+							minlife="200"
+							maxlife="250"
+						/>
+					</particle>
+				</simpleemitter>
+			</template>
+			
+			<instance name="state" bone="Bone006" />
+			<instance name="state" bone="Bone016" />
+		
+
+		</particlesystem>
+
+	</definitions>
+
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+
+</effect>

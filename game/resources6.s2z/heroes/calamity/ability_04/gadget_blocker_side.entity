@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gadget
+	name="Gadget_Calamity_Ability4_Blocker_Side"
+	
+	icon=""
+	portrait=""
+	modelscale="1"
+	model="/shared/models/invis.mdf"
+	skin=""
+	
+	passiveeffect="effects/blocker_side.effect"
+	spawneffect=""
+	respawneffect=""
+	isselectable="false"
+	iscontrollable="false"
+	invulnerable="true"
+	selectsound=""
+	orderconfirmedsound=""
+
+	drawonmap="false"
+	
+	preglobalscale="0.9"
+	effectscale="1.0"
+	boundsheight="38"
+	boundsradius="42"
+	selectionradius="0"
+	targetoffset="0 0 0"
+
+	canrotate="false"
+	ismobile="false"
+	isflying="false"
+	clearvision="true"
+	
+	sightrangeday="200"
+	sightrangenight="200"
+
+	attacktype="none"
+	
+	lifetime="3000"
+	corpsetime="0"
+	deathtime="0"
+	corpsefadetime="0"
+	
+	blocking="true"
+	noallyblock="true"
+	noblockneutralspawn="true"
+>
+	<onexpired>
+		<delete entity="this_entity" />
+	</onexpired>
+
+	<altavatar key="Hero_Calamity.Alt3"
+		passiveeffect="../alt3/ability_04/effects/blocker_side.effect"
+	/>
+	
+	<altavatar key="Hero_Calamity.Alt6"
+		passiveeffect="../alt6/ability_04/effects/blocker_side.effect"
+	/>
+	
+	<altavatar key="Hero_Calamity.Alt8"
+		passiveeffect="../alt8/ability_04/effects/blocker_side.effect"
+	/>
+	
+	<altavatar key="Hero_Calamity.Alt9"
+		passiveeffect="../alt9/ability_04/effects/blocker_side.effect"
+	/>
+
+</gadget>

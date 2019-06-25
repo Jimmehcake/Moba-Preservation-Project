@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+
+	<definitions>
+
+		<particlesystem name="system0" space="world" scale="1.0">
+					
+			<sound
+			    randomloop="true"
+			    soundloop="true"
+				fadein="1000"
+				fadeout="500"
+				linearfalloff="true" 
+				falloffstart="0"
+				falloffend="800"
+				volume=".3"
+				sample="../sounds/body_loop.wav"
+			/>
+	
+		</particlesystem>
+
+
+
+	</definitions>
+
+	<thread>
+		<spawnparticlesystem instance="instance1" particlesystem="system0" />
+		<spawnmodifier instance="instance0" modifier="modifier0"/>  
+		<waitfordeath  instance="instance0"/>
+		<waitfordeath  instance="instance1"/>
+	</thread>
+
+</effect>

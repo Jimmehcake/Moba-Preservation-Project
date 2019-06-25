@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="nukeEffect" useentityeffectscale="true" >
+	<definitions>
+		<particlesystem name="system0" space="world" scale=".8">
+			<sound
+		        fadein="10"
+			    forcestereo="true"
+				linearfalloff="true" 
+				falloffstart="800"
+				falloffend="1300"
+				volume="1" 
+				sample="/heroes/chi/ability_01/sounds/trail.wav"
+			/>
+			<model
+				life="500"
+				model="model.mdf"
+				scale="5.5"
+				rollspeed="-5000"
+				material="/heroes/chi/alt2/material.material"
+				pitch="90"
+			>
+				<trailemitter
+					position="0 0 0"
+					expirelife="0"
+					spawnrate="200"
+					particlelife="150"
+					depthbias="50"
+					texposscale="0"
+					texstretchscale=".9"
+					subframepose="1"
+					material="/shared/effects/materials/wave_trail.material"
+					tile="25"
+				>
+					<particle
+						startcolor="1 0 0"
+						endcolor="0"
+						startalpha="0"
+						midalpha="1"
+						endalpha="1"
+						midalphapos=".1"
+						startsize="10"
+						endsize="5"
+					/>
+				</trailemitter>
+				<trailemitter
+					position="0 0 0"
+					expirelife="0"
+					spawnrate="200"
+					particlelife="150"
+					depthbias="50"
+					texposscale="0"
+					texstretchscale=".9"
+					subframepose="1"
+					material="/shared/effects/materials/trail_02.material"
+					tile="25"
+				>
+					<particle
+						startcolor="1 1 .5"
+						endcolor="0"
+						startalpha="0"
+						midalpha="1"
+						endalpha="1"
+						midalphapos=".1"
+						startsize="10"
+						endsize="3"
+					/>
+				</trailemitter>
+				<trailemitter
+					position="4 4 4"
+					expirelife="0"
+					spawnrate="250"
+					particlelife="110"
+					texpostime="100"
+					texposscale="0"
+					texstretchscale="7"
+					subframepose="1"
+					material="/shared/effects/materials/chainlinkconnect_bead.material"
+					tile="6"
+				>
+					<particle
+						color="1 1 .5"
+						startalpha="1"
+						midalpha="1"
+						endalpha="0"
+						midalphapos=".8"
+						size="2"
+					/>
+				</trailemitter>
+				<trailemitter
+					position="-4 -4 -2"
+					expirelife="0"
+					spawnrate="250"
+					particlelife="80"
+					texpostime="100"
+					texposscale="0"
+					texstretchscale="5"
+					subframepose="1"
+					material="/shared/effects/materials/chainlinkconnect_bead.material"
+					tile="4"
+				>
+					<particle
+						color="1 1 .5"
+						startalpha="1"
+						midalpha="1"
+						endalpha="0"
+						midalphapos=".8"
+						size="2"
+					/>
+				</trailemitter>
+			</model>
+			<simpleemitter
+				spawnrate="60"
+				depthbias="-100"
+				minparticlelife="180"
+				maxparticlelife="250"
+				drag=".095"
+				direction="0 1 0"
+				startoffsetsphere="30"
+				endoffsetsphere="0 0 0"
+				minangle="90"
+				maxangle="90"
+				material="/shared/effects/materials/frost_flash_10.material"	
+				minspeed="00"
+				maxspeed="500"	
+			>
+				<particle
+					color="1"
+					startalpha="0"
+					midalpha="1"
+					endalpha="0"
+					startsize="5"
+					midsize="0"
+					endsize="0"
+					midsizepos="0.6"
+					anchor="0"
+				>
+					<billboard
+						minlife="100"
+						maxlife="250"
+						maxangle="360"
+						startsize="40" endsize="0"
+						minscale=".7" maxscale="1.4"
+						color="1 .8 .5"
+						startalpha=".5" midalpha="0" endalpha="0"
+						material="/shared/effects/materials/star_03.material"
+					/>
+				</particle>	
+			</simpleemitter>
+			<simpleemitter
+				spawnrate="60"
+				minparticlelife="180"
+				maxparticlelife="250"
+				drag=".05"
+				offsetsphere="30"
+				minangle="90"
+				maxangle="90"
+				material="/shared/effects/materials/blood_pool_white.material"	
+				minspeed="100"
+				maxspeed="500"	
+			>
+				<particle
+					color="1 1 .5"
+					startalpha="0"
+					midalpha="1"
+					endalpha="0"
+					startsize="40"
+					midsize="8"
+					endsize="0"
+					midsizepos="0.6"
+					anchor="0"
+				/>
+				<particle
+					color="1 .6 .2"
+					startalpha="0"
+					midalpha="1"
+					endalpha="0"
+					startsize="40"
+					midsize="8"
+					endsize="0"
+					midsizepos="0.6"
+					anchor="0"
+				/>
+			</simpleemitter>
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+</effect>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="false">
+	<definitions>
+		<particlesystem name="system0" space="world" scale=".9">
+			
+			<trackeremitter
+				life="400"
+				position="0 10 0"
+				offsetradial="220 20 100"
+				targetbone="_bone_head"
+				tracktype="angular"
+				trackspeed="60"
+				spawnrate="150"
+				direction="0 0 -1"
+				minangle="0" maxangle="60"
+				minparticlelife="1200" maxparticlelife="2200"
+				distancelife="true"
+				minspeed="400" maxspeed="800"
+				drag=".01" gravity="-20"
+				material="/shared/effects/materials/smoke_01.material"
+				particlecolor="1"
+			>
+				<template name="sand_particle">
+					<particle
+						maxangle="360"
+						startalpha="0" midalpha=".5" endalpha="0" midalphapos=".2"
+						startcolor=".1" endcolor="{color}" minsize="20" maxsize="100"
+						size="200" startscale=".5" midscale="1" endscale="1.5"
+						heightdistort=".1"
+					/>
+				</template>
+				<instance name="sand_particle" color="1" />
+				<instance name="sand_particle" color=".9 1 .9" />
+				<instance name="sand_particle" color=".8 .8 .9" />
+			</trackeremitter>
+			
+			
+			
+			<trackeremitter
+				timenudge="500"
+				position="0 10 0"
+				offsetradial="60 0 0"
+				targetbone="_bone_head"
+				tracktype="angular"
+				trackspeed="4"
+				spawnrate="150"
+				direction="0 0 1"
+				minangle="0"
+				maxangle="60"
+				minparticlelife="400"
+				maxparticlelife="500"
+				distancelife="true"
+				minspeed="250"
+				maxspeed="300"
+				drag="0.01"
+				gravity="-10"
+				inheritvelocity="1"
+				limitinheritvelocity="500"
+				material="/shared/effects/materials/smoke_01.material"
+				particlecolor="1"
+			>
+				<template name="sand_particle">
+					<particle
+						maxangle="360"
+						startalpha="0"
+						midalpha=".35"
+						endalpha="0"
+						midalphapos=".2"
+						startcolor=".1"
+						endcolor="{color}"
+						minsize="20"
+						maxsize="100"
+						startscale=".5"
+						midscale="1"
+						endscale="1.5"
+						heightdistort=".1"
+					/>
+				</template>
+				<instance name="sand_particle" color="1" />
+				<instance name="sand_particle" color=".9 1 .9" />
+				<instance name="sand_particle" color=".8 .8 .9" />
+			</trackeremitter>
+			
+			<simpleemitter
+				bone="_bone_center"
+				position="0 10 0"
+				spawnrate="10"
+				offsetsphere="70 70 0"
+				particlelife="1000"
+			>
+				<particle>
+					<terrainemitter
+						count="1"
+						minparticlelife="750"
+						maxparticlelife="1000"
+						material="/shared/effects/materials/sand_groun.material"
+					>
+						<particle
+							startalpha="0"
+							midalpha=".5"
+							endalpha="0"
+							midalphapos=".1"
+							color=".4"
+							lockup="true" lockright="true"
+							pitch="-90"
+							minsize="80"
+							maxsize="160"
+						/>
+					</terrainemitter>
+				</particle>
+			</simpleemitter>
+			
+
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+</effect>

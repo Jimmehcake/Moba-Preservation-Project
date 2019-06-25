@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect useentityeffectscale="1">
+	<definitions>
+		<particlesystem name="systemWorld" space="world" scale="2.5" >
+
+			<sound
+				linearfalloff="true" 
+				falloffstart="128"
+				falloffend="1300"
+				volume=".7"
+				sample="/heroes/goldenveil/ability_04/sounds/imp_kill.wav"
+			/>
+
+			<simpleemitter
+				bone="_bone_centerofchest"
+				count="30"
+				spawnrate="2000"
+				minparticlelife="200"
+				maxparticlelife="300"
+				drag=".01"
+				offsetphere="20"
+				gravity="-55"
+				minspeed="550"
+				maxspeed="850"								
+				direction="0 0 1"
+				position="0 0 0"
+				depthbias="-30"
+				material="/shared/effects/materials/whitedot.material"
+			>			
+				<particle
+					startcolor="1 .7 .1"
+					endcolor="0"
+					startsize="10"
+					endsize="0"
+					minscale="0.5"
+					maxscale="1"
+				/>
+			</simpleemitter>
+			<simpleemitter
+				bone="_bone_centerofchest"
+				life="500"
+				count="60"
+				spawnrate="999"
+				minparticlelife="1000" maxparticlelife="1500"
+				gravity="30"
+				minspeed="150" maxspeed="250"
+				drag=".02"
+				offsetsphere="10"
+			>
+				<particle
+				minscale="2"
+				maxscale="3"
+			>
+				<model
+					minyawspeed="-500"
+					maxyawspeed="500"
+					minrollspeed="-500"
+					maxrollspeed="500"
+					minpitchspeed="-500"
+					maxpitchspeed="500"
+					minyaw="0"
+					maxyaw="360"
+					minroll="0"
+					maxroll="360"
+					minpitch="0"
+					maxpitch="360"
+					scale=".25"
+					model="/heroes/drunkenmaster/alt9/ability_02/effects/coin/model.mdf"
+					material="/heroes/drunkenmaster/alt9/ability_02/effects/material.material"
+					startalpha="1.0"
+					midalpha="1.0"
+					endalpha="0"
+					midalphapos="0.7"
+					color=".9"
+				/>
+			</particle>
+			</simpleemitter>
+			<billboard
+				bone="_bone_centerofchest"
+				life="100"
+				startcolor="1 1 .2"
+				midcolor=".75 .25 0"
+				midcolorpos="0.4"
+				endcolor="0"
+				startsize="150"
+				depthbias="0"
+				material="/shared/effects/materials/whitedot.material"
+				position="0 0 0"
+			/>
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instanceWorld" particlesystem="systemWorld" />
+		<waitfordeath instance="instanceWorld" />
+	</thread>
+</effect>

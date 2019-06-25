@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+	<definitions>
+		<particlesystem name="system0" space="world" scale=".9">
+			
+			<model
+				parentmodel="true"
+				parentskeleton="true"
+				material="/shared/effects/materials/shell2_outline.material"
+				alpha=".5"
+				color=".45 .55 1"
+			/>
+			
+			<simpleemitter
+				spawnrate="20"
+				bone="_bone_fx_01"
+				offsetsphere="5"
+				minparticlelife="450"
+				maxparticlelife="620"
+
+				material="/shared/effects/materials/water.material"
+			>
+				<particle
+					startframe="0"
+					endframe=".9"
+					startsize="55"
+					endsize="80"
+					startalpha="1"
+					midalpha="1"
+					endalpha="0"
+					color=".1 .6 .8"
+					maxangle="360"
+					minscale=".6"
+					maxscale=".75"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				bone="_bone_fx_01"
+				spawnrate="30"
+				material="/shared/effects/materials/good_tower_01_reveal.material"
+				minparticlelife="600"
+				maxparticlelife="750"
+				minspeed="10"
+				maxspeed="30"
+				depthbias="20"
+				offsetsphere="10"
+			>
+				<particle
+					maxangle="360"
+					minstartscale="5"
+					maxstartscale="7"
+					minendscale="52"
+					maxendscale="60"
+					startalpha="1"
+					midalpha=".7"
+					endalpha="0"
+					color="1"
+					startframe="0"
+					endframe="1"
+				/>
+			</simpleemitter>
+			
+			
+			
+			<!-- <billboard	
+				life="2000"
+				loop="1"
+				bone="_bone_weapon1"
+				color=".8"
+				startcolor="0"
+				midcolor=".7 .85 1"
+				endcolor=".7 .85 1"
+				size="30"
+				material="/shared/effects/materials/dragon_02.material"
+				lockup="true"
+				lockright="true"
+				directionalspace="local"
+				yaw="0"
+				roll="-90"
+				rollspeed="0"
+				pitch="90"
+			/> -->
+			
+			<!-- <billboard	
+				life="2000"
+				loop="1"
+				bone="_bone_weapon1"
+				color=".8"
+				startcolor=".7 .85 1"
+				midcolor="0"
+				endcolor="0"
+				startsize="30"
+				endsize="100"
+				material="/shared/effects/materials/dragon_02.material"
+				lockup="true"
+				lockright="true"
+				directionalspace="local"
+				yaw="0"
+				roll="-90"
+				rollspeed="0"
+				pitch="90"
+			/> -->
+			
+			
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0"/>
+		<waitfordeath instance="instance0" />
+	</thread>
+</effect>

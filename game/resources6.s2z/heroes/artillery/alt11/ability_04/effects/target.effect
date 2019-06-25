@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+	<definitions>
+
+		<particlesystem name="system0" space="entity" scale=".85">
+				<!--
+				<groundsprite
+					size="315"
+					color="0 .5 0"
+					expirelife="0"
+					material="/shared/effects/materials/aura_01.material"
+				/>
+				-->
+				
+				<controller startscale=".7" midscale=".6" endscale=".7" life="1000" loop="1" >
+					<groundsprite
+						size="185"
+						color="0 1 .3"
+						expirelife="0"
+						yawspeed="50"
+						material="/shared/effects/materials/aura_01.material"
+					/>
+					
+<!-- 					<groundsprite
+						size="135"
+						color="0 1 .3"
+						expirelife="0"
+						yawspeed="400"
+						material="/shared/effects/materials/corona_half_ground.material"
+					/> -->
+					<groundsprite
+						size="195"
+						color="0 1 .3"
+						expirelife="0"
+						yawspeed="450"
+						material="/shared/effects/materials/corona_half_ground.material"
+					/>
+					<groundsprite
+						size="260"
+						color="0 1 .3"
+						expirelife="0"
+						yawspeed="-250"
+						material="/shared/effects/materials/corona_half_ground.material"
+					/>
+					
+					<groundsprite
+						size="285"
+						color="0 1 .3"
+						expirelife="0"
+						yawspeed="-50"
+						material="/shared/effects/materials/aura_01.material"
+					/>
+					
+					
+				<!-- 	<controller position="3 3 0" >
+						<groundsprite
+							size="325"
+							color="0 1 .3"
+							expirelife="0"
+							yawspeed="-50"
+							material="/shared/effects/materials/aura_01.material"
+						/>
+					</controller> -->
+				</controller>
+				
+		</particlesystem>
+		
+		
+		
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+		<!-- <die /> -->
+	</thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][pos] -->
+

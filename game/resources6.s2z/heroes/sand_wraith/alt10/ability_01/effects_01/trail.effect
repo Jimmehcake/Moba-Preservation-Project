@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="	" deferred="1">
+	<definitions>
+		<particlesystem name="system0" space="world" scale="0.75">
+			<sound
+				linearfalloff="true" 
+				falloffstart="0"
+				falloffend="2500"
+				volume=".6"
+				sample="../sounds/cast2.wav"
+			/>
+			<sound
+				soundloop="true"
+				fadein="300"
+				fadeout="500"
+				linearfalloff="true" 
+				falloffstart="0"
+				falloffend="2500"
+				volume=".55"
+				sample="../sounds/trail.wav"
+			/>
+			<simpleemitter
+				spawnrate="5"
+				minparticlelife="400"
+				maxparticlelife="650"
+				gravity="-10"
+				material="/shared/effects/materials/cloud_blend.material"
+				offsetsphere="25 25 0"
+				depthbias="-5"
+				minspeed="50"
+				maxspeed="100"
+				drag="0.5"
+			>
+				<particle
+					maxangle="360"
+					minanglespeed="250"
+					maxanglespeed="350"
+					startsize="15"
+					endsize="22"
+					color=".5 .6 .7"
+					startalpha="1"
+					endalpha="0"
+					minscale="5.5"
+					maxscale="8.3"
+					anchor="1"
+				/>
+			</simpleemitter>
+			<simpleemitter
+				spawnrate="10"
+				minparticlelife="600"
+				maxparticlelife="850"
+				gravity="0"
+				material="/shared/effects/materials/cloud_blend.material"
+				offsetsphere="20 20 5"
+				depthbias="-5"
+				minspeed="50"
+				maxspeed="100"
+				drag="0.5"
+			>
+				<particle
+					maxangle="360"
+					minanglespeed="-50"
+					maxanglespeed="50"
+					startsize="15"
+					endsize="22"
+					color=".5 .6 .7"
+					startalpha="1"
+					endalpha="0"
+					minscale="5.5"
+					maxscale="8.3"
+				/>
+			</simpleemitter>
+			<simpleemitter
+				spawnrate="10"
+				minparticlelife="550"
+				maxparticlelife="750"
+				gravity="0"
+				material="/shared/effects/materials/phantom_smoke_04.material"
+				offsetsphere="20 20 5"
+				depthbias="-5"
+				minspeed="50"
+				maxspeed="100"
+				drag="0.5"
+			>
+				<particle
+					maxangle="360"
+					minanglespeed="-50"
+					maxanglespeed="50"
+					startsize="15"
+					endsize="22"
+					startcolor=".5 .6 .7"
+					endcolor="0"
+					startalpha="1"
+					endalpha="0"
+					minscale="5.5"
+					maxscale="8.3"
+				/>
+			</simpleemitter>
+			<simpleemitter		
+				spawnrate="30"
+				minparticlelife="700"		
+				maxparticlelife="900"		
+				offsetsphere="50 50 5"
+				material="/shared/effects/materials/bubble_add.material"	
+				depthbias="-20"	
+				gravity="25"
+				position="0 0 0"
+			>
+				<particle	
+					color=".6 .8 .8"
+					startsize="2.5"
+					endsize="0"
+					startscale="2.5"
+					endscale="3"		
+					startheightdistort=".2"		
+					lockup="1"
+				/> 
+				<particle	
+					color=".6 .7 .8"
+					startsize="2.5"
+					endsize="0"
+					startscale="2.5"
+					endscale="3"		
+					startheightdistort=".2"		
+					lockup="1"
+				/> 
+			</simpleemitter> 
+			<simpleemitter
+				spawnrate="10"
+				minparticlelife="650"
+				maxparticlelife="950"
+				gravity="0"
+				material="/shared/effects/materials/smoke_particle.material"
+				offsetsphere="20 20 5"
+				depthbias="-5"
+				minspeed="50"
+				maxspeed="100"
+				drag="0.5"
+			>
+				<particle
+					minangle="0"
+					maxangle="360"
+					minanglespeed="-50"
+					maxanglespeed="50"
+					startsize="25"
+					endsize="45"
+					color=".6 .8 .9"
+					startalpha=".8"
+					endalpha="0"
+					minscale="5.5"
+					maxscale="8.3"
+				/>
+			</simpleemitter>
+			<controller scale=".8">
+			<billboard
+				material="/shared/effects/materials/whitedot_blend.material"
+				color="0 .08 .2"
+				lockup="ture"
+				pitch="90"
+				size="280"
+				rollspeed="1000"
+			/>
+			<billboard
+				material="/shared/effects/materials/whitedot_blend.material"
+				color="0 .1 .2"
+				size="220"
+				rollspeed="1000"
+			/>
+			<simpleemitter
+				spawnrate="6"
+				particlelife="500"
+				material="/shared/effects/materials/twirl_09.material"
+				offsetsphere="0"
+				directionalspace="local"
+			>
+				<particle
+					maxangle="360"
+					anglespeed="500"
+					startsize="200"
+					endsize="0"
+					startcolor="0"
+					midcolor=".5 .7 .7"
+					endcolor=".5 .7 .7"
+					anchor="1"
+				/>
+			</simpleemitter>
+			<simpleemitter
+				spawnrate="10"
+				particlelife="500"
+				material="/shared/effects/materials/twirl_12.material"
+				offsetsphere="0"
+				directionalspace="local"
+			>
+				<particle
+					minyaw="0"
+					maxyaw="360"
+					minroll="0"
+					maxroll="360"
+					minpitch="0"
+					maxpitch="360"
+					minyawspeed="220"
+					maxyawspeed="320"
+					minrollspeed="220"
+					maxrollspeed="320"
+					minpitchspeed="220"
+					maxpitchspeed="320"
+					anglespeed="500"
+					startsize="200"
+					endsize="50"
+					startcolor="0"
+					midcolor=".5 .7 .7"
+					endcolor=".5 .7 .7"
+					anchor="1"
+					lockright="ture"
+				/>
+			</simpleemitter>
+			<billboard
+				material="/shared/effects/materials/twirl_10.material"
+				color=".5 .6 .7"
+				size="160"
+				rollspeed="400"
+				roll="90"
+			/>
+			<billboard
+				material="/shared/effects/materials/twirl_11.material"
+				color=".7 .8 .9"
+				size="200"
+				rollspeed="150"
+				roll="90"
+			/>
+			<billboard
+				material="/shared/effects/materials/whitedot.material"
+				color=".01 .05 .05"
+				lockup="ture"
+				pitch="90"
+				size="200"
+				rollspeed="200"
+				roll="90"
+			/>
+			<simpleemitter
+				spawnrate="10"
+				minparticlelife="300"
+				maxparticlelife="400"
+				material="/shared/effects/materials/twirl_12.material"
+				offsetsphere="0"
+			>
+				<particle
+					maxangle="360"
+					minanglespeed="600"
+					maxanglespeed="800"
+					startsize="160"
+					endsize="80"
+					startcolor=".5 .7 .8"
+					endcolor="0"
+				/>
+			</simpleemitter>
+			</controller>
+			<simpleemitter
+				position="0"
+				spawnrate="8"
+			>
+				<particle>
+					<terrainemitter
+						spawnrate="2"
+						minparticlelife="800"
+						maxparticlelife="1000"
+						mincount="1"
+						maxcount="2"
+						offsetsphere="60 60 2"
+						material="/shared/effects/materials/blood_pool_white.material"
+					>
+						<particle
+							startsize="8"
+							midsize="15"
+							endsize="15"
+							maxangle="360"
+							startalpha=".3"
+							midalpha=".3"
+							endalpha="0"
+							minscale=".8"
+							maxscale="1.3"
+							lockup="true"
+							lockright="true"
+							pitch="90"
+							color=".4 .5 .6"
+							framespeed="1"	
+						/>
+						<particle
+							startsize="8"
+							midsize="15"
+							endsize="15"
+							maxangle="360"
+							startalpha=".3"
+							midalpha=".3"
+							endalpha="0"
+							minscale=".8"
+							maxscale="1.3"
+							lockup="true"
+							lockright="true"
+							pitch="90"
+							color=".3 .5 .6"
+							framespeed="1"	
+						/>
+					</terrainemitter>
+				</particle>
+			</simpleemitter>
+      </particlesystem>
+   </definitions>
+<thread>
+	<spawnparticlesystem instance="instance0" particlesystem="system0" />
+	<spawnmodifier instance="instance1" modifier="modifier0"/>  
+	<waitfordeath instance="instance0" />
+	<wait duration="20000"/>
+	<!-- <die /> -->
+</thread>
+</effect>
+<!-- [min|max][start|mid|end]property[speed][position] -->

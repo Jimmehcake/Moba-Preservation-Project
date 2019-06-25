@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gadget
+	name="Gadget_Goldenveil_Ability4"
+
+	icon="icon.tga"
+	portrait="icon.tga"
+	model="/heroes/engineer/ability_01/effects/projectile.mdf"
+	skin=""
+	
+	passiveeffect="../effects/smoke.effect"
+	spawneffect=""
+	respawneffect=""
+	selectsound=""
+	orderconfirmedsound=""
+	
+	preglobalscale="2.5"
+	modelscale="1.0"
+	effectscale="0.9"
+	boundsheight="64"
+	boundsradius="16"
+	isselectable="true"
+	iscontrollable="false"
+	selectionradius="40"
+	targetoffset="0 0 0"
+	
+	maxhealth="16"
+	maxmana="0"
+	armor="0"
+	healthregen="0"
+	
+	inventory3="Ability_Gadget_Goldenveil4"
+	
+	maxmovespeed="650"
+	movespeed="300"
+	turnrate="900"
+	turnsmoothing="0.05"
+
+	cancarryitems="false"
+	unitwalking="true"
+	
+	deathtime="0"
+	corpsetime="0"
+
+	deathnumanims="1"
+	deathanim="death_%"
+	
+	expirenumanims="1"
+	expireanim="death_%"	
+	immunity="GadgetImmunity"
+	
+	canattack="false"
+	ismobile="true"
+	canrotate="true"
+	
+	attackduration="0"
+	attackactiontime="0"
+	attackcooldown="0"
+	attackdamagemin="0"
+	attackdamagemax="0"
+	attacknumanims="1"
+	attackoffset="0 60 100"
+	attackprojectile=""
+	attackrange="100"
+	attackstarteffect=""
+	attackactioneffect=""
+	attackimpacteffect="../summon/effects/impact.effect"
+	attacktype="melee"
+	combattype="Hero"
+	drawonmap="true"
+	
+	sightrangeday="600"
+	sightrangenight="600"
+	
+	unittype="PseudoPet"
+	goldbountymin="80"
+	goldbountymax="80"
+	
+	lifetime="10000"
+	showlifetime="true"
+>
+	
+	<onframe />
+	
+	<ondamaged>
+		<targettype type="hero">
+			<changedamage b="1" op="min" />
+			<evaluate a="source_maxhealth" b="4" op="div" />
+			<changedamage b="result" op="max" />
+		</targettype>
+		<else>
+			<changedamage b="1" op="min" />
+		</else>
+	</ondamaged>
+	
+	<onexpired>
+		<!-- Damage effect if detontaed by Goldenveil -->
+		<pushability name="Ability_Gadget_Goldenveil4" />
+		<setvar0 a="source_charges" b="3.0,4.5,6.0" op="mult" source="stack_entity" />		
+		<areaofeffect
+			center="source_entity"
+			radius="200"
+			targetselection="all"
+			targetscheme="enemy_units"
+			effecttype="Magic"
+		>
+			<damage effecttype="Magic" source="source_owner_entity" amount="200,250,300" b="var0" op="add" />
+		</areaofeffect>
+		
+		<!-- Art -->
+		<playeffect effect="ability_04/effects/explosion.effect" source="source_position" />
+	</onexpired>
+	
+	<ondeath>
+		<breakchannel entity="this_owner_entity" />
+		
+		<compare a="accumulator" b="1" op="ge">
+			<!-- Damage effect if detontaed by Goldenveil -->
+			<pushability name="Ability_Gadget_Goldenveil4" />
+			<setvar0 a="source_charges" b="3.0,4.5,6.0" op="mult" source="stack_entity" />		
+			<areaofeffect
+				center="source_entity"
+				radius="200"
+				targetselection="all"
+				targetscheme="enemy_units"
+				effecttype="Magic"
+			>
+				<damage effecttype="Magic" source="source_owner_entity" amount="200,250,300" b="var0" op="add" />
+			</areaofeffect>
+			
+			<!-- Art -->
+			<playeffect effect="ability_04/effects/explosion.effect" source="source_position" />
+		</compare>
+	</ondeath>
+	
+</gadget>

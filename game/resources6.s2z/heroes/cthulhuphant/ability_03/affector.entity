@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<affector
+	name="Affector_Cthulhuphant_Ability3"
+
+	radius="700"
+	lifetime="5000"
+
+	targetselection="all"
+	targetscheme="enemy_units"
+
+	ignoreinvulnerable="false"
+	effecttype="Magic"
+	
+	effect=""
+>
+
+	<onframeimpact>
+		<applystate name="State_Cthulhuphant_Ability3_Look" continuous="true" effecttype="Magic" timeout="frametime" />
+	</onframeimpact>
+
+</affector>

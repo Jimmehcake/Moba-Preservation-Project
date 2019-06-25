@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Javaras_Ability4"
+
+	icon="icon.tga"
+	
+	movespeedslow="0.9"
+	silenced="true"
+	
+	effecttype=""
+	allowtransfer="false"
+	
+	passiveeffect=""
+>
+
+</state>

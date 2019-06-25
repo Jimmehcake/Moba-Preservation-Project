@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="1">
+	<definitions>
+
+	
+		<particlesystem name="system0" space="world" scale="1.25">
+		
+
+			<sound
+			    soundloop="true"
+			    fadein="200"
+			    fadeout="50"
+				linearfalloff="true" 
+				falloffstart="0"
+				falloffend="2500"
+				volume=".50"
+				sample="/heroes/geomancer/ability_01/sounds/loop.wav"
+			/>	
+			
+			<sound
+		        forcestereo="true"
+			    soundloop="true"
+			    fadein="0"
+			    fadeout="300"
+				linearfalloff="true" 
+				falloffstart="1000"
+				falloffend="2500"
+				volume="1"
+				sample="../../../sounds/move.wav"
+			/>	
+	
+
+			<simpleemitter
+				delay="350"
+				bone="_bone_fx_01"
+				spawnrate="4"
+				particlelife="1000"
+				acceleration="0.0"
+				minangle="0"
+				maxangle="0"
+				direction="0 1 0"
+				offsetsphere="0 0 0"
+				position="0 -35 0"
+			>
+				<particle
+					turn="1"
+				>
+					<groundsprite
+						life="1000"
+						position="0 0 0"
+						material="/shared/effects/materials/geomancer_groundsprite.material"
+						size="125"
+						color=".6 .55 .5"
+						startalpha="0"
+						midalpha="1"
+						endalpha="0"
+						midalphapos=".1"
+						directionalspace="local"
+						yaw="180"
+					/>
+
+				</particle>
+			</simpleemitter>
+
+			<simpleemitter
+				bone="_bone_fx_01"
+				spawnrate="10"
+				particlelife="750"
+				gravity="0"
+				speed="0"
+				drag="0"
+				acceleration="0"
+				position="0 0 0"
+				minangle="0"
+				maxangle="0"
+				direction="0 1 0"
+			>
+				<particle
+					turn="false"
+				>	
+					<groundsprite
+						life="550"
+						material="/shared/effects/materials/ground_smash_overlay.material"
+						minscale="1.05"
+						maxscale="1.84"
+						startsize="30"						
+						endsize="30"
+						color="1 1 1"
+						startalpha="1"
+						midalpha="1"
+						endalpha="0"
+						width="30"
+						directionalspace="local"
+					/>
+				</particle>
+			</simpleemitter>
+			
+			<simpleemitter
+				bone="_bone_fx_01"
+				spawnrate="5"
+				particlelife="750"
+				gravity="0"
+				speed="0"
+				drag="0"
+				acceleration="0"
+				position="0 0 0"
+				minangle="0"
+				maxangle="0"
+				direction="0 1 0"
+			>
+				<particle
+					turn="false"
+				>	
+					<groundsprite
+						life="550"
+						material="/shared/effects/materials/whitedot_ground.material"
+						minscale="1.05"
+						maxscale="1.84"
+						size="30"
+						startcolor="0 .5 .5"
+						midcolor=".25 0 .25"
+						endcolor="0"
+						directionalspace="local"
+					/>
+				</particle>
+			</simpleemitter>
+		
+			<simpleemitter
+				bone="_bone_fx_01"
+				spawnrate="25"
+				particlelife="3000"
+				acceleration="0.0"
+				minangle="0"
+				maxangle="0"
+				direction="0 1 0"
+				offsetsphere="0 0 0"
+				position="0 50 0"
+			>
+				<particle
+					turn="1"
+				>
+					<simpleemitter
+						count="25"
+						minparticlelife="500"
+						maxparticlelife="700"
+						spawnrate="300"
+						minspeed="100"
+						maxspeed="750"
+						gravity="10"
+						direction="0 0 1"
+						minangle="0"
+						maxangle="25"
+						drag="0.035"
+						material="/shared/effects/materials/abstract_reveal.material"
+						offsetsphere="20 20 0"
+						position="0 0 -15"
+						depthbias="-25"
+					>
+						<particle 
+							minangle="0"
+							maxangle="360"
+							minanglespeed="-60"
+							maxanglespeed="60"
+							startsize="3"
+							endsize="0"
+							startcolor="0 .5 1"
+							endcolor="1 0 1"
+							startalpha="1"
+							midalpha="1"
+							endalpha="0"
+							startframe=".6"
+							endframe="0"
+							minscale="1"
+							maxscale="2"
+						/>
+						<particle 
+							minangle="0"
+							maxangle="360"
+							minanglespeed="-60"
+							maxanglespeed="60"
+							startsize="3"
+							endsize="0"
+							startcolor="0 0 1"
+							endcolor="1 0 1"
+							startalpha="1"
+							midalpha="1"
+							endalpha="0"
+							startframe=".6"
+							endframe="0"
+							minscale="1"
+							maxscale="2"
+						/>
+					</simpleemitter>
+				
+					<simpleemitter
+						count="5"
+						minparticlelife="800"
+						maxparticlelife="1200"
+						spawnrate="35"
+						minspeed="150"
+						maxspeed="250"
+						gravity="20"
+						direction="0 0 1"
+						minangle="0"
+						maxangle="1"
+						drag="0.01"
+						material="/shared/effects/materials/phantom_white_reveal.material"
+						offsetsphere="10 10 50"
+						position="0 0 0"
+					>
+						<particle
+							depthbias="-100"
+							startcolor="0 .15 1"
+							endcolor="1 .15 1"
+							height="100"
+							startwidth="25"
+							endwidth="50"
+							startscale="2"
+							endscale="0"
+							startalpha=".33"
+							endalpha="0"
+							lockup="1"
+							startframe=".5"
+							endframe="1"
+
+						/>
+						
+						<particle
+							depthbias="-100"
+							startcolor="0 .15 1"
+							endcolor="1 .15 1"
+							height="100"
+							startwidth="25"
+							endwidth="50"
+							startscale="2"
+							endscale="0"
+							startalpha=".33"
+							endalpha="0"
+							lockup="1"
+							startframe=".5"
+							endframe="1"
+							yaw="180"
+						/>
+					</simpleemitter>
+					
+
+					
+					<simpleemitter
+						count="10"
+						minparticlelife="300"
+						maxparticlelife="500"
+						spawnrate="35"
+						minspeed="0"
+						maxspeed="150"
+						gravity="20"
+						direction="0 0 1"
+						minangle="0"
+						maxangle="1"
+						drag="0.01"
+						material="/shared/effects/materials/fire_add.material"
+						offsetsphere="10 10 50"
+						position="0 0 0"
+					>
+						<particle
+							depthbias="-100"
+							startcolor="0 .5 .5"
+							midcolor=".25 0 .25"
+							endcolor="0"
+							startsize="50"
+							endsize="50"
+							startscale="2"
+							endscale=".5"
+							startalpha=".33"
+							endalpha="0"
+							maxangle="360"
+							startframe="0"
+							endframe="1"
+						/>
+					</simpleemitter>
+					
+					<simpleemitter
+						count="10"
+						minparticlelife="200"
+						maxparticlelife="500"
+						spawnrate="35"
+						minspeed="0"
+						maxspeed="150"
+						gravity="20"
+						direction="0 0 1"
+						minangle="0"
+						maxangle="1"
+						drag="0.01"
+						material="/shared/effects/materials/phantom_smoke_04.material"
+						offsetsphere="10 10 50"
+						position="0 0 0"
+					>
+						<particle
+							depthbias="-100"
+							startcolor="0 .1 .5"
+							midcolor=".25 0 .25"
+							endcolor="0"
+							startsize="75"
+							endsize="50"
+							startscale="2"
+							endscale=".5"
+							startalpha=".33"
+							endalpha="0"
+							maxangle="360"
+							startframe="0"
+							endframe="1"
+						/>
+					</simpleemitter>
+				
+				</particle>
+			</simpleemitter>
+			
+
+			<simpleemitter
+				bone="_bone_fx_01"
+				spawnrate="1"
+				particlelife="3000"
+				acceleration="0.0"
+				minangle="0"
+				maxangle="0"
+				direction="0 1 0"
+				offsetsphere="0 0 0"
+				position="0 100 0"
+			>
+				<particle
+					turn="1"
+				>
+					<simpleemitter
+						count="0"
+						minparticlelife="500"
+						maxparticlelife="1250"
+						spawnrate="650"
+						minspeed="100"
+						maxspeed="750"
+						gravity="10"
+						direction="0 0 1"
+						minangle="0"
+						maxangle="25"
+						drag="0.01"
+						material="/shared/effects/materials/dust_rock.material"
+						offsetsphere="0 0 0"
+						position="0 0 0"
+						depthbias="-25"
+					>
+						<particle 
+							minangle="0"
+							maxangle="360"
+							minanglespeed="-60"
+							maxanglespeed="60"
+							minstartsize="5"
+							maxstartsize="15"
+							minendsize="15"
+							maxendsize="30"
+							color=".5 .5 .5"
+							startalpha="1"
+							endalpha="0"
+						/>
+					</simpleemitter>
+
+				</particle>
+			</simpleemitter>
+
+			<!-- 
+			<simpleemitter
+				bone="_bone_fx_01"
+				spawnrate="5"
+				particlelife="1500"
+				gravity="0"
+				speed="0"
+				drag="0"
+				acceleration="0"
+				position="0 0 0"
+				offsetsphere="25 25 0"
+				
+			>
+				<particle>
+				
+					<model
+						position="0 0 0"
+						minlife="800"
+						maxlife="1000"
+						name="emitter0"
+						anim="idle"
+						model="/heroes/geomancer/ability_01/effects/little_rocks/model.mdf"
+						minscale=".75"
+						maxscale="1.75"
+						startcolor=".5 .4 .35"
+						startalpha="1"
+						midalpha="1"
+						endalpha="0"
+						midalphapos=".9"
+						minyaw="0"
+						maxyaw="360"
+					>
+					</model>
+					
+				</particle>
+			</simpleemitter> -->
+
+      </particlesystem>
+   </definitions>
+<thread>
+	<spawnparticlesystem instance="instance0" particlesystem="system0" />
+	<spawnmodifier instance="instance1" modifier="modifier0"/>  
+	
+	<waitfordeath instance="instance0" />
+	<wait duration="20000"/>
+	<!-- <die /> -->
+</thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+	<definitions>
+		<particlesystem name="system0" space="world" scale="1">
+			<billboard
+				bone="_bone_centerofchest"
+				material="/shared/effects/materials/refract_ring.material"
+				life="300"
+				startsize="0"
+				midsize="50"
+				endsize="100"
+				lockup="true"
+				lockright="true"
+				pitch="90"
+				startparam="0"
+				midparam="0.02"
+				endparam="0"
+			/>
+
+			<simpleemitter
+				count="10"
+				spawnrate="2000"
+				minparticlelife="200"
+				maxparticlelife="400"
+				drag=".03"			
+				gravity="10"
+				minspeed="250"
+				maxspeed="500"								
+				direction="0 0 1"
+				bone="_bone_centerofchest"
+				depthbias="-30"
+				material="/shared/effects/materials/spark_12.material"
+				collide="true"
+			>			
+				<particle
+					minangle="0" maxangle="360"
+					minpitchspeed="-180" maxpitchspeed="180"
+					startalpha="1" midalpha=".75" endalpha="0"
+					startcolor="1" midcolor="1" endcolor="1"
+					minstartsize="3" maxstartsize="8" endsize="0"
+					minscale="3" maxscale="5"
+				>
+					<controller life="300" startscale="1.5" midscale="1.2" endscale="0">
+						<billboard
+							life="100" loop="true"
+							minstartsize="10" maxstartsize="12" midsize="0" minendsize="10" maxendsize="13"
+							color="1 .8 .3"
+							material="/shared/effects/materials/star_03.material"
+						/>
+					</controller>
+				</particle>
+			</simpleemitter>
+			
+			<simpleemitter
+				count="10"
+				spawnrate="2000"
+				minparticlelife="200"
+				maxparticlelife="400"
+				drag=".02"			
+				gravity="10"
+				minspeed="50"
+				maxspeed="200"								
+				direction="0 0 1"
+				bone="_bone_centerofchest"
+				depthbias="-30"
+				material="/shared/effects/materials/spark.material"
+				collide="true"
+			>			
+				<particle
+					minangle="0" maxangle="360"
+					minpitchspeed="-180" maxpitchspeed="180"
+					startalpha="1" midalpha=".75" endalpha="0"
+					startcolor="1" midcolor="1" endcolor="1"
+					minstartsize="3" maxstartsize="8" endsize="0"
+					minscale="3" maxscale="5"
+				>
+					<controller life="300" startscale="1.5" midscale="1.2" endscale="0">
+						<billboard
+							life="100" loop="true"
+							minstartsize="10" maxstartsize="12" midsize="0" minendsize="10" maxendsize="13"
+							color=".4 .8 1"
+							material="/shared/effects/materials/star_03.material"
+						/>
+					</controller>
+				</particle>
+			</simpleemitter>
+			
+			<simpleemitter
+				count="10"
+				spawnrate="2000"
+				minparticlelife="200"
+				maxparticlelife="400"
+				drag=".01"			
+				gravity="10"
+				minspeed="150"
+				maxspeed="250"								
+				direction="0 0 1"
+				bone="_bone_centerofchest"
+				depthbias="-30"
+				material="/shared/effects/materials/spark.material"
+				collide="true"
+			>			
+				<particle
+					minangle="0" maxangle="360"
+					minpitchspeed="-180" maxpitchspeed="180"
+					startalpha="1" midalpha=".75" endalpha="0"
+					startcolor="1" midcolor="1" endcolor="1"
+					minstartsize="3" maxstartsize="8" endsize="0"
+					minscale="3" maxscale="5"
+				>
+					<controller life="300" startscale="1.5" midscale="1.2" endscale="0">
+						<billboard
+							life="1000" loop="true"
+							minstartsize="10" maxstartsize="12" midsize="0" minendsize="10" maxendsize="13"
+							scale="1"
+							color="1"
+							material="/shared/effects/materials/star.material"
+						/>
+					</controller>
+				</particle>
+			</simpleemitter>
+			
+		</particlesystem>
+		
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectile
+	name="Projectile_Chi_Attack"
+
+	speed="900"
+	gravity="1000"
+
+	model="effects/model.mdf"
+	modelscale=".37"
+	scale="1"
+	impacteffect="effects/impact.effect"
+	traileffect="effects/trail.effect"
+>
+
+	<altavatar key="Hero_Chi.Alt"
+		model="/share/models/invis.mdf"
+		traileffect="../alt/projectile/effects/trail.effect"
+	/>
+	
+	<altavatar key="Hero_Chi.Alt2"
+		model="/share/models/invis.mdf"
+		traileffect="../alt2/projectile/effects/trail.effect"
+		impacteffect="../alt2/projectile/effects/impact.effect"
+	/>
+</projectile>

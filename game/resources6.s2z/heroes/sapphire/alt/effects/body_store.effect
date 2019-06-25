@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+	<definitions>
+		<particlesystem name="system0" space="entity" scale="1">
+		
+		<sound
+				    dampen="0.5"
+				    channelid="storeaud"
+					sound2d="true"
+					volume=".5"
+					sample="../sounds/store_audio.wav"
+				/>	
+				
+		<sound
+				    dampen="0.5"
+				    channelid="storeaudv"
+					sound2d="true"
+					volume=".7"
+					sample="../sounds/ab1_vox.wav"
+				/>	
+				
+				<sound
+				    delay="2300"
+				    dampen="0.5"
+				    channelid="storeaudv"
+					sound2d="true"
+					volume=".7"
+					sample="../sounds/voice/attack_2.wav"
+				/>	
+			
+			<model
+				model="/shared/models/invis.mdf"
+				bone="_bone_fx_01"
+				scale="1"
+				position="0 0 0"
+			>
+				<billboard
+					position="10 0 0"
+					expirelife="250"
+					startcolor="0 .2 .1"
+					endcolor="0 0 0"
+					size="25"
+					rollspeed="-1250"
+					material="/shared/effects/materials/whitedot_blend.material"
+				/>
+				<billboard
+					position="10 0 0"
+					expirelife="250"
+					startcolor="0 .3 .1"
+					endcolor="0 0 0"
+					size="15"
+					rollspeed="-1250"
+					material="/shared/effects/materials/whitedot.material"
+				/>
+				
+				<billboard
+					position="10 0 0"
+					expirelife="250"
+					startcolor=".5 .5 .2"
+					endcolor="0 0 0"
+					size="7"
+					rollspeed="-1250"
+					material="/shared/effects/materials/whitedot.material"
+				/>
+
+				<billboard
+					material="/shared/effects/materials/blink.material"
+					startcolor="0 0 0"
+					midcolor="0 .3 0"
+					endcolor="0"
+					maxroll="360"
+					size="35"
+					depthbias="0"
+					life="500"
+					directionalspace="local"
+					rollspeed="-50"
+					loop="true"
+					position="10 0 0"
+				/>
+			</model>			
+			<template name="horn_glow">	
+				<beam
+					bone_a="{bone_a}"
+					bone_b="{bone_b}"
+					startsize="50"
+					endsize="60"
+					loop="true"
+					life="250"
+					startcolor="0 .3 .1"
+					midcolor="0 .25 0"
+					endcolor="0 .3 .1"
+					midcolorpos=".8"
+					material="/shared/effects/materials/bow_glow_03.material"
+					framespeed="1"
+					depthbias="-5"
+					anchor="1"
+				/>
+			</template>
+			<instance name="horn_glow" bone_a="_bone_horn_right01" bone_b="_bone_horn_right02" size="30" />
+			<instance name="horn_glow" bone_a="_bone_horn_left01" bone_b="_bone_horn_left02" size="30" />
+			<model
+				model="/shared/models/invis.mdf"
+				bone="_bone_fx_01"
+				scale="1"
+				position="0 0 0"
+				roll="90"
+			>
+				<simpleemitter
+					spawnrate="10"
+					particlelife="610"
+					speed="0"
+					position="0 0 8"
+					acceleration="11"
+					material="/shared/effects/materials/flare_03.material"
+					offsetsphere="7 7 0"
+					drag="0.05"
+				>
+					<particle
+						startcolor="0 1 .5"
+						midcolor="0 1 0"
+						endcolor="0 0 0"
+						size="4"
+						turn="1"
+						maxangle="360"
+						anchor="1"
+					/>
+				</simpleemitter>
+			</model>
+			<controller particledirectionspace="local" bone="Bip01 L Hand">
+				<billboard
+					expirelife="250"
+					material="/shared/effects/materials/whitedot.material"
+					startcolor="0 .2 .1"
+					endcolor="0 0 0"
+					size="30"
+					depthbias="-5"
+					width="40" hight="140"
+					
+				/>
+			</controller>
+			<template name="hand_trail">
+				<trailemitter
+					directionalspace="local"
+					bone="{bone}"
+					spawnrate="100"
+					particlelife="500"
+					direction="{direction}"
+					angle="0"
+					speed="25"
+					drag=".1"
+					texpostime="150"
+					texposscale="0"
+					mintexstretchscale=".2" maxtexstretchscale="1"
+					material="/shared/effects/materials/light_trail.material"
+					size="{size}"
+					gravity="-3"
+				>
+					<particle
+						startcolor="0 .5 .2" 
+						endcolor="0"
+						startsize="5"
+						endsize="1"
+					/>
+				</trailemitter>
+			</template>
+			<instance name="hand_trail" bone="Bip01 L Forearm"  direction="0 -1 -1" />
+			<instance name="hand_trail" bone="Bip01 L Forearm"  direction="0 1 -1" position="-5 -5 0"/>
+			<instance name="hand_trail" bone="Bip01 L Hand"  direction="0 1 -1" position="0 -5 2"/>
+			<instance name="hand_trail" bone="Bip01 L Forearm"  direction="0 1 -1" position="3 3 0"/>
+			
+			
+			
+			
+			
+			<model
+				model="/ui/fe2/elements/store2/pedestal/model.mdf"
+				scale=".54"
+			/>
+			<model
+				life="250"
+				model="/ui/fe2/elements/store2/pedestal/model.mdf"
+				scale=".54"
+				material="/heroes/bubbles/alt13/ability_04/effects/core/material_water2.material"
+				color="0 5 2"
+			/>
+				<model
+				life="250"
+				model="/ui/fe2/elements/store2/pedestal/model.mdf"
+				scale=".54"
+				material="/shared/effects/materials/shell3.material"
+				color="0 1 .5"
+			/>
+			
+			<billboard
+				delay="200"
+				life="250"
+				startalpha="1"
+				midalpha="1"
+				endalpha="0"
+				midalphapos=".75"
+				startparam=".25"
+				endparam="0"
+				startsize="0"
+				endsize="1000"
+				depthbias="-100"
+				position="0 0 0"
+				material="/shared/effects/materials/refract_ring.material"
+				lockup="true"
+				lockright="true"
+				pitch="90"
+			/>
+			<simpleemitter
+				delay="200"
+				count="20"
+				minparticlelife="500"
+				maxparticlelife="700"
+				drag=".01"
+				offsetphere="50 50 0"
+				gravity="50"
+				minspeed="750"
+				maxspeed="1200"								
+				position="0 0 0"
+				depthbias="-30"
+				maxangle="90"
+				material="/shared/effects/materials/bubble_add.material"
+			>
+				<particle
+					minangle="0"
+					maxangle="360"
+					minanglespeed="-70"
+					maxanglespeed="70"
+					size="5"
+					color=".3 1 .6"	
+					midcolorpos=".4"					
+					startalpha="0"
+					midalpha="2"
+					endalpha="0"
+					midalphapos=".75"
+					minscale=".3"
+					maxscale="1"
+				/>
+			</simpleemitter>
+			
+			
+			<simpleemitter
+				delay="200"
+				count="15"
+				spawnrate="500"
+				minparticlelife="650"
+				maxparticlelife="850"
+				gravity="15"
+				drag=".03"
+				minspeed="50"
+				maxspeed="300"
+				position="0 0 0"
+				offsetsphere="65 65 0"
+				material="/shared/effects/materials/blood_white.material"
+				depthbias="-35"
+				angle="50"
+			>
+				<particle
+					maxangle="360"
+					minanglespeed="-6"
+					maxanglespeed="6"
+					color=".2 1 .5"
+					startalpha="0"
+					midalpha="1"
+					endalpha="0"
+					startsize="20"
+					endsize="50"
+					startanchor="1"
+					endanchor="1"
+					minscale=".7"
+					maxscale="1"
+				/>
+				<particle
+					maxangle="360"
+					minanglespeed="-6"
+					maxanglespeed="6"
+					color="0 1 .6"
+					startalpha="0"
+					midalpha="1"
+					endalpha="0"
+					startsize="20"
+					endsize="50"
+					startanchor="1"
+					endanchor="1"
+					minscale=".7"
+					maxscale="1"
+				/>
+			</simpleemitter>
+			<simpleemitter
+				delay="200"
+				count="15"
+				spawnrate="500"
+				minparticlelife="650"
+				maxparticlelife="850"
+				gravity="10"
+				drag=".03"
+				minspeed="50"
+				maxspeed="350"
+				position="0 0 0"
+				offsetsphere="65 65 0"
+				material="/shared/effects/materials/whitewater_02.material"
+				depthbias="-35"
+				angle="50"
+			>
+				<particle
+					maxangle="360"
+					minanglespeed="-6"
+					maxanglespeed="6"
+					startcolor="0 .6 .2"
+					endcolor="0"
+					startalpha="0"
+					midalpha="1"
+					endalpha="0"
+					startsize="50"
+					endsize="100"
+					startanchor="1"
+					endanchor="1"
+					minscale=".7"
+					maxscale="1"
+				/>
+				<particle
+					maxangle="360"
+					minanglespeed="-6"
+					maxanglespeed="6"
+					startcolor="0 .6 .4"
+					endcolor="0"
+					startalpha="0"
+					midalpha="1"
+					endalpha="0"
+					startsize="50"
+					endsize="100"
+					startanchor="1"
+					endanchor="1"
+					minscale=".7"
+					maxscale="1"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				delay="200"
+				count="20"
+				spawnrate="500"
+				minparticlelife="650"
+				maxparticlelife="850"
+				gravity="20"
+				drag=".015"
+				minspeed="300"
+				maxspeed="800"
+				position="0 0 0"
+				offsetsphere="65 65 0"
+				material="/shared/effects/materials/bubble_add.material"
+				depthbias="-35"
+				angle="50"
+			>
+				 <particle
+					startcolor=".3 1 .6"
+					endcolor="0"
+					startsize="10"
+					endsize="20"
+					maxangle="360"
+					depthbias="-10"
+					minanglespeed="-65"
+					maxanglespeed="65"
+					minscale=".15"
+					maxscale=".4"
+				 />
+				 <particle
+					startcolor=".6 1 .9"
+					endcolor="0"
+					startsize="10"
+					endsize="20"
+					maxangle="360"
+					depthbias="-10"
+					minanglespeed="-65"
+					maxanglespeed="65"
+					minscale=".15"
+					maxscale=".4"
+				 />
+			</simpleemitter>
+			<simpleemitter
+				life="300"
+				spawnrate="50"
+				minparticlelife="650"
+				maxparticlelife="850"
+				gravity="20"
+				drag=".015"
+				position="0 0 -1"
+				offsetradial="65"
+				material="/shared/effects/materials/bubble_add.material"
+				angle="50"
+			>
+				 <particle
+					startcolor=".3 1 .6"
+					endcolor="0"
+					startsize="10"
+					endsize="20"
+					maxangle="360"
+					depthbias="-10"
+					minanglespeed="-65"
+					maxanglespeed="65"
+					minscale=".15"
+					maxscale=".4"
+					startheightdistort=".03"
+				 />
+				 <particle
+					startcolor=".6 1 .9"
+					endcolor="0"
+					startsize="10"
+					endsize="20"
+					maxangle="360"
+					depthbias="-10"
+					minanglespeed="-65"
+					maxanglespeed="65"
+					minscale=".15"
+					maxscale=".4"
+					startheightdistort=".05"
+				 />
+			</simpleemitter>
+			<simpleemitter
+				delay="200"
+				count="10"
+				spawnrate="500"
+				minparticlelife="350"
+				maxparticlelife="550"
+				gravity="50"
+				drag=".05"
+				minspeed="500"
+				maxspeed="1500"
+				angle="50"
+				position="0 0 5"
+				offsetsphere="45 45 0"
+				depthbias="-35"
+			>
+			<particle
+					turn="true"
+				>
+					<billboard
+						startparam=".5"
+						endparam="0"
+						startalpha="0"
+						midalpha=".7"
+						endalpha="0"
+						material="/shared/effects/materials/refract_outsplash.material"
+						size="100"
+						minlife="400"
+						maxlife="600"
+					/>
+				</particle>
+			</simpleemitter>
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+</effect>

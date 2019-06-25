@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model name="claw_rig.max" file="claw.model" type="K2">
+	<anim name="ability_04" clip="claw_ability_04.clip" fps="22"/>
+</model>

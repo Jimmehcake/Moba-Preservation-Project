@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect  deferred="true" useentityeffectscale="1">
+	<definitions>
+		<particlesystem name="system0" space="entity" scale=".5">
+			<sound
+				    dampen="0.5"
+				    channelid="storeaud"
+					sound2d="true"
+					volume=".5"
+					sample="../sounds/store_audio.wav"
+			/>	
+		
+		
+			<!-- <groundsprite
+				life="3500"
+				startcolor="0"
+				midcolor="1"
+				endcolor="0"
+				midcolorpos=".5"
+				size="130"
+				startscale=".5" endscale=".65"
+				material="/shared/effects/materials/taiji.material"
+				startframe="0"
+				endframe="1"
+				midframepos=".25"
+				maxyaw="360"
+				yawspeed="150"
+				position="0 0 5"
+				pitch="-15"
+				startalpha="0" midalpha=".75" endalpha="0" midalphapos=".35"
+			/>
+			
+			<groundsprite
+				life="3500"
+				startcolor="0"
+				midcolor="-1"
+				endcolor="0"
+				midcolorpos=".5"
+				size="130"
+				startscale=".85" endscale="1"
+				material="/shared/effects/materials/blackdot.material"
+				startframe="0"
+				endframe="1"
+				midframepos=".25"
+				maxyaw="360"
+				yawspeed="50"
+				position="0 0 3"
+				pitch="-15"
+				
+			/> -->
+			
+			<billboard
+				life="3500"
+				startcolor="0"
+				midcolor="1"
+				endcolor="0"
+				midcolorpos=".5"
+				size="130"
+				startscale="1" endscale="1.2"
+				material="/shared/effects/materials/taiji.material"
+				startframe="0"
+				endframe="1"
+				midframepos=".25"
+				lockright="ture"
+				lockup="ture"
+				rollspeed="150"
+				position="0 0 5"
+				pitch="-95"
+				startalpha="0" midalpha=".75" endalpha="0" midalphapos=".35"
+				depthbias="-50"
+			/>
+			
+			<billboard
+				life="3500"
+				startcolor="0"
+				midcolor=".5"
+				endcolor="0"
+				midcolorpos=".5"
+				size="130"
+				startscale="1.3" endscale="1.65"
+				material="/shared/effects/materials/blackdot.material"
+				lockright="ture"
+				lockup="ture"
+				rollspeed="150"
+				position="0 0 5"
+				pitch="-95"
+				depthbias="-50"
+			/>
+			
+			<billboard
+				delay="0"
+				life="4000"
+				startcolor=".65 .65 .9"   midcolor="1 .7 0"  endcolor=".1 .2 .4" 
+				startsize="135"
+				endsize="145"
+				midsizepos=".4"
+				scale="1.5"				
+				position="0 -30 40"
+				material="/shared/effects/materials/rune_chi.material"
+				roll="-90"
+				lockright="90"
+				width="120"
+				height="60"
+				startalpha="0" midalpha=".75" endalpha="0" midalphapos=".35"
+			/>
+			
+			<billboard
+				delay="1500"
+				life="200"
+				startcolor=".5 .35 .0"
+				endcolor="0"
+				startsize="150"
+				endsize="1000"
+				midsizepos=".3"				
+				position="0 0 10"
+				material="/shared/effects/materials/whitedot.material"
+				lockup="true"
+				pitch="90"
+			/>
+	
+			<simpleemitter
+				delay="1600"
+				count="75"
+				minparticlelife="1000" maxparticlelife="2000"
+				direction="0 0 1"
+				speed="1"
+				offsetradial="75"
+				offsetradialangle="90"
+				offsetdirection="0 0 1"
+				position="0 0 -10"
+		    >
+				<particle
+					turn="0"
+				>
+					 <billboard
+						directionalspace="local"
+						position="0 0 0"
+						pitch="0"
+						minlife="1000" maxlife="2000"
+						minwidth="5"
+						maxwidth="10"
+						minstartheight="0"
+						maxstartheight="70"
+						endheight="500"
+						startcolor="0 .5 .75"
+						midcolor=".75 .5 0"
+						endcolor="0 0 0"
+						midcolorpos=".85"
+						lockup="1"
+						lockright="1"
+						minscale=".5"
+						maxscale=".75"
+						material="/shared/effects/materials/light_rays2.material"
+					 />
+				</particle>
+		    </simpleemitter>
+			
+			<simpleemitter
+				delay="1600"
+				minlife="500"
+				maxlife="1500"
+				position="0 0 -5"
+				startspawnrate="0" midspawnrate="150" endspawnrate="0"
+				minparticlelife="1000"
+				maxparticlelife="2500"
+				offsetradial="70"
+				offsetsphere="10"
+				gravity="-3"
+				minspeed="10"
+				maxspeed="40"
+				direction="0 0 1"
+				directionalspace="global"
+				minangle="30"
+				maxangle="60"
+				material="/shared/effects/materials/spark_12.material"
+			>
+				<particle
+					maxangle="360"
+					startcolor="0"
+					midcolor=".25 .5 1"
+					endcolor="0"
+					startalpha="0"
+					midalpha="1"
+					endalpha="0"
+					midalphapos=".25"
+					midcolorpos=".25"
+					minscale="3"
+					maxscale="7"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				delay="1600"
+				minlife="500"
+				maxlife="1500"
+				position="0 0 -5"
+				startspawnrate="0" midspawnrate="50" endspawnrate="0"
+				minparticlelife="500"
+				maxparticlelife="2000"
+				offsetradial="75"
+				offsetsphere="20"
+				gravity="-3"
+				minspeed="10"
+				maxspeed="40"
+				direction="0 0 1"
+				directionalspace="global"
+				minangle="30"
+				maxangle="60"
+				material="/shared/effects/materials/spark_12.material"
+			>
+				<particle
+					maxangle="360"
+					startcolor="0"
+					midcolor="1 .75 0"
+					endcolor="0"
+					startalpha="0"
+					midalpha="1"
+					endalpha="0"
+					midalphapos=".25"
+					midcolorpos=".25"
+					minscale="3"
+					maxscale="7"
+				/>
+			</simpleemitter>
+			   
+				
+			
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+      	<waitfordeath instance="instance0" />
+		<!-- <die /> -->
+	</thread>
+</effect>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="chain_impact" useentityeffectscale="1">
+	<definitions>
+		<particlesystem name="system0" space="world">
+
+		
+		<sound   
+				volume=".8"
+				sample="/heroes/warchief/ability_01/sounds/light_cast.wav"
+				linearfalloff="true"
+				falloffstart="800" 
+				falloffend="1300" 
+			/>
+			
+			<billboard
+				life="300"
+				bone="_bone_centerofchest"
+				startsize="0"
+				endsize="150"
+				framespeed="2"
+				startcolor=".2 .5 1"
+				endcolor="0"
+				material="/shared/effects/materials/femme_lightning_07.material"
+			/>
+			
+			<billboard
+				life="300"
+				bone="_bone_centerofchest"
+				startsize="0"
+				endsize="200"
+				startcolor=".5 .75 1"
+				endcolor="0"
+				material="/shared/effects/materials/whitedot.material"
+			/>
+			
+			<simpleemitter
+				bone="_bone_centerofchest"
+				count="15"
+				minspeed="450"
+				maxspeed="550"
+				minparticlelife="1000"
+				maxparticlelife="1250"
+				gravity="-3"
+				drag=".07"
+				material="/shared/effects/materials/energy_reveal_white.material"
+			>
+				<particle
+					maxangle="360"
+					minstartscale="10"
+					maxstartscale="20"
+					minendscale="20"
+					maxendscale="50"
+					startcolor="0 .5 .75" endcolor="0 .75 1" midcolorpos=".05"
+					startalpha="0"
+					minmidalpha="1"
+					maxmidalpha="1"
+					endalpha=".15"
+					startframe="0"
+					endframe="1"
+					size="1.5"
+				/>
+			</simpleemitter>
+			
+      </particlesystem>
+   </definitions>
+   <thread>
+      <spawnparticlesystem instance="instance0" particlesystem="system0" />
+      <waitfordeath instance="instance0" />
+      <!-- <die /> -->
+   </thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->
+

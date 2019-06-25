@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Warchief_Ability2_Mimic"
+	
+	icon="icon.tga"
+	passiveeffect="effects/state_channel.effect"
+	
+	disarmed="true"
+	effecttype=""
+>
+
+	<oninflict>
+		<selectentity source="source_owner_entity" targets="this_proxy_entity" />
+	</oninflict>
+	
+	<onexpired>
+		<selectentity source="source_owner_entity" targets="this_proxy_entity" />
+	</onexpired>
+</state>

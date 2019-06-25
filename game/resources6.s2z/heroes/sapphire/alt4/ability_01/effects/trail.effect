@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect persistent="1" name="deathExplosionLarge" >
+	<definitions>
+		<particlesystem name="system0" space="world" scale="1" >
+			<sound
+		        norestart="true"
+		        channelid="saphabone"
+				linearfalloff="true" 
+				falloffstart="800"
+				falloffend="1300"
+				volume="1"
+				sample="../../sounds/ab1_cast_vox.wav"
+			/>
+		
+	<!-- jet stuff -->
+			 <billboard
+				bone="_bone_weapon1"
+				life="430"
+				position="0 0 0"
+				startsize="30"
+				midsize="20"
+				endsize="30"
+				material="/shared/effects/materials/whitedot.material"
+				color=".65 .2 .75"
+			
+				depthbias="-10"
+				scale="1.3"
+			/>
+			
+			 <simpleemitter
+				bone="_bone_weapon1"
+				direction="0 0 -1"
+				material="/shared/effects/materials/ember_reveal_blue.material"
+				spawnrate="8"
+				minparticlelife="900"
+				maxparticlelife="1600"
+				life="430"
+				angle="90"
+				gravity="-1.25"
+				maxspeed="20"
+				drag="0.1"
+			>
+				<template name="ember_particle">
+					<particle
+						maxangle="360"
+						minsize="6"
+						maxsize="12"
+						startframe="1"
+						midframe="0"
+						endframe="1"
+						midframepos=".25"
+						anchor="1"
+						startcolor="{sc}"
+						endcolor="{ec}"
+						scale="1.3"
+					/>
+				</template>
+				<instance name="ember_particle" sc="1" ec="1 0 1" />
+				<instance name="ember_particle" sc="1" ec="0 1 1" />
+			</simpleemitter>
+			
+			<simpleemitter
+				bone="_bone_weapon1"
+				material="/shared/effects/materials/refract_outsplash.material"
+				spawnrate="10"
+				minparticlelife="750"
+				maxparticlelife="1000"
+				life="430"
+				angle="60"
+				gravity="-2"
+				maxspeed="15"
+				drag="0.02"
+				depthbias="-5"
+			>
+				<particle
+					maxangle="360"
+					minsize="40"
+					maxsize="80"
+					scale="1.3"
+					startparam="0"
+					midparam="0.02"
+					endparam="0"
+					anchor="1"
+				/>
+			</simpleemitter>
+			
+<!-- 			<simpleemitter
+				bone="_bone_weapon1"
+				spawnrate="60"
+				material="/shared/effects/materials/phantom_white_reveal_02_add.material"
+				minparticlelife="75"
+				maxparticlelife="200"
+				life="430"
+				name="emitter0" 
+				angle="15"
+				speed="1"
+				offsetsphere="3 3 0"
+				particlescale="1"
+				direction="0 0 -1"
+			>
+				<template name="fire_pillar">
+					<particle
+						flare="1"
+						minstartwidth="8"
+						maxstartwidth="10"
+						minendwidth="16"
+						maxendwidth="20"
+						minstartheight="20"
+						maxstartheight="40"
+						minendheight="140"
+						maxendheight="180"
+						scale="1.5"
+						startcolor="{sc}"
+						midcolor="{mc}"
+						endcolor="{ec}"
+						startframe="1"
+						midframe="0"
+						endframe="1"
+						midframepos=".25"
+						lockup="true"
+						lockright="true"
+						turn="true"
+						anchor="1"
+					/>
+				</template>
+
+				 <instance name="fire_pillar" sc=".25 1 1" mc=".75 .1 .75" ec="0 .5 .75" />
+				<instance name="fire_pillar" sc=".25 .5 1" mc=".25 0 .5" ec="0 .2 .5" />
+			</simpleemitter> -->
+
+
+			<simpleemitter
+				bone="_bone_weapon1" 
+				position="0 -20 0"
+				spawnrate="15"
+				particlelife="900"
+				life="430"
+				angle="10"
+				minspeed="130"
+				maxspeed="150"
+				drag="0.1"
+				gravity="-1"
+				offsetsphere="10"
+				direction="0 -1 -1"
+			>
+				<template name="ash_particle" >
+					<particle
+						maxyaw="360"
+						maxpitch="360"
+						maxroll="360"
+						minyawspeed="-150"
+						maxyawspeed="150"
+						minpitchspeed="-150"
+						maxpitchspeed="150"
+						minrollspeed="-150"
+						maxrollspeed="150"
+						startscale="0"
+						minendscale="1"
+						maxendscale="2"
+					>
+						<billboard
+							maxangle="360"
+							minrollspeed="-400"
+							maxrollspeed="400"
+							life="900"
+							position="20 0 0"
+							material="/shared/effects/materials/abstract_reveal.material"
+							startsize="10"
+							endsize="6"
+							startcolor="{sc}"
+							midcolor="{mc}"
+							endcolor="{ec}"
+							midcolorpos="{mcpos}"
+							startframe="0"
+							endframe="1"
+						/>
+					</particle>
+				</template>
+				<instance name="ash_particle" sc="2 3 3" mc="0 1 1" ec=".5" mcpos=".4" />
+				<instance name="ash_particle" sc="-.5 2 3" mc=".5" ec="0" mcpos=".75" />
+			</simpleemitter>
+	
+	
+	<!-- trails -->
+	
+		<model
+			life="500"
+			bone="_bone_centerofchest"
+			position="0 0 0"
+			expirelife="500"
+			name="emitter0" 
+			anim="idle"
+			model="/shared/effects/models/circle_of_bones/model.mdf"
+			scale="1"
+			startcolor="0 0 0"
+			midcolor="0 0 0"
+			endcolor="0 0 0"
+			midcolorpos=".75"
+			startalpha="0"
+			midalpha="0"
+			endalpha="0"
+			midalphapos=".4"
+			rollspeed="2000"
+		>
+		
+			<template name="trails">
+				<trailemitter
+					name="trail01"
+					position="0 0 0"
+					bone="{bone}"
+					spawnrate="100"
+					particlelife="600"
+					subframepose="1"
+					texpostime="1000"
+					texposscale="0"
+					texstretchscale="1"
+					material="/shared/effects/materials/soul_projectile.material"
+				>
+					<particle
+						startcolor="1 0 1"
+						endcolor="0 0 0"
+						startalpha="1"
+						midalpha="0"
+						endalpha="0"
+						size="20"
+					/>
+				</trailemitter>
+				<trailemitter
+					directionalspace="local"
+					bone="{bone}"
+					spawnrate="150"
+					minparticlelife="700"
+					maxparticlelife="755"
+					direction="0 1 -1"
+					angle="0"
+					minspeed="50" maxspeed="100"
+					drag=".5"
+					texpostime="100"
+					texposscale="0"
+					texstretchscale=".7"
+					material="/shared/effects/materials/water_scrolling.material"
+					gravity="-1"
+					size="2"
+				>
+					<particle
+						startcolor=".4 1 1" 
+						endcolor="1"
+						startsize="20"
+						endsize="10"
+					/>
+				</trailemitter>
+			</template>
+			
+			<instance name="trails" bone="_bone_fx_01"/>
+			<!-- <instance name="trails" bone="_bone_fx_02"/> -->
+			<instance name="trails" bone="_bone_fx_03"/>
+			<!-- <instance name="trails" bone="_bone_fx_04"/> -->
+			<instance name="trails" bone="_bone_fx_05"/>
+			
+		</model>
+		<model
+			life="500"
+			bone="_bone_centerofchest"
+			position="0 0 0"
+			expirelife="500"
+			name="emitter0" 
+			anim="idle"
+			model="/shared/effects/models/circle_of_bones/model.mdf"
+			scale="1"
+			startcolor="0 0 0"
+			midcolor="0 0 0"
+			endcolor="0 0 0"
+			midcolorpos=".75"
+			startalpha="0"
+			midalpha="0"
+			endalpha="0"
+			midalphapos=".4"
+			rollspeed="2000"
+		>
+		
+			<template name="trails">
+				<trailemitter
+					directionalspace="local"
+					bone="{bone}"
+					spawnrate="150"
+					particlelife="300"
+					direction="0 1 -1"
+					angle="0"
+					minspeed="50" maxspeed="100"
+					drag=".5"
+					texpostime="100"
+					texposscale="0"
+					texstretchscale=".5"
+					material="/shared/effects/materials/beam_06.material"
+					gravity="-1"
+					size="2"
+				>
+					<particle
+						startcolor="5" 
+						endcolor="1"
+						startsize="8"
+						endsize="5"
+					/>
+				</trailemitter>
+			</template>
+			
+			<instance name="trails" bone="_bone_fx_01"/>
+			<!-- <instance name="trails" bone="_bone_fx_02"/> -->
+			<instance name="trails" bone="_bone_fx_03"/>
+			<!-- <instance name="trails" bone="_bone_fx_04"/> -->
+			<instance name="trails" bone="_bone_fx_05"/>
+			
+		</model>
+		
+		
+		<template name="hand_trail">
+			<trailemitter
+				life="500"
+				directionalspace="local"
+				bone="{bone}"
+				spawnrate="200"
+				particlelife="400"
+				direction="{direction}"
+				angle="0"
+				minspeed="50" maxspeed="100"
+				drag=".5"
+				texpostime="100"
+				texposscale="0"
+				texstretchscale=".5"
+				material="/shared/effects/materials/swoosh2.material"
+				gravity="-1"
+				position="{position=0 0 0}"
+				size="2"
+			>
+				<particle
+					startcolor=".2 .5 .5" 
+					endcolor=".6"
+					startsize="10"
+					endsize="5"
+				/>
+			</trailemitter>
+		</template>
+		<instance name="hand_trail" bone="_bone_leftfoot"  direction="0 1 -1" position="0 -5 2"/>
+		<instance name="hand_trail" bone="_bone_rightfoot"  direction="0 1 -1" position="3 3 0"/>
+		
+		<simpleemitter
+			life="500"
+			bone="_bone_centerofchest"
+			spawnrate="60"
+			minparticlelife="200"
+			maxparticlelife="300"
+			offsetsphere="30"
+			minspeed="0"
+			maxspeed="155"
+			drag=".05"
+			direction="0 0 1"
+			material="/shared/effects/materials/flame_blue.material"
+			inheritvelocity=".03"
+		>
+			
+			<particle
+				maxangle="359"
+				maxanglespeed="30"
+				minanglespeed="-30"
+				startsize="50"
+				endsize="30"
+				startcolor="1"
+				endcolor="0"
+			/>
+		</simpleemitter> 
+		
+		<!-- <simpleemitter
+			bone="_bone_centerofchest"
+			life="500"
+			spawnrate="100" minparticlelife="200" maxparticlelife="400"
+			direction="0 0 1"
+			gravity="-15"
+			minspeed="10"  maxspeed="30"
+			drag="0.1" 
+			material="/shared/effects/materials/phantom_white_reveal.material"
+			offsetsphere="15"
+			depthbias="-10"
+		>
+			<particle					
+				minagle="-360" maxangle="360"
+				startcolor=".6 0 1" midcolor=".7 0 1" endcolor=".75 0 1"
+				minsize="8" maxsize="12" startscale=".7" endscale="1.3"
+				startframe="1" midframe=".1" endframe="1" midframepos=".3"
+				startalpha=".7" endalpha="0"
+				minscale="1"
+				maxscale="3"
+			/>
+			<particle					
+				minagle="-360" maxangle="360"
+				startcolor="0 0 1" midcolor="0 .75 1" endcolor="0 .5 1"
+				minsize="8" maxsize="12" startscale=".7" endscale="1.3"
+				startframe="1" midframe=".1" endframe="1" midframepos=".3"
+				startalpha=".7" endalpha="0"
+				minscale="1"
+				maxscale="3"
+			/>
+		</simpleemitter> -->
+		<simpleemitter
+			life="500"
+			bone="_bone_centerofchest"
+			spawnrate="40"
+			range="80"
+			minparticlelife="600"
+			maxparticlelife="800"
+			direction="0 1 1"
+			angle="10"
+			minspeed="20"
+			maxspeed="30"
+			drag="0.05"
+			gravity="-3"
+			offsetsphere="15 15 0"
+		>
+			<template name="ash_particle" >
+				<particle
+					maxyaw="360"
+					maxpitch="360"
+					maxroll="360"
+					minyawspeed="-200"
+					maxyawspeed="200"
+					minpitchspeed="-200"
+					maxpitchspeed="200"
+					minrollspeed="-200"
+					maxrollspeed="200"
+					startscale="0"
+					minendscale="1"
+					maxendscale="2.2"
+				>
+					<billboard
+						maxangle="360"
+						minrollspeed="-40"
+						maxrollspeed="40"
+						life="900"
+						position="20 0 0"
+						material="/shared/effects/materials/star.material"
+						startsize="14"
+						endsize="1"
+						startcolor="{sc}"
+						midcolor="{mc}"
+						endcolor="{ec}"
+						midcolorpos="{mcpos}"
+					/>
+				</particle>
+			</template>
+			<instance name="ash_particle" sc="1" mc="1" ec="0" mcpos=".75" />
+		</simpleemitter>
+		
+      </particlesystem>
+   </definitions>
+<thread>
+	<spawnparticlesystem instance="instance0" particlesystem="system0" />
+	<spawnmodifier instance="instance1" />
+	
+	<waitfordeath instance="instance0" />
+	<waitfordeath instance="instance1" />
+	
+	<!-- <die /> -->
+</thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->
+

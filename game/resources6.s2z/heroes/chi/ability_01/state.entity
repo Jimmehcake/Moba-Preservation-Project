@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Chi_Ability1"
+	
+	icon="icon.tga"
+	passiveeffect="effects/state.effect"
+	
+	disarmed="true"
+	movespeedslow="0.35"	
+	
+	effecttype="StatusDebuff"
+	allowtransfer="true"
+	
+	negativeeffect="disarmed"
+>
+	<onexpired>
+		<playeffect effect="effects/expire_audio.effect" source="this_owner_entity" target="" occlude="true" />
+	</onexpired>
+	
+	<altavatar key="Hero_Chi.Alt"
+		passiveeffect="../alt/ability_01/effects/state.effect"
+	/>
+	
+	<altavatar key="Hero_Chi.Alt2"
+		passiveeffect="../alt2/ability_01/effects/state.effect"
+	/>
+</state>

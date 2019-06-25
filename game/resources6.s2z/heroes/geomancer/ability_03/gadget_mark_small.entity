@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gadget
+	name="Gadget_Geomancer_Ability2_Mark_Small"
+	
+	model="/shared/models/invis.mdf"
+	
+	stealthtype="unrevealable"
+	fadetime="0"
+	
+	skin=""
+	unitwalking="true"
+	buildingwalking="true"
+	cliffwalking="true"
+	treewalking="true"
+	diewithowner="false"
+	
+	passiveeffect="effects/mark_small.effect"
+	spawneffect=""
+	respawneffect=""
+	deatheffect=""
+	selectsound=""
+	isselectable="false"
+	iscontrollable="false"
+	orderconfirmedsound=""
+	
+	preglobalscale="1.0"
+	modelscale="0.9"
+	effectscale="0.9"
+	boundsheight="64"
+	boundsradius="16"
+	selectionradius="36"
+	targetoffset="0 0 0"
+	
+	flying="true"
+	flyheight="140"
+
+	drawonmap="true"
+	hoveronmap="false"
+	invulnerable="true"
+	canattack="false"
+	
+	mapicon="/shared/icons/minimap_hero0.tga"
+	mapiconsize="0.015"
+	mapiconcolor=".6 0 0 1"
+
+	corpsetime="0"
+	corpsefadetime="0"
+	deathtime="0"
+>
+
+</gadget>

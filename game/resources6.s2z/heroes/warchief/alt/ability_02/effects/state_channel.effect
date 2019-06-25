@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect useentityeffectscale="true" deferred="true">
+	<definitions>
+	
+			
+		<modifier
+			name="modifier0"
+			life="3000"
+			startcolor="1.5 1 1"
+			midcolor="1.5 1 1"
+			endcolor="1"
+			midcolorpos="0.92"
+		/>
+		
+		<particlesystem name="system0" space="world" scale=".8">
+
+			<sound  
+		        life="5000"
+				volume=".8"
+				sample="../../sounds/ab2_cast.wav"
+				linearfalloff="true"
+				falloffstart="800" 
+				falloffend="1300" 
+			/>
+			
+			<sound  
+			    life="5000"
+				volume="1"
+				sample="/heroes/warchief/ability_02/sounds/core_cast.wav"
+				linearfalloff="true"
+				falloffstart="800" 
+				falloffend="1300" 
+			/>
+			<simpleemitter
+				direction="0 0 1"
+				spawnrate="100"
+				minangle="90"
+				maxangle="90"
+				speed="100"
+				drag=".01"
+				particlelife="600"
+			>
+				<particle
+					turn="1"
+				>
+					<billboard
+						position="0 100 20"
+						life="600"
+						startalpha="0"
+						midalpha=".5"
+						endalpha="0"
+						midalphapos=".33"
+						startcolor="1 0 0"
+						endcolor=".5 0 0"
+						maxroll="360"
+						minrollspeed="-100"
+						maxrollspeed="100"
+						startsize="50"
+						endsize="250"
+						material="/shared/effects/materials/pyroclast_05.material"
+					/>
+				</particle>
+			</simpleemitter>
+			
+			<groundsprite
+				expirelife="500"
+				loop="1"
+				size="150"
+				startalpha=".85"
+				endalpha="0"
+				material="/shared/effects/materials/black_spot.material"
+			/>
+			
+			<groundsprite
+				life="900"
+				loop="1"
+				startsize="0"
+				endsize="150"
+				startframe="0"
+				endframe="1"
+				startcolor="1"
+				endcolor=".5"
+				maxyaw="360"
+				material="/shared/effects/materials/blood_puddle.material"
+			/>
+			
+			<groundsprite
+				delay="300"
+				life="800"
+				loop="1"
+				startsize="0"
+				endsize="150"
+				startframe="0"
+				endframe="1"
+				startcolor="1"
+				endcolor=".5"
+				maxyaw="360"
+				material="/shared/effects/materials/blood_puddle.material"
+			/>
+			
+			<groundsprite
+				delay="600"
+				life="800"
+				loop="1"
+				startsize="0"
+				endsize="200"
+				startframe="0"
+				endframe="1"
+				startcolor="1"
+				endcolor=".5"
+				maxyaw="360"
+				material="/shared/effects/materials/blood_puddle.material"
+			/>
+			
+			<billboard
+				life="1000"
+				loop="1"
+				position="0 0 10"
+				lockup="1"
+				pitch="90"
+				startsize="0"
+				endsize="300"
+				startcolor="1 0 0"
+				endcolor=".5 0 0"
+				startalpha="1"
+				endalpha="0"
+				material="/shared/effects/materials/pulse_ground_white.material"
+			/>
+			
+			<billboard
+				life="1000"
+				delay="333"
+				loop="1"
+				position="0 0 10"
+				lockup="1"
+				pitch="90"
+				startsize="0"
+				endsize="300"
+				startcolor="1 0 0"
+				endcolor=".5 0 0"
+				startalpha="1"
+				endalpha="0"
+				material="/shared/effects/materials/pulse_ground_white.material"
+			/>
+			
+			<billboard
+				life="1000"
+				delay="666"
+				loop="1"
+				position="0 0 10"
+				lockup="1"
+				pitch="90"
+				startsize="0"
+				endsize="300"
+				startcolor="1 0 0"
+				endcolor=".5 0 0"
+				startalpha="1"
+				endalpha="0"
+				material="/shared/effects/materials/pulse_ground_white.material"
+			/>
+
+			<template name="smoke" >
+				<controller  yaw="{angle}" yawspeed="150">
+					<model
+						life="700"
+						model="smoke/model.mdf"
+						expirelife="500"
+						startcolor="0"
+						endcolor=".25 0 0"
+						scale=".85"
+					/>
+					<model
+						delay="700"
+						life="1000"
+						loop="1"
+						model="smoke/model.mdf"
+						expirelife="500"
+						startcolor=".25 0 0"
+						midcolor=".125 0 0"
+						endcolor=".25 0 0"
+						scale=".85"
+					/>
+				</controller>
+			</template>
+
+			<instance name="smoke" angle="0" />
+			<instance name="smoke" angle="90" />
+			<instance name="smoke" angle="180" />
+			<instance name="smoke" angle="270" />
+			
+			<simpleemitter
+				spawnrate="15"
+				life="2500"
+				offsetradial="130 130 0"
+				particlelife="1000"
+			>
+				<particle
+					scale="1"
+				>
+					<trailemitter
+						spawnrate="20"
+						direction="0 0 1"
+						angle="0"
+						speed="300"
+						acceleration="-200"
+						drag=".02"
+						particlelife="1000"
+						life="500"
+						texpostime="500"
+						material="/shared/effects/materials/glow_04.material"
+					>
+						<particle
+							startsize="70"
+							midsize="15"
+							midsizepos=".15"
+							endsize="0"
+							startcolor=".0"
+							midcolor="1 0 0"
+							endcolor="1 0 0"
+							scale=".5"
+							lockup="1"
+						/>
+					</trailemitter>
+				</particle>
+			</simpleemitter>
+			
+			<controller bone="Bip01 L Forearm" >
+				<beam 
+					position_a="-20 0 0"
+					position_b="30 0 0"
+					size="50"
+					material="/shared/effects/materials/black_spot.material"
+				/>
+				
+				<beam 
+					position_a="-30 0 0"
+					position_b="30 0 0"
+					color="1 0 0"
+					size="60"
+					framespeed="1.2"
+					material="/shared/effects/materials/femme_fire_trail.material"
+				/>
+			</controller>
+			
+			
+			
+			<controller bone="_bone_weapon1" directionalspace="local" >
+			<billboard
+				position="0 0 40"
+				size="400"
+				color="0 0 0"
+				material="/shared/effects/materials/whitedot_blend.material"
+			/>
+			
+			<simpleemitter
+				position="0 0 40"
+				spawnrate="50"
+				minparticlelife="300"
+				maxparticlelife="600"
+				directionalspace="global"
+				offsetsphere="0"
+				material="/shared/effects/materials/blood1.material"
+			>
+				<particle
+					startsize="30"
+					endsize="100"
+					startcolor=".5 0 0"
+					endcolor=".25 0 0"
+					startalpha="1"
+					midalpha="1"
+					endalpha="0"
+					startframe=".5"
+					endframe="1"
+					maxangle="360"
+					anchor="1"
+					minscale="2"
+					maxscale="3"
+				/>
+				
+				<particle
+					startsize="30"
+					endsize="100"
+					pitch="180"
+					startcolor=".5 0 0"
+					endcolor=".25 0 0"
+					startalpha="1"
+					midalpha="1"
+					endalpha="0"
+					startframe=".5"
+					endframe="1"
+					maxangle="360"
+					anchor="1"
+					minscale="2"
+					maxscale="3"
+				/>
+			</simpleemitter>
+			</controller>
+			
+				
+		
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<spawnmodifier instance="instance1" modifier="modifier0"/>  
+		<waitfordeath instance="instance0" />
+		<waitfordeath instance="instance1" /> 
+		<!-- <die /> -->
+	</thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->
+

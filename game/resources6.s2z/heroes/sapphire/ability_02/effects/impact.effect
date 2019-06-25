@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+	<definitions>
+		<particlesystem name="system0" space="world" scale=".7">	
+			<sound
+			    fadeout="2000"
+			    life="5000"
+			    dampen="0.7"
+				linearfalloff="true" 
+				falloffstart="800"
+				falloffend="1300"
+				minvolume="0.5" 
+				maxvolume="1"
+				sample="/heroes/sapphire/ability_02/sounds/imp_a_%.wav"
+			/>
+			
+			<light
+				life="250"
+				color=".5 2 2"
+				startfalloffend="350"
+				endfalloffend="0"
+			/>
+			
+			<billboard
+				material="/shared/effects/materials/ring_01_reveal.material"
+				life="200"
+				startcolor=".1 .2 .4"
+				endcolor="0"
+				startframe="0"
+				endframe="1"
+				midframepos=".25"
+				startsize="0"
+				midsize="700"
+				endsize="1100"
+				lockup="true"
+				lockright="true"
+				pitch="90"
+			/>
+			
+			<billboard
+				material="/shared/effects/materials/refract_ring.material"
+				life="300"
+				startsize="0"
+				midsize="500"
+				endsize="1100"
+				lockup="true"
+				lockright="true"
+				pitch="90"
+				startparam="0"
+				midparam="0.02"
+				endparam="0"
+			/>
+
+			<debris
+				minlife="800" 
+				maxlife="1000" 
+				model="/shared/effects/models/debris/debris.mdf"
+				material="/shared/effects/materials/shell2.material"
+				position="0 0 10"
+				offsetsphere="20 20 300"
+				direction="0 1 0"
+				minspeed="400"
+				maxspeed="600"
+				minrotationspeed="-1200"
+				maxrotationspeed="1200"
+				drag="0.r"
+				friction="200"
+				collide="1"
+				reflect="0.65"
+				bounce="0.8"
+				gravity="100"
+				minscale=".7"
+				maxscale="1.1"
+				startcolor="1 1.8 3"
+				endcolor="0 0 0"
+				startalpha="1"
+				midalpha="1"
+				endalpha="0"
+			>
+			</debris>
+			
+			<debris
+				minlife="800" 
+				maxlife="1000" 
+				model="/shared/effects/models/debris/debris.mdf"
+				material="/shared/effects/materials/shell2.material"
+				position="0 0 10"
+				offsetsphere="20 20 300"
+				direction="0 1 0"
+				minspeed="400"
+				maxspeed="600"
+				minrotationspeed="-1200"
+				maxrotationspeed="1200"
+				drag="0"
+				friction="200"
+				collide="1"
+				reflect="0.65"
+				bounce="0.8"
+				gravity="100"
+				minscale=".7"
+				maxscale="1.1"
+				startcolor="1 1.8 3"
+				endcolor="0 0 0"
+				startalpha="1"
+				midalpha="1"
+				endalpha="0"
+			>
+			</debris>
+
+			<model
+				life="500"
+				model="/shared/effects/models/sphere/model.mdf"
+				material="sphere.material"
+				scale="7.3"
+				color=".2"
+				midcolorpos=".2"
+				startalpha="1"
+				endalpha="0"
+				midalphapos=".3"
+				position="0 0 -150"
+			/>
+			<model
+				life="250"
+				model="/heroes/riftmage/ability_04/effects/sphere/model.mdf"
+				material="sphere.material"
+				scale="4.3"
+				startalpha="1"
+				endalpha="0"
+				midalphapos=".25"
+				startcolor="0"
+				midcolor=".6"
+				endcolor=".6"
+				position="0 0 -150"
+			/>
+			<billboard
+				life="300"
+				startcolor="0 .1 .2"
+				endcolor="0 0 0"
+				position="0 0 0"
+				material="/shared/effects/materials/corona_01.material"
+				size="875"
+				depthbias="-35"
+				lockup="1"
+				lockright="1"
+				pitch="90"
+			/> 
+
+		</particlesystem>
+		
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->

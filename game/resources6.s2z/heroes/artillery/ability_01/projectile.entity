@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectile
+	name="Projectile_Artillery_Ability1"
+
+	lifetime="600"
+	useexactlifetime="true"
+	gravity="0"
+
+	modelscale="0.55"
+	model="/shared/models/invis.mdf"
+	traileffect="effects/trail.effect"
+	deatheffect="effects/death.effect"
+	
+	impacteffect="effects/impact.effect"
+	
+	canturn="true"
+	flying="true"
+	flyheight="140"
+	
+	curve="1000"
+
+	touchradius="60"
+	maxtouchespertarget="1"
+	maxtouches="1"
+	touchtargetscheme="enemy_units"
+	toucheffecttype="Physical"
+	touchradiusdiradjust="true"
+	
+	dynamicprecache="effects/impact.effect,effects/death.effect"
+>
+	<onspawn>
+		<setscriptvalue name="impact_effect" value="effects/impact.effect" entity="this_entity" />
+		<setscriptvalue name="death_effect" value="effects/death.effect" entity="this_entity" />
+	</onspawn>
+	
+	<ontouch>
+		<setvar0 a="source_attackdamage" b="0.07,0.14,0.21,0.28" op="mult" />		
+		<setvar0 a="var0" b="12" op="add" />
+		<setvar2 a="param" b="0.01" op="mult" />
+		<setvar2 a="var2" b="1" op="add" />
+		<setvar0 a="var0" b="var2" op="mult" />
+		<targettype type="hero" source="target_entity" target="target_entity">
+			<damage effecttype="Physical" amount="1" b="var0" op="mult" />
+		</targettype>
+		<else>
+			<damage effecttype="Physical" amount="0.5" b="var0" op="mult" />
+		</else>
+		
+		<setproxy entity="this_entity" target="target_entity" />
+		<hasmodifier entity="source_entity" name="Artillery_Bunker_On">
+			<applystate name="State_Artillery_Ability3_Slow" duration="3000" />
+		</hasmodifier>
+
+		<areaofeffect
+			radius="200"
+			targetselection="all"
+			targetscheme="enemy_units"
+			effecttype="Physical"
+			source="source_entity"
+			center="target_position"
+			ignore="target_entity"
+		>
+			<distance source="this_proxy_entity" target="target_entity" />
+			<compare a="result" b="200" op="lt" >
+				<evaluate a="result" b="200" op="div" />
+				<setvar1 a="1" b="result" op="sub" />
+				
+				<setvar0 a="source_attackdamage" b="0.07,0.14,0.21,0.28" op="mult" />		
+				<setvar0 a="var0" b="12" op="add" />
+				<setvar0 a="var0" b="var1" op="mult" />
+				<setvar2 a="param" b="0.01" op="mult" />
+				<setvar2 a="var2" b="1" op="add" />
+				<setvar0 a="var0" b="var2" op="mult" />
+				<targettype type="hero" source="target_entity" target="target_entity">
+					<damage effecttype="Physical" amount="1" b="var0" op="mult" />
+				</targettype>
+				<else>
+					<damage effecttype="Physical" amount="0.5" b="var0" op="mult" />
+				</else>
+				
+				<hasmodifier entity="source_entity" name="Artillery_Bunker_On">
+					<applystate name="State_Artillery_Ability3_Slow" duration="3000" />
+				</hasmodifier>
+			</compare>
+		</areaofeffect>
+		
+		<!-- Dynamic visual effects -->
+		<getscriptvalue name="impact_effect" destvar="str0" entity="this_entity" />
+		<playeffectdynamic effect="str0" target="target_entity" source="target_entity" occlude="true" />
+		<getscriptvalue name="death_effect" destvar="str1" entity="this_entity" />
+		<playeffectdynamic effect="str1" target="this_position" source="this_position" occlude="true" />
+
+		<delete target="this_entity" />
+	</ontouch>
+
+	<onimpact>
+		<areaofeffect
+			radius="200"
+			targetselection="all"
+			targetscheme="enemy_units"
+			effecttype="Physical"
+			source="source_entity"
+			center="target_position"
+			ignore="target_entity"
+		>
+			<distance source="this_entity" target="target_entity" />
+			<compare a="result" b="200" op="lt" >
+				<evaluate a="result" b="200" op="div" />
+				<setvar1 a="1" b="result" op="sub" />
+
+				<setvar0 a="source_attackdamage" b="0.07,0.14,0.21,0.28" op="mult" />		
+				<setvar0 a="var0" b="12" op="add" />
+				<setvar0 a="var0" b="var1" op="mult" />
+				<setvar2 a="param" b="0.01" op="mult" />
+				<setvar2 a="var2" b="1" op="add" />
+				<setvar0 a="var0" b="var2" op="mult" />
+				<targettype type="hero" source="target_entity" target="target_entity">
+					<damage effecttype="Physical" amount="1" b="var0" op="mult" />
+				</targettype>
+				<else>
+					<damage effecttype="Physical" amount="0.5" b="var0" op="mult" />
+				</else>
+				
+				<hasmodifier entity="source_entity" name="Artillery_Bunker_On">
+					<applystate name="State_Artillery_Ability3_Slow" duration="3000" />
+				</hasmodifier>
+			</compare>
+		</areaofeffect>
+	</onimpact>
+	
+	<modifier key="Artillery_Projectile1_Curve_1" modpriority="100"
+		curve="-1000"
+	>
+	</modifier>
+	
+	<modifier key="Artillery_Projectile1_Curve_2" modpriority="100"
+		curve="-500"
+	>
+	</modifier>
+	
+	<modifier key="Artillery_Projectile1_Curve_3" modpriority="100"
+		curve="0"
+	>
+	</modifier>
+	
+	<modifier key="Artillery_Projectile1_Curve_4" modpriority="100"
+		curve="500"
+	>
+	</modifier>
+
+	<altavatar key="Hero_Artillery.Alt2"
+
+		modelscale="0.55"
+		model="/shared/models/invis.mdf"
+		traileffect="/heroes/artillery/alt2/ability_01/effects/trail.effect"
+		deatheffect="/heroes/artillery/alt2/ability_01/effects/death.effect"
+		
+		impacteffect="/heroes/artillery/alt2/ability_01/effects/impact.effect"
+		
+		flyheight="70"
+		dynamicprecache="../alt2/ability_01/effects/impact.effect,../alt2/ability_01/effects/death.effect"
+	>
+		<onspawn>
+			<setscriptvalue name="impact_effect" value="../alt2/ability_01/effects/impact.effect" entity="this_entity" />
+			<setscriptvalue name="death_effect" value="../alt2/ability_01/effects/death.effect" entity="this_entity" />
+		</onspawn>
+	</altavatar>
+	
+	<altavatar key="Hero_Artillery.Alt4"
+		traileffect="/heroes/artillery/alt4/ability_01/effects/trail.effect"
+	>
+	</altavatar>
+	
+	<altavatar key="Hero_Artillery.Alt5"
+		traileffect="/heroes/artillery/alt5/ability_01/effects/trail.effect"
+	>
+	</altavatar>
+	
+	<altavatar key="Hero_Artillery.Alt6"
+		traileffect="/heroes/artillery/alt6/ability_01/effects/trail.effect"
+		deatheffect="/heroes/artillery/alt6/ability_01/effects/death.effect"
+		dynamicprecache="../alt6/ability_01/effects/impact.effect,../alt6/ability_01/effects/death.effect"
+	>
+		<onspawn>
+			<setscriptvalue name="impact_effect" value="../alt6/ability_01/effects/impact.effect" entity="this_entity" />
+			<setscriptvalue name="death_effect" value="../alt6/ability_01/effects/death.effect" entity="this_entity" />
+		</onspawn>
+	</altavatar>
+	
+	<altavatar key="Hero_Artillery.Alt7"
+		traileffect="/heroes/artillery/alt7/ability_01/effects/trail.effect"		
+		deatheffect="/heroes/artillery/alt7/ability_01/effects/death.effect"
+		impacteffect="/heroes/artillery/alt2/ability_01/effects/impact.effect"
+		dynamicprecache="../alt7/ability_01/effects/impact.effect,../alt7/ability_01/effects/death.effect"
+	>
+		<onspawn>
+			<setscriptvalue name="impact_effect" value="../alt7/ability_01/effects/impact.effect" entity="this_entity" />
+			<setscriptvalue name="death_effect" value="../alt7/ability_01/effects/death.effect" entity="this_entity" />
+		</onspawn>
+	</altavatar>
+	
+	<altavatar key="Hero_Artillery.Alt8"
+		traileffect="/heroes/artillery/alt8/ability_01/effects/trail.effect"		
+		deatheffect="/heroes/artillery/alt8/ability_01/effects/death.effect"
+		impacteffect="/heroes/artillery/alt8/ability_01/effects/impact.effect"
+		dynamicprecache="../alt8/ability_01/effects/impact.effect,../alt8/ability_01/effects/death.effect"
+	>
+		<onspawn>
+			<setscriptvalue name="impact_effect" value="../alt8/ability_01/effects/impact.effect" entity="this_entity" />
+			<setscriptvalue name="death_effect" value="../alt8/ability_01/effects/death.effect" entity="this_entity" />
+		</onspawn>
+	</altavatar>
+	
+	<altavatar key="Hero_Artillery.Alt9"
+		traileffect="/heroes/artillery/alt9/ability_01/effects/trail.effect"
+		deatheffect="/heroes/artillery/alt9/ability_01/effects/death.effect"
+		impacteffect="/heroes/artillery/alt9/ability_01/effects/impact.effect"
+		dynamicprecache="../alt9/ability_01/effects/impact.effect,../alt9/ability_01/effects/death.effect"
+	>
+		<onspawn>
+			<setscriptvalue name="impact_effect" value="../alt9/ability_01/effects/impact.effect" entity="this_entity" />
+			<setscriptvalue name="death_effect" value="../alt9/ability_01/effects/death.effect" entity="this_entity" />
+		</onspawn>
+	</altavatar>
+	
+	<altavatar key="Hero_Artillery.Alt10"
+		traileffect="/heroes/artillery/alt9/ability_01/effects/trail.effect"
+		deatheffect="/heroes/artillery/alt9/ability_01/effects/death.effect"
+		impacteffect="/heroes/artillery/alt9/ability_01/effects/impact.effect"
+		dynamicprecache="../alt9/ability_01/effects/impact.effect,../alt9/ability_01/effects/death.effect"
+	>
+		<onspawn>
+			<setscriptvalue name="impact_effect" value="../alt9/ability_01/effects/impact.effect" entity="this_entity" />
+			<setscriptvalue name="death_effect" value="../alt9/ability_01/effects/death.effect" entity="this_entity" />
+		</onspawn>
+	</altavatar>
+	
+	<altavatar key="Hero_Artillery.Alt11"
+		traileffect="/heroes/artillery/alt11/ability_01/effects/trail.effect"
+		deatheffect="/heroes/artillery/alt11/ability_01/effects/death.effect"
+		impacteffect="/heroes/artillery/alt11/ability_01/effects/impact.effect"
+		dynamicprecache="../alt11/ability_01/effects/impact.effect,../alt11/ability_01/effects/death.effect"
+	>
+		<onspawn>
+			<setscriptvalue name="impact_effect" value="../alt11/ability_01/effects/impact.effect" entity="this_entity" />
+			<setscriptvalue name="death_effect" value="../alt11/ability_01/effects/death.effect" entity="this_entity" />
+		</onspawn>
+	</altavatar>
+	
+	<altavatar key="Hero_Artillery.set_ascension"
+		traileffect="/heroes/artillery/set_ascension/ability_01/effects/trail.effect"		
+		deatheffect="/heroes/artillery/set_ascension/ability_01/effects/death.effect"
+		impacteffect="/heroes/artillery/set_ascension/ability_01/effects/impact.effect"
+		dynamicprecache="../set_ascension/ability_01/effects/impact.effect,../set_ascension/ability_01/effects/death.effect"
+	>
+		<onspawn>
+			<setscriptvalue name="impact_effect" value="../set_ascension/ability_01/effects/impact.effect" entity="this_entity" />
+			<setscriptvalue name="death_effect" value="../set_ascension/ability_01/effects/death.effect" entity="this_entity" />
+		</onspawn>
+	</altavatar>
+	
+</projectile>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect useentityeffectscale="true">
+	<definitions>
+		<particlesystem name="system0" space="world" scale="2">
+		
+			<sound
+				linearfalloff="true" 
+				falloffstart="100"
+				falloffend="2400"
+				volume="1"
+				sample="/heroes/artillery/ability_01/sounds/impacts_%.wav"
+			/>
+			
+			<billboard
+				bone="_bone_centerofchest"
+				life="350"
+				startsize="50"
+				endsize="150"		
+				startcolor="1 .5 0"
+				endcolor="0"				
+				depthbias="0"
+				material="/shared/effects/materials/whitedot.material"
+				lockup="1"
+				pitch="90"
+			/>
+			
+			<billboard
+				bone="_bone_centerofchest"
+				life="350"
+				startsize="50"
+				endsize="150"		
+				startcolor="2 1 0"
+				endcolor="0"				
+				depthbias="0"
+				material="/shared/effects/materials/corona_01.material"
+				lockup="1"
+				pitch="90"
+			/>
+
+			<billboard
+				bone="_bone_centerofchest"
+				life="350"
+				param="0.1"	
+				startsize="50"
+				endsize="150"
+				startalpha="0"
+				midalpha=".4"
+				endalpha="0"				
+				depthbias="0"
+				material="/shared/effects/materials/refract_swell.material"
+				lockup="1"
+				pitch="90"
+			/>
+			
+			<simpleemitter
+				count="1"
+				particlelife="1500"
+			>
+				<particle
+					maxyaw="360"
+				>
+					<model
+						model="/heroes/geomancer/ability_04/effects/amethyst_explosion/model.mdf"
+						material="/heroes/geomancer/alt4/ability_04/effects/material_generic.material"
+						anim="idle"
+						life="1500"
+						startalpha="1"
+						midalpha="1"
+						endalpha="0"
+						midalphapos=".85"
+						scale=".33"
+					>
+						<model
+							model="/heroes/geomancer/ability_04/effects/amethyst_explosion/model.mdf"
+							material="/heroes/geomancer/alt4/ability_04/effects/amethyst_explosion/material.material"
+							anim="idle"
+							life="1500"
+							startalpha="1"
+							midalpha="1"
+							endalpha="0"
+							midalphapos=".85"
+						/>
+					</model>
+				</particle>
+			</simpleemitter>
+			
+			<groundsprite
+				life="700"
+				startsize="0"
+				endsize="100"
+				startcolor="1 .5 0"
+				endcolor="0"
+				material="/shared/effects/materials/smash_add.material"
+			/>
+			
+			<groundsprite
+				life="700"
+				startsize="0"
+				endsize="100"
+				startcolor="1 .5 0"
+				endcolor="0"
+				material="/shared/effects/materials/shockwave.material"
+			/>
+
+			
+			
+		</particlesystem>
+
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+</effect>

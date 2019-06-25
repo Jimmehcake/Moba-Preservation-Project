@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectile
+	name="Projectile_Mimix_Ability1"
+
+	speed="2000"
+	gravity="2500"
+
+	modelscale="2"
+	model="/shared/models/invis.mdf"
+	traileffect="effects/trail.effect"
+	impacteffect="effects/impact.effect"
+	effectscale="1"
+	
+
+>
+	<onimpact>
+		<applystate name="State_Mimix_Ability1" target="target_entity" duration="50" proxy="source_entity" />
+		<applystate name="State_Mimix_Ability1_Slow" target="target_entity" duration="6000" />
+		<damage effecttype="Magic" target="target_entity" amount="75,110,145,180" b="param" op="mult" source="source_entity" />
+		<hasmodifier entity="target_entity" name="Mimix_Ability2_Affected">
+			<areaofeffect
+				center="this_owner_entity"
+				radius="99999"
+				targetselection="all"
+				targetscheme="enemy_units"
+				effecttype="Magic"
+				ignore="target_entity"
+			>
+				<hasmodifier entity="target_entity" name="Mimix_Ability2_Affected">
+					<applystate name="State_Mimix_Ability1_Slow" target="target_entity" duration="6000" />
+				</hasmodifier>
+			</areaofeffect>
+		</hasmodifier>
+	</onimpact>
+	
+</projectile>

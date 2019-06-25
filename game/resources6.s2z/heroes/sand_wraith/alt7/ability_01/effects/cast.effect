@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="Sandy SandyDeath" deferred="1">
+	<definitions>
+
+	
+		<particlesystem name="system0" space="world" scale=".7">
+			
+			<sound
+				linearfalloff="true" 
+				falloffstart="1300"
+				falloffend="2000"
+				volume="1"
+				sample="../../../ability_01/sounds/cast.wav"
+			/>
+			
+			<template name="trails">
+				<trailemitter
+					life="500"
+					bone="{bone}"
+					spawnrate="100"
+					particlelife="400"
+					texpostime="500"
+					texposscale="0.0"
+					texstretchscale=".4"
+					material="/shared/effects/materials/light_trail.material"
+				>
+					<particle
+						startcolor=".2 .5 1"
+						midcolor="0 .4 .8"
+						endcolor="0"
+						startalpha="0"
+						midalpha="0"
+						endalpha="0"
+						midalphapos=".075"
+						startsize="15"
+						midsize="15"
+						endsize="5"
+						midsizepos="0.2"
+				 />
+				</trailemitter>
+			</template>
+			
+			<instance name="trails" bone="Bip001 L Hand"/>
+			<instance name="trails" bone="Bip001 R Hand"/>
+		</particlesystem>
+   </definitions>
+<thread>
+	<spawnparticlesystem instance="instance0" particlesystem="system0" />
+	<spawnmodifier instance="instance1" modifier="modifier0"/>  
+	
+	<waitfordeath instance="instance0" />
+	<wait duration="20000"/>
+	<!-- <die /> -->
+</thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Geomancer_Ability2"
+	
+	icon="icon.tga"
+	
+	impactinterval="1000"
+	passiveeffect="effects/state.effect"
+	
+	sighted="true"
+	revealed="true"
+	
+	effecttype="StatusDebuff"
+	allowtransfer="true"
+	
+	dynamicprecache="effects/gadget.effect"
+>
+	<oninflict>
+		<hasavatarkey name="Hero_Geomancer.Alt6" >
+			<setscriptvalue name="impact_effect" value="../alt6/ability_02/effects/gadget.effect" entity="this_entity" />
+			<playeffect effect="../alt6/ability_02/effects/gadget.effect" source="target_position" occlude="true" />
+		</hasavatarkey>
+		<else>
+			<setscriptvalue name="impact_effect" value="effects/gadget.effect" entity="this_entity" />
+			<playeffect effect="effects/gadget.effect" source="target_position" occlude="true" />
+		</else>
+	</oninflict>
+	
+	<onimpact>
+		<setvar0 a="30,35,40,45" />
+		<targettype type="moving">
+			<damage effecttype="Magic" amount="0.5" b="var0" op="mult" />
+		</targettype>
+		<else>
+			<damage effecttype="Magic" amount="1" b="var0" op="mult" />
+		</else>
+		
+		<!-- Dynamic visual effects -->
+		<getscriptvalue name="impact_effect" destvar="str0" entity="this_entity" />
+		<playeffectdynamic effect="str0" target="" source="target_position" occlude="true" />
+	</onimpact>
+	
+	<onframe />
+	
+	<altavatar key="Hero_Geomancer.Alt6"
+		passiveeffect="../alt6/ability_02/effects/state.effect"
+		dynamicprecache="../alt6/ability_02/effects/gadget.effect"
+	/>
+</state>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Fade_Ability4_DoT"
+
+	icon="/heroes/fade/ability_04/icon.tga"
+	passiveeffect=""
+	ishidden="true"
+	
+	impactinterval="1000"
+	
+	effecttype="ForceTransferrable"
+	allowtransfer="true"
+>
+	<onframe />
+
+	<onimpact>
+		<evaluate a="target_health" b="0.1,0.2,0.3" op="mult" />
+		<evaluate a="result" b="150,200,250" op="add" />
+		<evaluate a="result" b="3" op="div" /> <!-- State damages three times (oninflict, onimpact x2) -->
+
+		<damage effecttype="Magic DOT" amount="1" b="result" op="mult" />
+		<popup name="poison" a="result" source="target_entity" target="source_entity"/>
+	</onimpact>
+
+	<oninflict>
+		<evaluate a="target_health" b="0.1,0.2,0.3" op="mult" />
+		<evaluate a="result" b="150,200,250" op="add" />
+		<evaluate a="result" b="3" op="div" /> <!-- State damages three times (oninflict, onimpact x2) -->
+		
+		<damage effecttype="Magic DOT" amount="1" b="result" op="mult" />
+		<popup name="poison" a="result" source="target_entity" target="source_entity"/>
+	</oninflict>
+	
+	 <altavatar key="Hero_Fade.Alt6" 
+	    icon="/heroes/fade/alt6/ability_04/icon.tga"
+	/>
+	
+</state>

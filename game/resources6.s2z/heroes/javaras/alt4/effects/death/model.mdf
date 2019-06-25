@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model name="rig.max" file="death.model" type="K2" high="death.model" med="death.model" low="death.model" >
+
+	<anim name="idle" clip="death.clip" fps="30" loop="false"/>
+
+	<anim name="warp" clip="warp.clip" fps="40" loop="false"/>
+</model>

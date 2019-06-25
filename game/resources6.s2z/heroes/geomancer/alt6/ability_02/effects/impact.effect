@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="1" useentityeffectscale="1">
+
+	<definitions>
+
+		<particlesystem name="system0" space="world"  scale="1">
+
+		
+		
+			<simpleemitter
+				count="30"
+				particlelife="500"
+				angle="90"
+				minspeed="700"
+				maxspeed="900"
+				drag=".05"
+				minparticlecolor=".5"
+				maxparticlecolor="1"
+				material="/shared/effects/materials/pyroclast_03.material"
+			>
+				<particle
+					startsize="50"
+					endsize="150"
+					startalpha="1"
+					midalpha="1"
+					endalpha="0"
+					startcolor=".2 .75 .75"
+					endcolor=".2 .15 .05"
+					maxangle="360"
+				/>
+			</simpleemitter>
+			
+			<billboard
+				life="350"
+				startsize="0"
+				endsize="700"
+				startcolor="0 .5 1"
+				endcolor="0"
+				material="/shared/effects/materials/whitedot.material"
+			/>
+			
+			<billboard
+				life="300"
+				startsize="0"
+				endsize="400"
+				startcolor=".2 .4 1"
+				endcolor="0"
+				material="/shared/effects/materials/corona_01.material"
+			/>
+			
+			<simpleemitter
+				count="2"
+				particlelife="1500"
+				offsetsphere="40 40 0"
+				directionalspace="local"
+			>
+				<particle
+					minscale="1"
+					maxscale="2"
+				>
+					<model
+						model="../../ability_04/effects/amethyst/model.mdf"
+						material="../../effects/bismuth/material.material"
+						color=".7"
+						pitch="20"
+						minyaw="-40"
+						maxyaw="40"
+						life="400"
+						startscale="0"
+						endscale="1"
+						directionalspace="local"
+					/>
+					<simpleemitter
+						direction="0 0 1"
+						count="2"
+						angle="0"
+						minspeed="100"
+						maxspeed="200"
+						gravity="30"
+						particlelife="1000"
+					>
+						<particle>
+							<model	
+								model="../../ability_04/effects/amethyst_explosion/model.mdf"
+								material="../../effects/bismuth/material.material"
+								anim="idle"
+								color=".7"
+								maxyaw="360"
+								life="1000"
+								scale=".3"
+								directionalspace="local"
+							/>
+						</particle>
+					</simpleemitter>
+				</particle>
+			</simpleemitter>
+
+		</particlesystem>
+
+	</definitions>
+
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+
+</effect>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="trail" deferred="true">
+	<definitions>
+		<particlesystem name="system0" space="world" scale="1.15">
+			<sound
+			    pitchshift="true"
+				minpitch="0.9"
+				maxpitch="1.1"
+			    delay="150"
+				linearfalloff="true" 
+				falloffstart="650"
+				falloffend="1300"
+				minvolume=".3" 
+				maxvolume=".5" 
+				sample="/heroes/chi/sounds/foley/trail_%.wav"
+			/>
+			<controller scale=".8">
+				<billboard
+					bone="_bone_fx_01"
+					material="/shared/effects/materials/whitedot_blend.material"
+					color=".1 .7 .7"
+					size="100"
+					alpha=".3"
+					depthbias="-30"
+				/>
+				
+				<billboard
+					bone="_bone_fx_01"	
+					material="/shared/effects/materials/star_03.material"
+					color=".3 .9 1"
+					size="150"
+					depthbias="-30"
+					rollspeed="250"
+				/>
+				
+				<billboard
+					bone="_bone_fx_01"	
+					material="/shared/effects/materials/rad_add_02.material"	
+					color=".1 .9 1"
+					size="120"
+					depthbias="-30"
+					rollspeed="250"
+				/>
+			</controller>	
+				
+			<simpleemitter
+				
+				bone="_bone_fx_01"
+				size="0"
+				spawnrate="100"
+				depthbias="-100"
+				minparticlelife="200"
+				maxparticlelife="550"
+				drag=".095"
+				direction="0 1 0"
+				startoffsetsphere="40 0 0"
+				endoffsetsphere="0 0 0"
+				minangle="90"
+				maxangle="90"
+				material="/shared/effects/materials/flare_01.material"	
+				minspeed="00"
+				maxspeed="2000"	
+			>
+				<particle
+					color="0.1 1 1"
+					startalpha="0"
+					midalpha="1"
+					endalpha="0"
+					startsize="50"
+					midsize="0"
+					endsize="0"
+					midsizepos="0.6"
+					anchor=".1"
+				>
+					<billboard
+						minlife="100"
+						maxlife="400"
+						maxangle="360"
+						startsize="70" endsize="0"
+						minscale=".7" maxscale="1.4"
+						color=".5 1 .8"
+						startalpha=".5" midalpha="0" endalpha="0"
+						material="/shared/effects/materials/star_03.material"
+					/>
+				</particle>	
+			</simpleemitter>
+			
+			<template name="trail_1">
+				<trailemitter
+					bone="{bone}"			
+					spawnrate="50"
+					particlelife="600"
+					texpostime="300"
+					texposscale="0.0"
+					texstretchscale=".4"
+					position="0 0 0"
+					material="/shared/effects/materials/good_tower_01_reveal.material"
+				>
+					<particle				
+						 startcolor="1"
+						 midcolor="1"
+						 endcolor="1"
+						 midcolorpos=".25"
+						 startsize="100"
+						 midsize="70"
+						 endsize="5"
+						 midsizepos="0.2"
+						 startframe="0"
+						 endframe="1"
+				 />
+				</trailemitter>
+			</template>
+			
+			<instance name="trail_1" bone="_bone_fx_01" />			
+			
+			<template name="trail_2">
+				<trailemitter
+					bone="{bone}"			
+					spawnrate="50"
+					particlelife="{a}"
+					texpostime="300"
+					texposscale="0.0"
+					texstretchscale=".4"
+					position="0 0 0"
+					material="/shared/effects/materials/swoosh2.material"
+				>
+					<particle				
+						 color=".55"
+						 startsize="10"
+						 midsize="40"
+						 endsize="5"
+						 midsizepos="0.2"
+						 startframe="0"
+						 endframe="1"
+				 />
+				</trailemitter>
+			</template>
+					
+			<instance name="trail_2" bone="_bone_fx_02" a="500" />
+			<instance name="trail_2" bone="_bone_fx_03" a="300" />
+
+
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+</effect>
+

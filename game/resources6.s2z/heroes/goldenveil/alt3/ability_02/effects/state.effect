@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="" deferred="true" >
+	<definitions>
+		<modifier
+			name="modifier0"
+			color=".3 1 1"
+			alpha=".8"
+		/>
+		<particlesystem name="system0" space="entity" scale="0.8">
+			<sound
+			    life="5000"
+				norestart="true"
+				channelid="goldenstun"
+				volume=".8" 
+				sample="/heroes/goldenveil/ability_02/sounds/imp_stun.ogg"
+				linearfalloff="true"
+				falloffstart="800"
+				falloffend="1300"
+			/>
+			<sound
+			    delay="510"
+			    forcestereo="true"
+			    life="5000"
+				norestart="true"
+				channelid="goldenfour"
+				volume="1" 
+				sample="../../sounds/ab2_vox.ogg"
+				linearfalloff="true"
+				falloffstart="800"
+				falloffend="1300"
+			/>
+			<model
+				position="0 0 0"
+				model="model2.mdf"
+				material="material_tree.material"
+				anim="idle"
+				scale="1.1"
+				color=".3 .8 1"
+				alpha="1"
+			>
+			</model>
+			<model
+				position="0 0 0"
+				model="model2.mdf"
+				material="material_tree.material"
+				anim="idle"
+				scale="1.08"
+				color="1 .9 .3"
+				alpha="1"
+				yaw="30"
+			>
+			</model>
+			<model
+				position="0 0 0"
+				model="model2.mdf"
+				material="material_tree.material"
+				anim="idle"
+				scale="1.06"
+				color="1 .3 1"
+				alpha="1"
+				yaw="-30"
+			>
+			</model>
+<!-- 			<model
+				position="0 0 0"
+				model="model2.mdf"
+				material="material_tree.material"
+				anim="idle"
+				scale="1.04"
+				color="1 .3 0"
+				alpha="1"
+				yaw="-60"
+			>
+			</model> -->
+			<model
+				position="0 0 0"
+				model="model2.mdf"
+				material="material_tree.material"
+				anim="idle"
+				scale="1"
+				color="1 .3 .3"
+				alpha="1"
+				yaw="150"
+			>
+			</model>
+			<model
+				position="0 0 0"
+				model="model2.mdf"
+				material="material_tree.material"
+				anim="idle"
+				scale="1.02"
+				color=".3 1 .3"
+				alpha="1"
+				yaw="180"
+			>
+			</model>
+			<!-- <model
+				position="0 0 0"
+				model="model2.mdf"
+				material="/heroes/grinex/alt6/material2.material"
+				anim="idle"
+				scale="1.1"
+				color="0 .7 1"
+				alpha="1"
+			>
+			</model> -->
+			<billboard
+				expirelife="200"
+				bone="_bone_overhead"
+				position="0 0 16"
+				material="/shared/effects/materials/stun_01.material"
+				roll="0"
+				rollspeed="-400"
+				color="0.4 0.4 0.4"
+				endcolor="0"
+				size="84"
+				lockup="true"
+				lockright="false"
+				pitch="90"
+				yaw="0"
+			/>
+			<billboard
+				expirelife="200"
+				bone="_bone_overhead"
+				position="0 0 8"
+				material="/shared/effects/materials/stun_01.material"
+				roll="30"
+				rollspeed="-500"
+				color="0.4 0.4 0.4"
+				endcolor="0"
+				size="64"
+				lockup="true"
+				lockright="false"
+				pitch="90"
+				yaw="0"
+			/>
+			<billboard
+				expirelife="200"
+				bone="_bone_overhead"
+				position="0 0 0"
+				material="/shared/effects/materials/stun_01.material"
+				roll="60"
+				rollspeed="-600"
+				color="0.4 0.4 0.4"
+				endcolor="0"
+				size="44"
+				lockup="true"
+				lockright="false"
+				pitch="90"
+				yaw="0"
+			/>
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<spawnmodifier instance="instance1" modifier="modifier0"/> 
+		<waitfordeath instance="instance0" />
+	</thread>
+</effect>

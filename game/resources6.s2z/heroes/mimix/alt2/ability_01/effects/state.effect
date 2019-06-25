@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="purgeEffect" deferred="false" useentityeffectscale="true">
+	<definitions>
+
+		<particlesystem name="system0" space="world" scale="1">
+			<sound
+				pitchshift="true"
+				minpitch="0.8"
+				maxpitch="1.1"
+				linearfalloff="true" 
+				falloffstart="1000"
+				falloffend="2000"
+				minvolume=".4" 
+				maxvolume=".6" 
+				sample="/heroes/mimix/ability_01/sounds/cast.wav"
+			/>
+			
+			<sound
+			    dampen="0.7"
+			    pitchshift="true"
+				minpitch="0.8"
+				maxpitch="1.1"
+			    life="6000"
+				linearfalloff="true" 
+				falloffstart="0"
+				falloffend="1300"
+				minvolume=".3" 
+				maxvolume=".5" 
+				sample="/heroes/mimix/ability_01/sounds/pre.wav"
+			/>
+			
+			<controller life="2000" startscale=".2" midscale=".8" endscale="1.2" position="0 0 120">
+			
+				<billboard
+					life="2300"
+					material="/shared/effects/materials/black_spot2.material"
+					color="0"
+					startscale="1"
+					endscale="3"
+					startalpha=".3"
+					midalpha=".3"
+					endalpha="0"
+					lockup="true" 
+					lockright="true"
+					pitch="-90"	
+				/>
+				
+				<billboard
+					life="2300"
+					position="0 10 0"
+					material="/shared/effects/materials/whitedot.material"
+					size="150"
+					startcolor=".4 .1 .3"
+					midcolor=".4 .1 .3"
+					endcolor="0"
+					depthbias="-20"
+				/>
+				<billboard
+					life="2300"
+					position="0 10 0"
+					material="/shared/effects/materials/whitedot.material"
+					size="150"
+					startcolor="0 .2 .4"
+					midcolor="0 .2 .4"
+					endcolor="0"
+					depthbias="-10"
+				/>
+				<billboard
+					life="2300"
+					position="0 10 0"
+					material="/shared/effects/materials/whitedot.material"
+					size="150"
+					startcolor=".4 .1 .3"
+					midcolor=".4 .1 .3"
+					endcolor="0"
+					depthbias="0"
+				/>
+				<billboard
+					life="2300"
+					position="0 10 0"
+					material="/shared/effects/materials/whitedot.material"
+					size="150"
+					startcolor="0 .2 .4"
+					midcolor="0 .2 .4"
+					endcolor="0"
+					depthbias="10"
+				/>
+			
+			<simpleemitter
+				life="1000"
+			
+				position="0 0 0"
+				offsetsphere="0 0 0"
+				spawnrate="3"
+				minparticlelife="800" maxparticlelife="1000"
+				material="/shared/effects/materials/vortex_white.material"
+			>
+				<particle
+					maxangle="360"
+					frame="1"
+					startsize="55" midsize="250" endsize="310" scale="1.4"
+					alpha=".83"
+					anglespeed="80"
+					startcolor="0" midcolor=".3 .1 .5" endcolor="0" midcolorpos=".7"
+					lockup="true" lockright="true"
+					pitch="-90"
+					anchor="1"
+				/>
+			</simpleemitter>
+		
+			<simpleemitter
+				life="1000"
+				position="0 0 0"
+				offsetsphere="0 0 0"
+				spawnrate="5"
+				minparticlelife="800" maxparticlelife="1000"
+				material="/shared/effects/materials/twirl_13.material"
+			>
+				<particle
+					maxangle="360"
+					frame="1"
+					startsize="70" midsize="180" endsize="220" scale="1.9"
+					alpha=""
+					anglespeed="30"
+					startcolor=".5 .3 1" midcolor=".8 .5 1" endcolor="0" midcolorpos=".6"
+					lockup="true" lockright="true"
+					pitch="-90"
+					anchor="1"
+				/>
+			</simpleemitter>
+			
+			<controller life="2600" owner="target" yawspeed="90" startscale=".4" midscale="1.1" endscale="1.7">
+				
+				<orbiteremitter
+					life="2300"
+					owner="target"
+					position="0 0 5"
+					offsetsphere="0 0 10"
+					startspawnrate="20"
+					endspawnrate="220"
+					minparticlelife="300" maxparticlelife="400"
+					direction="0 0 1"
+					origin="0 0 100"
+					offset="3.14 0 0"
+					orbit="0 0 -1"
+					angle="0"
+					minspeed="80" maxspeed="100" drag=".05"
+					material="/shared/effects/materials/ring_04_reveal.material"
+					cylindrical="true"
+					particlealpha="1"
+					depthbias="0"
+				>
+					<particle
+						color="1 .5 1"
+						startsize="10"
+						endsize="20"
+						midsizepos=".25"
+						startframe="0"
+						endframe="1"
+						rollspeed="150"
+						yawspeed="400"
+						minangle="-45"
+						maxangle="45"
+					>
+						<billboard
+							life="250"
+							material="/shared/effects/materials/glow_01.material"
+							startcolor="1.75 0 1"
+							endcolor="0"
+							startsize="20"
+							endsize="25"
+							midsizepos=".25"
+						/>
+						<billboard
+							life="250"
+							material="/shared/effects/materials/glow_01.material"
+							startcolor="1"
+							endcolor="0"
+							startsize="10"
+							endsize="7"
+							midsizepos=".25"
+						/>
+					</particle>
+					
+					<particle
+						color=".2 .5 1"
+						startsize="10"
+						endsize="20"
+						midsizepos=".25"
+						startframe="0"
+						endframe="1"
+					>
+						<billboard
+							life="250"
+							material="/shared/effects/materials/glow_01.material"
+							startcolor="0 .5 1.75"
+							endcolor="0"
+							startsize="20"
+							endsize="25"
+							midsizepos=".25"
+						/>
+						<billboard
+							life="250"
+							material="/shared/effects/materials/glow_01.material"
+							startcolor="1"
+							endcolor="0"
+							startsize="10"
+							endsize="7"
+							midsizepos=".25"
+						/>
+					</particle>
+				
+				</orbiteremitter>
+			</controller>	
+			
+			
+			</controller>	
+		</particlesystem>
+		
+	</definitions>
+
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+</effect>
+
+
+
+
+
+
+

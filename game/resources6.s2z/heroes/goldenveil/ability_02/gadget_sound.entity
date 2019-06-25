@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gadget
+	name="Gadget_Goldenveil_Sound_Idle"
+	
+	icon=""
+	portrait=""
+	model="/shared/models/invis.mdf"
+	passiveeffect="effects/idle_long_sound.effect"
+
+	boundsheight="0"
+	boundsradius="0"
+	isselectable="false"
+	iscontrollable="false"
+	selectionradius="0"
+	targetoffset="0 0 0"
+
+	canrotate="false"
+	ismobile="false"	
+	
+	attacktype="none"
+	combattype="Ranged"
+	
+	sightrangeday="0"
+	sightrangenight="0"
+
+	unitwalking="true"
+	treewalking="true"
+	cliffwalking="true"
+	buildingwalking="true"
+	canattack="false"
+	deathtime="0"
+	corpsetime="0"
+	invulnerable="true"
+	flying="true"
+	drawonmap="false"
+	
+	flyheight="0"
+	
+	clearvision="false"
+	
+	lifetime=""
+	
+	diewithowner="true"
+	noblockneutralspawn="true"
+	alwaysvisible="true"
+	hidden="true"
+>
+			<!-- If the enemy has a reveal item, play a sound and kill the gadget -->
+	<onframe>
+		<!-- Carried objects -->
+		<areaofeffect
+				center="this_owner_entity"
+				radius="900"
+				targetscheme="visible_enemy_heroes"
+				targetselection="closest"
+			>
+				
+				<hasmodifier entity="target_entity" name="reveal_item" propagatetoillusions="false">
+					<delete target="this_entity" />
+					
+					<hasavatarkey name="Hero_Goldenveil.Alt" target="this_owner_entity">
+					</hasavatarkey>
+					<else>
+						<hasavatarkey name="Hero_Goldenveil.Alt2" target="this_owner_entity">
+						</hasavatarkey>
+						<else>
+							<hasavatarkey name="Hero_Goldenveil.Alt3" target="this_owner_entity">
+								<playeffect effect="../alt3/ability_02/effects/spotted_sound.effect" source="this_owner_entity" target="this_owner_entity" occlude="true" />
+							</hasavatarkey>
+							<else>
+								<hasavatarkey name="Hero_Goldenveil.Alt4" target="this_owner_entity">
+									<playeffect effect="../alt4/ability_02/effects/spotted_sound.effect" source="this_owner_entity" target="this_owner_entity" occlude="true" />
+								</hasavatarkey>
+								<else>
+									<playeffect effect="effects/spotted_sound.effect" source="this_owner_entity" target="this_owner_entity" occlude="true" />
+								</else>
+							</else>
+						</else>
+					</else>
+				</hasmodifier>
+				<else>
+					<condition test="hasstate State_DustOfRevelation_icu" target="this_owner_entity">
+						<delete target="this_entity" />
+							
+						<hasavatarkey name="Hero_Goldenveil.Alt" target="this_owner_entity">
+						</hasavatarkey>
+						<else>
+							<hasavatarkey name="Hero_Goldenveil.Alt2" target="this_owner_entity">
+							</hasavatarkey>
+							<else>
+								<hasavatarkey name="Hero_Goldenveil.Alt3" target="this_owner_entity">
+									<playeffect effect="../alt3/ability_02/effects/spotted_sound_dust.effect" source="this_owner_entity" target="this_owner_entity" occlude="true" />
+								</hasavatarkey>
+								<else>
+									<hasavatarkey name="Hero_Goldenveil.Alt4" target="this_owner_entity">
+										<playeffect effect="../alt4/ability_02/effects/spotted_sound.effect" source="this_owner_entity" target="this_owner_entity" occlude="true" />
+									</hasavatarkey>
+									<else>
+										<playeffect effect="effects/spotted_sound_dust.effect" source="this_owner_entity" target="this_owner_entity" occlude="true" />
+									</else>
+								</else>
+							</else>
+						</else>
+					</condition>
+						<else>				
+							<condition test="hasstate State_TokenOfSight_Vision" target="target_entity">
+							<delete target="this_entity" />
+							
+							<hasavatarkey name="Hero_Goldenveil.Alt" target="this_owner_entity">
+							</hasavatarkey>
+							<else>
+								<hasavatarkey name="Hero_Goldenveil.Alt2" target="this_owner_entity">
+								</hasavatarkey>
+								<else>
+									<hasavatarkey name="Hero_Goldenveil.Alt3" target="this_owner_entity">
+										<playeffect effect="../alt3/ability_02/effects/spotted_sound.effect" source="this_owner_entity" target="this_owner_entity" occlude="true" />
+									</hasavatarkey>
+									<else>
+										<hasavatarkey name="Hero_Goldenveil.Alt4" target="this_owner_entity">
+											<playeffect effect="../alt4/ability_02/effects/spotted_sound.effect" source="this_owner_entity" target="this_owner_entity" occlude="true" />
+										</hasavatarkey>
+										<else>
+											<playeffect effect="effects/spotted_sound.effect" source="this_owner_entity" target="this_owner_entity" occlude="true" />
+										</else>
+									</else>
+								</else>
+							</else>
+							</condition>
+						</else>
+				</else>
+		</areaofeffect>
+		<else>
+			<!-- Placed objects-->
+			<areaofeffect
+				center="this_owner_entity"
+				radius="816"
+				targetscheme="enemy_objects"
+				targetselection="closest"
+			>
+				<hasmodifier entity="target_entity" name="reveal_item" propagatetoillusions="false">
+					<delete target="this_entity" />
+					
+					<hasavatarkey name="Hero_Goldenveil.Alt" target="this_owner_entity">
+					</hasavatarkey>
+					<else>
+						<hasavatarkey name="Hero_Goldenveil.Alt2" target="this_owner_entity">
+						</hasavatarkey>
+						<else>
+							<hasavatarkey name="Hero_Goldenveil.Alt3" target="this_owner_entity">
+								<playeffect effect="../alt3/ability_02/effects/spotted_sound.effect" source="this_owner_entity" target="this_owner_entity" occlude="true" />
+							</hasavatarkey>
+							<else>
+								<hasavatarkey name="Hero_Goldenveil.Alt4" target="this_owner_entity">
+									<playeffect effect="../alt4/ability_02/effects/spotted_sound.effect" source="this_owner_entity" target="this_owner_entity" occlude="true" />
+								</hasavatarkey>
+								<else>
+							<playeffect effect="effects/spotted_sound.effect" source="this_owner_entity" target="this_owner_entity" occlude="true" />
+								</else>
+							</else>
+						</else>
+					</else>
+				</hasmodifier>
+			</areaofeffect>
+		</else>
+		
+		<condition test="hasstate State_Goldenveil_Ability2_Stealth" target="this_owner_target_entity">
+		</condition>
+			<else>
+				<delete/>
+			</else>
+	</onframe>
+</gadget>

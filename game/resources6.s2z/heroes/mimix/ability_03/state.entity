@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Mimix_Ability3"
+
+	icon="icon.tga"
+	passiveeffect="effects/state.effect"
+
+	attackspeedpercharge="0.01"
+	maxcharges="300"
+
+	effecttype="StatusBuff"
+	allowtransfer="true"
+>
+
+	<onframe />
+	
+	<altavatar key="Hero_Mimix.Alt" modpriority="1"
+		passiveeffect="/heroes/mimix/alt/ability_03/effects/state.effect"
+	/>
+	
+	<altavatar key="Hero_Mimix.Alt2" modpriority="1"
+		traileffect="../alt2/ability_03/effects/state.effect"
+	/>
+		
+</state>

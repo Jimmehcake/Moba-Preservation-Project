@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="false">
+  <definitions>
+    <particlesystem name="system0" space="world" scale="1">
+
+
+
+      <template name="floating_embers" > 
+       <!-- floating_embers -->  
+         <simpleemitter
+			bone="{bone}"
+			spawnrate="20"
+			range="80"
+			particlelife="400"
+			direction=".3 1 0"
+			angle="10"
+			minspeed="30"
+			maxspeed="80"
+			drag="0.05"
+			gravity="-5"
+			offsetsphere="10"
+			inheritvelocity=".1"
+			limitinheritvelocity="150"
+		>
+
+			<instance name="ember_particle" />
+		</simpleemitter>
+
+		<simpleemitter
+			bone="{bone}"
+			spawnrate="20"
+			range="80"
+			particlelife="900"
+			direction="0 1 1"
+			angle="10"
+			minspeed="10"
+			maxspeed="30"
+			drag="0.1"
+			gravity="-2"
+			offsetsphere="10"
+		>
+			<template name="ash_particle" >
+				<particle
+					maxyaw="360"
+					maxpitch="360"
+					maxroll="360"
+					minyawspeed="-100"
+					maxyawspeed="100"
+					minpitchspeed="-100"
+					maxpitchspeed="100"
+					minrollspeed="-100"
+					maxrollspeed="100"
+					startscale="0"
+					minendscale=".5"
+					maxendscale="1"
+				>
+					<billboard
+						maxangle="360"
+						minrollspeed="-400"
+						maxrollspeed="400"
+						life="900"
+						position="20 0 0"
+						material="/shared/effects/materials/abstract_reveal.material"
+						startsize="8"
+						endsize="5"
+						startcolor="1 1 .2"
+					   endcolor="1 .4 0"
+						startframe="0"
+						endframe="1"
+					/>
+				</particle>
+			</template>
+			<instance name="ash_particle" sc="3 1 1" mc="-1" ec="-1" mcpos=".5" />
+			<instance name="ash_particle" sc="2 .6 .5" mc="-1" ec="-1" mcpos=".75" />
+		</simpleemitter>
+      </template>
+
+      
+      <instance name="floating_embers" bone="_bone_fx_02" scale=".5" />
+      <instance name="floating_embers" bone="_bone_fx_01" scale=".5" />
+      <instance name="floating_embers" bone="_bone_righthand" scale=".75" />
+      <instance name="floating_embers" bone="_bone_lefthand" scale=".75" />
+      
+		<skeletonemitter
+			timenudge="2000"
+			spawnrate="10"
+			offsetsphere="20"
+			minparticlelife="1000"
+			maxparticlelife="1600"
+			material="/shared/effects/materials/sparks_reveal2.material"
+			gravity="0"
+			direction="0 0 1"
+			angle="0"
+			minspeed="5"
+			maxspeed="10"
+		>
+			<template name="sparks">
+				<particle
+					minangle="0"
+					maxangle="360"
+					minsize="20"
+					maxsize="30"
+					color="{color}"
+					startframe="1"
+					midframe=".5"
+					endframe="1"
+					midframepos=".25"
+				/>
+			</template>
+			
+			<instance name="sparks" color=".5 .4 .2" />
+			<instance name="sparks" color=".25 .2 .05" />
+		</skeletonemitter>
+	   
+    </particlesystem>
+  </definitions>
+  <thread>
+    <spawnparticlesystem instance="instance0" particlesystem="system0" />
+	<waitfordeath instance="instance0" />
+  </thread>
+</effect>

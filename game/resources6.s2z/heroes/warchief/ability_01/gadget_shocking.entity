@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gadget
+	name="Gadget_Warchief_Ability1_Shocking"
+
+	icon="icon.tga"
+	portrait="icon.tga"
+	model="/shared/models/invis.mdf"
+	skin=""
+	
+	passiveeffect="shocking_totem/body.effect"
+	spawneffect="shocking_totem/spawn.effect"
+	respawneffect=""
+	selectsound=""
+	isselectable="true"
+	orderconfirmedsound=""
+	expirenumanims="0"
+	
+	preglobalscale="1"
+	modelscale="1.2"
+	effectscale="0.9"
+	boundsheight="64"
+	boundsradius="16"
+	selectionradius="26"
+	targetoffset="0 0 64"
+	infoheight="120"
+
+	blocking="true"
+
+	movespeed="0"
+	turnrate="540"
+	turnsmoothing="0.05"
+	ismobile="false"
+	canrotate="true"
+
+	maxhealth="1"
+	healthregen="0"
+	maxmana="0"
+	manaregen="0"
+	
+	unitwalking="true"
+
+	armor="0"
+	magicarmor="0"
+	immunity="GadgetImmunity"
+
+	aggrorange="600"
+	sightrangeday="700"
+	sightrangenight="700"
+	
+	showsightrange="true"
+
+	experiencebounty="0"
+	goldbountymin="10"
+	goldbountymax="10"
+	
+	lifetime="30050"
+	showlifetime="true"
+	noblockneutralspawn="true" 
+>
+	<onspawn>
+		<setaccumulator value="0" />
+	</onspawn>
+	
+	<onframe>
+		<!-- Timer Logic: only start timer via accumulator when at least 1 visible enemy hero is within radius -->
+		<areaofeffect
+			center="this_entity"
+			radius="700"
+			targetscheme="visible_enemy_heroes"
+			effecttype="Magic"
+			maxtotalimpacts="1"
+			targetselection="all"
+			ignore="this_proxy_entity"
+		>
+		</areaofeffect>
+		<compare a="result" b="1" op="ge">
+			<!-- Start timer -->
+			<changeaccumulator b="0.05" op="add" />
+			<!-- Save accumulator temporarily & set it again later on -->
+			<setvar1 a="accumulator" />
+			
+			<compare a="accumulator" b="2" op="ge">
+				<!-- Stun Targeting Logic -->
+				
+				<!-- Count number of Stuns, only go through first target Stun logic if it has not occurred -->
+				<applystate name="State_Warchief_Ability1_Counter" target="this_entity" continuous="true" pushentity="true" />
+				<addcharges entity="stack_entity" count="0" />
+				<compare a="result" b="1" op="lt">
+					<setaccumulator value="25000" />
+					<areaofeffect
+						center="this_entity"
+						radius="700"
+						targetscheme="visible_enemy_heroes"
+						effecttype="Magic"
+						targetselection="all"
+					>
+						<hasmodifier entity="target_entity" name="Warchief_Ability1_Shocked" />
+						<else>
+							<setvar0 a="target_health_percent" />
+							<compare a="var0" b="accumulator" op="lt">		
+								<!-- Remember the lowest health target -->
+								<setaccumulator value="var0" />
+								<setproxy target="target_entity" />
+							</compare>
+						</else>
+					</areaofeffect>
+					
+					<!-- Re-set the accumulator after it has been used to check for the lowest HP target -->
+					<setaccumulator value="var1" />
+					
+					<!-- Zap! (Stun) -->
+					<applystate name="State_Stunned" target="this_proxy_entity" duration="1000" />
+					<playeffect effect="shocking_totem/chain_impact.effect" source="this_proxy_entity" occlude="true" />
+					
+					<hasavatarkey name="Hero_Warchief.Alt2">
+						<playeffect effect="../alt2/ability_01/shocking_totem/chain_impact.effect" source="this_proxy_entity" occlude="true" />
+					</hasavatarkey>
+					<else>
+						<playeffect effect="shocking_totem/chain_impact.effect" source="this_proxy_entity" occlude="true" />
+					</else>
+					
+					<hasavatarkey name="Hero_Warchief.Alt2">
+						<playeffect effect="../alt2/ability_01/shocking_totem/chain_lightning_link.effect" source="this_entity" target="this_proxy_entity" occlude="true" />
+					</hasavatarkey>
+					<else>
+						<playeffect effect="shocking_totem/chain_lightning_link.effect" source="this_entity" target="this_proxy_entity" occlude="true" />
+					</else>
+					
+					<!-- Keep track of number of Stun instances -->
+					<applystate name="State_Warchief_Ability1_Counter" target="this_entity" continuous="true" pushentity="true" />
+					<addcharges entity="stack_entity" count="1" />
+				</compare>				
+				
+				<!-- Second Stun if skill is level 4 and the proper amount of time has passed -->
+				<compare a="level" b="4" op="ge">
+					<compare a="accumulator" b="4" op="ge">
+						<areaofeffect
+							center="this_entity"
+							radius="700"
+							targetscheme="visible_enemy_heroes"
+							effecttype="Magic"
+							targetselection="closest"
+							maxtotalimpacts="1"
+							ignore="this_proxy_entity"
+						>
+							<!-- Zap! (Stun) -->
+						<applystate name="State_Stunned" target="target_entity" duration="1000" />
+						
+						<hasavatarkey name="Hero_Warchief.Alt2">
+							<playeffect effect="../alt2/ability_01/shocking_totem/chain_impact.effect" source="target_entity" occlude="true" />
+						</hasavatarkey>
+						<else>
+							<playeffect effect="shocking_totem/chain_impact.effect" source="target_entity" occlude="true" />
+						</else>
+						
+						<hasavatarkey name="Hero_Warchief.Alt2">
+							<playeffect effect="../alt2/ability_01/shocking_totem/chain_lightning_link.effect" source="this_entity" target="target_entity" occlude="true" />
+						</hasavatarkey>
+						<else>
+							<playeffect effect="shocking_totem/chain_lightning_link.effect" source="this_entity" target="target_entity" occlude="true" />
+						</else>
+						
+							<!-- Keep track of number of Stun instances -->
+							<applystate name="State_Warchief_Ability1_Counter" target="this_entity" continuous="true" pushentity="true" />
+							<addcharges entity="stack_entity" count="1" />
+						</areaofeffect>
+						
+						<!-- Kill totem after performing second Stun -->
+						
+						<!-- Count number of Stuns, kill when the second Stun occurs -->
+						<applystate name="State_Warchief_Ability1_Counter" target="this_entity" continuous="true" pushentity="true" />
+						<addcharges entity="stack_entity" count="0" />
+						<compare a="result" b="1,1,1,2" op="ge">
+							<kill target="this_entity" source="" />
+						</compare>
+					</compare>
+				</compare>
+				<else>
+					<!-- Kill totem after performing first Stun if skill is not level 4 -->
+					<kill target="this_entity" source="" />
+				</else>
+			</compare>
+		</compare>
+		<else>
+			<!-- Decrease timer via accumulator if no valid target is within radius -->
+			<compare a="accumulator" b="0" op="gt">
+				<changeaccumulator b="0.05" op="sub" />
+			</compare>
+		</else>
+	</onframe>
+	
+	<ondeath>
+		<hasavatarkey name="Hero_Warchief.Alt2">
+			<playeffect effect="../alt2/ability_01/shocking_totem/death.effect" source="this_entity" />
+		</hasavatarkey>
+		<else>
+			<hasavatarkey name="Hero_Warchief.Alt">
+				<playeffect effect="../alt/ability_01/shocking_totem/death.effect" source="this_entity" />
+			</hasavatarkey>
+			<else>
+				<playeffect effect="shocking_totem/death.effect" source="this_entity" />
+			</else>
+		</else>
+	</ondeath>
+	
+	 
+	<onexpired>
+		<hasavatarkey name="Hero_Warchief.Alt2">
+			<playeffect effect="../alt2/ability_01/shocking_totem/death.effect" source="this_entity" />
+		</hasavatarkey>
+		<else>
+			<hasavatarkey name="Hero_Warchief.Alt">
+				<playeffect effect="../alt/ability_01/shocking_totem/death.effect" source="this_entity" />
+			</hasavatarkey>
+			<else>
+				<playeffect effect="shocking_totem/death.effect" source="this_entity" />
+			</else>
+		</else>
+	</onexpired>
+	
+	<altavatar key="Hero_Warchief.Alt" modpriority="1"
+		passiveeffect="../alt/ability_01/shocking_totem/body.effect"
+		spawneffect="../alt/ability_01/shocking_totem/spawn.effect"
+	/>
+	
+	<altavatar key="Hero_Warchief.Alt2" modpriority="1"
+		passiveeffect="../alt2/ability_01/shocking_totem/body.effect"
+		spawneffect="../alt2/ability_01/shocking_totem/spawn.effect"
+	/>
+</gadget>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gadget
+	name="Gadget_Fade_Ability4"
+	
+	model=""
+	isselectable="false"
+	attacktype="none"
+	
+	stealthtype="unrevealable"
+	fadetime="0"
+
+	sightrangeday="800,1000,1200"
+	sightrangenight="800,1000,1200"
+	clearvision="true"
+
+	deathtime="0"
+	corpsetime="0"
+	
+	invulnerable="true"
+	iscontrollable="false"
+	flying="true"
+	drawonmap="false"
+>
+</gadget>

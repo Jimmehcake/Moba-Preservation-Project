@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="ability_02">
+
+	<definitions>
+	
+		<modifier
+			name="modifier0"
+			life="1600"
+			startcolor="10 7 1"
+			endcolor="1.0 1.0 1.0"
+		/>
+	
+		<trailemitter
+			name="trail_01"
+			life="800"
+			
+			spawnrate="80"
+			minparticlelife="800"
+			maxparticlelife="800"		
+			texpostime="800"
+			texposscale="1"
+			texstretchscale="0"
+			position="0 0 0"
+			material="/shared/effects/materials/trail_yellow.material"
+		>
+			<particle
+				startcolor="1"
+				midcolor="1"
+				endcolor="1 .7 .2"
+				startsize="0"
+								
+				midsize="15"
+				endsize="0"
+				
+				midcolorpos=".1"
+				midsizepos=".1"
+				
+			/>
+		</trailemitter>
+
+		
+		
+		<particlesystem name="system0" space="world" scale="1.7">
+
+			<sound
+				linearfalloff="true" 
+				falloffstart="600"
+				falloffend="1300"
+				volume="1"
+				sample="../../sounds/ab4.wav"
+			/>
+			
+			<sound
+				linearfalloff="true" 
+				falloffstart="1000"
+				falloffend="2500"
+				volume="0.55"
+				sample="/heroes/javaras/ability_04/sounds/impact.wav"
+			/>
+
+			<light
+				life="1000"			
+				startcolor="-1 -1.5 -3.5"			
+				midcolor="3 1.5 .5"			
+				endcolor="0 0 0"
+				midcolorpos=".4"
+				falloffstart="80"
+				falloffend="125"
+				position="0 0 50"	
+			/>		
+		
+			<simpleemitter
+				spawnrate="60"
+				count="10"
+				bone="Bip01 Spine"
+				particlelife="500"			
+				gravity="-35"
+				speed="40"
+				drag="0"
+				acceleration="0"
+				position="0 0 0"
+				delay="300"
+				material="/shared/effects/materials/phantom_smoke_18.material"
+				offsetsphere="15 15 50"
+				minangle="0"
+				maxangle="0"
+				direction="0 0 0"
+				offsetdirection="0 105 0"
+				offsetradial="0 0 0"
+			>
+
+				<particle 
+
+					minangle="0"
+					maxangle="0"
+					minanglespeed="0"
+					maxanglespeed="0"
+
+
+					startcolor="0 0 0"
+					midcolor="1 .6 .2"
+					endcolor=".1 .1 .1"
+					midcolorpos=".4"
+
+					startframe="0"
+					endframe="1"
+
+					startwidth="20"
+					midwidth="15"
+					endwidth="1"
+					midwidthpos=".5"
+
+
+					startheight="100"
+					endheight="280"
+
+					startalpha="0"
+					midalpha=".1"
+					endalpha="0"
+					midalphapos=".5"
+					startstickiness="0"
+					endstickiness=".5"
+
+					lockup="true"
+
+				/>
+
+				<particle 
+
+					minangle="0"
+					maxangle="0"
+					minanglespeed="0"
+					maxanglespeed="0"
+
+
+					startcolor="0 0 0"
+					midcolor="1 .6 .2"
+					endcolor=".1 .1 .1"
+					midcolorpos=".4"
+
+					startframe="0"
+					endframe="1"
+
+					startwidth="20"
+					midwidth="15"
+					endwidth="1"
+					midwidthpos=".5"
+
+
+					startheight="100"
+					endheight="280"
+
+					startalpha="0"
+					midalpha=".1"
+					endalpha="0"
+					midalphapos=".5"
+					startstickiness="0"
+					endstickiness=".5"
+
+					lockup="true"
+
+				/>
+
+			</simpleemitter>
+			
+			
+			
+
+			<simpleemitter 
+				count="20"
+         		spawnrate="22"				
+				minparticlelife="800"
+          		maxparticlelife="1500"
+          		gravity="0"
+          		drag="0"
+				position="0 0 0"
+				offsetsphere="100 100 100"
+          		material="/shared/effects/materials/neb_orange_add.material"
+      		>
+  				<particle 
+					maxangle="360"			
+					minanglespeed="-6"
+					maxanglespeed="6"
+					scale="5"					
+					startcolor="0 0 0"
+					midcolor=".1"
+					endcolor="0 0 0"
+					midcolorpos=".2"
+					
+					startsize="15"
+					
+					endsize="45"
+					
+				/>
+        	</simpleemitter>	
+
+			<billboard
+				life="500"
+				color="1.0 1.0 1.0"
+
+				midalphapos="0.5"
+				
+				param="0.1555"	
+				
+				startsize="170"
+				endsize="50"
+				startalpha="0"
+				midalpha=".9"
+				endalpha="0"				
+				
+				depthbias="-49"
+				position="0 0 20"
+				material="/shared/effects/materials/refract_pinch.material"
+				lockup="0"
+				pitch="0"
+			/>	
+
+			<billboard
+				delay="500"
+				life="500"
+				color="1.0 1.0 1.0"
+
+				midalphapos="0.25"
+				
+				param="0.0555"	
+				
+				startsize="64"
+				endsize="264"
+				startalpha="0"
+				midalpha=".9"
+				endalpha="0"				
+				
+				depthbias="-49"
+				position="0 0 20"
+				material="/shared/effects/materials/refract_ring.material"
+				lockup="0"
+				pitch="0"
+			/>				
+			
+			<billboard
+				bone="_bone_centerofchest"	
+				life="500"
+				color="1.0 1.0 1.0"	
+				startsize="170"
+				endsize="50"
+				startalpha="0"
+				midalpha=".9"
+				endalpha="0"				
+				depthbias="-49"
+
+				material="/shared/effects/materials/magebane_eye.material"
+				
+			/>	
+			
+			<trackeremitter				
+				count="30"				
+				targetbone="_bone_centerofchest"				
+				tracktype="angular"
+				trackspeed="11.0" 				
+				drag="0"
+				spawnrate="250"
+				particlelife="800"
+				gravity="-50"
+				offsetsphere="115 115 40"
+				minspeed="300.0"
+				maxspeed="550.0"				
+				targetposition="0 0 0"	
+				acceleration="30.0"
+				direction="0.0 0.0 1.0"
+				inheritvelocity="0.0"
+				distancelife="true"
+			>
+				<particle
+					emitter0="trail_01"
+					anchor="0"
+				/>
+			</trackeremitter>
+	</particlesystem>
+</definitions>
+
+<thread>
+	<spawnparticlesystem instance="instance0" particlesystem="system0" />
+	<spawnmodifier instance="instance1" modifier="modifier0"/>  
+	 <camerashake2 scale="11.0" radius="1200" duration="400" frequency="22" />
+	<waitfordeath instance="instance0" />
+	<!-- <die /> -->
+</thread>
+
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][pos] -->
+
+
+
+
+
+
+

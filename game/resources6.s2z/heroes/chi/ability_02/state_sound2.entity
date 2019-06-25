@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Chi_Sound2"
+	
+	ishidden="true"
+
+	passiveeffect="effects/impact_audio.effect"
+	stack="false"
+	effecttype=""
+	allowtransfer="false"
+	
+>
+<onframe/>
+	
+</state>

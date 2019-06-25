@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectile
+	name="Projectile_Calamity_Ability4"
+
+	speed="1000"
+	
+	flying="true"
+	flyheight="80"
+
+	modelscale="2"
+	model="/shared/models/invis.mdf"
+	traileffect=""
+
+	effectscale="2"
+>
+	<onimpact>
+		<kill target="this_proxy_entity" source="" />
+	</onimpact>
+</projectile>

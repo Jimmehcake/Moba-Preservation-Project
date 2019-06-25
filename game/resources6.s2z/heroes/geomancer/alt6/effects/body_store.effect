@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect  deferred="true" useentityeffectscale="1">
+	<definitions>
+		<particlesystem name="system0" space="entity" scale="1">	
+			<sound
+				    dampen="0.5"
+				    channelid="storeaud"
+					sound2d="true"
+					volume=".5"
+					sample="../sounds/store_audio.wav"
+				/>	
+				
+			
+			
+			   <sound
+			        forcestereo="true"
+			        delay="450"
+				    dampen="0.5"
+				    channelid="storeaudv"
+					sound2d="true"
+					volume="1"
+					sample="../sounds/voice/move_2.wav"
+				/>	
+			
+			<template name="hole" >
+				<controller delay="{delay}" position="{position}">
+				
+				
+				
+				<billboard
+					life="300"
+					startsize="0"
+					endsize="130"
+					color=".35 .3 .3"
+					scale="1.8"
+					material="/shared/effects/materials/sand_groun.material"
+					lockup="1"
+					lockright="1"
+					pitch="90"
+				/>
+				<billboard
+					delay="200"
+					life="{life1}"
+					expirelife="300"
+					startsize="130"
+					midsize="130"
+					endsize="0"
+					midsizepos=".85"
+					color=".35 .3 .3"
+					scale="1.8"
+					material="/shared/effects/materials/sand_groun.material"
+					lockup="1"
+					lockright="1"
+					pitch="90"
+				/>
+				
+				<billboard
+					life="300"
+					startsize="0"
+					endsize="90"
+					color=".2 .16 .1"
+					alpha=".5"
+					scale="1.8"
+					material="/shared/effects/materials/corona_08_blend.material"
+					lockup="1"
+					lockright="1"
+					pitch="90"
+				/>
+				
+				<billboard
+					delay="200"
+					life="{life2}"
+					expirelife="200"
+					startsize="90"
+					midsize="90"
+					midsizepos=".85"
+					endsize="0"
+					color=".2 .16 .1"
+					alpha=".5"
+					scale="1.8"
+					material="/shared/effects/materials/corona_08_blend.material"
+					lockup="1"
+					lockright="1"
+					pitch="90"
+				/>
+				<billboard
+					life="200"
+					startsize="0"
+					endsize="70"
+					alpha=".75"
+					scale="1.65"
+					material="/shared/effects/materials/ground_smash_overlay_darker.material"
+					lockup="1"
+					lockright="1"
+					pitch="90"
+				/>
+				
+				<billboard
+					delay="200"
+					life="{life2}"
+					expirelife="200"
+					startsize="70"
+					midsize="70"
+					midsizepos=".85"
+					endsize="0"
+					startalpha=".75"
+					midalpha=".75"
+					midalphapos=".85"
+					endalpha="0"
+					scale="1.65"
+					material="/shared/effects/materials/ground_smash_overlay_darker.material"
+					lockup="1"
+					lockright="1"
+					pitch="90"
+				/>
+				
+				
+				<simpleemitter
+					count="5"
+					particlelife="1300"				
+					spawnrate="650"
+					minspeed="100"
+					maxspeed="750"
+					gravity="40"
+					direction="0 0 1"
+					minangle="0"
+					maxangle="1"
+					drag="0.01"
+					material="/shared/effects/materials/pyroclast_03.material"
+					offsetsphere="0 0 10"
+					position="0 0 40"
+				>
+					<particle 
+						depthbias="-80"
+						startcolor=".6 .5 .3"
+						endcolor=".5 .3 .1"					
+						height="200"
+						startwidth="50"
+						endwidth="100"
+						startscale="1"
+						endscale="2"
+						startalpha="1"
+						endalpha="0"
+						lockup="1"
+						lockright="1"
+					/>
+					<particle 
+						depthbias="-80"
+						startcolor=".6 .5 .3"
+						endcolor=".5 .3 .1"					
+						height="200"
+						startwidth="50"
+						endwidth="100"
+						startscale="1"
+						endscale="2"
+						startalpha="1"
+						endalpha="0"
+						lockup="1"
+						pitch="180"
+						lockright="1"
+					/>
+				</simpleemitter>
+				
+				<simpleemitter
+					count="10"
+					offsetsphere="90 90 0"
+					minparticlelife="300"
+					maxparticlelife="500"
+					depthbias="-50"
+					position="0 0 50"
+					angle="0"
+					direction="0 0 1"
+					speed="300"
+					drag=".1"
+					particlescale="2"
+					material="/shared/effects/materials/pyroclast_05.material"
+				>
+					<particle
+						maxangle="360"
+						minanglespeed="-100"
+						maxanglespeed="100"
+						size="70"
+						startcolor=".6 .5 .3"
+						endcolor=".5 .3 .1"
+						startalpha=".5"
+						midalpha="1"
+						endalpha="0"
+					/>
+					
+					<particle
+						maxangle="360"
+						minanglespeed="-100"
+						maxanglespeed="100"
+						size="70"
+						startcolor=".6 .5 .3"
+						endcolor=".5 .3 .1"
+						startalpha=".5"
+						midalpha="1"
+						endalpha="0"
+					/>
+				</simpleemitter>
+			
+				<simpleemitter
+					count="15"
+					minparticlelife="300"
+					maxparticlelife="500"
+					spawnrate="55"
+					minspeed="50"
+					maxspeed="200"
+					gravity="10"
+					direction="0 0 1"
+					minangle="0"
+					maxangle="1"
+					drag="0.01"
+					material="/shared/effects/materials/fire_add.material"
+					offsetsphere="10 10 50"
+					position="0 0 50"
+				>
+					<particle
+						depthbias="-100"
+						startcolor="0 .5 .5"
+						midcolor=".25 0 .25"
+						endcolor="0"
+						startsize="50"
+						endsize="50"
+						startscale="2"
+						endscale="5"
+						startalpha=".33"
+						endalpha="0"
+						maxangle="360"
+						startframe="0"
+						endframe="1"
+					/>
+				</simpleemitter>
+				</controller>
+			</template>
+			<instance name="hole" delay="0" position="120 -50 7" life1="1333" life2="1133" />
+			<instance name="hole" delay="2300" position="-60 -70 7" life1="1333" life2="1133" />
+			<instance name="hole" delay="4500" position="0 0 7" life1="1333" life2="1133" />
+			<template name="hole" >
+				<controller delay="{delay}" position="{position}">
+				<billboard
+					life="300"
+					startsize="0"
+					endsize="130"
+					color=".35 .3 .3"
+					scale="1.8"
+					material="/shared/effects/materials/sand_groun.material"
+					lockup="1"
+					lockright="1"
+					pitch="90"
+				/>
+				<billboard
+					delay="200"
+					life="{life1}"
+					expirelife="300"
+					startsize="130"
+					midsize="130"
+					endsize="0"
+					midsizepos=".85"
+					color=".35 .3 .3"
+					scale="1.8"
+					material="/shared/effects/materials/sand_groun.material"
+					lockup="1"
+					lockright="1"
+					pitch="90"
+				/>
+				
+				<billboard
+					life="300"
+					startsize="0"
+					endsize="90"
+					color=".2 .16 .1"
+					alpha=".5"
+					scale="1.8"
+					material="/shared/effects/materials/corona_08_blend.material"
+					lockup="1"
+					lockright="1"
+					pitch="90"
+				/>
+				
+				<billboard
+					delay="200"
+					life="{life2}"
+					expirelife="200"
+					startsize="90"
+					midsize="90"
+					midsizepos=".85"
+					endsize="0"
+					color=".2 .16 .1"
+					alpha=".5"
+					scale="1.8"
+					material="/shared/effects/materials/corona_08_blend.material"
+					lockup="1"
+					lockright="1"
+					pitch="90"
+				/>
+				<billboard
+					life="200"
+					startsize="0"
+					endsize="70"
+					alpha=".75"
+					scale="1.65"
+					material="/shared/effects/materials/ground_smash_overlay_darker.material"
+					lockup="1"
+					lockright="1"
+					pitch="90"
+				/>
+				
+				<billboard
+					delay="200"
+					life="{life2}"
+					expirelife="200"
+					startsize="70"
+					midsize="70"
+					midsizepos=".85"
+					endsize="0"
+					startalpha=".75"
+					midalpha=".75"
+					midalphapos=".85"
+					endalpha="0"
+					scale="1.65"
+					material="/shared/effects/materials/ground_smash_overlay_darker.material"
+					lockup="1"
+					lockright="1"
+					pitch="90"
+				/>
+				</controller>
+			</template>
+			<instance name="hole" delay="500" position="50 50 7" life1="1333" life2="1133" />
+			<instance name="hole" delay="800" position="-25 50 7" life1="1333" life2="1133" />
+			<instance name="hole" delay="3400" position="20 0 7" life1="1333" life2="1133" />
+			<debris
+				delay="4500"
+				life="1000"
+				model="/shared/effects/models/debris/debris.mdf"
+				material="/shared/effects/models/debris/debris_noshadow.material"
+				position="0 0 0"
+				offsetsphere="10"
+				direction="0 1 0"
+				maxangle="90"
+				minspeed="300"
+				maxspeed="600"
+				minrotationspeed="-1200"
+				maxrotationspeed="1200"
+				drag="0.0025"
+				friction="200"
+				collide="1"
+				reflect="0.65"
+				bounce="0.85"
+				gravity="80"
+				scale="1"
+				startcolor="1"
+				midcolor="1"
+				endcolor="0"
+				startalpha="1"
+				midalpha="1"
+				endalpha="0"
+				bone="_bone_centerofchest"
+			/>
+			<billboard
+				delay="4500" life="300"
+				color="1.0 1.0 1.0"
+				startalpha="1.0"
+				midalpha="1.0"
+				endalpha="0.0"
+				midalphapos="0.75"
+				startparam=".5"
+				endparam="0.0"
+				startsize="58"
+				endsize="468"
+				depthbias="-100"
+				position="0 0 0"
+				material="/shared/effects/materials/refract_ring.material"
+				lockup="true"
+				pitch="90"
+			/>	
+		</particlesystem>
+		
+		
+		
+		<particlesystem name="system1" space="world" scale=".8">
+			
+			<billboard
+				delay="4500"
+				size="230"
+				color=".35 .3 .3"
+				material="/shared/effects/materials/sand_groun.material"
+				lockup="1"
+				lockright="1"
+				pitch="90"
+				position="0 0 7"
+			/>
+			
+			<billboard
+				delay="4500"
+				size="190"
+				color=".2 .16 .1"
+				alpha=".5"
+				material="/shared/effects/materials/corona_08_blend.material"
+				lockup="1"
+				lockright="1"
+				pitch="90"
+				position="0 0 7"
+			/>
+			
+			<billboard
+				delay="4500"
+				size="170"
+				alpha=".75"
+				material="/shared/effects/materials/ground_smash_overlay_darker.material"
+				lockup="1"
+				lockright="1"
+				pitch="90"
+				position="0 0 7"
+			/>
+			
+			<simpleemitter
+				delay="4500"
+				spawnrate="20"
+				offsetsphere="60 60 0"
+				minparticlelife="500"
+				maxparticlelife="800"
+				angle="0"
+				direction="0 0 1"
+				speed="300"
+				drag=".1"
+				material="/shared/effects/materials/pyroclast_05.material"
+				position="0 0 7"
+			>
+				<particle
+					maxangle="360"
+					minanglespeed="-100"
+					maxanglespeed="100"
+					size="70"
+					color=".3 .2 .1"
+					startalpha=".5"
+					midalpha="1"
+					endalpha="0"
+					minscale="1"
+					maxscale="2"
+				/>
+				
+				<particle
+					maxangle="360"
+					minanglespeed="-100"
+					maxanglespeed="100"
+					size="70"
+					color=".15 .1 .05"
+					startalpha=".5"
+					midalpha="1"
+					endalpha="0"
+					minscale="1"
+					maxscale="2"
+				/>
+			</simpleemitter>
+			<simpleemitter
+				delay="4500"
+				spawnrate="20"
+				offsetsphere="60 60 0"
+				minparticlelife="500"
+				maxparticlelife="800"
+				angle="0"
+				direction="0 0 1"
+				speed="300"
+				drag=".1"
+				material="/shared/effects/materials/fire_add.material"
+				position="0 0 3"
+			>
+				<particle
+					depthbias="-100"
+					startcolor="0 .5 .5"
+					midcolor=".25 0 .25"
+					endcolor="0"
+					startsize="20"
+					endsize="50"
+					startscale="1"
+					endscale="3"
+					startalpha=".33"
+					endalpha="0"
+					maxangle="360"
+					startframe="0"
+					endframe="1"
+				/>
+			</simpleemitter>
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<spawnparticlesystem instance="instance1" particlesystem="system1" />
+      	<waitfordeath instance="instance0" />
+      	<waitfordeath instance="instance1" />
+		<!-- <die /> -->
+	</thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->
+

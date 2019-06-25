@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Geomancer_Ability3_Mark"
+	
+	icon=""
+	ishidden="true"	
+	serverentity="true"
+	
+	effecttype=""
+>
+	<oninflict>
+		<targettype type="hero" />
+		<else>
+			<targettype type="Boss" />
+			<else>
+				<setactivemodifierkey name="Geomancer_Tunnel_SmallUnit" entity="this_entity" />
+			</else>
+		</else>		
+	</oninflict>
+	
+	<aura
+		name="Geomancer_Tunnel_Gadget"
+		radius="0"
+		targetscheme="self"
+		gadget="Gadget_Geomancer_Ability2_Mark"
+	/>
+	
+	<modifier key="Geomancer_Tunnel_SmallUnit" modpriority="100">
+		<aura
+			name="Geomancer_Tunnel_Gadget"
+			radius="0"
+			targetscheme="self"
+			gadget="Gadget_Geomancer_Ability2_Mark_Small"
+		/>
+	</modifier>
+
+</state>

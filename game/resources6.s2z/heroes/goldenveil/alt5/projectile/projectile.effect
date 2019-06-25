@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+	<definitions>
+		<particlesystem name="system0" space="world" scale="1">
+			
+			
+			<model
+				model="model.mdf"
+				scale="1.75"
+				color="2"
+				material="../material.material"
+				startalpha="1"
+				midalpha="1"
+				endalpha="0"
+				pitch="-90"
+				yawspeed="0"
+			/>
+			
+			<trailemitter
+				name="trail01"
+				position="0 0 0"
+				spawnrate="100"
+				particlelife="300"
+				subframepose="1"
+				texpostime="1000"
+				texposscale="0"
+				texstretchscale="1"
+				material="/shared/effects/materials/flux_trail.material"
+			>
+				<particle
+					startcolor=".8 .5 1"
+					midcolor=".5 0 1"
+					endcolor="0 0 0"
+					startalpha="1"
+					midalpha="0"
+					endalpha="0"
+					startsize="40"
+					endsize="5"
+				/>
+			</trailemitter>
+			
+			<trailemitter
+				name="trail01"
+				position="0 0 0"
+				spawnrate="100"
+				particlelife="300"
+				subframepose="1"
+				texpostime="1000"
+				texposscale="0"
+				texstretchscale="1"
+				material="/shared/effects/materials/water_trail_norefract.material"
+			>
+				<particle
+					sstartcolor=".8 .5 1"
+					midcolor=".5 0 1"
+					startalpha="1"
+					midalpha="1"
+					endalpha="0"
+					startsize="80"
+					endsize="5"
+					startframe="1"
+					endframe="0"
+					framespeed="0.5"
+				/>
+			</trailemitter>
+		
+			<simpleemitter			
+				spawnrate="15"			
+				minparticlelife="350"
+				maxparticlelife="500"
+				gravity="0"
+				material="/shared/effects/materials/whitedot.material"
+				offsetsphere="1"
+				speed="20"
+				maxangle="0"
+			>
+				<particle
+					lockup="true"
+					lockright="true"
+					pitch="90"
+					startsize="30"	
+					endsize="15"								
+					depthbias="-100"
+					startcolor=".75 0 .85"
+					midcolor=".25 0 .35"
+					endcolor="0 0 0"
+					midcolorpos=".7"
+					startalpha="1"
+					midalpha="1"
+					endalpha="0"
+					midalphapos=".25"
+					startscale="3.5"
+					endscale="1"
+				>
+				
+				<billboard
+					position="0 0 0"
+					width="40" height="40"
+					scale=".5"
+					startcolor="1" endcolor="0"
+					startalpha="1"
+					endalpha="0"
+					material="/shared/effects/materials/linbing.material"
+					lockup="1"
+					lockright="1"
+					directionalspace="local"
+					roll="-180"
+					depthbias="-3"
+					minstartframe="0" maxstartframe="1"
+					minendframe="1" maxendframe="0"
+					minframespeed=".1"
+					maxframespeed="1"
+				/>
+				</particle>
+			</simpleemitter>
+		
+		</particlesystem>
+
+   	</definitions>
+
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+
+</effect>

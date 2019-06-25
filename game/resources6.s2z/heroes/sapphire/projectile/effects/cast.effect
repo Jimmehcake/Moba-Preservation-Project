@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+	<definitions>
+		<particlesystem name="system0" space="world" scale="1">
+			<simpleemitter
+				bone="_bone_weapon3"
+				count="1"
+				spawnrate="1000"
+				particlelife="250"
+				position="0 0 0"
+				material="/shared/effects/materials/refract_ring.material"
+				particledirectionalspace="local"
+				offsetdirection="0 0 0"
+				offsetradial="0"
+			>
+				<particle
+					startsize="0"
+					endsize="120"
+					param="0.35"
+					startalpha="8"
+					midalpha="1"
+					endalpha="0"
+					lockup="true"
+					lockright="1"
+					pitch="0"
+					flare="0"
+					yaw="0"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				bone="_bone_weapon3"
+				count="1"
+				spawnrate="1000"
+				particlelife="250"
+				position="0 0 0"
+				material="/shared/effects/materials/whitedot.material"
+				particledirectionalspace="local"
+				offsetdirection="0 0 0"
+				offsetradial="0"
+				depthbias="-15"
+			>
+				<particle
+					startcolor="0 .4 1"
+					endcolor="0 0 0"
+					startsize="50"
+					endsize="150"
+					param="0.5"
+					startalpha=".3"
+					midalpha=".15"
+					endalpha="0"
+					midalphapos=".75"
+					lockup="true"
+					lockright="1"
+					pitch="0"
+					flare="0"
+					yaw="00"
+				/>
+			</simpleemitter>
+			<simpleemitter
+				bone="_bone_weapon3"
+				count="1"
+				spawnrate="1000"
+				particlelife="100"
+				position="0 0 0"
+				material="/shared/effects/materials/starlight.material"
+				particledirectionalspace="local"
+				offsetdirection="0 0 0"
+				offsetradial="0"
+				depthbias="-10"
+			>
+				<particle
+					startcolor=".3 .8 1"
+					midcolor=".3 .8 1"
+					endcolor="0 0 0"
+					startsize="30"
+					endsize="60"
+					param="0.5"
+					startalpha=".3"
+					midalpha=".15"
+					endalpha="0"
+					midalphapos=".75"
+					lockup="true"
+					lockright="1"
+					pitch="0"
+					flare="0"
+					yaw="00"
+				/>
+			</simpleemitter>
+		</particlesystem>
+	</definitions>
+	
+<thread>
+	<spawnparticlesystem instance="instance1" particlesystem="system0" />
+	<spawnmodifier instance="instance0"/>
+	<waitfordeath  instance="instance0"/>
+	<waitfordeath  instance="instance1"/>
+</thread>
+</effect>

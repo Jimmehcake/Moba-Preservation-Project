@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Sapphire_Ability4_Self"
+	
+	ishidden="true"
+	
+	modifierkey="Sapphire_ability4_Active"
+>
+	<onexpired>
+		<hasavatarkey name="Hero_Sapphire.Alt4" >
+			<playeffect effect="../alt4/ability_04/effects/expire_sound.effect" source="source_entity" target="source_entity" occlude="true" />
+		</hasavatarkey>
+		<else>
+			<playeffect effect="effects/expire_sound.effect" source="source_entity" target="source_entity" occlude="true" />
+		</else>
+	</onexpired>
+</state>

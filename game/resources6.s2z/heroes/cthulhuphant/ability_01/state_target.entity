@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Cthulhuphant_Ability1_Target"
+
+	icon="icon.tga"
+	ishidden="true"
+	
+	effecttype=""
+	
+	disarmed="true"
+	unitwalking="true"
+>
+	<onframe>
+		<killtrees radius="50" />
+	</onframe>
+	
+</state>

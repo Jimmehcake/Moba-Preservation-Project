@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="1">
+
+	<definitions>
+		
+		<particlesystem name="system0" space="world" scale="1">
+			<model
+				parentskeleton="true"
+				position="0 0 0"
+				scale="1"
+				model="cannon/model.mdf"
+				material="../material2.material"
+				color="1"
+				inheritparentmodifiers="true"
+				parentalpha="true"
+				parentteamcolor="true"
+			>
+			</model>
+			
+			<template name="cigar_fire">
+				<controller bone="{bone}" scale="{scale}">
+					<simpleemitter
+						life="3700"
+						position="{position}"
+						direction="0 0 1"
+						gravity="-2"
+						speed="10"
+						drag="0.01"
+						depthbias="0"
+						spawnrate="10"			
+						particlelife="800"
+						material="/shared/effects/materials/cloud1.material"
+						offsetsphere="0"
+						angle="0"
+					>
+						<particle 
+							minangle="0"
+							maxangle="360"
+							minanglespeed="-50"
+							startcolor="1 .5 .2"
+							midcolor=".4"
+							endcolor="0"
+							midcolorpos=".25"
+							maxanglespeed="50"
+							startsize="5"
+							minendsize="15"
+							maxendsize="25"
+							startalpha="1"
+							endalpha="0"
+						/>
+					</simpleemitter>
+				</controller>
+			</template>
+			
+			<instance name="cigar_fire" scale=".7" position="0 0 0" bone="_bone_cigar_fx"/>
+			<instance name="cigar_fire" scale=".7" position="0 0 7" bone="_bone_Box013"/>
+		
+			<controller bone="_bone_head">
+				<simpleemitter
+					delay="3700"
+					bone="_bone_head"
+					position="-5 8 0"
+					direction="0 1 0"
+					gravity="-4"
+					speed="70"
+					drag="0.1"
+					depthbias="0"
+					startspawnrate="50"
+					midspawnrate="0"
+					endspawnrate="0"
+					midspawnratepos=".1"
+					particlelife="800"
+					material="/shared/effects/materials/cloud1.material"
+					offsetsphere="0 0 5"
+					angle="0"
+					loop="false"
+					life="4000"
+				>
+					<particle 
+						minangle="0"
+						maxangle="360"
+						minanglespeed="-50"
+						color=".2"
+						midcolorpos=".25"
+						maxanglespeed="50"
+						startsize="10"
+						minendsize="20"
+						maxendsize="50"
+						startalpha=".7"
+						midalpha=".7"
+						endalpha="0"
+						midalphapos=".7"
+					/>
+				</simpleemitter>
+			</controller>
+			
+			<simpleemitter
+				bone="Box004"
+				position="0 0 0"	
+				spawnrate="20"
+				gravity="-5"
+				life="1500"
+				speed="300"
+				drag="0.1"
+				depthbias="0"			
+				particlelife="1250"
+				material="/shared/effects/materials/cloud1.material"
+				offsetsphere="5"
+				angle="40"
+				direction="0 -1 0"
+			>
+				<particle 
+					minangle="0"
+					maxangle="360"
+					minanglespeed="-50"
+					startcolor=".3"
+					midcolor=".2"
+					endcolor="0"
+					midcolorpos=".3"
+					maxanglespeed="50"
+					startsize="20"
+					minendsize="40"
+					maxendsize="80"
+					startalpha="1"
+					endalpha="0"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				bone="Box003"
+				position="0 0 0"	
+				spawnrate="20"
+				gravity="-5"
+				life="1500"
+				speed="300"
+				drag="0.1"
+				depthbias="0"			
+				particlelife="1250"
+				material="/shared/effects/materials/cloud1.material"
+				offsetsphere="5"
+				angle="40"
+				direction="0 -1 0"
+			>
+				<particle 
+					minangle="0"
+					maxangle="360"
+					minanglespeed="-50"
+					startcolor=".3"
+					midcolor=".2"
+					endcolor="0"
+					midcolorpos=".3"
+					maxanglespeed="50"
+					startsize="20"
+					minendsize="40"
+					maxendsize="80"
+					startalpha="1"
+					endalpha="0"
+				/>
+			</simpleemitter>
+
+		</particlesystem>
+		
+		<particlesystem name="system1" space="entity" scale="1">
+
+			<simpleemitter
+				delay="1500"
+				spawnrate="5"
+				count="7"
+				position="0 -110 0"
+				offsetsphere="20 20 0"
+			>
+				<particle
+					minyaw="0"
+					maxyaw="360"
+				>
+					<model
+						position="0 0 0"
+						scale="1"
+						model="../ability_01/effects/snotling/model.mdf"
+						material="../material2.material"
+						color="1"
+						inheritparentmodifiers="true"
+						parentteamcolor="true"
+						anim="death_1"
+						life="1000"
+						startalpha="1"
+						midalpha="1"
+						endalpha="0"
+						midalphapos=".8"
+					>
+					</model>
+				</particle>
+			</simpleemitter>
+
+		</particlesystem>
+
+	</definitions>
+
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />		
+		<spawnparticlesystem instance="instance1" particlesystem="system1" />		
+		<waitfordeath instance="instance0" />
+		<waitfordeath instance="instance1" />
+	</thread>
+
+</effect>

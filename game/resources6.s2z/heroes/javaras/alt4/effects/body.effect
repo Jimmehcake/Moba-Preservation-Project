@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+	<definitions>
+	
+		<modifier
+			name="modifier0"
+			color=".6"
+			alpha="1"
+		/>
+
+		<particlesystem name="system0" space="world" scale="1">
+			
+			<model
+				parentskeleton="1"
+				position="0 0 0"
+				scale="1.01"
+				expirelife="300"
+				model="armor/weapon.mdf"
+				material="../material.material"
+				color="1"
+				inheritparentmodifiers="true"
+				parentalpha="true"
+			>
+			</model>
+			
+
+			<!-- sword effects -->
+		
+			<template name="glow">
+				<controller bone="{bone}">
+					<billboard
+						material="/shared/effects/materials/whitedot.material"
+						color="0 .05 .1"
+						expirelife="300"								
+						size="70"
+						depthbias="-10"
+						position="0 0 25"
+						height="10"
+					/>
+				</controller>
+				
+				<controller bone="{bone}">
+					<billboard
+						material="/shared/effects/materials/whitedot.material"
+						color="0 .05 .1"
+						expirelife="300"								
+						size="70"
+						depthbias="-10"
+						position="0 0 25"
+						width="10"
+					/>
+				</controller>
+				
+				<controller bone="{bone}">
+					<billboard
+						material="/shared/effects/materials/whitedot.material"
+						color="0 .05 .1"
+						expirelife="300"								
+						size="70"
+						depthbias="-10"
+						position="0 0 25"
+					/>
+				</controller>
+			</template>
+			
+			<instance name="glow" bone="_bone_weapon1"/>
+			<instance name="glow" bone="_bone_weaponattach"/>
+			
+			<!-- haze -->
+<!--			
+			<template name="trails">
+				<twopointtrailemitter
+					bone_a="{bone01}"
+					bone_b="{bone02}"
+					spawnrate="25"
+					particlelife="750"
+					gravity="5"
+					subframepose="1"
+					drag="0.01"
+					speed="100"
+					direction="0 -1 0"
+					minangle="0"
+					maxangle="0"
+					texpostime="750"
+					texposscale="0"
+					texstretchscale="1"
+					material="/shared/effects/materials/black_trail.material"
+					startparticlealpha="1"
+					endparticlealpha="0"
+					depthbias="50"
+				>
+					<particle
+						color=".25"
+						startalpha=".2"
+						endalpha="0"
+						size="250"
+					/>
+				</twopointtrailemitter>
+
+				<twopointtrailemitter
+					bone_a="{bone01}"
+					bone_b="{bone02}"
+					spawnrate="25"
+					particlelife="650"
+					gravity="5"
+					subframepose="1"
+					drag="0.01"
+					speed="100"
+					direction="0 -1 0"
+					texpostime="650"
+					texposscale="0"
+					texstretchscale="1"
+					material="/shared/effects/materials/black_trail.material"
+					startparticlealpha="1"
+					endparticlealpha="0"
+					depthbias="50"
+				>
+					<particle
+						color=".25"
+						startalpha=".2"
+						endalpha="0"
+						size="250"
+					/>
+				</twopointtrailemitter>
+			</template>
+
+			<instance name="trails" bone01="Bip01 L Clavicle" bone02="Bip01 L Forearm"/>
+			<instance name="trails" bone01="Bip01 R Clavicle" bone02="Bip01 R Forearm"/>
+			
+			<simpleemitter
+				bone="_bone_centerofchest"
+				spawnrate="10"
+				particlelife="1000"
+				gravity="1"
+				speed="5"
+				drag="0"
+				acceleration="0"
+				position="0 0 0"
+				offsetsphere="25 25 35"
+				material="/shared/effects/materials/heathaze.material"
+				depthbias="50"
+			>
+				<particle
+					angle="180"
+					startparam="0"
+					midparam=".1"
+					endparam="0"
+					startcolor="1 1 1"
+					frame=".1"
+					startalpha="0"
+					midalpha=".15"
+					endalpha="0"
+					midalphapos=".5"
+					startsize="75" 
+					endsize="100"
+				/>
+			</simpleemitter>
+		
+
+
+
+			<billboard
+				bone="_bone_weapon2"
+				expirelife="500"
+				startcolor=".2"
+				endcolor="0 0 0"
+				size="65"
+				position="0 0 0"
+				material="/shared/effects/materials/whitedot.material"
+				directionalspace="local"
+				depthbias="-25"
+				minroll="-180"
+				maxroll="180"
+				rollspeed="-360"
+				loop="true"
+			/>
+			
+			<billboard
+				bone="_bone_weaponattach"
+				expirelife="500"
+				startcolor=".125"
+				endcolor="0 0 0"
+				size="75"
+				position="0 0 0"
+				material="/shared/effects/materials/whitedot.material"
+				directionalspace="local"
+				depthbias="-25"
+				minroll="-180"
+				maxroll="180"
+				rollspeed="-360"
+				loop="true"
+			/>
+
+			<billboard
+				bone="_bone_centerofchest"
+				expirelife="500"
+				startcolor="0 0 .125"
+				endcolor="0 0 0"
+				size="85"
+				position="0 0 0"
+				material="/shared/effects/materials/whitedot.material"
+				directionalspace="local"
+				depthbias="-75"
+				minroll="-180"
+				maxroll="180"
+				rollspeed="-360"
+				loop="true"
+			/>
+-->
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<spawnmodifier instance="instance1" modifier="modifier0"/>
+		<waitfordeath instance="instance0" />
+		<waitfordeath instance="instance1" />
+	</thread>
+</effect>

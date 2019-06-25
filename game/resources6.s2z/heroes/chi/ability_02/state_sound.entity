@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Chi_Sound"
+	
+	ishidden="true"
+
+	passiveeffect=""
+	stack="false"
+	effecttype=""
+	allowtransfer="false"
+	
+>
+	<onframe>
+		<areaofeffect
+			radius="350"
+			targetselection="closest"
+			targetscheme="visible_enemy_units"
+		>
+			<targettype type="alive">
+				<applystate name="State_Chi_Sound2" continuous="true" timeout="frametime" target="source_entity" />		
+			</targettype>
+		</areaofeffect>
+		
+		<else>
+			<expire/>
+		</else>
+	</onframe>
+
+</state>

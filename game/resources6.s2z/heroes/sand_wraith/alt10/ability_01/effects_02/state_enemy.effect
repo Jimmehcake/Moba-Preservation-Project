@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="" deferred="true" useentityeffectscale="true">
+	<definitions>
+		<particlesystem name="system0" space="world" scale="0.6">
+		<sound
+				soundloop="true"
+				fadein="300"
+				fadeout="500"
+				linearfalloff="true" 
+				falloffstart="0"
+				falloffend="2000"
+				volume=".4"
+				sample="/heroes/sand_wraith/ability_01/sounds/state_self.wav"
+			/>
+			<terrainemitter
+				position="0 0 30"
+				spawnrate="60"
+				bone="_bone_centerofchest"
+				particlelife="700"
+				gravity="-1"
+				material="/shared/effects/materials/cloud_blend.material"
+				offsetsphere="32 32 0"
+				direction="1 0 0"
+				minangle="-180"
+				maxangle="180"
+				directionalspace="global"
+				inheritvelocity=".3"
+				depthbias="-20"
+			>
+				<particle
+					maxangle="360"
+					minanglespeed="-50"
+					maxanglespeed="50"
+					startsize="15"
+					endsize="22"
+					color=".3"
+					startalpha="0"
+					midalpha=".8"
+					endalpha="0"
+					minscale="4.5"
+					maxscale="6.3"
+				/>
+			</terrainemitter>
+			<terrainemitter
+				position="0 0 30"
+				spawnrate="90"
+				bone="_bone_centerofchest"
+				maxparticlelife="800"
+				gravity="-1"
+				material="/shared/effects/materials/smoke_particle.material"
+				offsetsphere="33 33 0"
+				direction="1 0 0"
+				minangle="-180"
+				maxangle="180"
+				drag="0.1"
+				speed="250"
+				directionalspace="global"
+				inheritvelocity=".3"
+				depthbias="-20"
+			>
+				<particle
+					minangle="0"
+					maxangle="360"
+					minanglespeed="-50"
+					maxanglespeed="50"
+					startsize="25"
+					endsize="45"
+					color=".3"
+					startalpha="0"
+					midalpha=".5"
+					endalpha="0"
+					minscale="4.5"
+					maxscale="6.3"
+				/>
+			</terrainemitter>
+			<simpleemitter
+					bone="_bone_centerofchest"
+					spawnrate="3"
+					minparticlelife="40"
+					maxparticlelife="80"
+					gravity="2"
+					material="/shared/effects/materials/light_glow.material"
+					offsetsphere="50"
+					direction="1 0 0"
+					minangle="-180"
+					maxangle="180"
+					directionalspace="global"
+					depthbias="-25"
+					minspeed="30"
+					maxspeed="50"
+					drag="0.5"
+				>
+					<particle
+						minangle="0"
+						maxangle="360"
+						minanglespeed="-50"
+						maxanglespeed="50"
+						startsize="25"
+						endsize="22"
+						startcolor="1"
+						endcolor="0 .5 1"				
+						startstickeness="1"
+						endstickiness="0"
+						startalpha="0"
+						midalpha=".8"
+						endalpha="0"
+						minscale="5.7"
+						maxscale="10.3"
+						anchor=".9"
+					/>
+				</simpleemitter>
+				<simpleemitter
+					bone="_bone_centerofchest"
+					spawnrate="3"
+					expirelife="500"
+					offsetsphere="50"
+					minparticlelife="50"
+					maxparticlelife="150"
+					material="/shared/effects/materials/femme_lightning_06.material"
+				>
+					<particle
+						minangle="0" maxangle="359"
+						size="15"
+						minscale="5.5" maxscale="10"
+						startcolor="1"
+						endcolor="0 .5 1"
+						anchor="1"
+						minstartframe="0" maxstartframe="1"
+					/>
+				</simpleemitter>
+<!-- 				<simpleemitter
+					bone="_bone_centerofchest"
+					spawnrate="3"
+					expirelife="500"
+					offsetsphere="50"
+					minparticlelife="50" maxparticlelife="150"
+					material="/shared/effects/materials/femme_lightning_07.material"
+				>
+					<particle
+						minangle="0" maxangle="359"
+						size="15"
+						minscale="4.5" maxscale="7"
+						startcolor="1"
+						endcolor="0 .5 1"
+						anchor="1"
+						minstartframe="0" maxstartframe="1"
+					/>
+				</simpleemitter> -->
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+		<!-- <die /> -->
+	</thread>
+</effect>
+<!-- [min|max][start|mid|end]property[speed][position] -->

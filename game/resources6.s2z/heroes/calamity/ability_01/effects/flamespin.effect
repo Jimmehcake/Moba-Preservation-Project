@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+	<definitions>
+		<particlesystem name="system0" space="world" scale="0.9">
+			
+			<sound
+			    pitchshift="true"
+				minpitch="0.9"
+				maxpitch="1.3"
+				life="5000"
+				sample="/heroes/calamity/ability_01/sounds/core_bounce.wav"
+				linearfalloff="true"
+				falloffstart="300" 
+				falloffend="850" 
+				volume=".4"
+			/>
+			
+			<model
+				maxyaw="360"
+				position="0 0 10"
+				life="300"
+				model="flamespin/model.mdf"
+				anim="bounce"
+				scale="1.0"
+			>
+				<template name="swirl">
+					<simpleemitter
+						bone="{bone}"
+						spawnrate="200"
+						offsetsphere="0"
+						minparticlelife="100"
+						maxparticlelife="450"
+						material="/shared/effects/materials/abstract_reveal_02.material"
+						maxspeed="50"
+						gravity="-10"
+						direction="0 0 1"
+						angle="60"
+						drag="0.02"
+					>
+						<particle
+							maxangle="360"
+							startalpha="0"
+							midalpha="1"
+							endalpha="1"
+							midalphapos=".2"
+							minsize="10"
+							maxsize="25"
+							startframe="0"
+							midframe=".5"
+							endframe="1"
+							midframepos=".25"
+							startcolor=".1 .05 0"
+							midcolor=".1 -.05 .05"
+							endcolor="0"
+						/>
+					</simpleemitter>
+					<!--
+					<simpleemitter
+						bone="{bone}"
+						spawnrate="100"
+						offsetsphere="5"
+						minparticlelife="100"
+						maxparticlelife="175"
+						material="/shared/effects/materials/phantom_white_reveal.material"
+						maxspeed="100"
+						gravity="-5"
+						direction="0 0 1"
+						angle="30"
+						drag="0.02"
+					>
+						<particle
+							maxangle="360"
+							minanglespeed="-200"
+							maxanglespeed="200"
+							startalpha="0"
+							endalpha="1"
+							midalphapos=".2"
+							minsize="10"
+							maxsize="20"
+							midsizepos=".1"
+							startframe="0"
+							endframe="1"
+							startcolor="1 1 -0.5"
+							endcolor="1 -0.25 1"
+						/>
+					</simpleemitter>
+					-->
+					<trailemitter
+						bone="{bone}"
+						spawnrate="200"
+						particlelife="200"
+						material="/shared/effects/materials/calamity_fire_scrolling_trail_blend_3.material"
+						texposscale="0"
+						texstretchscale="1.5"
+					>
+						<particle
+							startalpha="0"
+							midalpha=".75"
+							endalpha=".75"
+							midalphapos=".2"
+							startsize="0"
+							midsize="8"
+							endsize="40"
+							midsizepos=".2"
+						/>
+					</trailemitter>
+				</template>
+				
+				<instance name="swirl" bone="_bone_fx_01" />
+				<instance name="swirl" bone="_bone_fx_02" />
+				<instance name="swirl" bone="_bone_fx_03" />
+				<instance name="swirl" bone="_bone_fx_04" />
+				
+			</model>
+			
+			<!-- out -->
+			<billboard
+				position="0 0 10"
+				life="225"
+				material="/shared/effects/materials/corona_01_blend.material"
+				startsize="50"
+				endsize="275"
+				startcolor=".7 .35 .15"
+				midcolor=".6 .2 .25"
+				endcolor="0 0 0"
+				midcolorpos=".65"
+				startalpha="1.5"
+				endalpha="0"
+				lockup="true"
+				lockright="true"
+				pitch="-90"
+			/>
+			<simpleemitter
+				position="0 0 10"
+				mincount="3"
+				maxcount="4"
+				minparticlelife="175"
+				maxparticlelife="250"
+				material="/shared/effects/materials/shadow_cut_02_reveal.material"
+			>
+				<particle
+					maxangle="360"
+					minanglespeed="-600"
+					maxanglespeed="-300"
+					minstartsize="50"
+					maxstartsize="75"
+					minendsize="225"
+					maxendsize="275"
+					startcolor=".1 .04 .02"
+					endcolor=".1 .02 .04"
+					startframe="0"
+					midframe=".8"
+					endframe="1"
+					lockup="true"
+					lockright="true"
+					pitch="-90"
+					startalpha="0"
+					endalpha="1"
+				/>
+			</simpleemitter>
+			<!--
+			<simpleemitter
+				position="0 0 10"
+				mincount="3"
+				maxcount="4"
+				minparticlelife="100"
+				maxparticlelife="200"
+				material="/shared/effects/materials/shadow_cut_02_reveal.material"
+			>
+				<particle
+					maxangle="360"
+					minanglespeed="-600"
+					maxanglespeed="-300"
+					startsize="100"
+					minendsize="250"
+					maxendsize="300"
+					startcolor="1 .4 .2"
+					endcolor="1 .2 .4"
+					startframe="0"
+					midframe=".8"
+					endframe="1"
+					lockup="true"
+					lockright="true"
+					pitch="-90"
+					startalpha="0"
+					endalpha="1"
+				/>
+			</simpleemitter>
+			-->
+			
+			
+			<!-- in -->
+			<billboard
+				position="0 0 10"
+				delay="175"
+				life="250"
+				material="/shared/effects/materials/corona_06_blend.material"
+				startsize="300"
+				endsize="50"
+				startcolor=".7 .4 .15"
+				midcolor=".7 .15 .4"
+				endcolor="0 0 0"
+				lockup="true"
+				lockright="true"
+				pitch="-90"
+				startalpha="0"
+				midalpha="1.5"
+				endalpha="0"
+				midalphapos=".2"
+			/>
+			<simpleemitter
+				delay="175"
+				position="0 0 10"
+				mincount="3"
+				maxcount="4"
+				minparticlelife="180"
+				maxparticlelife="240"
+				material="/shared/effects/materials/shadow_cut_02_reveal.material"
+			>
+				<particle
+					maxangle="360"
+					minanglespeed="-600"
+					maxanglespeed="-300"
+					minstartsize="175"
+					maxstartsize="225"
+					endsize="0"
+					startcolor=".1 .04 .02"
+					endcolor=".1 .02 .04"
+					startframe="0"
+					endframe="1"
+					lockup="true"
+					lockright="true"
+					pitch="-90"
+					startalpha="0"
+					endalpha="1"
+				/>
+			</simpleemitter>
+			<!--
+			<simpleemitter
+				delay="200"
+				position="0 0 10"
+				mincount="3"
+				maxcount="4"
+				minparticlelife="120"
+				maxparticlelife="160"
+				material="/shared/effects/materials/shadow_cut_02_reveal.material"
+			>
+				<particle
+					maxangle="360"
+					minanglespeed="-600"
+					maxanglespeed="-300"
+					minstartsize="200"
+					maxstartsize="225"
+					endsize="0"
+					startcolor="1 .4 .2"
+					endcolor="1 .2 .4"
+					startframe="0"
+					endframe="1"
+					lockup="true"
+					lockright="true"
+					pitch="-90"
+					startalpha="0"
+					endalpha="1"
+				/>
+			</simpleemitter>
+			-->
+			
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+</effect>

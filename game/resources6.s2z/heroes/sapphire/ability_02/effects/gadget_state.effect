@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+
+	<definitions>
+
+		<particlesystem name="system0" space="world" scale=".7">		
+			<sound
+			    fadein="1000"
+				fadeout="500"
+			    soundloop="true"
+				randomloop="true"
+				linearfalloff="true" 
+				falloffstart="0"
+				falloffend="800"
+				volume=".3"
+				sample="/heroes/sapphire/ability_02/sounds/loop.wav"
+			/>
+			
+			<sound
+			    fadein="1000"
+				fadeout="500"
+			    soundloop="true"
+				randomloop="true"
+				linearfalloff="true" 
+				falloffstart="0"
+				falloffend="800"
+				volume=".7"
+				sample="/heroes/sapphire/ability_02/sounds/loop2.wav"
+			/>
+			
+			<sound
+			    delay="8000"
+			    soundloop="true"
+				randomloop="true"
+				linearfalloff="true" 
+				falloffstart="800"
+				falloffend="1300"
+				volume="1"
+				sample="/heroes/sapphire/ability_02/sounds/expire.wav"
+			/>
+			
+			
+			<model
+				life="150"
+				position="0 0 0"
+				model="center/model.mdf"
+				anim="idle"
+				startscale="0"
+				endscale="4"
+				midscalepos=".1"
+				expirelife="150"
+				startalpha="0"
+				endalpha="1"
+				minyaw="0"
+				maxyaw="0"
+				color="1.2"
+			/>
+			<model
+				delay="150"
+				position="0 0 0"
+				model="center/model.mdf"
+				anim="idle"
+				startscale="3.3"
+				endscale="0"
+				midscalepos=".1"
+				expirelife="150"
+				startalpha="1"
+				endalpha="0"
+				minyaw="0"
+				maxyaw="0"
+				color="1.2"
+			>
+			</model>
+
+			<model
+				delay="150"
+				position="0 0 0"
+				model="center/model.mdf"
+				material="/shared/effects/materials/shell2.material"
+				anim="idle"
+				startscale="3"
+				endscale="0"
+				midscalepos=".1"
+				expirelife="150"
+				startalpha="1"
+				endalpha="0"
+				minyaw="0"
+				maxyaw="0"
+				startcolor=".1 .35 .6"
+				midcolor=".1 .35 .6"
+				endcolor="0 0 0"
+			>
+			</model>
+			<groundsprite
+				material="/shared/effects/materials/ice_reveal.material"
+				color=".1 .2 .3"
+				size="550"	
+				startframe="0"
+				midframe=".3"
+				endframe="0"				
+				life="5000"
+				loop="1"
+			/>
+			<groundsprite
+				material="/shared/effects/materials/ice_reveal.material"
+				color=".2 .4 .5"
+				size="550"	
+				startframe="0"
+				midframe=".2"
+				endframe="0"				
+				life="2000"
+				loop="1"
+				yaw="180"
+			/>
+			<!-- <simpleemitter
+				spawnrate="10"
+				particlelife="1000"
+				offsetsphere="300 300 0"
+				position="0 0 50"
+				material="/shared/effects/materials/ice_reveal.material"
+			>
+				<particle
+				>
+					<billboard
+					startalpha="1.0"
+					endalpha="0.0"
+					minangle="0"
+					maxangle="360"
+					startsize="120"
+					endsize="280"
+					depthbias="-130"
+					
+					/>
+				</particle>
+			</simpleemitter> -->
+			<simpleemitter					
+				spawnrate="4"
+				particlelife="2600"				
+				offsetsphere="100 100 0"
+				position="0 0 20"				
+			>
+				<particle												
+				>
+				 <groundsprite
+					minlife="900"		
+					maxlife="1500"						
+					material="/shared/effects/materials/ice_reveal.material"
+					startcolor="0 0 0"					
+					midcolor=".1 .2 .3"
+					endcolor="0 0 0"
+					startframe=".81"
+					midframe=".0"
+					endframe=".5"
+					midframepos=".1"
+					size="400"
+					minscale=".6"
+					maxscale=".7"
+				/> 
+				</particle>
+			</simpleemitter> 
+		</particlesystem>
+
+	</definitions>
+
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<spawnmodifier instance="instance1" modifier="modifier0"/>  
+		<waitfordeath instance="instance0" />
+		<waitfordeath instance="instance1" /> 
+	</thread>
+
+</effect>

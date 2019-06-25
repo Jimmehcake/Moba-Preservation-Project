@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="body" deferred="true">
+	<definitions>
+
+		
+		<particlesystem name="system1" space="world" scale="1">
+		
+			<template name="footprints">
+				<controller life="2000" bone="_bone_center" delay="{delay}">
+					
+					<simpleemitter
+						spawnrate="100"
+						count="1"
+						directionalspace="local"
+						speed=".1"
+						direction="0 1 0"
+						angle="0"
+						position="{position}"
+						particlelife="1500"
+					>
+						<particle
+							turn="1"
+							lockup="1"
+							lockright="1"
+						>
+							<groundsprite
+								delay="0"
+								life="1500"
+								material="/shared/effects/materials/ground_smash_overlay.material"
+								size="11.5"
+								color="1.0 1.0 1.0"
+								startalpha="1"
+								midalpha="1"
+								endalpha="0"
+								midalphapos="0.5"
+								lockup="1"
+								lockright="1"
+								anchor="1"
+								directionalspace="local"
+								turn="1"
+							/>
+							
+							<terrainemitter
+								position="0 0 -10"
+								life="500"
+								spawnrate="10"
+								drag="0.0"
+								direction="0 0 1"
+								minparticlelife="500"
+								maxparticlelife="1500"
+								offsetradial="10"
+								maxspeed="25"
+								gravity="-1"
+								material="/shared/effects/materials/pyroclast_03.material"
+							>
+								<particle 
+									maxangle="360"
+									maxanglespeed="100"
+									startcolor="1 1 .6"
+									endcolor=".2 .2 .12"
+									startalpha=".5"
+									midalpha=".5"
+									endalpha="0"
+									startsize="10"
+									endsize="50"
+									scale="1"
+									anchor="1"
+									depthbias="20"
+								/>
+							</terrainemitter>
+						</particle>
+					</simpleemitter>
+				</controller>
+			</template>
+
+			
+			<instance name="footprints" position="0 10 0" delay="0" />
+			<instance name="footprints" position="0 -10 0" delay="125" />
+			
+		</particlesystem>
+
+		
+</definitions>
+<thread>
+	<spawnparticlesystem instance="instance0" particlesystem="system1" />
+	<waitfordeath instance="instance0" />
+</thread>
+</effect>

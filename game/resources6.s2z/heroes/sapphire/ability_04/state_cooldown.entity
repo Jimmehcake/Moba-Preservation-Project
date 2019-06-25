@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Sapphire_Ability4_Cooldown"
+	
+	ishidden="true"
+	
+	modifierkey="Sapphire_ability4_Cooldown"
+>
+	<!-- Prevents accidental secondary activation -->
+</state>

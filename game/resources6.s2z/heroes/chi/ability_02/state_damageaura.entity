@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Chi_Ability2_DamageAura"
+
+	icon="icon.tga"
+	passiveeffect="effects/gadget.effect"
+	
+	effecttype=""
+	allowtransfer="false"
+>	
+	<aura name="Chi2" state="State_Chi_Ability2_Damage" radius="250" targetscheme="enemy_units" effecttype="Magic" />
+	
+	<altavatar key="Hero_Chi.Alt"
+		passiveeffect="../alt/ability_02/effects/gadget.effect"
+	/>
+	
+	<altavatar key="Hero_Chi.Alt2"
+		passiveeffect="../alt2/ability_02/effects/gadget.effect"
+	/>
+	
+</state>

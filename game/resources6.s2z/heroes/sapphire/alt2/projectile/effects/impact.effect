@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true" useentityeffectscale="true">
+	<definitions>
+
+		<particlesystem name="system0" space="world" scale="1">
+
+			<sound
+                volume=".6"
+				sample="../../sounds/imp_%.wav"
+				linearfalloff="true"
+			    falloffstart="500"
+				falloffend="1000"
+			/>
+			
+			<simpleemitter
+				count="20"
+				minparticlelife="250"
+				maxparticlelife="500"
+				gravity="-5"
+				offsetsphere="0 0 0"
+				material="/shared/effects/materials/dust_smoke_02.material"
+				depthbias="25"
+				minspeed="550"
+				maxspeed="800"
+				drag=".05"
+				bone="_bone_centerofchest"
+			>
+				<particle 
+					minangle="0"
+					maxangle="360"
+					minanglespeed="-6"
+					maxanglespeed="6"
+					color=".1 .1 .05"
+					startsize="30"
+					endsize="80"
+					startalpha=".65"
+					midalpha=".65"
+					endalpha="0"
+					minscale=".7"
+					maxscale="1"
+				/>
+			</simpleemitter>
+			<simpleemitter	
+				speed="300"
+				life="300"				
+				endspawnrate="700"
+				count="30"
+				minparticlelife="100"			
+				maxparticlelife="200"				
+				material="/shared/effects/materials/soul_projectile2.material"			
+				depthbias="-30"
+				offsetsphere="55"
+				bone="_bone_centerofchest"
+			>
+				<particle 
+					minangle="0"
+					maxangle="360"
+					minanglespeed="-150"
+					maxanglespeed="150"
+					startcolor="2"
+					midcolor=".65 .3 .1"
+					endcolor="0 0 0"
+					startsize="40"
+					midsizepos=".75"
+					endsize="70"
+					startscale=".8"
+					endscale="1.2"
+					endstickiness="1"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				count="12"
+				bone="_bone_centerofchest"
+				spawnrate="75"
+				minparticlelife="500"
+				maxparticlelife="1000"
+				minspeed="0"
+				maxspeed="100"
+				drag="0.035"
+				offsetsphere="25"
+				material="/shared/effects/materials/refract_bubble.material"
+			>
+				<particle
+					startalpha=".22"
+					midalpha=".2"
+					endalpha="0.0"
+					maxangle="360"
+					anglespeed="-90"
+					startsize="20"
+					endsize="70"
+					param=".15"
+					depthbias="-50"
+					startanchor="1"
+					midanchor="1"
+					endanchor=".5"
+				/>
+			</simpleemitter>
+			<billboard
+				life="80"
+				expirelife="250"
+				startcolor="1"
+				endcolor="0 0 0"
+				size="155"
+				rollspeed="-1250"
+				bone="_bone_centerofchest"
+				material="/shared/effects/materials/whitedot.material"
+			/>
+			<billboard
+				bone="_bone_centerofchest"
+				life="350"
+				param="0.1"	
+				startsize="50"
+				endsize="200"
+				startalpha="0"
+				midalpha=".4"
+				endalpha="0"				
+				depthbias="0"
+				material="/shared/effects/materials/refract_swell.material"
+				lockup="1"
+				lockright="1"
+				pitch="90"
+			/>			
+			
+			<simpleemitter
+				bone="_bone_centerofchest"
+				count="20"
+				minparticlelife="200"
+				maxparticlelife="400"
+				drag="0.05"
+				direction="0 0 1"
+				minspeed="1000"
+				maxspeed="1500"
+				offsetsphere="10"
+				gravity="5"
+				material="/shared/effects/materials/spark_12.material"
+			>
+				<particle
+					maxangle="360"
+					minanglespeed="-100"
+					maxanglespeed="100"
+					startsize="80"
+					endsize="40"
+					startframe=".4"
+					endframe="1"
+					startcolor="1 .8 .5"
+					midcolor="1 .5 0"
+					endcolor="0 0 0"
+					midcolorpos=".75"
+					minscale=".3"
+					maxscale=".7"
+				/>
+			</simpleemitter>
+		</particlesystem>
+			
+	</definitions>
+
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0"/>
+		<spawnmodifier instance="instance1" modifier="modifier0"/>
+	
+		<waitfordeath instance="instance0"/>
+		<waitfordeath instance="instance1" />
+		
+	</thread>
+
+</effect>

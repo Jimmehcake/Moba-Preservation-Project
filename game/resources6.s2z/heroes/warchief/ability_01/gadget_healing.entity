@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gadget
+	name="Gadget_Warchief_Ability1_Healing"
+
+	icon="icon.tga"
+	portrait="icon.tga"
+	model="/shared/models/invis.mdf"
+	skin=""
+	
+	passiveeffect="healing_totem/body.effect"
+	spawneffect="healing_totem/spawn.effect"
+	respawneffect=""
+	selectsound=""
+	isselectable="true"
+	orderconfirmedsound=""
+	expirenumanims="0"
+	
+	preglobalscale="1"
+	modelscale="1.2"
+	effectscale="0.9"
+	boundsheight="64"
+	boundsradius="16"
+	selectionradius="26"
+	targetoffset="0 0 64"
+	infoheight="120"
+
+	blocking="true"
+
+	movespeed="0"
+	turnrate="540"
+	turnsmoothing="0.05"
+	ismobile="false"
+	canrotate="true"
+
+	maxhealth="1"
+	healthregen="0"
+	maxmana="0"
+	manaregen="0"
+	
+	unitwalking="true"
+
+	armor="0"
+	magicarmor="0"
+	immunity="GadgetImmunity"
+
+	aggrorange="600"
+	sightrangeday="700"
+	sightrangenight="700"
+	
+	showsightrange="true"
+
+	experiencebounty="0"
+	goldbountymin="10"
+	goldbountymax="10"
+	
+	lifetime="30050"
+	showlifetime="true"
+	noblockneutralspawn="true" 
+>
+	<onspawn>
+		<setaccumulator value="0" />
+	</onspawn>
+	
+	<onframe>
+		<!-- Do a thing every second for 4 seconds -->
+		<setaccumulator value="accumulator" valueb="1" valueop="add" />
+		<compare a="accumulator" b="20" op="ge">
+			<setaccumulator value="25000" />
+			<areaofeffect
+				center="this_entity"
+				radius="700"
+				targetscheme="ally_heroes"
+				effecttype=""
+				targetselection="all"
+			>
+				<setvar0 a="target_health_percent" />
+				<compare a="var0" b="1" op="lt">
+					<compare a="var0" b="accumulator" op="lt">
+						<!-- Remember the lowest health percent target -->
+						<setaccumulator value="var0" />
+						<setproxy target="target_entity" />
+					</compare>
+				</compare>
+			</areaofeffect>
+			<compare a="accumulator" b="1" op="lt">
+				<!-- Zap! (Heal) -->
+				<spawnprojectile name="Projectile_Warchief_Ability1_Healing" source="this_entity" target="this_proxy_entity" noresponse="true" offset="0 0 50" />
+				
+				<!-- Count number of attacks -->
+				<applystate name="State_Warchief_Ability1_Counter" target="this_entity" continuous="true" pushentity="true" />
+				<addcharges entity="stack_entity" count="1" />
+				<compare a="result" b="4" op="ge">
+					<kill target="this_entity" source="" />
+				</compare>
+			</compare>
+			
+			<setaccumulator value="0" />
+		</compare>
+	</onframe>
+	
+	<ondeath>
+		<hasavatarkey name="Hero_Warchief.Alt2">
+			<playeffect effect="../alt2/ability_01/healing_totem/death.effect" source="this_entity" />
+		</hasavatarkey>
+		<else>
+			<hasavatarkey name="Hero_Warchief.Alt">
+				<playeffect effect="../alt/ability_01/healing_totem/death.effect" source="this_entity" />
+			</hasavatarkey>
+			<else>
+				<playeffect effect="healing_totem/death.effect" source="this_entity" />
+			</else>
+		</else>
+	</ondeath>
+	
+	<onexpired>
+		<hasavatarkey name="Hero_Warchief.Alt2">
+			<playeffect effect="../alt2/ability_01/healing_totem/death.effect" source="this_entity" />
+		</hasavatarkey>
+		<else>
+			<hasavatarkey name="Hero_Warchief.Alt">
+				<playeffect effect="../alt/ability_01/healing_totem/death.effect" source="this_entity" />
+			</hasavatarkey>
+			<else>
+				<playeffect effect="healing_totem/death.effect" source="this_entity" />
+			</else>
+		</else>
+	</onexpired>
+	
+	<altavatar key="Hero_Warchief.Alt" modpriority="1"
+		passiveeffect="../alt/ability_01/healing_totem/body.effect"
+		spawneffect="../alt/ability_01/healing_totem/spawn.effect"
+	/>
+	
+	<altavatar key="Hero_Warchief.Alt2" modpriority="1"
+		passiveeffect="../alt2/ability_01/healing_totem/body.effect"
+		spawneffect="../alt2/ability_01/healing_totem/spawn.effect"
+	/>
+</gadget>

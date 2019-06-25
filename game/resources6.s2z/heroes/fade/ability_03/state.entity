@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Fade_Ability3"
+
+	icon="icon.tga"
+	passiveeffect="/heroes/fade/ability_03/effects/state.effect"
+
+	unitwalking="true"
+	
+	effecttype="StatusBuff"
+	allowtransfer="true"
+	
+	modifierkey="Fade_E_active"
+>
+	<oninflict>
+		<disjoint target="this_owner_entity" />
+		<orderdisjoint target="this_owner_entity" />
+	</oninflict>
+	
+	<onrefresh>
+		<disjoint target="this_owner_entity" />
+		<orderdisjoint target="this_owner_entity" />
+	</onrefresh>
+	
+	<onframe />
+	
+	<altavatar key="Hero_Fade.Alt4" modpriority="90"
+		passiveeffect="/heroes/fade/alt4/ability_03/effects/state.effect"
+	/>
+	
+	<altavatar key="Hero_Fade.Alt5" modpriority="90"
+		passiveeffect="/heroes/fade/alt5/ability_03/effects/state.effect"
+	/>
+
+	<altavatar key="Hero_Fade.Alt6" modpriority="90"
+		passiveeffect="/heroes/fade/alt6/ability_03/effects/state.effect"
+		icon="/heroes/fade/alt6/ability_03/icon.tga"
+	/>
+	
+	<altavatar key="Hero_Fade.Alt7" modpriority="90"
+		passiveeffect="/heroes/fade/alt7/ability_03/effects/state.effect"
+	/>
+	
+	<altavatar key="Hero_Fade.Alt8" modpriority="90"
+		passiveeffect="/heroes/fade/alt8/ability_03/effects/state.effect"
+	/>
+	
+	<altavatar key="Hero_Fade.Alt9" modpriority="90"
+		passiveeffect="/heroes/fade/alt9/ability_03/effects/state.effect"
+	/>
+	
+	<altavatar key="Hero_Fade.Alt10" modpriority="90"
+		passiveeffect="/heroes/fade/alt10/ability_03/effects/state.effect"
+	/>
+	
+	<altavatar key="Hero_Fade.set_ascension" modpriority="90"
+		passiveeffect="/heroes/fade/set_ascension/ability_03/effects/state.effect"
+	/>
+</state>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="nukeEffect" useentityeffectscale="true" >
+	<definitions>
+		<particlesystem name="system0" space="world" scale=".75">
+			<sound
+		        fadein="10"
+			    forcestereo="true"
+				linearfalloff="true" 
+				falloffstart="800"
+				falloffend="1300"
+				volume="1" 
+				sample="/heroes/chi/ability_01/sounds/trail.wav"
+			/>
+			
+			<model
+				life="500"
+				model="model.mdf"
+				scale="5.5"
+				rollspeed="-3000"
+				
+				material="/heroes/chi/alt/material.material"
+			>
+				<trailemitter
+					position="0 0 0"
+					material="/shared/effects/materials/reveal_trail5_gradient_solid_gold.material"
+					spawnrate="100"
+					particlelife="200"
+					angle="0"
+					attachtoemitter="true"
+					texposscale="1"
+					texpostime="200"
+					texstretchscale="0"
+					subframepos="true"
+				>
+					<particle
+						alpha="1"
+						startframe="1"
+						midframe=".35"
+						endframe="0"
+						midframepos=".35"
+						param=".5"
+						startscale="4" endscale="0"
+					/>
+				</trailemitter>
+				
+				<trailemitter
+					position="0 0 7"
+					expirelife="0"
+					spawnrate="100"
+					particlelife="75"
+					texpostime="75"
+					texposscale="0"
+					texstretchscale="4"
+					subframepose="1"
+					material="/shared/effects/materials/reveal_trail5_gradient_solid_gold.material"
+					
+				>
+					<particle
+						color="1"
+						alpha="1"
+						startframe="0"
+						midframe=".3"
+						endframe="0"
+						midframepos=".35"
+						param=".5"
+						size="3.7"
+					/>
+				</trailemitter>
+				
+				<trailemitter
+					position="0 0 -7"
+					expirelife="0"
+					spawnrate="100"
+					particlelife="75"
+					texpostime="75"
+					texposscale="0"
+					texstretchscale="4"
+					subframepose="1"
+					material="/shared/effects/materials/reveal_trail5_gradient_solid_gold.material"
+					
+				>
+					<particle
+						color="1"
+						alpha="1"
+						startframe="0"
+						midframe=".3"
+						endframe="0"
+						midframepos=".35"
+						param=".5"
+						size="3.7"
+					/>
+				</trailemitter>
+				
+				
+			</model>
+			
+			<!-- <simpleemitter
+					spawnrate="100"
+					depthbias="-100"
+					minparticlelife="180"
+					maxparticlelife="250"
+					drag=".095"
+					direction="0 1 0"
+					startoffsetsphere="20 0 0"
+					endoffsetsphere="0 0 0"
+					minangle="90"
+					maxangle="90"
+					material="/shared/effects/materials/frost_flash_10.material"	
+					minspeed="00"
+					maxspeed="500"	
+				>
+					<particle
+						color="1"
+						startalpha="0"
+						midalpha="1"
+						endalpha="0"
+						startsize="5"
+						midsize="0"
+						endsize="0"
+						midsizepos="0.6"
+						anchor="0"
+					>
+						<billboard
+							minlife="100"
+							maxlife="250"
+							maxangle="360"
+							startsize="40" endsize="0"
+							minscale=".7" maxscale="1.4"
+							color="1 .8 .5"
+							startalpha=".5" midalpha="0" endalpha="0"
+							material="/shared/effects/materials/star_03.material"
+						/>
+					</particle>	
+			</simpleemitter> -->
+			
+			
+		</particlesystem>
+	</definitions>
+
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+</effect>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+	<definitions>
+		<particlesystem name="system0" space="world" >
+		<sound
+		        pitchshift="true"
+				minpitch="0.9"
+				maxpitch="1.2"
+				sample="/heroes/calamity/ability_02/sounds/wing_%.wav"
+				linearfalloff="true"
+				falloffstart="0" 
+				falloffend="400" 
+				volume=".4"
+			/>
+
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->
+

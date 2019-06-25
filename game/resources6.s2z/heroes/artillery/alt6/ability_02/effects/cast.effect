@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true" useentityeffectscale="true">
+
+	<definitions>
+
+		<particlesystem name="system0" space="world" scale="2.5">
+		<sound
+				linearfalloff="true" 
+				falloffstart="1300"
+				falloffend="2000"
+				volume="1"
+				sample="/heroes/artillery/alt5/sounds/ab2_shoot.wav"
+			/>
+
+			
+			<controller bone="_bone_weapon_fx_01" delay="200">
+				<simpleemitter
+					bone="_bone_weapon_fx_01"
+					position="0 0 0"	
+					count="30"
+					gravity="-5"
+					life="300"
+					speed="1500"
+					drag="0.1"
+					depthbias="0"
+					spawnrate="1800"			
+					particlelife="1250"
+					material="/shared/effects/materials/cloud1.material"
+					offsetsphere="20"
+					angle="40"
+					direction="-1 0 0"
+				>
+					<particle 
+						minangle="0"
+						maxangle="360"
+						minanglespeed="-50"
+						startcolor="1 .5 .2"
+						midcolor=".4"
+						endcolor="0"
+						midcolorpos=".3"
+						maxanglespeed="50"
+						startsize="20"
+						minendsize="40"
+						maxendsize="80"
+						startalpha="1"
+						endalpha="0"
+					/>
+				</simpleemitter>
+				
+				<simpleemitter
+					count="50"
+					spawnrate="1500"
+					particlelife="1200"			
+					gravity="30"
+					minspeed="1"
+					maxspeed="300"
+					drag=".04"
+					material="/shared/effects/materials/whitedot.material"
+					offsetsphere="5 5 5"
+					direction="0 0 0"
+					collide="true"
+				>
+					<particle 					
+						startcolor=".957 .580 .145"
+						midcolor=".557 .180 0"
+						endcolor="0 0 0"
+						startheightdistort=".06"
+						startsize="1"
+						midsize="3"
+						endsize="1"
+						turn="1"
+					/>
+				</simpleemitter>
+				
+				<simpleemitter
+					spawnrate="322"
+					particlelife="1400"			
+					count="100"
+					speed="40"
+					position="0 0 10"
+					offsetsphere="50 50 25"
+					acceleration="0"
+					gravity="2"
+					material="/shared/effects/materials/whitedot.material"
+					inheritvelocity="0"
+				>
+
+					<particle
+						minangle="-360"
+						maxangle="360"
+						
+						startcolor="1 .7 0"
+						midcolor=".8 .5 .149"
+						endcolor="0"
+						
+						minsize=".5"
+						maxsize="1.7"
+						
+						startalpha="0"
+						midalpha="0.8"
+						endalpha="0"
+						midalphapos="0.9"
+						anchor="0"
+						depthbias="0"							
+				
+					/>
+				</simpleemitter>
+				
+				<simpleemitter
+					count="10"
+					spawnrate="1500"
+					particlelife="800"			
+					gravity="5"
+					minspeed="1"
+					maxspeed="300"
+					drag=".04"
+					pitchspeed="80"
+					material="/shared/effects/materials/refract_outsplash.material"
+					offsetsphere="5 5 5"
+					inheritvelocity="0"
+					direction="0 0 0"
+					collide="true"
+					angle="45"
+				>
+					<particle 					
+						color="1"
+						startheightdistort=".06"
+						startsize="10"
+						midsize="30"
+						endsize="60"
+						turn="1"
+						param=".2"
+						startalpha="1"
+						endalpha="0"
+					/>
+				</simpleemitter>
+
+			</controller>
+		</particlesystem>
+
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<spawnparticlesystem instance="instance1" particlesystem="system1" />
+		<waitfordeath instance="instance0" />
+		<waitfordeath instance="instance1" />
+	</thread>
+</effect>

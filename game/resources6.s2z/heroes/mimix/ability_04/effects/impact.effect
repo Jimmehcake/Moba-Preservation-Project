@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect useentityeffectscale="true">
+
+	<definitions>
+
+		<particlesystem name="system0" space="entity" scale="2.2">
+
+			<model	
+				delay=""
+				life="300"
+				parentmodel="true"
+				parentskeleton="true"
+				startcolor=".4 .6 1"
+				midcolor=".2 0 .6"
+				endcolor="0 0 0"
+				material="/shared/effects/materials/shell_flat_outline.material"
+				alpha="2"
+			/> 
+			<model	
+				delay="100"
+				life="400"
+				parentmodel="true"
+				parentskeleton="true"
+				startcolor="0 2 4"
+				midcolor=".5 .3 1"
+				endcolor="0 0 0"
+				material="/shared/effects/materials/shell2.material"
+				startalpha="1"
+				endalpha="20"
+			/>
+			
+			<skeletonemitter
+				life="400"
+				spawnrate="700"
+				material="/shared/effects/materials/phantom_white_reveal.material"
+				minparticlelife="300"
+				maxparticlelife="450"
+				minspeed="0"
+				gravity="-32"
+				maxspeed="20"
+				depthbias="-3"
+			>
+				<particle
+					maxangle="360"
+					minstartscale="6"
+					maxstartscale="8"
+					minendscale="12"
+					maxendscale="20"
+					startcolor=".1 .1 .4"
+					endcolor=".6 .35 .7"
+					startalpha="0"
+					midalpha=".3"
+					endalpha="0"
+					startframe="0"
+					endframe="1"
+					anchor="1"
+				/>
+			</skeletonemitter>
+			
+			<skeletonemitter
+				life="400"
+				spawnrate="150"
+				material="/shared/effects/materials/crack_8.material"
+				minparticlelife="300"
+				maxparticlelife="400"
+				minspeed="0"
+				maxspeed="8"
+				gravity="-25"
+				depthbias="-3"
+				offsetsphere="1"
+			>
+				<particle
+					maxangle="360"
+					startscale="5"
+					endscale="6"
+					startcolor=".6"
+					endcolor="0"					
+					anchor="1"
+				/>
+			</skeletonemitter>
+			
+			<skeletonemitter
+				life="400"
+				spawnrate="300"
+				material="/shared/effects/materials/star_03.material"
+				minparticlelife="300"
+				maxparticlelife="450"
+				minspeed="0"
+				maxspeed="8"
+				gravity="-5"
+				depthbias="-3"
+				offsetsphere="2"
+			>
+				<particle
+					maxangle="360"
+					scale="3"
+					startcolor="1 .6 1"
+					endcolor="0"
+					anchor="1"
+				/>
+			</skeletonemitter>
+	
+
+		</particlesystem>
+
+	</definitions>
+
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+
+</effect>

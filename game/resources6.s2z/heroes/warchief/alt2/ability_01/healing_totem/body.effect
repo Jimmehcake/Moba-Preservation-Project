@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="ability_04_impact">
+	<definitions>
+
+		
+		<particlesystem name="system0" space="world" useentityeffectscale="true" scale=".95">
+
+		<sound
+			    delay="50"
+			    channelid="wara"
+			    norestart="true"
+				volume=".5"
+				sample="/heroes/warchief/ability_01/sounds/cast_2.wav"
+				linearfalloff="true"
+				falloffstart="600" 
+				falloffend="1300" 
+			/>
+			
+			<model
+				model="model.mdf"
+				expirelife="0"
+			/>
+			
+			<groundsprite
+				expirelife="1000"
+				startalpha="1"
+				endalpha="0"
+				position="0 0 0"
+				color="0.5 1 .5"
+				size="50"
+				material="/shared/effects/materials/leaf_ground.material"
+			/>
+			
+			<groundsprite
+				expirelife="1000"
+				startalpha="1"
+				endalpha="0"
+				yaw="180"
+				position="0 0 0"
+				size="50"
+				color="0.5 1 .5"
+				material="/shared/effects/materials/leaf_ground.material"
+			/>
+			
+			<billboard
+				expirelife="1000"
+				size="100"
+				startcolor=".1 .2 0"
+				endcolor="0"
+				depthbias="-50"
+				material="/shared/effects/materials/whitedot_ground.material"
+			/>
+			
+			<billboard
+				position="0 0 73"
+				expirelife="1000"
+				size="30"
+				startcolor=".125 .5 0"
+				endcolor="0"
+				depthbias="-20"
+				material="/shared/effects/materials/whitedot_ground.material"
+			/>
+	
+			<trackeremitter
+					material="/shared/effects/materials/energy_reveal.material"
+					spawnrate="10"
+					minparticlelife="1000"
+					maxparticlelife="1250"
+					position="0 0 20"
+					offsetsphere="25 25 15"
+					drag="0.04"
+					angle="90"
+					direction="0 0 1"
+					gravity="-1"
+					depthbias="-5"
+					targetbone="{bone}"
+					tracktype="cgravity"
+					trackspeed="-50"
+				>
+					<particle
+						maxangle="360"
+						minstartscale="10"
+						maxstartscale="20"
+						minendscale="20"
+						maxendscale="50"
+						startcolor="2 1 .15" endcolor=".15 1 .15"
+						startalpha="0"
+						minmidalpha="1"
+						maxmidalpha="1"
+						endalpha=".15"
+						startframe="0"
+						endframe="1"
+					/>
+				</trackeremitter>
+			
+				<simpleemitter
+					spawnrate="5"
+					particlelife="1000"
+					material="/shared/effects/materials/sparks_reveal_white.material"
+					position="0 0 80"
+					gravity="-4"
+					yawspeed="100"
+					offsetsphere="10"
+				>
+					<particle
+						maxangle="359"
+						startcolor="0"
+						midcolor="2 2 0"
+						endcolor="0 2 0"
+						midcolorpos=".25"
+						minsize="10"
+						maxsize="15"
+						anchor=".5"
+						startframe=".3"
+						endframe="1"
+						scale="3"
+					/>
+				</simpleemitter>
+				
+				<simpleemitter
+					timenudge="1000"
+					spawnrate="3"
+					minparticlelife="750"
+					maxparticlelife="1250"
+					material="/shared/effects/materials/twirl_03.material"
+					position="0 0 70"
+				>
+					<particle
+						maxangle="360"
+						startcolor="0"
+						midcolor=".2 .75 0"
+						endcolor="0"
+						midcolorpos=".25"
+						startsize="10"
+						minendsize="20"
+						maxendsize="30"
+						anchor="1"
+						minanglespeed="200"
+						maxanglespeed="50"
+						scale="3"
+					/>
+				</simpleemitter>
+				
+      </particlesystem>
+   </definitions>
+   <thread>
+      <spawnparticlesystem instance="instance0"  particlesystem="system0" />	
+	  <spawnmodifier instance="instance1" modifier="modifier0"/>  
+	  <waitfordeath instance="instance0" />
+	  <waitfordeath instance="instance1" />	  
+      <!-- <die /> -->
+   </thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->
+

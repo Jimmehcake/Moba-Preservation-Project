@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ability
+	name="Ability_Geomancer2"
+	
+	icon="icon.tga"
+	
+	anim="ability_2"
+	casttime="1000"
+	castactiontime="100"
+	casteffect="effects/cast_audio.effect"
+	maxlevel="4"
+	requiredlevel="1,3,5,7"
+	
+	actiontype="target_position"
+	casteffecttype="Magic"
+	targetscheme="enemy_units"
+	manacost="110,115,120,125"
+	cooldowntime="17000,15000,13000,11000"
+	
+	range="900"
+	forcerange="900"
+	novoiceresponse="true"
+	allowoutofboundscast="true"
+
+	targetradius="150"
+	
+	showlinecast="true"
+	linecastrange="1050"
+	linecastwidth="150"
+	
+	areacastmaterial="/shared/materials/area_cast_indicator_spokes.material"
+	
+	showrangeandradiusintooltip="true"
+>
+	<onimpact>
+		<setpos0 position="source_position" positionend="target_position" positionmodifier="pointonline" positionvalue="900" />
+		<spawnprojectile name="Projectile_Geomancer_Ability2" source="source_entity" target="pos0" pushentity="true" />
+		<spawnaffector name="Affector_Geomancer_Ability2" target="stack_entity" />
+	</onimpact>
+</ability>

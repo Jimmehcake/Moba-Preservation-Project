@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hero
+	name="Hero_Sapphire"
+
+	team="Legion"
+	icon="icon.tga"
+	portrait="icon.tga"
+	model="model.mdf"
+	skin=""
+	
+	passiveeffect="effects/body.effect"
+	spawneffect=""
+	respawneffect="/shared/effects/respawn.effect"
+	selectedsound="sounds/voice/select_%.wav"
+	selectedflavorsound="sounds/voice/select_flavour_%.wav"
+	confirmmovesound="sounds/voice/move_%.wav"
+	confirmattacksound="sounds/voice/attack_%.wav"
+	nomanasound="sounds/voice/no_mana.wav"
+	cooldownsound="sounds/voice/cooldown.wav"
+	announcersound="sounds/voice/hero_select.wav"
+	tauntedsound="sounds/voice/taunt_prior.wav"
+	tauntkillsound="sounds/voice/taunt_after.wav"
+	
+	preglobalscale="1.8"
+	modelscale="1"
+	effectscale="1"
+	boundsheight="112"
+	boundsradius="24"
+	selectionradius="48"
+	targetoffset="0 0 92"
+
+	infoheight="180"
+
+	category="magic cc"
+	difficulty="3.5"
+
+	solorating="4"
+	junglerating="0"
+	carryrating="4"
+	supportrating="0"
+	initiatorrating="2"
+	gankerrating="0"
+	pusherrating="0"
+	rangedrating="5"
+	meleerating="0"
+	
+	movespeed="300"
+	turnrate="450"
+	turnsmoothing="0.1"
+
+	maxhealth="150"
+	healthregen="0.25"
+	maxmana="0"
+	manaregen="0.01"
+
+	armor="0.58"
+	magicarmor="5"
+
+	inventory0="Ability_Sapphire1"
+	inventory1="Ability_Sapphire2"
+	inventory2="Ability_Sapphire3"
+	inventory3="Ability_Sapphire4"
+	inventory4="Ability_AttributeBoost"
+	inventory5=""
+	inventory6=""
+	inventory8="Ability_Taunt"
+	inventory9=""
+	inventory10=""
+	inventory11="Ability_Dance"
+	inventory12="Ability_AutomatedCourier"
+
+	attackduration="1000"
+	attackactiontime="450"
+	attackcooldown="1700"
+	attackdamagemin="21"
+	attackdamagemax="28"
+	attacknumanims="2"
+	attackoffset="40 50 65"
+	attackprojectile="Projectile_Sapphire"
+	attackrange="600"
+	attackstarteffect=""
+	attackactioneffect="projectile/effects/attack_sound.effect"
+	attackimpacteffect=""
+	attacktype="ranged"
+	combattype="Hero"
+
+	aggrorange="800"
+	sightrangeday="1800"
+	sightrangenight="800"
+	wanderrange="250"
+
+	primaryattribute="Agility"
+	strength="17"
+	strengthperlevel="1.9"
+	agility="23"
+	agilityperlevel="2.7"
+	intelligence="19"
+	intelligenceperlevel="2.2"
+	
+	previewmodel="preview.mdf"
+	previewpassiveeffect="effects/body.effect"
+	previewpos="0 0 0"
+	previewangles="0 0 0"
+	previewscale="1.5"
+	
+	storemodel="preview.mdf"
+	storepassiveeffect="effects/body.effect"
+	storepos="0 0 -23"
+	storeangles="0 0 0"
+	storescale="1.5"
+	
+	corpsetime="2500"
+	corpsefadetime="2500"
+	corpsefadeeffect="/shared/effects/corpse_sink.effect"
+	
+	portraitcampos="-35 -20 10"
+	overrideportraiteffects="true"
+>
+        <onspawn>
+		    <pausevoiceovers duration="6000" />
+			<hasavatarkey name="Hero_Sapphire.Alt">
+				<playeffect effect="alt/effects/spawn_sound.effect" source="this_entity" target="" occlude="true" />
+				<activatemodifierkey name="Sapphire_Alt_Sound" />
+				<applystate name="State_Sapphire_Alt_Sound_Initiator" target="source_entity" duration="2000" />
+			</hasavatarkey>
+			<else>
+				<hasavatarkey name="Hero_Sapphire.Alt2" />
+				<else>
+					<hasavatarkey name="Hero_Sapphire.Alt3" />
+					<else>
+						<hasavatarkey name="Hero_Sapphire.Alt4" />
+						<else>
+						<activatemodifierkey name="Sapphire_Sound" />
+						<applystate name="State_Sapphire_Sound_Initiator" target="source_entity" duration="2000" />
+						</else>
+					</else>
+				</else>
+			</else>
+		</onspawn>
+		
+		<onassist>
+		<!-- Interaction -->
+		    <chance threshold="0.50">
+				<hasavatarkey name="Hero_Sapphire.Alt">
+					<pausevoiceovers duration="6000" />
+					<delayannouncer duration="6000" source="target_entity" sourceonly="true"/>
+					<delayannouncer duration="6000" source="this_entity" sourceonly="true"/>
+					<playeffect effect="alt/sounds/interactions/assist_audio.effect" source="this_entity" target="this_entity" />
+				</hasavatarkey>
+				<else>
+					<hasavatarkey name="Hero_Sapphire.Alt2" />
+					<else>
+						<hasavatarkey name="Hero_Sapphire.Alt3" />
+						<else>
+							<hasavatarkey name="Hero_Sapphire.Alt4" />
+							<else>
+								<pausevoiceovers duration="3000" />
+								<delayannouncer duration="3000" source="target_entity" sourceonly="true"/>
+								<delayannouncer duration="3000" source="this_entity" sourceonly="true"/>
+								<playeffect effect="sounds/interactions/assist_audio.effect" source="this_entity" target="this_entity" />
+							</else>
+						</else>
+					</else>
+				</else>
+			</chance>
+        </onassist>
+		
+		<onkill>
+		<!-- Interaction -->
+			<targettype type="illusion" />
+			<else>
+				<cantarget targetscheme="enemy_heroes" >
+				<pushentityproxy entity="this_proxy_entity" />
+				<chance threshold="0.50">  
+					<compare a="stack_entity" b="inflictor_entity" op="ne"> <!--To prevent interaction to play if you have taunted them-->
+					<pausevoiceovers duration="3000" /> 
+					<delayannouncer duration="3000" source="target_entity" sourceonly="true"/>
+					<delayannouncer duration="3000" source="this_entity" sourceonly="true"/>
+						<hasavatarkey name="Hero_Sapphire.Alt">
+							<playeffect effect="alt/sounds/interactions/kill_audio.effect" source="this_entity" target="this_entity" />
+						</hasavatarkey>
+						<else>
+							<hasavatarkey name="Hero_Sapphire.Alt2"/>							
+							<else>
+								<hasavatarkey name="Hero_Sapphire.Alt3"/>							
+								<else>
+									<hasavatarkey name="Hero_Sapphire.Alt4"/>							
+									<else>
+										<playeffect effect="sounds/interactions/kill_audio.effect" source="this_entity" target="this_entity" />
+									</else>
+								</else>
+							</else>
+						</else>						
+					</compare>
+				</chance>
+				</cantarget>
+			</else>
+        </onkill>
+		
+	
+	<modifier key="iamsheeped" modpriority="100"
+		passiveeffect=""
+	/>
+	
+	<altavatar key="Hero_Sapphire.Alt"
+	    icon2="alt/icon.tga"
+		portrait="alt/icon.tga"
+		model="alt/model.mdf"
+		preglobalscale="1.8"
+		
+		passiveeffect="alt/effects/body.effect"
+		
+		portraitcampos="62 -20 7"
+		
+		previewmodel="alt/preview.mdf"
+		previewpassiveeffect="alt/effects/body.effect"
+		previewpos="0 0 0"
+		previewangles="0 0 0"
+		previewscale="1.48"
+		
+		storemodel="alt/preview.mdf"
+		storepassiveeffect="alt/effects/body.effect"
+		storepos="0 0 -23"
+		storeangles="0 0 0"
+		storescale="1.48"
+		attackactioneffect="alt/projectile/effects/attack_sound.effect"
+		
+		selectedsound="alt/sounds/voice/select_%.wav"
+		selectedflavorsound="alt/sounds/voice/select_flavour_%.wav"
+		confirmmovesound="alt/sounds/voice/move_%.wav"
+		confirmattacksound="alt/sounds/voice/attack_%.wav"
+		nomanasound="alt/sounds/voice/no_mana.wav"
+		cooldownsound="alt/sounds/voice/cooldown.wav"	
+		tauntedsound="alt/sounds/voice/taunt_prior.wav"
+		tauntkillsound="alt/sounds/voice/taunt_after.wav"
+	>
+     
+    <onrespawn>
+		<hasmodifier name="OnlyMidMap" entity="this_entity" />
+		<else>
+			<playeffect effect="alt/effects/spawn_sound.effect" source="this_entity" target="" occlude="true" />	
+		</else>
+	</onrespawn>
+	
+	<ondeath>
+		<hasmodifier name="OnlyMidMap" entity="this_entity" />
+		<else>
+			<playeffect effect="alt/effects/death_music.effect" source="this_position" target="source_position" />
+		</else>
+	</ondeath>
+	</altavatar>
+	
+	<altavatar key="Hero_Sapphire.Alt2"
+	    icon2="alt2/icon.tga"
+		portrait="alt2/icon.tga"
+		model="alt2/model.mdf"
+		preglobalscale="1.8"
+		
+		passiveeffect="alt2/effects/body.effect"
+		
+		portraitcampos="-60 -30 10"
+		
+		previewmodel="alt2/preview.mdf"
+		previewpassiveeffect="alt2/effects/body.effect"
+		previewpos="0 0 0"
+		previewangles="0 0 0"
+		previewscale="1.5"
+		
+		storemodel="alt2/preview.mdf"
+		storepassiveeffect="alt2/effects/body.effect"
+		storepos="0 0 -23"
+		storeangles="0 0 0"
+		storescale="1.5"
+		attackactioneffect="alt2/projectile/effects/attack_sound.effect"
+		
+		selectedsound="alt2/sounds/voice/select_%.wav"
+		selectedflavorsound="alt2/sounds/voice/select_flavour_%.wav"
+		confirmmovesound="alt2/sounds/voice/move_%.wav"
+		confirmattacksound="alt2/sounds/voice/attack_%.wav"
+		nomanasound="alt2/sounds/voice/no_mana.wav"
+		cooldownsound="alt2/sounds/voice/cooldown.wav"	
+		tauntedsound="alt2/sounds/voice/taunt_prior.wav"
+		tauntkillsound="alt2/sounds/voice/taunt_after.wav"
+	>	
+	</altavatar>
+	
+	<altavatar key="Hero_Sapphire.Alt3"
+	    icon2="alt3/icon.tga"
+		portrait="alt3/icon.tga"
+		model="alt3/model.mdf"
+		preglobalscale="1.8"
+		
+		passiveeffect="alt3/effects/body.effect"
+		
+		portraitcampos="-35 -10 20"
+		
+		previewmodel="alt3/preview.mdf"
+		previewpassiveeffect="alt3/effects/body.effect"
+		previewpos="0 0 0"
+		previewangles="0 0 0"
+		previewscale="1.5"
+		
+		storemodel="alt3/preview.mdf"
+		storepassiveeffect="alt3/effects/body.effect"
+		storepos="0 0 -23"
+		storeangles="0 0 0"
+		storescale="1.5"
+		
+		selectedsound="alt3/sounds/voice/select_%.wav"
+		selectedflavorsound="alt3/sounds/voice/select_flavour_%.wav"
+		confirmmovesound="alt3/sounds/voice/move_%.wav"
+		confirmattacksound="alt3/sounds/voice/attack_%.wav"
+		nomanasound="alt3/sounds/voice/no_mana.wav"
+		cooldownsound="alt3/sounds/voice/cooldown.wav"	
+		tauntedsound="alt3/sounds/voice/taunt_prior.wav"
+		tauntkillsound="alt3/sounds/voice/taunt_after.wav"
+	>	
+		<onspawn>
+			<ownsproduct target="this_entity" product="aa.Hero_Sapphire.Alt3 aa.Hero_Prophet.Alt9 aa.Hero_Vanya.Alt7 aa.Hero_Bubbles.Alt15" >
+				<applystate name="Set_FourSymbols_Dragon" continuous="true"/>
+			</ownsproduct>
+		</onspawn>
+	</altavatar>
+	
+	<altavatar key="Hero_Sapphire.Alt4"
+	    icon2="alt4/icon.tga"
+		portrait="alt4/icon.tga"
+		model="alt4/model.mdf"
+		preglobalscale="1.5"
+		
+		corpsetime="1000"
+		corpsefadetime="2500"
+		corpsefadeeffect="/shared/effects/corpse_sink.effect"
+	
+		passiveeffect=""
+		
+		portraitcampos="30 20 10"
+		
+		previewmodel="alt4/preview.mdf"
+		previewpassiveeffect="alt4/effects/body.effect"
+		previewpos="0 0 0"
+		previewangles="0 0 0"
+		previewscale="1.5"
+		attackactioneffect="alt4/projectile/effects/attack_sound.effect"
+		
+		storemodel="Alt4/preview.mdf"
+		storepassiveeffect="alt4/effects/body.effect"
+		storepos="0 0 -23"
+		storeangles="0 0 0"
+		storescale="1.5"
+		
+		selectedsound="alt4/sounds/voice/select_%.wav"
+		selectedflavorsound="alt4/sounds/voice/select_flavour_%.wav"
+		confirmmovesound="alt4/sounds/voice/move_%.wav"
+		confirmattacksound="alt4/sounds/voice/attack_%.wav"
+		nomanasound="alt4/sounds/voice/no_mana.wav"
+		cooldownsound="alt4/sounds/voice/cooldown.wav"	
+		tauntedsound="alt4/sounds/voice/taunt_prior.wav"
+		tauntkillsound="alt4/sounds/voice/taunt_after.wav"
+	>	
+	</altavatar>
+</hero>

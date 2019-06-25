@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model file="high.model" type="K2" high="high.model" med="med.model" low="low.model" >
+	<anim name="idle" clip="default_2.clip" fps="30" loop="true" loopbackframe="1" >
+	<frameevent frame="3" cmd="StartEffect wing_sound.effect"/>
+	</anim>
+	<anim name="idle_fast" clip="default_2.clip" fps="200" loop="true" loopbackframe="1"/>
+</model>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect  useentityeffectscale="1" deferred="true" >
+	<definitions >
+		
+		<particlesystem name="system0" space="world" scale="1">
+		<sound
+				linearfalloff="true" 
+				falloffstart="2500"
+				falloffend="2500"
+				volume="1"
+				sample="../../sounds/ab4.wav"
+			/>
+			
+			<controller scale="1">
+				<simpleemitter
+					depthbias="-30"
+					life="300"
+					minparticlelife="750"				
+					maxparticlelife="1300"
+					startspawnrate="500"
+					endspawnrate="0"
+					minspeed="0"
+					maxspeed="1750"
+					gravity="65"
+					direction="0 0 1"
+					minangle="0"
+					maxangle="15"
+					drag="0.01"
+					material="/shared/effects/materials/blood_white.material"
+					offsetsphere="50 50 50"
+					position="0 0 20"
+					collide="1"
+					directionalspace="local"
+				>
+					<particle 
+						minangle="0"
+						maxangle="160"
+						minanglespeed="-10"
+						maxanglespeed="10"
+						startsize="40"
+						endsize="150"
+						startcolor="1"
+						midcolor=".5 .8 1"					
+						endcolor="1"				
+						startalpha="0"
+						midalpha=".5"
+						endalpha="0"
+						minscale=".5"
+						maxscale="1"
+					/>
+					<particle 
+						minangle="0"
+						maxangle="160"
+						minanglespeed="-10"
+						maxanglespeed="10"
+						startsize="40"
+						endsize="160"
+						startcolor="1"
+						midcolor=".6 1 1"					
+						endcolor="1"				
+						startalpha="0"
+						midalpha=".5"
+						endalpha="0"
+						minscale=".5"
+						maxscale="1"
+					/>
+					<particle 
+						minangle="0"
+						maxangle="260"
+						minanglespeed="-20"
+						maxanglespeed="20"
+						startsize="110"
+						endsize="0"
+						startcolor="1"
+						endcolor=".8 1 1"				
+						startalpha=".5"
+						midalpha=".5"
+						endalpha="0"
+						minscale=".5"
+						maxscale="1"
+					/>
+				</simpleemitter>
+				
+				<simpleemitter
+					depthbias="-30"
+					life="300"
+					minparticlelife="750"				
+					maxparticlelife="1500"				
+					spawnrate="40"
+					minspeed="0"
+					maxspeed="1450"
+					gravity="55"
+					direction="0 0 1"
+					minangle="20"
+					maxangle="15"
+					drag="0.01"
+					material="/shared/effects/materials/refract_outsplash.material"
+					offsetsphere="25 25 50"
+					position="0 0 20"
+					directionalspace="local"
+				>
+					<particle 
+						maxangle="360"
+						startsize="50"
+						endsize="200"
+						startalpha="0"
+						midalpha="1"
+						endalpha="0"
+						startparam="0.5"
+						endparam="0"
+					/>
+				</simpleemitter>
+			</controller>
+			
+			<simpleemitter
+				bone="_bone_centerofchest"
+				count="7"
+				offsetsphere="30"
+				particlelife="2000"
+				depthbias="-120"
+			>	
+				<particle
+				
+				>
+					<debris
+						scale="2"						
+						life="2000"
+						model="../../effects/starfish/model.mdf"
+						material="../../material.material"
+						anim="skip"	
+						minspeed="250"
+						maxspeed="350"
+						minrotationspeed="800"
+						maxrotationspeed="1500"
+						gravity="41.0"				
+						minangle="0"
+						maxangle="30"
+						direction="0 0 1"
+						collide="true"
+						
+						startalpha="1.0"
+						midalpha="1.0"
+						endalpha="0"
+						midalphapos=".8"
+						
+						bounce="0.7"
+						reflect="0.6"
+						animpose="false"
+					/>
+					
+				</particle>								
+			</simpleemitter>
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+		
+		<!-- <die /> -->
+	</thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][pos] -->
+

@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect useentityeffectscale="true">
+
+	<definitions>
+
+		<particlesystem name="system0" space="world" scale="2">
+		
+	<sound
+				linearfalloff="true" 
+				falloffstart="0"
+				falloffend="800"
+				volume=".4"
+				sample="/heroes/artillery/set_ascension/sounds/imp_%.wav"
+			/>
+
+			<!-- <simpleemitter
+				bone="_bone_center"
+				count="25"
+				minparticlelife="450"
+				maxparticlelife="750"
+				spawnrate="1000"
+				minspeed="145"
+				maxspeed="180"
+				gravity="20"
+				direction="0 0 1"
+				minangle="-15"
+				maxangle="15"
+				particledirectionalspace="local"
+				material="/shared/effects/materials/goop_blend.material"
+				offsetsphere="25 25 0"
+				position="0 0 0"
+				depthbias="-35"
+			>
+				<particle 
+					minangle="-360"
+					maxangle="360"
+					minspeed="-180"
+					maxspeed="180"
+					color=".5 0 0"
+					startsize="0"
+					minendsize="10"
+					maxendsize="50"
+					startalpha="1"
+					midalpha=".25"
+					endalpha="0"
+				/>
+			
+				<particle 
+					minangle="-360"
+					maxangle="360"
+					minspeed="-180"
+					maxspeed="180"
+					color=".35 0 0"
+					startsize="0"
+					minendsize="10"
+					maxendsize="50"
+					startalpha="1"
+					midalpha=".85"
+					endalpha="0"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				bone="_bone_center"
+				count="25"
+				minparticlelife="450"
+				maxparticlelife="750"
+				spawnrate="1000"
+				minspeed="145"
+				maxspeed="180"
+				gravity="20"
+				direction="0 0 1"
+				minangle="-15"
+				maxangle="15"
+				particledirectionalspace="local"
+				material="/shared/effects/materials/blood1.material"
+				offsetsphere="25 25 0"
+				position="0 0 0"
+				depthbias="-35"
+			>
+				<particle 
+					minangle="-360"
+					maxangle="360"
+					minspeed="-45"
+					maxspeed="45"
+					color=".5"
+					startsize="0"
+					minendsize="25"
+					maxendsize="50"
+					startalpha="1"
+					midalpha=".25"
+					endalpha="0"
+				/>
+			
+				<particle 
+					minangle="-360"
+					maxangle="360"
+					minspeed="-45"
+					maxspeed="45"
+					color=".2 0 0"
+					startsize="0"
+					minendsize="50"
+					maxendsize="75"
+					startalpha="1"
+					midalpha=".85"
+					endalpha="0"
+				/>
+			</simpleemitter> -->
+
+			
+			
+			
+			
+			
+			
+			
+
+			
+			
+			<billboard
+				bone="_bone_centerofchest"
+				life="1000"
+				startcolor="0 .1 .3" midcolor="0" midcolorpos="0.3"
+				endcolor="0"
+				startsize="105"
+				endsize="0"
+				depthbias="0"
+				material="/shared/effects/materials/whitedot.material"
+			/>
+			
+			<!-- <billboard
+				bone="_bone_centerofchest"
+				life="500"
+				startcolor=".15 .18 .25" endcolor="0"
+				startsize="65"
+				endsize="0"
+				depthbias="-50"
+				material="/shared/effects/materials/whitedot.material"
+			/> -->
+			
+			<billboard
+				bone="_bone_centerofchest"
+				life="350"
+				param="0.1"	
+				startsize="50"
+				endsize="150"
+				startalpha="0"
+				midalpha=".4"
+				endalpha="0"				
+				depthbias="0"
+				material="/shared/effects/materials/refract_swell.material"
+				lockup="1"
+				lockright="1"
+				pitch="90"
+			/>
+			
+			
+			<!-- <simpleemitter
+				bone="_bone_centerofchest"
+				count="2"
+				spawnrate="15"
+				minparticlelife="150" maxparticlelife="250"
+				gravity="0"
+				speed="0"
+				position="0 0 0"
+				acceleration="11"
+				material="/shared/effects/materials/lightning_01.material"
+				offsetsphere="0"
+				drag="0.01"
+				direction="1 0 0"
+				
+			>
+				<particle 
+					startstickiness="0"
+					endstickiness="1"
+					startcolor="0" midcolor="0 .2 .5" endcolor="0 0 0"
+					startsize="30" minendsize="100" maxendsize="150"	
+					turn="1"
+					heightdistort="0.02"
+                  
+				
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+			    count="1"
+				bone="_bone_centerofchest"
+				spawnrate="15"
+				minparticlelife="150" maxparticlelife="250"
+				gravity="0"
+				speed="0"
+				position="0 0 0"
+				acceleration="11"
+				material="/heroes/artillery/set_ascension/ability_03/effects/lightning.material" 
+				offsetsphere="3"
+				drag="0.01"
+				direction="1 0 0"
+				
+			>
+				<particle 
+					
+					startcolor="0" midcolor="0 .5 1" endcolor="0 0 0"
+					startsize="10" minendsize="60"	 maxendsize="80"	
+					turn="1"
+					heightdistort="0.02"
+                   
+				
+				/>
+				<particle 
+					
+					startcolor="1" midcolor="0 .5 1" endcolor="0 0 0"
+					startsize="10" minendsize="60"	 maxendsize="80"	
+					turn="1"
+					heightdistort="0.02"
+                   
+				
+				/>
+				
+			</simpleemitter> -->
+			
+			
+		</particlesystem>
+
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+</effect>

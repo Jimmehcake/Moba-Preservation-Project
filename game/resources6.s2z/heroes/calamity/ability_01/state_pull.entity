@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Calamity_Ability1_Pull"
+	
+	icon="icon.tga"
+	passiveeffect=""
+
+	maxcharges="5"
+	
+	effecttype=""
+	allowtransfer="false"
+>
+	<onframe />
+
+	<oninflict>
+		<cantarget effecttype="Push">		
+			<distance source="this_proxy_entity" target="target_entity" />
+			<!-- Subtracting 20 from distance -->
+			<evaluate a="result" b="20" op="sub" />
+			<evaluate a="result" b="200" op="min" />
+			<setvar0 a="result" b="-8.5" op="mult" />
+			
+			<!-- Check to see if the force is positive; if yes, then static pull force -->
+			<compare a="var0" b="0" op="lt">
+				<push force="var0" duration="100" source="this_proxy_entity" />
+			</compare>
+		</cantarget>
+
+		<addcharges count="1" />
+	</oninflict>
+
+	<onrefresh>
+		<cantarget effecttype="Push">
+			<evaluate a="0.2" b="charges" op="mult" />
+			<setvar1 a="1" b="result" op="sub" />
+
+			<distance source="this_proxy_entity" target="target_entity" />				
+			<!-- Subtracting 20 from distance -->
+			<evaluate a="result" b="20" op="sub" />
+			<evaluate a="result" b="200" op="min" />
+			<evaluate a="result" b="var1" op="mult" />
+			<setvar0 a="result" b="-8.5" op="mult" />
+			
+			<!-- Check to see if the force is positive; if yes, then static pull force -->
+			<compare a="var0" b="0" op="lt">
+				<push force="var0" duration="100" source="this_proxy_entity" />
+			</compare>
+		</cantarget>
+
+		<addcharges count="1" />
+	</onrefresh>
+</state>

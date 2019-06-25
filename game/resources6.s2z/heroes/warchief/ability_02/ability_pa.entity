@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ability
+	name="Ability_Warchief2pa"
+	
+	icon="iconb.tga"
+	
+	castactiontime="0"
+	casttime="0"
+	
+	actiontype="self_position"
+
+	manacost="0"
+	cooldowntime="0"
+	
+	nosilence="true"
+	nostun="true"
+	noresponse="true"
+	
+	baselevel="1"
+	maxlevel="1"
+	keyslot="1"
+	
+	noshuffle="true"
+>
+	<checkcost>
+		<targettype type="immobilized" target="source_owner_entity">
+			<invalidate />
+		</targettype>
+		<else>
+			<targettype type="restrained" target="source_owner_entity">
+				<invalidate />
+			</targettype>
+		</else>
+	</checkcost>
+	
+	<onspawn>
+		<showchannelbar duration="3000" />
+	</onspawn>
+	
+	<onimpact>
+		<!-- Art -->
+		<hasavatarkey name="Hero_Warchief.Alt">
+			<playeffect effect="../alt/ability_02/effects/teleport.effect" source="source_owner_position" target="" />
+			<playeffect effect="../alt/ability_02/effects/teleport_sound.effect" source="this_owner_position" target="" />
+		</hasavatarkey>
+		<else>
+			<playeffect effect="effects/teleport.effect" source="source_owner_position" target="" />
+		</else>
+		
+		<playeffect effect="effects/teleport_sound.effect" source="this_owner_position" target="" />
+		<teleport source="source_owner_entity" target="this_owner_entity" />
+		<expirestate name="State_Warchief_Ability2_Self" target="source_owner_entity" />
+	</onimpact>
+	
+	<!-- Ability on the Spirit to teleport -->
+</ability>

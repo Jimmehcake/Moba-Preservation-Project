@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect  deferred="true" useentityeffectscale="1">
+	<definitions>
+		<particlesystem name="system0" space="entity" scale="1">
+			<sound
+				    dampen="0.5"
+				    channelid="storeaud"
+					sound2d="true"
+					volume=".5"
+					sample="../sounds/store_audio.wav"
+			/>
+			<model	
+			position="0 -2 3"
+				parentmodel="true"
+				parentskeleton="true"
+				color=".8"
+				alpha=".4"
+				material="/shared/effects/materials/shell_rim_white.material"
+			/>
+			
+			<model	
+				position="0 -7 2"
+				parentmodel="true"
+				parentskeleton="true"
+				color="0.45 0.1 .9"
+				material="/shared/effects/materials/shell2.material"
+			/>
+			
+			<model	
+				life="2000"
+				loop="true"
+				position="0 -7 2"
+				parentmodel="true"
+				parentskeleton="true"
+				startcolor=".7 .3 .9"
+				midcolor=".3 .6 .8"
+				endcolor="0"
+				startalpha="0"
+				midalpha=".5"
+				endalpha="0"
+				midalphapos=".4"
+				material="/shared/effects/materials/shell_rim_white.material"
+			>
+				<skeletonemitter
+					spawnrate="60"
+					material="/shared/effects/materials/phantom_white_reveal.material"
+					minparticlelife="600"
+					maxparticlelife="750"
+					minspeed="0"
+					gravity="-3"
+					maxspeed="20"
+					depthbias="20"
+					scale="2"
+				>
+					<particle
+						anchor="1"
+						maxangle="360"
+						minstartscale="6"
+						maxstartscale="8"
+						minendscale="12"
+						maxendscale="20"
+						startcolor=".1 .1 .4"
+						endcolor=".6 .2 1"
+						startalpha="0"
+						midalpha=".3"
+						endalpha="0"
+						startframe="0"
+						endframe="1"
+					/>
+				</skeletonemitter>
+				
+				<skeletonemitter
+					spawnrate="50"
+					material="/shared/effects/materials/crack_8.material"
+					minparticlelife="600"
+					maxparticlelife="750"
+					minspeed="0"
+					maxspeed="8"
+					gravity="-2"
+					depthbias="20"
+					scale="2"
+				>
+					<particle
+						anchor="1"
+						maxangle="360"
+						startscale="0"
+						minendscale="12"
+						maxendscale="15"
+						startcolor=".35"
+						endcolor="0"
+						startalpha="0"
+						midalpha=".25"
+						endalpha="0"
+						color="1"
+						startframe="0"
+						endframe="1"
+					/>
+				</skeletonemitter>
+			</model>
+			
+			<simpleemitter
+				count="2"
+				spawnrate="9"
+				position="0 -2 0"
+				minangle="0"
+				maxangle="0"
+				direction="0 1 0"
+				offsetsphere="2"
+			>
+				<particle anchor="0" turn="true">
+					<model
+						life="8000"
+						model="../model_store_l.mdf"
+						anim="idle"
+						startcolor=".45 .7 1"
+						midcolor=".45 .7 1"
+						endcolor=".2 .6 .8"
+						startalpha=".45"
+						midalpha=".55"
+						endalpha="0"
+						midalphapos=".9"
+						material="/shared/effects/materials/shell_rim_white.material"
+					/>
+					<model
+						life="8300"
+						model="../model_store_l.mdf"
+						anim="idle"
+						startcolor="0.42 0.1 .9"
+						midcolor="0.42 0.1 .9"
+						endcolor="0"
+						midcolorpos=".9"
+						material="/shared/effects/materials/shell2.material"
+						startparam0="0"
+						endparam0="1"
+					/>
+				</particle>
+			</simpleemitter>
+			
+			<simpleemitter
+				delay="8300"
+				spawnrate="4"
+				position="0 -2 0"
+				minangle="0"
+				maxangle="0"
+				direction="0 1 0"
+				offsetsphere="3"
+			>
+				<particle anchor="0" turn="true">
+					<model
+						life="800"
+						model="../model_0.mdf"
+						anim="idle"
+						startcolor="1"
+						midcolor=".1 .6 .8"
+						endcolor=".2 0 .8"
+						startalpha="0"
+						midalpha=".55"
+						endalpha="0"
+						midalphapos=".3"
+						material="/shared/effects/materials/shell_rim_white.material"
+					/>
+					<model
+						life="833"
+						model="../model_0.mdf"
+						anim="idle"
+						startcolor="0"
+						midcolor="0.42 0.1 .9"
+						endcolor="0"
+						midcolorpos=".27"
+						material="/shared/effects/materials/shell2.material"
+						startparam0="0"
+						endparam0="1"
+					/>
+				</particle>
+			</simpleemitter>
+			
+			<billboard
+				delay="3450"
+				life="150"
+				bone="Bone001"
+				startalpha="1"
+				midalpha=".65"
+				endalpha="0"
+				midalphapos=".75"
+				startparam=".25"
+				endparam="0"
+				startsize="0"
+				endsize="250"
+				depthbias="-20"
+				material="/shared/effects/materials/refract_ring.material"
+				position="5 -5 0"
+			/>
+			
+			<billboard
+				delay="4850"
+				life="150"
+				bone="Bone011"
+				startalpha="1"
+				midalpha=".5"
+				endalpha="0"
+				midalphapos=".75"
+				startparam=".25"
+				endparam="0"
+				startsize="0"
+				endsize="250"
+				depthbias="-20"
+				material="/shared/effects/materials/refract_ring.material"
+				position="5 -5 0"
+			/>
+		</particlesystem>
+		
+		<particlesystem name="system1" space="entity" scale="1.5">
+
+			<model	
+				delay="7000"
+				life="300"
+				parentmodel="true"
+				parentskeleton="true"
+				startcolor=".4 .6 1"
+				midcolor=".2 0 .6"
+				endcolor="0 0 0"
+				material="/shared/effects/materials/shell_flat_outline.material"
+				alpha="2"
+			/> 
+			<model	
+				delay="7000"
+				life="400"
+				parentmodel="true"
+				parentskeleton="true"
+				startcolor="0 2 4"
+				midcolor=".5 .3 1"
+				endcolor="0 0 0"
+				material="/shared/effects/materials/shell2.material"
+				startalpha="1"
+				endalpha="20"
+			/>
+			
+			<skeletonemitter
+				delay="7000"
+				life="400"
+				spawnrate="150"
+				material="/shared/effects/materials/crack_8.material"
+				minparticlelife="300"
+				maxparticlelife="400"
+				minspeed="0"
+				maxspeed="8"
+				gravity="-25"
+				depthbias="-3"
+				offsetsphere="1"
+			>
+				<particle
+					maxangle="360"
+					startscale="5"
+					endscale="6"
+					startcolor=".45"
+					endcolor="0"					
+					anchor="1"
+				/>
+			</skeletonemitter>
+			
+			<skeletonemitter
+				delay="7000"
+				life="400"
+				spawnrate="300"
+				material="/shared/effects/materials/star_03.material"
+				minparticlelife="300"
+				maxparticlelife="450"
+				minspeed="0"
+				maxspeed="8"
+				gravity="-5"
+				depthbias="-3"
+				offsetsphere="2"
+			>
+				<particle
+					maxangle="360"
+					scale="3"
+					startcolor="1 .6 1"
+					endcolor="0"
+					anchor="1"
+				/>
+			</skeletonemitter>
+	
+
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<spawnparticlesystem instance="instance1" particlesystem="system1" />
+      	<waitfordeath instance="instance0" />
+		<waitfordeath instance="instance1" />
+		<!-- <die /> -->
+	</thread>
+</effect>

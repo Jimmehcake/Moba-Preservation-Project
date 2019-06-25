@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectile
+	name="Projectile_Goldenveil_Ability2"
+	
+	gravity="1100"
+	speed="800"
+
+	modelscale="1.0"
+	model=""
+	deatheffect=""
+	canturn="false"
+>
+	<onspawn>
+		<spawnunit name="Gadget_Goldenveil_Ability2_Empty" target="this_owner_entity" proxy="this_proxy_entity" pushentity="true" duration="-1" />
+		<setproxy target="stack_entity" />
+	</onspawn>
+	
+	<ondeath>
+		<kill target="this_proxy_entity" source="" />
+	</ondeath>
+
+	<onimpact>
+		<!-- Land on a tree sound -->
+		<playeffect effect="effects/land_tree_sound.effect" target="source_position" source="source_position" />
+		
+		<pushentityproxy entity="this_entity" index="0" />
+		<applystate name="State_Goldenveil_Ability2" continuous="true" target="source_entity" proxy="stack_proxy_entity" />
+		<applystate name="State_Goldenveil_Ability2_Modifier" continuous="true" target="source_entity" />
+		<applystate name="State_Goldenveil_Ability2_Stealth" continuous="true" target="source_entity" />
+		
+		<!-- Start cooldown again upon landing on a tree -->
+		<pushability name="Ability_Goldenveil2a" />
+		<resetcooldown entity="stack_entity" />
+		<startcooldown entity="stack_entity" duration="2500" />
+	</onimpact>
+	
+</projectile>

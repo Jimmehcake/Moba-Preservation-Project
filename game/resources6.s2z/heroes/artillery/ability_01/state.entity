@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<state
+	name="State_Artillery_Ability1"
+	
+	icon="icon.tga"
+	passiveeffect=""
+	effecttype=""
+	
+	ishidden="false"
+	disarmed="true"
+	
+	impactinterval="150"
+	impactdelay="150"
+
+	modifierkey="Artillery_Machinegun"
+>
+	<oninflict>
+		<!-- If no more charges on the main skill -->
+		<pushability name="Ability_Artillery1" />
+		<compare target="stack_entity" a="target_charges" b="0" op="gt">	
+
+			<!-- If Artillery runs out of mana -->
+			<compare a="source_mana" b="4" op="ge">
+				<takemana amount="4" target="source_entity" triggeractionscript="true" costovertime="true" />
+				<removecharge entity="stack_entity" />
+								
+				<!-- left or right launcher? -->
+				<random min="0" max="1" />
+				<compare a="result" b="1" op="eq">
+					<!-- Determine curve value for Artillery's Q projectile -->
+					<random min="1" max="5" />
+					<setvar0 a="result" />
+					
+					<compare a="var0" b="1" op="eq">
+						<setpos0 position="this_proxy_position" offsetspace="source_entity" offset="40 40 0" />
+						<spawnprojectile name="Projectile_Artillery_Ability1" source="this_owner_entity" owner="this_owner_entity" offsetspace="this_owner_entity" offset="-20 15 0" target="pos0" noresponse="true" param="charges" pushentity="true" />
+						<setactivemodifierkey name="Artillery_Projectile1_Curve_1" entity="stack_entity" />
+					</compare>
+					<else>
+						<compare a="var0" b="2" op="eq">
+							<setpos0 position="this_proxy_position" offsetspace="source_entity" offset="40 -40 0" />
+							<spawnprojectile name="Projectile_Artillery_Ability1" source="this_owner_entity" owner="this_owner_entity" offsetspace="this_owner_entity" offset="-20 15 0" target="pos0" noresponse="true" param="charges" pushentity="true" />
+							<setactivemodifierkey name="Artillery_Projectile1_Curve_2" entity="stack_entity" />
+						</compare>
+						<else>
+							<compare a="var0" b="3" op="eq">
+								<setpos0 position="this_proxy_position" offsetspace="source_entity" offset="0 0 0" />
+								<spawnprojectile name="Projectile_Artillery_Ability1" source="this_owner_entity" owner="this_owner_entity" offsetspace="this_owner_entity" offset="-20 15 0" target="pos0" noresponse="true" param="charges" pushentity="true" />
+								<setactivemodifierkey name="Artillery_Projectile1_Curve_3" entity="stack_entity" />
+							</compare>
+							<else>
+								<compare a="var0" b="4" op="eq">
+									<setpos0 position="this_proxy_position" offsetspace="source_entity" offset="-40 40 0" />
+									<spawnprojectile name="Projectile_Artillery_Ability1" source="this_owner_entity" owner="this_owner_entity" offsetspace="this_owner_entity" offset="-20 15 0" target="pos0" noresponse="true" param="charges" pushentity="true" />
+									<setactivemodifierkey name="Artillery_Projectile1_Curve_4" entity="stack_entity" />
+								</compare>
+								<else>
+									<setpos0 position="this_proxy_position" offsetspace="source_entity" offset="-40 -40 0" />
+									<spawnprojectile name="Projectile_Artillery_Ability1" source="this_owner_entity" owner="this_owner_entity" offsetspace="this_owner_entity" offset="-20 15 0" target="pos0" noresponse="true" param="charges" pushentity="true" />
+								</else>
+							</else>
+						</else>
+					</else>
+					
+					<!-- Art -->
+					<hasavatarkey name="Hero_Artillery.set_ascension">
+						<playeffect effect="/heroes/artillery/set_ascension/ability_01/effects/attackaction.effect" source="source_entity" />
+					</hasavatarkey>
+					<else>
+						<hasavatarkey name="Hero_Artillery.Alt6">
+							<playeffect effect="/heroes/artillery/alt6/ability_01/effects/attackaction.effect" source="source_entity" />
+						</hasavatarkey>
+						<else>
+							<hasavatarkey name="Hero_Artillery.Alt8">
+								<playeffect effect="/heroes/artillery/alt8/ability_01/effects/attackaction.effect" source="source_entity" />
+							</hasavatarkey>
+							<else>
+								<hasavatarkey name="Hero_Artillery.Alt9">
+									<playeffect effect="/heroes/artillery/alt9/ability_01/effects/attackaction.effect" source="source_entity" />
+								</hasavatarkey>
+								<else>
+									<hasavatarkey name="Hero_Artillery.Alt10">
+										<playeffect effect="/heroes/artillery/alt9/ability_01/effects/attackaction.effect" source="source_entity" />
+									</hasavatarkey>
+									<else>
+										<hasavatarkey name="Hero_Artillery.Alt11">
+											<playeffect effect="/heroes/artillery/alt11/ability_01/effects/attackaction.effect" source="source_entity" />
+										</hasavatarkey>
+										<else>
+											<playeffect effect="effects/attackaction.effect" source="source_entity" />
+										</else>
+									</else>
+								</else>
+							</else>
+						</else>
+					</else>
+				</compare>
+				
+				<else>
+					<!-- Determine curve value for Artillery's Q projectile -->
+					<random min="1" max="5" />
+					<setvar0 a="result" />
+					
+					<compare a="var0" b="1" op="eq">
+						<setpos0 position="this_proxy_position" offsetspace="source_entity" offset="40 40 0" />
+						<spawnprojectile name="Projectile_Artillery_Ability1" source="this_owner_entity" owner="this_owner_entity" offsetspace="this_owner_entity" offset="20 15 0" target="pos0" noresponse="true" param="charges" pushentity="true" />
+						<setactivemodifierkey name="Artillery_Projectile1_Curve_1" entity="stack_entity" />
+					</compare>
+					<else>
+						<compare a="var0" b="2" op="eq">
+							<setpos0 position="this_proxy_position" offsetspace="source_entity" offset="40 -40 0" />
+							<spawnprojectile name="Projectile_Artillery_Ability1" source="this_owner_entity" owner="this_owner_entity" offsetspace="this_owner_entity" offset="20 15 0" target="pos0" noresponse="true" param="charges" pushentity="true" />
+							<setactivemodifierkey name="Artillery_Projectile1_Curve_2" entity="stack_entity" />
+						</compare>
+						<else>
+							<compare a="var0" b="3" op="eq">
+								<setpos0 position="this_proxy_position" offsetspace="source_entity" offset="0 0 0" />
+								<spawnprojectile name="Projectile_Artillery_Ability1" source="this_owner_entity" owner="this_owner_entity" offsetspace="this_owner_entity" offset="20 15 0" target="pos0" noresponse="true" param="charges" pushentity="true" />
+								<setactivemodifierkey name="Artillery_Projectile1_Curve_3" entity="stack_entity" />
+							</compare>
+							<else>
+								<compare a="var0" b="4" op="eq">
+									<setpos0 position="this_proxy_position" offsetspace="source_entity" offset="-40 40 0" />
+									<spawnprojectile name="Projectile_Artillery_Ability1" source="this_owner_entity" owner="this_owner_entity" offsetspace="this_owner_entity" offset="20 15 0" target="pos0" noresponse="true" param="charges" pushentity="true" />
+									<setactivemodifierkey name="Artillery_Projectile1_Curve_4" entity="stack_entity" />
+								</compare>
+								<else>
+									<setpos0 position="this_proxy_position" offsetspace="source_entity" offset="-40 -40 0" />
+									<spawnprojectile name="Projectile_Artillery_Ability1" source="this_owner_entity" owner="this_owner_entity" offsetspace="this_owner_entity" offset="20 15 0" target="pos0" noresponse="true" param="charges" pushentity="true" />
+								</else>
+							</else>
+						</else>
+					</else>
+					
+					<!-- Art -->
+					<hasavatarkey name="Hero_Artillery.set_ascension">
+						<playeffect effect="/heroes/artillery/set_ascension/ability_01/effects/attackaction.effect" source="source_entity" />
+					</hasavatarkey>
+					<else>
+						<hasavatarkey name="Hero_Artillery.Alt6">
+							<playeffect effect="/heroes/artillery/alt6/ability_01/effects/attackaction.effect" source="source_entity" />
+						</hasavatarkey>
+						<else>
+							<hasavatarkey name="Hero_Artillery.Alt8">
+								<playeffect effect="/heroes/artillery/alt8/ability_01/effects/attackaction.effect" source="source_entity" />
+							</hasavatarkey>
+							<else>
+								<hasavatarkey name="Hero_Artillery.Alt9">
+									<playeffect effect="/heroes/artillery/alt9/ability_01/effects/attackaction.effect" source="source_entity" />
+								</hasavatarkey>
+								<else>
+									<hasavatarkey name="Hero_Artillery.Alt10">
+										<playeffect effect="/heroes/artillery/alt9/ability_01/effects/attackaction.effect" source="source_entity" />
+									</hasavatarkey>
+									<else>
+										<hasavatarkey name="Hero_Artillery.Alt11">
+											<playeffect effect="/heroes/artillery/alt11/ability_01/effects/attackaction.effect" source="source_entity" />
+										</hasavatarkey>
+										<else>
+											<playeffect effect="effects/attackaction.effect" source="source_entity" />
+										</else>
+									</else>
+								</else>
+							</else>
+						</else>
+					</else>
+				</else>
+			</compare>
+			
+			<else>
+				<expire />
+			</else>
+		</compare>
+		<else>
+			<expire />
+		</else>
+		
+		<addcharges count="1" />
+	</oninflict>
+
+	<onimpact>
+		<!-- If no more charges on the main skill -->
+		<pushability name="Ability_Artillery1" />
+		<compare target="stack_entity" a="target_charges" b="0" op="gt">	
+
+			<!-- If Artillery runs out of mana -->
+			<compare a="source_mana" b="4" op="ge">
+				<takemana amount="4" target="source_entity" triggeractionscript="true" costovertime="true" />
+				<removecharge entity="stack_entity" />
+								
+				<!-- left or right launcher? -->
+				<random min="0" max="1" />
+				<compare a="result" b="1" op="eq">
+					<!-- Determine curve value for Artillery's Q projectile -->
+					<random min="1" max="5" />
+					<setvar0 a="result" />
+					
+					<compare a="var0" b="1" op="eq">
+						<setpos0 position="this_proxy_position" offsetspace="source_entity" offset="40 40 0" />
+						<spawnprojectile name="Projectile_Artillery_Ability1" source="this_owner_entity" owner="this_owner_entity" offsetspace="this_owner_entity" offset="-20 15 0" target="pos0" noresponse="true" param="charges" pushentity="true" />
+						<setactivemodifierkey name="Artillery_Projectile1_Curve_1" entity="stack_entity" />
+					</compare>
+					<else>
+						<compare a="var0" b="2" op="eq">
+							<setpos0 position="this_proxy_position" offsetspace="source_entity" offset="40 -40 0" />
+							<spawnprojectile name="Projectile_Artillery_Ability1" source="this_owner_entity" owner="this_owner_entity" offsetspace="this_owner_entity" offset="-20 15 0" target="pos0" noresponse="true" param="charges" pushentity="true" />
+							<setactivemodifierkey name="Artillery_Projectile1_Curve_2" entity="stack_entity" />
+						</compare>
+						<else>
+							<compare a="var0" b="3" op="eq">
+								<setpos0 position="this_proxy_position" offsetspace="source_entity" offset="0 0 0" />
+								<spawnprojectile name="Projectile_Artillery_Ability1" source="this_owner_entity" owner="this_owner_entity" offsetspace="this_owner_entity" offset="-20 15 0" target="pos0" noresponse="true" param="charges" pushentity="true" />
+								<setactivemodifierkey name="Artillery_Projectile1_Curve_3" entity="stack_entity" />
+							</compare>
+							<else>
+								<compare a="var0" b="4" op="eq">
+									<setpos0 position="this_proxy_position" offsetspace="source_entity" offset="-40 40 0" />
+									<spawnprojectile name="Projectile_Artillery_Ability1" source="this_owner_entity" owner="this_owner_entity" offsetspace="this_owner_entity" offset="-20 15 0" target="pos0" noresponse="true" param="charges" pushentity="true" />
+									<setactivemodifierkey name="Artillery_Projectile1_Curve_4" entity="stack_entity" />
+								</compare>
+								<else>
+									<setpos0 position="this_proxy_position" offsetspace="source_entity" offset="-40 -40 0" />
+									<spawnprojectile name="Projectile_Artillery_Ability1" source="this_owner_entity" owner="this_owner_entity" offsetspace="this_owner_entity" offset="-20 15 0" target="pos0" noresponse="true" param="charges" pushentity="true" />
+								</else>
+							</else>
+						</else>
+					</else>
+					
+					<!-- Art -->
+					<hasavatarkey name="Hero_Artillery.set_ascension">
+						<playeffect effect="/heroes/artillery/set_ascension/ability_01/effects/attackaction.effect" source="source_entity" />
+					</hasavatarkey>
+					<else>
+						<hasavatarkey name="Hero_Artillery.Alt6">
+							<playeffect effect="/heroes/artillery/alt6/ability_01/effects/attackaction.effect" source="source_entity" />
+						</hasavatarkey>
+						<else>
+							<hasavatarkey name="Hero_Artillery.Alt8">
+								<playeffect effect="/heroes/artillery/alt8/ability_01/effects/attackaction.effect" source="source_entity" />
+							</hasavatarkey>
+							<else>
+								<hasavatarkey name="Hero_Artillery.Alt9">
+									<playeffect effect="/heroes/artillery/alt9/ability_01/effects/attackaction.effect" source="source_entity" />
+								</hasavatarkey>
+								<else>
+									<hasavatarkey name="Hero_Artillery.Alt10">
+										<playeffect effect="/heroes/artillery/alt9/ability_01/effects/attackaction.effect" source="source_entity" />
+									</hasavatarkey>
+									<else>
+										<hasavatarkey name="Hero_Artillery.Alt11">
+											<playeffect effect="/heroes/artillery/alt11/ability_01/effects/attackaction.effect" source="source_entity" />
+										</hasavatarkey>
+										<else>
+											<playeffect effect="effects/attackaction.effect" source="source_entity" />
+										</else>
+									</else>
+								</else>
+							</else>
+						</else>
+					</else>
+				</compare>
+				
+				<else>
+					<!-- Determine curve value for Artillery's Q projectile -->
+					<random min="1" max="5" />
+					<setvar0 a="result" />
+					
+					<compare a="var0" b="1" op="eq">
+						<setpos0 position="this_proxy_position" offsetspace="source_entity" offset="40 40 0" />
+						<spawnprojectile name="Projectile_Artillery_Ability1" source="this_owner_entity" owner="this_owner_entity" offsetspace="this_owner_entity" offset="20 15 0" target="pos0" noresponse="true" param="charges" pushentity="true" />
+						<setactivemodifierkey name="Artillery_Projectile1_Curve_1" entity="stack_entity" />
+					</compare>
+					<else>
+						<compare a="var0" b="2" op="eq">
+							<setpos0 position="this_proxy_position" offsetspace="source_entity" offset="40 -40 0" />
+							<spawnprojectile name="Projectile_Artillery_Ability1" source="this_owner_entity" owner="this_owner_entity" offsetspace="this_owner_entity" offset="20 15 0" target="pos0" noresponse="true" param="charges" pushentity="true" />
+							<setactivemodifierkey name="Artillery_Projectile1_Curve_2" entity="stack_entity" />
+						</compare>
+						<else>
+							<compare a="var0" b="3" op="eq">
+								<setpos0 position="this_proxy_position" offsetspace="source_entity" offset="0 0 0" />
+								<spawnprojectile name="Projectile_Artillery_Ability1" source="this_owner_entity" owner="this_owner_entity" offsetspace="this_owner_entity" offset="20 15 0" target="pos0" noresponse="true" param="charges" pushentity="true" />
+								<setactivemodifierkey name="Artillery_Projectile1_Curve_3" entity="stack_entity" />
+							</compare>
+							<else>
+								<compare a="var0" b="4" op="eq">
+									<setpos0 position="this_proxy_position" offsetspace="source_entity" offset="-40 40 0" />
+									<spawnprojectile name="Projectile_Artillery_Ability1" source="this_owner_entity" owner="this_owner_entity" offsetspace="this_owner_entity" offset="20 15 0" target="pos0" noresponse="true" param="charges" pushentity="true" />
+									<setactivemodifierkey name="Artillery_Projectile1_Curve_4" entity="stack_entity" />
+								</compare>
+								<else>
+									<setpos0 position="this_proxy_position" offsetspace="source_entity" offset="-40 -40 0" />
+									<spawnprojectile name="Projectile_Artillery_Ability1" source="this_owner_entity" owner="this_owner_entity" offsetspace="this_owner_entity" offset="20 15 0" target="pos0" noresponse="true" param="charges" pushentity="true" />
+								</else>
+							</else>
+						</else>
+					</else>
+					
+					<!-- Art -->
+					<hasavatarkey name="Hero_Artillery.set_ascension">
+						<playeffect effect="/heroes/artillery/set_ascension/ability_01/effects/attackaction.effect" source="source_entity" />
+					</hasavatarkey>
+					<else>
+						<hasavatarkey name="Hero_Artillery.Alt6">
+							<playeffect effect="/heroes/artillery/alt6/ability_01/effects/attackaction.effect" source="source_entity" />
+						</hasavatarkey>
+						<else>
+							<hasavatarkey name="Hero_Artillery.Alt8">
+								<playeffect effect="/heroes/artillery/alt8/ability_01/effects/attackaction.effect" source="source_entity" />
+							</hasavatarkey>
+							<else>
+								<hasavatarkey name="Hero_Artillery.Alt9">
+									<playeffect effect="/heroes/artillery/alt9/ability_01/effects/attackaction.effect" source="source_entity" />
+								</hasavatarkey>
+								<else>
+									<hasavatarkey name="Hero_Artillery.Alt10">
+										<playeffect effect="/heroes/artillery/alt9/ability_01/effects/attackaction.effect" source="source_entity" />
+									</hasavatarkey>
+									<else>
+										<hasavatarkey name="Hero_Artillery.Alt11">
+											<playeffect effect="/heroes/artillery/alt11/ability_01/effects/attackaction.effect" source="source_entity" />
+										</hasavatarkey>
+										<else>
+											<playeffect effect="effects/attackaction.effect" source="source_entity" />
+										</else>
+									</else>
+								</else>
+							</else>
+						</else>
+					</else>
+				</else>
+			</compare>
+			
+			<else>
+				<expire />
+			</else>
+		</compare>
+		<else>
+			<expire />
+		</else>
+		
+		<addcharges count="1" />
+	</onimpact>
+	
+	<onframe>
+		<targettype type="moving" target="source_entity">
+			<expire />
+		</targettype>
+		<else>
+			<targettype type="silenced" target="source_entity">
+				<expire />
+			</targettype>
+			<else>
+				<targettype type="stunned" target="source_entity">
+					<expire />
+				</targettype>
+			</else>
+		</else>
+	</onframe>
+	
+	<onexpired>
+		<playanim name="ability_1_end" target="source_entity" />
+		<pushability name="Ability_Artillery1" />
+		<delete target="stack_proxy_entity" source="" />
+	</onexpired>
+	
+	<altavatar key="Hero_Artillery.Alt4"
+		icon="../alt4/ability_01/icon.tga"
+	/>
+	
+	<altavatar key="Hero_Artillery.Alt5"
+		passiveeffect="../alt5/ability_01/effects/loop_sound.effect"
+	>
+	</altavatar>
+	
+	<altavatar key="Hero_Artillery.Alt7"
+		passiveeffect="../alt7/ability_01/effects/loop_sound.effect"
+	>
+	</altavatar>
+	
+	<altavatar key="Hero_Artillery.Alt11"
+		icon="../alt11/ability_01/icon.tga"
+	/>
+	
+</state>

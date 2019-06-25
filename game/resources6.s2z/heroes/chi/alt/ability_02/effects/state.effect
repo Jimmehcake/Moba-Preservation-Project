@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="false">
+	<definitions>
+
+		<particlesystem name="system0" space="world" scale="1">
+
+			<model
+				parentmodel="true"
+				parentskeleton="true"
+				color=".3 1 .8"
+				alpha="1"
+				material="/shared/effects/materials/shell_rim_spoopy.material"
+				position="0 0 0"
+			/>
+			
+			<template name="streamer" >
+				<controller
+					bone="_bone_centerofchest"
+				>
+					<controller
+						bone="_bone_centerofchest"
+						maxdelay="200"
+						minlife="1000"
+						maxlife="2000"
+						loop="true"
+						maxyaw="360"
+						maxpitch="360"
+						maxroll="360"
+						minyawspeed="-1500"
+						maxyawspeed="1500"
+						minrollspeed="-1500"
+						maxrollspeed="1500"
+						minpitchspeed="-1500"
+						maxpitchspeed="1500"
+						startscale="1"
+						midscale="2"
+						endscale="1"
+						directionalspace="local"
+					>
+						<trailemitter
+							directionalspace="local"
+							particledyrectionalspace="local"
+							position="30 0 0"
+							spawnrate="20"
+							minparticlelife="100"
+							maxparticlelife="150"
+							depthbias="-100"
+							material="/shared/effects/materials/{a}.material"
+							offsetsphere="2"
+							texposscale="0"
+							texstretchscale="1"
+						>
+							<particle
+								startsize="0"
+								midsize="{b}"
+
+								endsize="0"
+							/>
+						</trailemitter>
+					</controller>
+				</controller>
+			</template>
+			
+			<instance name="streamer" a="beam_06" b="4" />
+			<instance name="streamer" a="beam_06" b="4" />
+			<instance name="streamer" a="beam_06" b="4" />
+			<instance name="streamer" a="star_14" b="6" />
+			<instance name="streamer" a="star_14" b="6" />
+			
+			<simpleemitter
+				spawnrate="50"
+				bone="_bone_centerofchest"
+				minparticlelife="200"
+				maxparticlelife="400"
+				gravity="0"
+				minspeed="100"
+				maxspeed="175"
+				drag="0"
+				position="0 0 0"
+				pitchspeed="79"
+				material="/shared/effects/materials/whitedot.material"
+				offsetsphere="5 15 5"
+				inheritvelocity="0.35"
+				direction="0 1 0"
+				minangle="0"
+				maxangle="90"
+			>
+				<particle 
+					startcolor="1 1 .2"
+					midcolor="1 .3 0"
+					endcolor="0 0 0"
+					midcolorpos=".8"
+					startheightdistort=".05"
+					endframe="15"
+					size="2"
+					startalpha="0"
+					midalpha="0"
+					endalpha="0"
+					midalphapos="0"
+					startstickiness="1"
+					endstickiness="0"
+					turn="1"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				bone="_bone_centerofchest"
+
+				particlelife="500"
+				spawnrate="20"
+				minspeed="50"
+				maxspeed="250"
+				gravity="0"
+				minangle="0"
+				maxangle="30"
+				direction="0 0 0"
+				material="/shared/effects/materials/blood1.material"
+				offsetsphere="25 25 0"
+				position="0 0 0"
+			>
+				<particle 
+					minanglespeed="-100"
+					maxanglespeed="100"
+					minangle="-60"
+					maxangle="60"
+					color=".3 0 0"
+					startsize="25"
+					endsize="50"
+					startalpha="0"
+					midalpha="1"
+					endalpha="0"
+				/>
+				<particle 
+					minanglespeed="-100"
+					maxanglespeed="100"
+					minangle="-60"
+					maxangle="60"
+					color=".5 0 0"
+					startsize="25"
+					endsize="50"
+					startalpha="0"
+					midalpha="1"
+					endalpha="0"
+				/>
+			</simpleemitter>
+
+      </particlesystem>
+   </definitions>
+   <thread>
+      <spawnparticlesystem instance="instance0" particlesystem="system0" />
+	  
+      <waitfordeath instance="instance0" />
+      <!-- <die /> -->
+   </thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->
+
+

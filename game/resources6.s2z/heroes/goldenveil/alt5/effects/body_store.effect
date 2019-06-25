@@ -1,0 +1,722 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect  deferred="true" useentityeffectscale="1">
+	<definitions>
+		<particlesystem name="system0" space="world" scale=".1">
+			<sound
+				    dampen="0.5"
+				    channelid="storeaud"
+					sound2d="true"
+					volume=".5"
+					sample="../sounds/store_audio.wav"
+			/>	
+			
+			<controller 
+				life="2500" 
+				startscale="0"  midscale=".75" endscale="1" midscalepos=".25"
+				position="0 0 30"
+			>
+				<simpleemitter	
+					dealy="100"
+					life="2500" 
+					position="0 0 200"
+					startspawnrate="0"	endspawnrate="80" midspawnrate=".75"		
+					minparticlelife="80"
+					maxparticlelife="150"
+					gravity="10"
+					material="/shared/effects/materials/light_glow.material"
+					offsetsphere="600"
+					minangle="0"
+					maxangle="90"
+					drag="0.01"
+
+					minspeed="100"
+					maxspeed="1000"		
+				>
+					<particle
+						minangle="-360"
+						maxangle="360"
+						startsize="15"	
+						endsize="35"								
+						depthbias="-100"
+						startcolor="1 1 1"
+						midcolor="1 1 1"
+						endcolor="0"
+						startalpha=".6"
+						endalpha="0"
+						midalphapos=".25"
+						minscale="8"
+						maxscale="20"
+					/>
+				</simpleemitter>
+			
+				<simpleemitter
+					spawnrate="4"
+					position="0 0 0"
+					offsetsphere="0"
+					maxangle="90"
+					depthbias="-35"
+				>
+					<particle	
+						minscale="1"
+						maxscale="2.3"
+					>
+						<model
+							minlife="500"
+							maxlife="800"
+							position="0 0 50"
+							anim="idle"
+							model="/shared/effects/models/circle_of_bones/model.mdf"
+							scale="12"
+							midcolorpos=".75"
+							midalphapos=".4"
+							yawspeed="1080"
+						>
+							<template name="trails">
+								<trailemitter
+									minlife="500"
+									maxlife="800"
+									position="0 0 0"
+									bone="{bone01}"
+									spawnrate="150"
+									minparticlelife="250"
+									maxparticlelife="300"
+									texpostime="1250"
+									texposscale="0"
+									texstretchscale="1"
+									material="/shared/effects/materials/soul_trail.material"
+								>
+									<particle
+										startcolor="0 0 0"
+										midcolor=".6 0 .3"
+										endcolor="0 0 0"
+										startsize="0"
+										midsize="3"
+										endsize="0"
+									/>
+								</trailemitter>
+							</template>
+							<instance name="trails" bone01="_bone_fx_01"  bone02="_bone_fx_02"/>
+						</model>
+					</particle>	
+				</simpleemitter>
+				
+				<simpleemitter
+					spawnrate="4"
+					position="0 0 0"
+					offsetsphere="0"
+					maxangle="90"
+					depthbias="-80"
+				>
+					<particle	
+						minscale="1"
+						maxscale="2.3"
+					>
+						<model
+							life="600"
+							model="/shared/effects/models/circle_of_bones/model.mdf"
+							anim="idle"
+							scale="10"
+							position="0.0 0.0 150.0"
+							minroll="-360"
+							maxroll="360"
+							minpitch="-360"
+							maxpitch="360"
+							minyaw="-300"
+							maxyaw="300"
+							minyawspeed="500"
+							maxyawspeed="1000"
+							minpitchspeed="500"
+							maxpitchspeed="1000"
+						>
+							<trailemitter	
+								life="650"
+								bone="_bone_fx_02"
+								spawnrate="200"
+								particlelife="350"
+								position="0 0 0"
+								texpostime="1000"
+								texposscale="0"
+								texstretchscale="2.5"
+								subframepose="1"				
+								material="/shared/effects/materials/metal_stream.material"
+							>
+								<particle 				
+									color=".9 .65 1"
+									startsize="0"
+									midsize="5"
+									endsize="0"
+									startalpha=".8"
+									midalpha=".8"
+									endalpha="0"
+									framespeed="1"
+								/>
+							</trailemitter>	
+						</model>
+					</particle>	
+					
+					<particle	
+						minscale="1"
+						maxscale="2.3"
+					>
+						<model
+							life="600"
+							model="/shared/effects/models/circle_of_bones/model.mdf"
+							anim="idle"
+							scale="10"
+							position="0.0 0.0 150.0"
+							minroll="-360"
+							maxroll="360"
+							minpitch="-360"
+							maxpitch="360"
+							minyaw="-300"
+							maxyaw="300"
+							minyawspeed="500"
+							maxyawspeed="1000"
+							minpitchspeed="500"
+							maxpitchspeed="1000"
+						>
+							<trailemitter	
+								life="650"
+								bone="_bone_fx_02"
+								spawnrate="200"
+								particlelife="450"
+								position="0 0 0"
+								texpostime="1000"
+								texposscale="0"
+								texstretchscale="2.5"
+								subframepose="1"				
+								material="/shared/effects/materials/trail_head.material"
+							>
+								<particle 				
+									color=".9 .65 1"
+									startsize="0"
+									midsize="5"
+									endsize="0"
+									startalpha="1"
+									endalpha="0"
+								/>
+							</trailemitter>	
+						</model>
+					</particle>	
+				</simpleemitter>
+				
+				<simpleemitter
+					spawnrate="10"
+					position="0 0 200"
+					offsetsphere="400 400 300"
+					maxangle="90"
+					depthbias="-80"
+					minparticlelife="100"
+					maxparticlelife="150"
+					material="/shared/effects/materials/cut_01.material"
+					>
+					<particle	
+						minscale=".8"
+						maxscale="1.5"
+						size="500"
+						minroll="-360"
+						maxroll="360"
+						minanglespeed="-1500"
+						maxanglespeed="-1000"
+						color=".9 .65 1"
+					>
+					</particle>	
+					<particle	
+						minscale=".8"
+						maxscale="1.5"
+						size="500"
+						minroll="-360"
+						maxroll="360"
+						minanglespeed="1000"
+						maxanglespeed="1500"
+						color=".9 .65 1"
+					>
+					</particle>	
+					<particle	
+						minscale=".8"
+						maxscale="1.5"
+						size="500"
+						minroll="-360"
+						maxroll="360"
+						minanglespeed="-1500"
+						maxanglespeed="-1000"
+						color=".9 .65 1"
+					>
+					</particle>	
+					<particle	
+						minscale=".8"
+						maxscale="1.5"
+						size="500"
+						minroll="-360"
+						maxroll="360"
+						minanglespeed="1000"
+						maxanglespeed="1500"
+						color=".9 .65 1"
+					>
+					</particle>	
+				</simpleemitter>
+				
+				<simpleemitter
+					spawnrate="30"
+					position="0 0 200"
+					offsetsphere="700 700 300"
+					maxangle="90"
+					depthbias="-80"
+					minparticlelife="100"
+					maxparticlelife="150"
+					material="/shared/effects/materials/3d_slash.material"
+					>
+					<particle 
+						size="350"
+						startframe="0.0"
+						endframe="1.0"
+						color="1"
+						minyaw="-360"
+						maxyaw="360"
+						minpitch="-360"
+						maxpitch="360"
+						minroll="-360"
+						maxroll="360"
+						depthbias="30"
+					/>	
+				</simpleemitter>
+				
+				<simpleemitter			
+					position="0 0 0"
+					spawnrate="50"			
+					minparticlelife="150"
+					maxparticlelife="250"
+					gravity="20"
+					material="/shared/effects/materials/spark_12.material"
+					offsetsphere="700 700 50"
+					minangle="0"
+					maxangle="90"
+					drag="0.01"
+					minspeed="1820"
+					maxspeed="3050"		
+				>
+					<particle
+						minangle="-360"
+						maxangle="360"
+						minanglespeed="-1620"
+						maxanglespeed="1620"
+						startsize="35"	
+						endsize="8"								
+						depthbias="-100"
+						startcolor="9 .5 10" endcolor="0"
+						startalpha="1"
+						midalpha="1"
+						endalpha="0"
+						midalphapos=".25"
+						minscale="1.5"
+						maxscale="3"
+					/>
+					<particle
+						minangle="-360"
+						maxangle="360"
+						minanglespeed="-1620"
+						maxanglespeed="1620"
+						startsize="35"	
+						endsize="8"								
+						depthbias="-100"
+						startcolor="10" endcolor="0"
+						startalpha="1"
+						midalpha="1"
+						endalpha="0"
+						midalphapos=".25"
+						minscale="1.5"
+						maxscale="3"
+					/>
+				</simpleemitter>	
+				<simpleemitter
+					spawnrate="8"
+					position="0 0 200"
+					offsetsphere="0"
+					maxangle="90"
+					depthbias="-80"
+					minparticlelife="300"
+					maxparticlelife="400"
+					material="/shared/effects/materials/cut_02.material"
+					>
+					<particle 
+						startsize="1750"
+						endsize="1850"
+						pitch="90"
+						maxangle="360"
+						minanglespeed="960"
+						maxanglespeed="1160"
+						color="1.3 0 1"
+						lockup="1"
+						depthbias="30"
+						startalpha="0"
+						midalpha=".2"
+						endalpha="0"
+						minscale=".7"
+						maxscale="1"
+						anchor="1"
+					/>	
+					<particle 
+						startsize="1750"
+						endsize="1850"
+						pitch="90"
+						maxangle="360"
+						minanglespeed="-960"
+						maxanglespeed="-1160"
+						color="1 .5 1"
+						lockup="1"
+						depthbias="30"
+						startalpha="0"
+						midalpha=".2"
+						endalpha="0"
+						minscale=".7"
+						maxscale="1"
+						anchor="1"
+					/>	
+				</simpleemitter>
+				<simpleemitter
+					spawnrate="3"
+					position="0 0 200"
+					offsetsphere="0"
+					maxangle="90"
+					depthbias="-80"
+					minparticlelife="300"
+					maxparticlelife="400"
+					material="/shared/effects/materials/cut_02.material"
+					>
+					<particle 
+						startsize="1550"
+						endsize="1750"
+						pitch="90"
+						maxangle="360"
+						minanglespeed="960"
+						maxanglespeed="1160"
+						color="1 .8 1"
+						lockup="1"
+						depthbias="30"
+						startalpha="0"
+						midalpha=".4"
+						endalpha="0"
+						minscale=".7"
+						maxscale="1"
+						anchor="1"
+					/>	
+					<particle 
+						startsize="1550"
+						endsize="1750"
+						pitch="90"
+						maxangle="360"
+						minanglespeed="-960"
+						maxanglespeed="-1160"
+						color="1 .7 1"
+						lockup="1"
+						depthbias="30"
+						startalpha="0"
+						midalpha=".4"
+						endalpha="0"
+						minscale=".7"
+						maxscale="1"
+						anchor="1"
+					/>	
+				</simpleemitter>
+			
+				<simpleemitter
+					spawnrate="50"
+					minparticlelife="100"
+					maxparticlelife="200"
+					offsetsphere="600 600 200"
+					gravity="10"
+					minspeed="650"
+					maxspeed="1550"	
+					drag=".005"				
+					position="0 0 200"
+					depthbias="-30"
+					material="/shared/effects/materials/beer_splash.material"
+					>
+					<particle 
+						minangle="0"
+						maxangle="160"
+						minanglespeed="-10"
+						maxanglespeed="10"
+						startsize="60"
+						midsize="180"
+						endsize="200"
+						startcolor="1 0 0"
+						midcolor=".5 0 0"
+						midcolorpos=".75"
+						endcolor="0"			
+						startalpha=".6"
+						midalpha=".6"
+						endalpha="0"
+						minscale="1"
+						maxscale="2"
+					/>
+				</simpleemitter>
+				
+				<simpleemitter
+					spawnrate="150"
+					minparticlelife="100"
+					maxparticlelife="200"
+					offsetsphere="600 600 200"
+					gravity="10"
+					minspeed="1650"
+					maxspeed="5250"	
+					drag=".005"				
+					position="0 0 200"
+					depthbias="-30"
+					material="/shared/effects/materials/splash.material"
+				>			
+					<particle
+						startcolor="1 0 0"
+						endcolor=".5 0 0"
+						startsize="8"
+						endsize="0"
+						minscale="1"
+						maxscale="2"
+						startheightdistort=".03"
+						endheightdistortion="0"
+						turn="1"
+					/>
+				</simpleemitter>
+			
+			</controller>
+			
+		</particlesystem>
+		
+		<particlesystem name="system1" space="world" scale=".75">
+			<simpleemitter
+				count="1"
+				particlelife="1000"
+			>	
+				<particle>
+				
+					<groundsprite
+						life="320"
+						material="/shared/effects/materials/corona_06_blend.material"
+						startsize="110"
+						endsize="180"
+						startcolor="0"
+						midcolor=".5 .1 .3"
+						endcolor="0"
+						midcolorpos=".25"
+						startalpha="1"
+						endalpha="0"
+					/>
+					
+					<groundsprite
+						life="150"
+						material="/shared/effects/materials/mana_ring_ground.material"
+						startsize="105"
+						endsize="130"
+						startcolor="0"
+						midcolor=".8 .1 .5"
+						endcolor=".6 0 0"
+						midcolorpos=".25"
+						startalpha="1"
+						endalpha="0"
+					/>
+					
+					<groundsprite
+						life="450"
+						material="/shared/effects/materials/shogun.material"
+						startsize="60" endsize="75" midsizepos=".15"
+						startcolor=".9 .65 .15"
+						midcolor=".9 .65 .15"
+						endcolor="0"
+						startalpha="1"
+						midalpha="1"
+						endalpha="0"
+						midalphapos=".5"
+					/>
+					
+				</particle>
+			</simpleemitter>	
+			
+			<simpleemitter
+				count="45"
+				spawnrate="2000"
+				minparticlelife="300"
+				maxparticlelife="400"
+				drag=".01"
+				offsetphere="140 140 20"
+				gravity="-3"
+				minspeed="650"
+				maxspeed="1550"								
+				direction="0 0 1"
+				position="0 0 10"
+				depthbias="-30"
+				material="/shared/effects/materials/blob_add.material"
+			>			
+				<particle
+					startcolor="1 0 .6"
+					endcolor="0"
+					startsize="10"
+					endsize="0"
+					minscale="0.5"
+					maxscale="1"
+					endstickiness=".4"
+					startheightdistort=".05"
+					endheightdistortion="0"
+					turn="1"
+				/>
+			</simpleemitter>
+
+	
+			<billboard
+				life="100"
+				startcolor="1 0 .5"
+				endcolor=".5 0 .2"
+				startalpha="1.0"
+				midalpha="1.0"
+				endalpha="0.0"
+				startsize="128"
+				endsize="368"
+				depthbias="-100"
+				position="0 0 20"
+				material="/shared/effects/materials/whitedot.material"
+			/>		
+
+			<simpleemitter			
+				count="1"
+				particlelife="5000"
+				spawnrate="10000"
+				gravity="-0"
+				speed="0.0"
+				acceleration="0.0"		
+				position="0 0 10"
+			>
+				<particle>	
+					<simpleemitter		
+						life="200"
+						position="0 0 0"
+						spawnrate="200"			
+						minparticlelife="850"
+						maxparticlelife="900"
+						gravity="0"
+						material="/shared/effects/materials/smoke_particle.material"
+						offsetsphere="15"
+						direction="0 0 1"
+						minangle="70"
+						maxangle="90"
+						drag="0.055"
+						minspeed="820"
+						maxspeed="850"
+						directionalspace="local"
+						inheritvelocity="0.2"			
+					>
+						<particle
+							minangle="-360"
+							maxangle="360"
+							minanglespeed="-120"
+							maxanglespeed="120"
+							startsize="30"
+							midsize="70"
+							endsize="95"
+							midsizepos=".3"
+							depthbias="-100"
+							startcolor=".6 0 .5"
+							endcolor=".5 0 0"
+							startalpha=".6"
+							endalpha="0"
+							midalphapos=".25"
+							minscale="1"
+							maxscale="2"
+						/>
+					</simpleemitter>
+					<billboard
+						life="300"
+						startcolor=".4 0 .3"
+						endcolor="0 0 0"
+						
+						startalpha="1.0"
+						midalpha="1.0"
+						endalpha="0.0"
+						midalphapos="0.75"
+						startparam="0.05"
+						endparam="0.0"				
+						
+						startsize="50"
+						
+						endsize="300"
+						midsizepos=".4"				
+						
+						depthbias="0"
+						position="0 0 0"
+						material="/shared/effects/materials/corona_06.material"
+						lockup="true"
+						pitch="90"
+					/>
+					
+					<billboard
+						life="300"
+						color="1.0 1.0 1.0"
+						startalpha="1.0"
+						midalpha="1.0"
+						endalpha="0.0"
+						midalphapos="0.75"
+						startparam=".1"
+						endparam="0.0"
+						startsize="128"
+						endsize="368"
+						depthbias="-100"
+						position="0 0 0"
+						material="/shared/effects/materials/refract_ring.material"
+						lockup="true"
+						pitch="90"
+					/>					
+	
+					<simpleemitter		
+						life="120"
+						position="0 0 0"
+						spawnrate="280"			
+						minparticlelife="250"
+						maxparticlelife="300"
+						gravity="0"
+						material="/shared/effects/materials/light_glow.material"
+						offsetsphere="25"
+						direction="0 0 1"
+						minangle="80"
+						maxangle="90"
+						drag="0.055"
+						minspeed="1520"
+						maxspeed="1850"
+						directionalspace="local"
+						inheritvelocity="0.2"			
+					>
+						<particle
+							minangle="-360"
+							maxangle="360"
+							minanglespeed="-120"
+							maxanglespeed="120"
+							startsize="10"
+							midsize="70"
+							endsize="95"
+							midsizepos=".3"
+							depthbias="-100"
+							startcolor="1 0 .75"
+							midcolor=".35 0 0"
+							endcolor="0"
+							startalpha=".6"
+							endalpha="0"
+							midalphapos=".25"
+							minscale=".8"
+							maxscale="1.2"
+						/>
+					</simpleemitter>
+					
+				</particle>
+			</simpleemitter>		
+
+		</particlesystem>
+		
+		
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		
+		<wait duration="2200"/>
+		<spawnparticlesystem instance="instance1" particlesystem="system1" />
+      	<waitfordeath instance="instance0" />
+		<waitfordeath instance="instance1" />
+		<!-- <die /> -->
+	</thread>
+</effect>

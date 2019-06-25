@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+	<definitions>
+		<particlesystem name="system0" space="world" scale="1">
+			
+			<simpleemitter
+				life="5000"
+				spawnrate="10"
+				count="30"
+				startparticlelife="5000"
+				endparticlelife="1"
+				offsetsphere="60 60 0"
+				position="0 0 10"
+				minspeed="100"
+				maxspeed="300"
+				drag="0.03"
+				direction="0 0 1"
+				angle="10"
+				startgravity="0"
+				midgravity="0"
+				endgravity="150"
+				endgravitypos=".95"
+				collide="true"
+			>
+				<template name="floating_rock">
+					<particle>
+						<model
+							expirelife="200"
+							startalpha="1"
+							endalpha="0"
+							model="/heroes/rocky/hd_pebbles/effects/floating_rocks/rock{n}.mdf"
+							material="/heroes/nomad/sand.material"
+							color="{color}"
+							anim="idle"
+							minscale=".15"
+							maxscale=".3"
+							minyawspeed="-100"
+							maxyawspeed="100"
+							minpitchspeed="-100"
+							maxpitchspeed="100"
+							minrollspeed="-100"
+							maxrollspeed="100"
+						/>
+					</particle>
+				</template>
+				<instance name="floating_rock" n="1" color=".7 .5 .2"/>
+				<instance name="floating_rock" n="2" color=".75 .6 .4"/>
+				<instance name="floating_rock" n="3" color=".7 .65 .6"/>
+				<instance name="floating_rock" n="4" color=".65 .5 .3"/>
+			</simpleemitter>
+			
+			<simpleemitter
+				life="3000"
+				startspawnrate="2"
+				midspawnrate="6"
+				endspawnrate="2"
+				particlelife="4000"
+				startparticlescale=".75"
+				midparticlescale="1.5"
+				endparticlescale=".75"
+				midparticlescalepos=".75"
+			>
+				<particle>
+					<orbiteremitter
+						spawnrate="1000"
+						mincount="12"
+						maxcount="20"
+						minparticlelife="1200"
+						maxparticlelife="1500"
+						material="/shared/effects/materials/dust.material"
+						gravity="-1"
+						minspeed="160"
+						maxspeed="160"
+						drag="0.04"
+						offset="3.14 0 0"
+						orbit="-.02 .2 1"
+						angle="0"
+						cylindrical="1"
+						depthbias="-5"
+					>
+						<template name="dust_p">
+							<particle
+								maxangle="360"
+								startalpha="0"
+								midalpha=".4"
+								endalpha="0"
+								midalphapos=".25"
+								color="{color}"
+								minstartscale="2"
+								maxstartscale="6"
+								minendscale="12"
+								maxendscale="20"
+							/>
+						</template>
+						
+						<instance name="dust_p" color="1 .65 .35" />
+						<instance name="dust_p" color="1 .7 .5" />
+						<instance name="dust_p" color="1 .8 .6" />
+					</orbiteremitter>
+				</particle>
+			</simpleemitter>
+			
+			<template name="lightning_emitter">
+				<simpleemitter
+					bone="_bone_center"
+					life="4000"
+					startparticlescale=".5"
+					midparticlescale="2"
+					endparticlescale="1"
+					startspawnrate="1"
+					midspawnrate="{spawnrate}"
+					endspawnrate="1"
+					minparticlelife="30"
+					maxparticlelife="50"
+					offsetsphere="50 50 50"
+					position="0 0 -20"
+					material="/shared/effects/materials/lightning_{n}.material"
+				>
+					<template name="lightning_particle">
+						<particle
+							startcolor=".5"
+							midcolor="{color}"
+							endcolor=".5"
+							minsize="15"
+							maxsize="30"
+							flare="1"
+							lockup="true"
+							lockright="true"
+							minangle="-45"
+							maxangle="45"
+							minpitch="-45"
+							maxpitch="45"
+						/>
+					</template>
+					<instance name="lightning_particle" color="1 .6 .4" />
+					<instance name="lightning_particle" color="1 .8 .7" />
+					<instance name="lightning_particle" color="1 .95 .9" />
+					<instance name="lightning_particle" color=".5 .4 .3" />
+					<instance name="lightning_particle" color=".5 .3 .2" />
+				</simpleemitter>
+			</template>
+			
+			<instance name="lightning_emitter" spawnrate="10" n="01" />
+			<instance name="lightning_emitter" spawnrate="40" n="11" />
+			
+			<simpleemitter
+				position="0 0 20"
+				life="3500"
+				startspawnrate="2"
+				midspawnrate="5"
+				endspawnrate="2"
+				midspawnratepos=".75"
+				startminparticlelife="800"
+				startmaxparticlelife="1000"
+				endminparticlelife="500"
+				endmaxparticlelife="800"
+				offsetsphere="0 0 10"
+				material="/shared/effects/materials/refract_twirl.material"
+				startparticlealpha=".25"
+				midparticlealpha="1"
+				endparticlealpha=".5"
+				midparticlealphapos=".75"
+				startparticlescale=".5"
+				midparticlescale="1.25"
+				endparticlescale=".5"
+				midparticlescalepos=".75"
+			>
+				<particle
+					maxangle="360"
+					minanglespeed="25"
+					maxanglespeed="125"
+					param="0.05"
+					startalpha="0"
+					midalpha=".65"
+					endalpha="0"
+					startscale="1"
+					minendscale="180"
+					maxendscale="200"
+					lockup="true"
+					lockright="true"
+					pitch="90"
+				/>
+			</simpleemitter>		
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<camerashake2 duration="1400" scale=".5" frequency="22" radius="500" />
+		<wait duration="700"/>
+		<camerashake2 duration="1400" scale=".75" frequency="22" radius="750" />
+		<wait duration="700"/>
+		<camerashake2 duration="1200" scale="1" frequency="22" radius="1000" />
+		<wait duration="600"/>
+		<camerashake2 duration="1200" scale=".75" frequency="22" radius="750" />
+		<wait duration="600"/>
+		<camerashake2 duration="1000" scale=".5" frequency="22" radius="500" />
+		<waitfordeath instance="instance0" />
+	</thread>
+</effect>

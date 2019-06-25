@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectile
+	name="Projectile_SandWraith_Ability1_Track"
+
+	speed="857.14"
+	gravity="0"
+
+	modelscale="1.5"
+	model="../hd_sandwraith2/ability_01/effects/skull.mdf"
+	traileffect="../hd_sandwraith2/ability_01/effects/trail.effect"
+	canturn="0"
+	flying="true"
+	flyheight="90"
+	
+	touchradius="120"
+	maxtouchespertarget="1"
+	touchtargetscheme="enemy_units"
+	toucheffecttype="Magic"
+	
+	dynamicprecache="../hd_sandwraith2/ability_01/effects/impact.effect"
+>
+	<onspawn>
+		<setscriptvalue name="impact_effect" value="effects/impact.effect" entity="this_entity" />
+	</onspawn>
+	
+	<onimpact>
+		<combatevent effecttype="AbilityBasedProjectile">
+			<onimpact>
+				<applystate name="State_SandWraith_Ability1_Sticky" target="target_entity" duration="8000" />
+				<spawnaffector name="Affector_SandWraith_Ability1_Sticky" target="target_entity" />
+				<spawnaffector name="Affector_SandWraith_Ability1_VisionSticky" target="target_entity" />
+			</onimpact>
+		</combatevent>
+	</onimpact>
+	
+	<ontouch>
+		<damage effecttype="Magic" amount="70,120,170,220" />
+		
+		<!-- Dynamic visual effects -->
+		<getscriptvalue name="impact_effect" destvar="str0" entity="this_entity" />
+		<playeffectdynamic effect="str0" target="target_entity" source="target_entity" occlude="true" />		
+	</ontouch>
+	
+	<altavatar key="Hero_SandWraith.Alt3" modpriority="1"
+		model="../alt3/ability_01/effects/skull.mdf"
+		traileffect="../alt3/ability_01/effects/trail.effect"
+		
+		dynamicprecache="../alt3/ability_01/effects/impact.effect"
+	>
+		<onspawn>
+			<setscriptvalue name="impact_effect" value="../alt3/ability_01/effects/impact.effect" entity="this_entity" />
+		</onspawn>
+	</altavatar>
+	
+	<altavatar key="Hero_SandWraith.Alt4" modpriority="1"
+		traileffect="../alt4/ability_01/effects/trail.effect"
+		model="../alt4/ability_01/effects/skull.mdf"
+		
+		dynamicprecache="../alt4/ability_01/effects/impact.effect"
+	>
+		<onspawn>
+			<setscriptvalue name="impact_effect" value="../alt4/ability_01/effects/impact.effect" entity="this_entity" />
+		</onspawn>
+	</altavatar>
+	
+	<altavatar key="Hero_SandWraith.Alt5" modpriority="1"
+		modelscale="6"
+		model="../alt5/effects/starfish/model.mdf"
+		traileffect="../alt5/ability_01/effects/trail.effect"
+		
+		dynamicprecache="../alt5/ability_01/effects/impact.effect"
+	>
+		<onspawn>
+			<setscriptvalue name="impact_effect" value="../alt5/ability_01/effects/impact.effect" entity="this_entity" />
+		</onspawn>
+	</altavatar>
+	
+	<altavatar key="Hero_SandWraith.Alt9" modpriority="1"
+		model="../alt9/ability_01/effects/skull.mdf"
+		traileffect="../alt9/ability_01/effects/trail.effect"
+		dynamicprecache="../alt9/ability_01/effects/impact.effect"
+	>
+		<onspawn>
+			<setscriptvalue name="impact_effect" value="../alt9/ability_01/effects/impact.effect" entity="this_entity" />
+		</onspawn>
+	</altavatar>
+	
+	<altavatar key="Hero_SandWraith.Alt10" modpriority="1"
+		model="/shared/models/invis.mdf"
+		traileffect="../alt10/ability_01/effects_03/trail.effect"
+		dynamicprecache="../alt10/ability_01/effects_03/impact.effect"
+	>
+		<onspawn>
+			<setscriptvalue name="impact_effect" value="../alt10/ability_01/effects/impact.effect" entity="this_entity" />
+		</onspawn>
+		<modifier key="rainstorm"
+			traileffect="../alt10/ability_01/effects_01/trail.effect"
+			dynamicprecache="../alt10/ability_01/effects_01/impact.effect"
+		/>
+		
+		<modifier key="lightning"
+			traileffect="../alt10/ability_01/effects_02/trail.effect"
+			dynamicprecache="../alt10/ability_01/effects_02/impact.effect"
+		/>
+	</altavatar>
+	
+	<altavatar key="Hero_SandWraith.Alt11" modpriority="1"
+		model="../alt11/ability_01/effects/poker.mdf"
+		traileffect="../alt11/ability_01/effects/trail.effect"
+		dynamicprecache="../alt11/ability_01/effects/impact.effect"
+	>
+		<onspawn>
+			<setscriptvalue name="impact_effect" value="../alt11/ability_01/effects/impact.effect" entity="this_entity" />
+		</onspawn>
+	</altavatar>
+</projectile>

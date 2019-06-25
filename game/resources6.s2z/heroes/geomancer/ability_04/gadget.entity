@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gadget
+	name="Gadget_Geomancer_Ability4"
+	
+	model="/shared/models/invis.mdf"
+	skin=""
+	unitwalking="true"
+	diewithowner="false"
+	
+	passiveeffect="effects/delay.effect"
+	spawneffect=""
+	respawneffect=""
+	deatheffect=""
+	selectsound=""
+	isselectable="false"
+	iscontrollable="false"
+	orderconfirmedsound=""
+	
+	preglobalscale="1.5"
+	modelscale="1.0"
+	effectscale="0.9"
+	boundsheight="64"
+	boundsradius="16"
+	selectionradius="36"
+	targetoffset="0 0 0"
+
+	drawonmap="false"
+	invulnerable="true"
+	canattack="false"
+
+	corpsetime="0"
+	corpsefadetime="0"
+	deathtime="0"
+	
+	lifetime="2500"
+>
+	<onexpired>
+		<playeffect effect="effects/explosion.effect" target="this_position" source="this_position" occlude="true" />
+		<areaofeffect
+			radius="350"
+			targetselection="all"
+			targetscheme="enemy_units"
+			effecttype="Magic"
+		>
+			<applystate name="State_Geomancer_Ability4" duration="2000,2500,3000" />
+			<damage effecttype="Magic" amount="300,450,600" source="this_owner_entity" />
+		</areaofeffect>
+	</onexpired>
+	
+	
+	<modifier key="ult_boost" modpriority="100"
+		passiveeffect="effects/delay_boost.effect"
+		
+	>
+		<onexpired>
+			<playeffect effect="effects/explosion_boost.effect" target="this_position" source="this_position" occlude="true" />
+			<areaofeffect
+				radius="350"
+				targetselection="all"
+				targetscheme="enemy_units"
+				effecttype="Magic"
+			>
+				<applystate name="State_Geomancer_Ability4" duration="2000,2500,3000" />
+				<damage effecttype="Magic" amount="300,450,600" source="this_owner_entity" />
+			</areaofeffect>
+			<areaofeffect
+				radius="600"
+				targetselection="all"
+				targetscheme="enemy_units"
+				effecttype="Magic"
+			>
+				<applystate name="State_Geomancer_Ability4_Slow" duration="4000" />
+				<damage effecttype="Magic" amount="100,120,140" source="this_owner_entity" />
+			</areaofeffect>
+		</onexpired>
+	</modifier>
+	
+	<altavatar key="Hero_Geomancer.Alt4"
+		passiveeffect="../alt4/ability_04/effects/delay.effect"
+	>
+		<onexpired>
+			<playeffect effect="../alt4/ability_04/effects/explosion.effect" target="this_position" source="this_position" occlude="true" />
+			<areaofeffect
+				radius="350"
+				targetselection="all"
+				targetscheme="enemy_units"
+				effecttype="Magic"
+			>
+				<applystate name="State_Geomancer_Ability4" duration="2000,2500,3000" />
+				<damage effecttype="Magic" amount="300,450,600" source="this_owner_entity" />
+			</areaofeffect>
+		</onexpired>
+		
+		
+		<modifier key="ult_boost" modpriority="100"
+			passiveeffect="../alt4/ability_04/effects/delay_boost.effect"
+			
+		>
+			<onexpired>
+				<playeffect effect="../alt4/ability_04/effects/explosion_boost.effect" target="this_position" source="this_position" occlude="true" />
+				<areaofeffect
+					radius="350"
+					targetselection="all"
+					targetscheme="enemy_units"
+					effecttype="Magic"
+				>
+					<applystate name="State_Geomancer_Ability4" duration="2000,2500,3000" />
+					<damage effecttype="Magic" amount="300,450,600" source="this_owner_entity" />
+				</areaofeffect>
+				<areaofeffect
+					radius="600"
+					targetselection="all"
+					targetscheme="enemy_units"
+					effecttype="Magic"
+				>
+					<applystate name="State_Geomancer_Ability4_Slow" duration="4000" />
+					<damage effecttype="Magic" amount="100,120,140" source="this_owner_entity" />
+				</areaofeffect>
+			</onexpired>
+		</modifier>
+	</altavatar>
+	
+	<altavatar key="Hero_Geomancer.Alt5"
+		passiveeffect="../alt5/ability_04/effects/delay.effect"
+	>
+		<onexpired>
+			<playeffect effect="../alt5/ability_04/effects/explosion.effect" target="this_position" source="this_position" occlude="true" />
+			<areaofeffect
+				radius="350"
+				targetselection="all"
+				targetscheme="enemy_units"
+				effecttype="Magic"
+			>
+				<applystate name="State_Geomancer_Ability4" duration="2000,2500,3000" />
+				<damage effecttype="Magic" amount="300,450,600" source="this_owner_entity" />
+			</areaofeffect>
+		</onexpired>
+		
+		
+		<modifier key="ult_boost" modpriority="100"
+			passiveeffect="../alt5/ability_04/effects/delay_boost.effect"
+			
+		>
+			<onexpired>
+				<playeffect effect="../alt5/ability_04/effects/explosion_boost.effect" target="this_position" source="this_position" occlude="true" />
+				<areaofeffect
+					radius="350"
+					targetselection="all"
+					targetscheme="enemy_units"
+					effecttype="Magic"
+				>
+					<applystate name="State_Geomancer_Ability4" duration="2000,2500,3000" />
+					<damage effecttype="Magic" amount="300,450,600" source="this_owner_entity" />
+				</areaofeffect>
+				<areaofeffect
+					radius="600"
+					targetselection="all"
+					targetscheme="enemy_units"
+					effecttype="Magic"
+				>
+					<applystate name="State_Geomancer_Ability4_Slow" duration="4000" />
+					<damage effecttype="Magic" amount="100,120,140" source="this_owner_entity" />
+				</areaofeffect>
+			</onexpired>
+		</modifier>
+	</altavatar>
+	
+	<altavatar key="Hero_Geomancer.Alt6"
+		passiveeffect="../alt6/ability_04/effects/delay.effect"
+	>
+		<onexpired>
+			<playeffect effect="../alt6/ability_04/effects/explosion.effect" target="this_position" source="this_position" occlude="true" />
+			<areaofeffect
+				radius="350"
+				targetselection="all"
+				targetscheme="enemy_units"
+				effecttype="Magic"
+			>
+				<applystate name="State_Geomancer_Ability4" duration="2000,2500,3000" />
+				<damage effecttype="Magic" amount="300,450,600" source="this_owner_entity" />
+			</areaofeffect>
+		</onexpired>
+		
+		
+		<modifier key="ult_boost" modpriority="100"
+			passiveeffect="../alt6/ability_04/effects/delay_boost.effect"
+			
+		>
+			<onexpired>
+				<playeffect effect="../alt6/ability_04/effects/explosion_boost.effect" target="this_position" source="this_position" occlude="true" />
+				<areaofeffect
+					radius="350"
+					targetselection="all"
+					targetscheme="enemy_units"
+					effecttype="Magic"
+				>
+					<applystate name="State_Geomancer_Ability4" duration="2000,2500,3000" />
+					<damage effecttype="Magic" amount="300,450,600" source="this_owner_entity" />
+				</areaofeffect>
+				<areaofeffect
+					radius="600"
+					targetselection="all"
+					targetscheme="enemy_units"
+					effecttype="Magic"
+				>
+					<applystate name="State_Geomancer_Ability4_Slow" duration="4000" />
+					<damage effecttype="Magic" amount="100,120,140" source="this_owner_entity" />
+				</areaofeffect>
+			</onexpired>
+		</modifier>
+	</altavatar>
+	
+</gadget>

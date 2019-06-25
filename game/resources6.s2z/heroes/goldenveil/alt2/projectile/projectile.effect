@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true">
+	<definitions>
+		<particlesystem name="system0" space="world" scale="1">
+			<sound
+				linearfalloff="true" 
+				falloffstart="650"
+				falloffend="1300"
+				volume="1" 
+				sample="/heroes/goldenveil/sounds/foley/trail_%.wav"
+			/>
+			
+			<model
+				model="model.mdf"
+				scale="3.5"
+				color="2"
+				material="../material.material"
+				startalpha="1"
+				midalpha="1"
+				endalpha="0"
+				rollspeed="1500"
+				pitch="90"
+			/>
+			<trailemitter
+				name="trail01"
+				position="0 0 0"
+				spawnrate="100"
+				particlelife="300"
+				subframepose="1"
+				texpostime="1000"
+				texposscale="0"
+				texstretchscale="1"
+				material="/shared/effects/materials/flux_trail.material"
+			>
+				<particle
+					startcolor=".4 .5 .2"
+					midcolor=".3 .7 .1"
+					endcolor="0 0 0"
+					startalpha="1"
+					midalpha="0"
+					endalpha="0"
+					startsize="40"
+					endsize="5"
+				/>
+			</trailemitter>
+
+			<simpleemitter
+				spawnrate="40"
+				minparticlelife="250"			
+				maxparticlelife="400"			
+				acceleration="50"
+				offsetsphere="25"
+				material="/shared/effects/materials/mysticenergy2.material"
+				angle="50"
+       			 >
+				<particle 
+					minangle="-360"
+					maxangle="360"
+					minanglespeed="-300"
+					maxanglespeed="300"
+					startcolor=".42 .35 .12"
+					midcolor=".1 .5 .1"
+					endcolor="0 0 0"
+					midcolorpos=".4"
+					startalpha="0"
+					midalpha="1"
+					endalpha="0"
+					midalphapos="0.2"
+					startsize="60"
+					midsize="35"
+					endsize="0"
+					midsizepos=".8"
+				/>
+			</simpleemitter>
+<!-- 
+			<billboard
+				startcolor=".3 .2 .1"
+				endcolor="0"
+				size="100"
+				depthbias="-40"
+				material="/shared/effects/materials/whitedot.material"
+			/> -->
+<!-- 
+			<simpleemitter
+				spawnrate="20"
+				particlelife="750"			
+				offsetsphere="25"
+				material="/shared/effects/materials/starlight.material"
+				angle="0"
+       			>
+				<particle 
+					maxangle="360"
+					startsize="110"
+					startcolor=".5 .1 0"
+					endcolor="0"
+					endsize="0"
+					startalpha="0"
+					midalpha="1"
+					endalpha="0"
+				/>
+			</simpleemitter> -->
+			<simpleemitter			
+				spawnrate="30"			
+				minparticlelife="200"
+				maxparticlelife="500"
+				gravity="0"
+				material="/shared/effects/materials/light_glow.material"
+				offsetsphere="10"
+				drag="0.005"
+				minspeed="10"
+				maxspeed="100"		
+			>
+				<particle
+					minangle="-360"
+					maxangle="360"
+					minanglespeed="-120"
+					maxanglespeed="120"
+					startsize="18"	
+					endsize="5"								
+					depthbias="-100"
+					startcolor="1 1 .5"
+					midcolor=".35 1 0"
+					endcolor="0"
+					startalpha="1"
+					midalpha="1"
+					endalpha="0"
+					midalphapos=".25"
+					minscale="3"
+					maxscale="8"
+				/>
+			</simpleemitter>
+
+		</particlesystem>
+
+   	</definitions>
+
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+		<waitfordeath instance="instance0" />
+	</thread>
+
+</effect>

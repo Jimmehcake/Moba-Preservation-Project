@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="" deferred="true" persistent="true">
+	<definitions>
+				
+		<particlesystem name="system0" space="world" scale="1.0">
+
+			<!-- blood on ground -->		
+			<simpleemitter
+				delay="100"
+				spawnrate="20"
+				count="10"
+				position="0 0 1"
+				offsetsphere="40 40 0"
+				particlelife="1000"
+				depthbias="-120"
+			>
+				<particle>
+					<groundsprite						
+						loop="false"			
+						material="/shared/effects/materials/blood_pool_02.material"						
+						life="1000"
+						minsize="1"		maxsize="5"		
+						minscale="1" maxscale="6"
+						minyaw="-360"
+						maxyaw="360"
+						startcolor=".35 .2 .2"
+						endcolor=".2 .1 .1"
+						startalpha=".8"
+						midalpha=".8"
+						endalpha="0"
+						minendwidth="10"
+						maxendwidth="15"
+						minyaspweed="-2"
+						maxyawspeed="2"
+					/>				
+				</particle>
+				<particle>
+					<groundsprite						
+						loop="false"			
+						material="/shared/effects/materials/blood_pool_02.material"						
+						life="500"
+						size="3"			
+						minscale="1"
+						maxscale="5"
+						minyaw="-360"
+						maxyaw="360"
+						startcolor=".25 .2 .2"
+						endcolor=".15 .15 .15"
+						startalpha=".8"
+						midalpha=".8"
+						endalpha="0"
+						minendscale="1"
+						maxenscale="1"
+					/>				
+				</particle>
+			</simpleemitter>
+			
+		<!--blood from mouth -->
+			<simpleemitter
+				bone="_bone_centerofchest"
+				life="750"
+				startspawnrate="470"
+				midspawnrate="300"
+				endspawnrate="0"
+				midspawnratepos=".75"
+				minparticlelife="500"
+				maxparticlelife="2000"
+				gravity="30"
+				minspeed="100"
+				maxspeed="350"
+				drag="0.01"
+				angle="45"
+				offsetsphere="1"
+				position="0 0 0"
+				direction="0 -1 .25"
+				material="/shared/effects/materials/blood1.material"
+				
+			>
+				<particle
+					minangle="0"
+					maxangle="45"
+					minanglespeed="-250"
+					maxanglespeed="250"
+					turn="1"
+					startcolor=".4 0 0"
+					midcolor=".4 0 0"
+					endcolor="0"
+					midcolorpos="0.1"
+					startscale="5"
+					minendscale="20"
+					maxendscale="30"
+					startstickiness="0"
+					minendstickiness="0"
+					maxendstickiness="0"
+					startalpha="0"
+					midalpha=".75"
+					endalpha="0"
+					midalphapos="0.1"
+				/>
+			</simpleemitter>
+			
+			<simpleemitter
+				bone="_bone_centerofchest"
+				life="750"
+				startspawnrate="470"
+				midspawnrate="300"
+				endspawnrate="0"
+				midspawnratepos=".75"
+				minparticlelife="500"
+				maxparticlelife="2000"
+				gravity="30"
+				minspeed="100"
+				maxspeed="350"
+				drag="0.01"
+				angle="45"
+				offsetsphere="1"
+				position="0 0 0"
+				direction="0 -1 .25"
+				material="/shared/effects/materials/blood_drop_red.material"
+			>
+				<particle
+					minangle="0"
+					maxangle="45"
+					minanglespeed="-250"
+					maxanglespeed="250"
+					turn="1"
+					startcolor=".75"
+					midcolor=".75"
+					endcolor="0"
+					midcolorpos="0.1"
+					startscale="0"
+					minmidscale="1"
+					maxmidscale="3"
+					endscale="0"
+					startstickiness="0"
+					minendstickiness="0"
+					maxendstickiness="0"
+					startalpha="0"
+					midalpha=".5"
+					endalpha="0"
+					midalphapos="0.1"
+					widthdistort=".01" heightdistort=".01"
+				/>
+			</simpleemitter>
+		
+		</particlesystem>
+	</definitions>
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0" />
+      	<waitfordeath instance="instance0" />
+	</thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->
+

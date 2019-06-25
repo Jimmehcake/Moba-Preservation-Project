@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="0">
+	<definitions>
+		<particlesystem name="basic" space="world" scale="0.95">
+
+			<sound
+				linearfalloff="true"
+				falloffstart="400"
+				falloffend="2000" 
+				volume=".45" 
+				sample="../sounds/cast.wav"
+				life="8000" 
+			/>
+
+			
+			<simpleemitter
+				count="1"
+				particlelife="5000"
+			>
+				<particle>
+					
+					<groundsprite
+						delay="0"
+						position="0 0 0"
+						life="4000"
+						material="/shared/effects/materials/purple_ground.material"
+						size="300"				
+									
+						color="1 1 1"
+						startalpha="0"
+						midalpha="1"
+						endalpha="1"
+						midalphapos=".5"
+					/>	
+
+					
+					<groundsprite
+						delay="0"
+						position="0 0 0"
+						life="4000"
+						material="/shared/effects/materials/whitedot_ground.material"
+						startsize="20"
+						endsize="200"				
+									
+						color=".3 .0 .5"
+						startalpha="0"
+						midalpha="1"
+						endalpha="1"
+						midalphapos=".5"
+					/>	
+			
+
+			<light
+				startcolor="0 0 0"
+				endcolor="3 0 5"
+				falloffstart="200"
+				falloffend="400"
+				life="4000"
+				position="0 0 100"
+			
+			/>			
+	
+		
+			<controller life="4000">
+			
+				<terrainemitter
+						position="0 0 10"
+						startspawnrate="7"
+						count="22"
+						particlelife="2200"
+						range="150"
+						direction="0 0 1"
+						minangle="-30"
+						maxangle="30"
+					>
+						<particle
+							
+						>
+						
+							<billboard
+								material="/shared/effects/materials/light_rays.material"
+								bone="_bone_center"
+								startscale=".4"
+								endscale="1"
+								width="110"
+								height="230"
+								startcolor=".1 .1 .3"
+								endcolor="0 0 0"
+								position="0 0 156"						
+								lockup="1"
+								expirelife="1000"
+							/>	
+							
+							
+						</particle>		
+				</terrainemitter>				
+			
+				<terrainemitter
+						delay="200"
+						position="0 0 10"
+						startspawnrate="17"
+						count="32"
+						particlelife="2200"
+						range="150"
+						direction="0 0 1"
+						minangle="-30"
+						maxangle="30"
+					>
+						<particle
+							
+						>
+						
+							<billboard
+								material="/shared/effects/materials/light_rays.material"
+								bone="_bone_center"
+								startscale=".4"
+								endscale="1"
+								width="110"
+								height="230"
+								startcolor=".1 .04 .2"
+								endcolor="0 0 0"
+								position="0 0 156"						
+								lockup="1"
+								expirelife="1000"
+							/>	
+							
+							
+						</particle>		
+				</terrainemitter>				
+				
+				
+				<simpleemitter					
+					delay="0"
+					count="22"
+					spawnrate="5"
+					
+					speed="50"
+					drag="0.10"
+					material="/shared/effects/materials/whitedot.material"
+					offsetsphere="10 10 0"
+					position="0 0 0"
+					depthbias="0"
+					
+				>
+					<particle
+					
+					>
+					
+					
+							<groundsprite
+								delay="0"							
+								life="1750"
+								material="/shared/effects/materials/black_spot.material"
+								startsize="0"				
+								midsize="30"				
+								endsize="30"
+								midsizepos=".5"				
+								color="1 1 1"
+								startalpha=".65"
+								midalpha=".65"
+								endalpha="0"
+								midalphapos=".9"
+							/>
+					
+							<model
+								minyawspeed="44"
+								maxyawspeed="-44"
+								position="0 0 0"
+								model="shake/shake.mdf"
+								anim="idle"
+								pitch="90"
+								life="5750"
+								
+							>
+							
+								<model
+									bone="_bone_shake"
+									minyawspeed="0"
+									maxyawspeed="0"
+									position="0 0 0"
+									model="amethyst/model.mdf"
+									material="material_generic.material"
+									anim="idle"
+									startscale="0"
+									midscale="1"
+									endscale="1"
+									midscalepos=".3"
+									life="5750"
+									startalpha="1"	
+									midalpha="1"				
+									endalpha="1"
+									minyaw="0"
+									maxyaw="360"
+								>
+								</model>
+
+								<model
+									bone="_bone_shake"
+									minyawspeed="0"
+									maxyawspeed="0"
+									position="0 0 0"
+									model="amethyst/model.mdf"
+									anim="idle"
+									startscale="0"
+									midscale="1"
+									endscale="1"
+									midscalepos=".3"
+									life="5750"
+									startalpha="1"	
+									midalpha="1"				
+									endalpha="1"
+									minyaw="0"
+									maxyaw="360"
+								>
+								</model>	
+
+							</model>	
+
+							
+				
+					</particle>
+				</simpleemitter>
+				
+				
+				
+				<simpleemitter
+					
+					delay="0"
+					count="55"
+					spawnrate="15"
+					
+					speed="0"
+					drag="0.10"
+					material="/shared/effects/materials/whitedot.material"
+					offsetsphere="250 250 0"
+					position="0 0 0"
+					depthbias="0"
+					
+				>
+					<particle
+					>
+					
+					
+						<groundsprite
+							delay="0"
+							
+							life="1750"
+							material="/shared/effects/materials/black_spot.material"
+							startsize="0"				
+							midsize="30"				
+							endsize="30"
+							midsizepos=".5"				
+							color="1 1 1"
+							startalpha=".65"
+							midalpha=".65"
+							endalpha="0"
+							midalphapos=".9"
+						/>
+						
+						<model
+							position="0 0 0"
+							model="shard/model.mdf"
+							material="material_generic.material"
+							anim="idle"
+							startscale="0"
+							midscale="1"
+							endscale="1"
+							midscalepos=".3"
+							life="5750"
+							alpha=".5"	
+							minyaw="0"
+							maxyaw="360"
+						>
+						</model>
+
+						<model
+							position="0 0 0"
+							model="shard/model.mdf"
+							anim="idle"
+							startscale="0"
+							midscale="1"
+							endscale="1"
+							midscalepos=".3"
+							life="5750"
+							startalpha="1"	
+							midalpha="1"				
+							endalpha="1"
+							minyaw="0"
+							maxyaw="360"
+						>
+						</model>	
+
+
+					</particle>
+				</simpleemitter>				
+				
+				
+			</controller>
+			
+			
+
+			<billboard
+				delay="0"
+				life="250"
+				position="0 150 0"
+				material="/shared/effects/materials/refract_ripples.material"
+				startalpha="0"
+				midalpha=".15"
+				endalpha="0"
+				startsize="150"
+				endsize="200"
+				startparam=".1"
+				endparam="0"
+				lockup="1"
+				lockright="1"
+				pitch="-90"
+				depthbias="-50"
+			/>
+			
+				</particle>
+			</simpleemitter>
+			
+			
+			<model
+				parentmodel="1"
+				parentskeleton="1"
+				expirelife="0"
+				color="1 0 1"
+				material="/shared/effects/materials/shell_rim_spoopy.material"
+			/>
+			
+			<model
+				life="4000"
+				expirelife="0"
+				startscale="0"
+				midscale="1"
+				endscale="1"
+				midscalepos=".05"
+				material="material_generic.material"
+				model="amethyst_state_ground/model.mdf"
+			>
+				<model
+					life="4000"
+					expirelife="0"
+					model="amethyst_state_ground/model.mdf"
+				/>
+			</model>
+			
+			<billboard
+				expirelife="0"
+				position="0 0 100"
+				startsize="350"
+				endsize="700"
+				startcolor="0"
+				endcolor=".1 .05 .075"
+				life="2500"
+				material="/shared/effects/materials/corona_07.material"
+			/>
+			
+			<billboard
+				expirelife="0"
+				position="0 0 100"
+				startsize="700"
+				endsize="50"
+				startcolor="0"
+				endcolor=".15 0 .22"
+				life="2500"
+				material="/shared/effects/materials/corona_01.material"
+			/>
+			
+			<billboard
+				delay="300"
+				expirelife="0"
+				position="0 0 100"
+				startsize="700"
+				endsize="100"
+				startcolor="0"
+				endcolor=".15 0 .22"
+				life="2200"
+				material="/shared/effects/materials/corona_07.material"
+			/>
+			
+			<billboard
+				delay="300"
+				expirelife="0"
+				position="0 0 100"
+				startsize="30"
+				midsize="60"
+				endsize="250"
+				startcolor="0"
+				endcolor=".75 .5 .75"
+				life="2200"
+				startroll="0"
+				midroll="300"
+				endroll="720"
+				material="/shared/effects/materials/blink.material"
+			/>
+
+		</particlesystem>
+
+	</definitions>
+
+	<thread>
+
+
+		<spawnparticlesystem instance="instance0" particlesystem="basic" />
+		
+	
+
+		<waitfordeath instance="instance0" />
+	
+		
+	</thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->
+

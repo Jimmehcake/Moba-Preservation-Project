@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect deferred="true" useentityeffectscale="true">
+
+	<definitions>
+
+		<modifier
+			name="modifier0"
+			startcolor="4 1.8 1"
+			endcolor="1"
+			alpha="1"
+			life="300"
+		/>
+
+		<particlesystem name="system0" space="world" scale=".5">
+
+			<sound
+				linearfalloff="true" 
+				falloffstart="650"
+				falloffend="1300"
+				minvolume=".4"
+				maxvolume=".6" 
+				sample="/heroes/goldenveil/sounds/foley/imp_%.wav"
+			/>
+
+			<simpleemitter
+				life="1800"
+				spawnrate="400"
+				bone="_bone_centerofchest"
+				count="25"
+				minparticlelife="1"
+				maxparticlelife="1200"			
+				gravity="54"
+				minspeed="350"
+				maxspeed="1600"
+				drag=".01"
+				material="/shared/effects/materials/spark_10.material"
+				offsetsphere="2"
+				minangle="-10"
+				maxangle="40"
+				direction="0 0 1"
+				directionalspace="global"
+			>
+				<particle 
+					minangle="0"
+					maxangle="360"
+					startcolor="1"
+					midcolor="1 .8 .1"
+					endcolor="0 0 0"
+					midcolorpos=".2"
+					minstartsize="18"
+					maxstartsize="26"
+					midsize="12"
+					endsize="6"
+					startalpha="0"
+					midalpha=".7"
+					endalpha="0"
+					midalphapos=".5"
+					turn="true"
+					minscale="1.5"
+					maxscale="2.5"
+				/>
+			</simpleemitter>
+			<simpleemitter
+				count="5"
+				bone="_bone_centerofchest"
+				life="500"
+				particlelife="500"
+				spawnrate="250"
+				minspeed="50"
+				maxspeed="250"
+				gravity="0"
+				minangle="0"
+				maxangle="30"
+				direction="0 0 0"
+				material="/shared/effects/materials/blood1.material"
+				offsetsphere="25 25 0"
+				position="0 0 0"
+			>
+				<particle 
+					minanglespeed="-100"
+					maxanglespeed="100"
+					minangle="-60"
+					maxangle="60"
+					color=".3 0 0"
+					startsize="125"
+					endsize="180"
+					startalpha="0"
+					midalpha="1"
+					endalpha="0"
+				/>
+				<particle 
+					minanglespeed="-100"
+					maxanglespeed="100"
+					minangle="-60"
+					maxangle="60"
+					color=".5 0 0"
+					startsize="125"
+					endsize="180"
+					startalpha="0"
+					midalpha="1"
+					endalpha="0"
+				/>
+			</simpleemitter>
+
+			<billboard
+				bone="_bone_centerofchest"
+				life="600"
+				startcolor=".75 .3 0"
+				endcolor="0"
+				size="275"
+				depthbias="-120"
+				material="/shared/effects/materials/whitedot.material"
+			/>
+			<simpleemitter	
+				bone="_bone_centerofchest"
+				count="25"
+				position="0 0 0"
+				minparticlelife="400"
+				maxparticlelife="600"
+				gravity="20"
+				material="/shared/effects/materials/leaf.material"
+				offsetsphere="0"
+				drag="0.05"
+
+				minspeed="520"
+				maxspeed="1550"		
+			>
+				<particle
+					minangle="-360"
+					maxangle="360"
+					minanglespeed="-320"
+					maxanglespeed="320"
+					startsize="25"	
+					endsize="15"								
+					depthbias="-100"
+					color="1"
+					startalpha="1"
+					midalpha="1"
+					endalpha="0"
+					midalphapos=".25"
+					minscale=".3"
+					maxscale=".8"
+				/>
+			</simpleemitter>	
+
+		</particlesystem>
+
+	</definitions>
+
+	<thread>
+		<spawnparticlesystem instance="instance0" particlesystem="system0"/>
+		<spawnmodifier instance="instance1" modifier="modifier0"/> 
+		<waitfordeath instance="instance0" />
+	</thread>
+
+</effect>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<effect name="ability_04_impact">
+	<definitions>
+
+		
+		<particlesystem name="system0" space="world" useentityeffectscale="true" scale="1">
+
+			<model
+				bone="Bone020"
+				model="/heroes/warchief/ability_01/searing_totem/model_inarm.mdf"
+				expirelife="0"
+				scale="1"
+				yaw="150" roll="-5"
+				inheritparentmodifiers="true"
+			/>
+			
+		
+				
+      </particlesystem>
+   </definitions>
+   <thread>
+      <spawnparticlesystem instance="instance0"  particlesystem="system0" />	
+	  <spawnmodifier instance="instance1" modifier="modifier0"/>  
+	  <waitfordeath instance="instance0" />
+	  <waitfordeath instance="instance1" />	  
+      <!-- <die /> -->
+   </thread>
+</effect>
+
+<!-- [min|max][start|mid|end]property[speed][position] -->
+
