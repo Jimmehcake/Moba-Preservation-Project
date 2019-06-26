@@ -11,16 +11,15 @@
 	canturn="true"
 	flying="true"
 	flyheight="0"
-	
-	<!-- touchcliffs="true" -->
+
 	touchcliffs="false"
-	
+
 	touchradius="20"
 	touchradiusdiradjust="true"
 	touchtargetscheme="Nothing"
 	toucheffecttype=""
 	maxtouchespertarget="1"
->	
+>
 	<ontouch>
 		<kill target="this_proxy_entity" source="" />
 		<kill target="this_entity" source="" />
